@@ -44,8 +44,11 @@ Examples:
 | In Private Form (covid questionnaire), the content scrolls vertically. Everything should fit on the screen. | In Private Form (covid questionnaire), the content scrolls vertically. Since we use back/next “horizontal” navigation, *having both “horizontal” and “vertical” navigation loads a higher cognitive charge on the user and might confuse the user*. Every panel should fit vertically on one the screen .
 | “Save” button does not have a spinner when clicked | “Save” button on the page for creating the apps currently does not have a spinner when clicked. *A spinner should be put in place in order to let the user know that something is going on*.
 
+### Creating Issues
 
-When creating a new Issue, in the right panel you must choose the project related to this new Issue (e.g., Dashboard, Website) and choose one of the following labels:
+If you want to create a new issue, first ensure that the same or similar issue does not exist already. You can do so by using the search functionality on the _Issues_ page. Only in the case that there is no such issue proceed with creating a new issue. If the same or similar issue already exists, read it and if needed add to the discussion by commenting on it.
+
+When creating a new issue, in the right panel you must choose the project related to this new Issue (e.g., Dashboard, Website) and choose one of the following labels:
 
 - <span style="color: #d73a4a;">Bug</span>, if your feedback is about something that is not working correctly 
 - <span style="color: #0E8A16;">Feature</span>, if your feedback is suggesting completely new feature 
