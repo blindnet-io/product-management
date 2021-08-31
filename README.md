@@ -51,3 +51,7 @@ When creating a new Issue, in the right panel you must choose the project relate
 - <span style="color: #0E8A16;">Feature</span>, if your feedback is suggesting completely new feature 
 - <span style="color: #FBCA04;">Question</span>, if your feedback is actually a question about something that needs clarification
 - <span style="color: #0052CC;">Suggestion</span>, if your feedback is about improving existing feature or behaviour 
+
+What not to do:
+- Do not specify milestones. Milestones serve for managing versions and project boards, and are specified by the technical team.
+- Do not specify assignees.
