@@ -2,6 +2,13 @@
 
 At blindnet we expect every team member, regardless of their role and competence, to test the products and provide feedback ranging from bug reports to feature or product ideas. 
 
+---
+**IMPORTANT NOTE**
+
+Everything related to the product must be reported in this repository, otherwise it can't be implemented.
+
+---
+
 ## WHY
 
 The product team welcomes feedback, and will treat it in a constructive, polemic manner, meaning that:
@@ -58,3 +65,10 @@ When creating a new issue, in the right panel you must choose the project relate
 What not to do:
 - Do not specify milestones. Milestones serve for managing versions and project boards, and are specified by the technical team.
 - Do not specify assignees.
+
+---
+**NOTE**
+
+Each product version is named after the person that has contributed the highest number of Issues implemented into that version. The list of versions for each product can be found [here](https://docs.google.com/spreadsheets/d/1IPDMv1cJISbsn_z2uGiskMN92HbGMSpZKmGzr1FhLvo/edit?usp=sharing).
+
+---
