@@ -23,12 +23,17 @@ The team members should provide feedback in this repository by creating a new [G
 ## HOW
 All feedback must follow certain guidelines in order to be considered in the feedback process. The design team will disregard any feedback that fails to meet these guidelines in any way. All feedback must be:
 
+- **Atomic**. It must be focused on one small part of the system (e.g., one feature/use case, one particular interaction, one particular component). If your feedback encompass multiple system parts or dimensions, separate it into multiple issues.
 - **Contextualised**. It must be clear in which context (on which interface element, website, app screen, in which particular situation under which circumstances) can/should the system behavior that is the subject of the feedback be observed. 
 - **Precise**. Please be clear in your feedback about what is observed and what is desired behaviour.
 - **Unambiguously testable**. The feedback must include a clear way to test whether the suggestion being the subject of feedback has been implemented or not. If the feedback concerns a bug, it must be easy to answer in a binary yes/no way whether the bug has been fixed or not. If the feedback concerns an improvement suggestion (or feature request) it must be easy to answer in a binary yes/no way whether the suggestions has been implemented or not (there can't be any room left for "yes but…")
 - **Justified**. Unless reasons for the suggestion are obvious, the feedback's author should give reasons why he/she/it thinks the suggestion is a good idea.
 
 Examples:
+| non-atomic | atomic 
+| ----------- | -----------
+| The button should appear in the upper right instead of lower right corner. Also, clicking the button should result in faster response | (1) The button should appear in the upper right instead of lower right corner; (2) Clicking the button should result in faster response
+| On the covid form, mandatory fields should be marked with an * and the error when submitting invalid forms should be translated to French | (1) On the covid form, mandatory fields should be marked with an *; (2) The error when submitting invalid forms should be translated to French
 
 | uncontextualised | contextualised 
 | ----------- | -----------
@@ -53,7 +58,7 @@ Examples:
 
 ### Creating Issues
 
-If you want to create a new issue, first ensure that the same or similar issue does not exist already. You can do so by using the search functionality on the _Issues_ page. Only in the case that there is no such issue proceed with creating a new issue. If the same or similar issue already exists, read it and if needed add to the discussion by commenting on it.
+If you want to create a new issue, **first ensure that the same or similar issue does not exist already**. You can do so by using the search functionality on the _Issues_ page. Only in the case that there is no such issue proceed with creating a new issue. If the same or similar issue already exists, read it and if needed add to the discussion by commenting on it.
 
 When creating a new issue, in the right panel you must choose the project related to this new Issue (e.g., Dashboard, Website) and choose one of the following labels:
 
@@ -62,7 +67,7 @@ When creating a new issue, in the right panel you must choose the project relate
 - <span style="color: #FBCA04;">Question</span>, if your feedback is actually a question about something that needs clarification
 - <span style="color: #0052CC;">Suggestion</span>, if your feedback is about improving existing feature or behaviour 
 
-What not to do:
+What *not* to do:
 - Do not specify milestones. Milestones serve for managing versions and project boards, and are specified by the technical team.
 - Do not specify assignees.
 
