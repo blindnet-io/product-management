@@ -60,7 +60,7 @@ Examples:
 
 If you want to create a new issue, **first ensure that the same or similar issue does not exist already**. You can do so by using the search functionality on the _Issues_ page. Only in the case that there is no such issue proceed with creating a new issue. If the same or similar issue already exists, read it and if needed add to the discussion by commenting on it.
 
-When creating a new issue, in the right panel you must choose the project related to this new Issue (e.g., Dashboard, Website) and choose one of the following labels:
+When creating a new issue, in the right panel you must choose: 1) the project related to this new Issue (e.g., Dashboard, Website), 2) the label denoting whether the issue is reltaed to production or staging environment, and 3) one of the following labels:
 
 - <span style="color: #d73a4a;">Bug</span>, if your feedback is about something that is not working correctly 
 - <span style="color: #0E8A16;">Feature</span>, if your feedback is suggesting completely new feature 
