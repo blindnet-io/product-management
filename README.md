@@ -2,7 +2,23 @@
 
 ***Feedback and evolution tracking by and for blindnet team members.***
 
-<br /><br />
+<br />
+
+:eyes: [View on going discussions](https://github.com/blindnet-io/clients/issues)
+
+:rocket: [Add a feature request or feedback](#creating-issues)
+
+:mag: [Track our progress](https://github.com/orgs/blindnet-io/projects)
+
+:white_check_mark: [Understand the decisions we made](./decisions/)
+
+:books: [Check our reference documents](./refs/)
+
+:people_holding_hands: [Follow User Stories](./user-stories/)
+
+:bookmark_tabs: [Get detailed specifications](./specifications/)
+
+<br />
 
 ---
 
@@ -94,9 +110,17 @@ What *not* to do:
 - Do not specify milestones. Milestones serve for managing versions and project boards, and are specified by the technical team.
 - Do not specify assignees.
 
+### Writing Specification
+
+:construction: TBD by Filip
+
+### Writing User Stories
+
+:construction: TBD by Clémentine
+
 ---
 
 > :information_source: **NOTE**
-> 
+>
 > Each product version is named after the person that has contributed the highest number of Issues implemented into that version.
 > The list of versions for each product can be found [here](https://docs.google.com/spreadsheets/d/1IPDMv1cJISbsn_z2uGiskMN92HbGMSpZKmGzr1FhLvo/edit?usp=sharing).
