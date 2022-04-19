@@ -4,6 +4,16 @@
 
 <br />
 
+> **Please report your feedback, issues, or feature request related to a specific product in the associated repository instead.**
+>
+> This project is intended specifically for blindnet team members. Refer to our [Openness Framework](https://github.com/blindnet-io/openness) to better understand how and why it's public and see how you could contribute.
+
+<br />
+
+---
+
+<br />
+
 :eyes: [View on going discussions](https://github.com/blindnet-io/clients/issues)
 
 :rocket: [Add a feature request or feedback](#creating-issues)
@@ -22,17 +32,7 @@
 
 ---
 
-## IMPORTANT NOTE
-
----
-
-This project is designed specifically for blindnet team members. Refer to our [Openness Framework](https://github.com/blindnet-io/openness) to better understand how and why it's public and see how you could contribute.
-
-If you're not part of these teams, **please report any feedback, issue, or feature request in the appropriate product repository instead.**
-
----
-
-<br /><br />
+<br />
 
 At blindnet we expect every team member, regardless of their role and competence, to test the products and provide feedback ranging from bug reports to feature or product ideas.
 
