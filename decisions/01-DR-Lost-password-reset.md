@@ -13,7 +13,7 @@ How can we offer lost password reset while keeping e2ee principle as much as we 
 ## Considered Options
 
 - option 1: Client can just change password with account email address : email address, forms links are kept but data is lost
-- option 2: Client can have one (or more) trusted contacts who have half the secret S and we, blindnet, have half the secret S which is used to derive the key K. K is used decrypt client's private key, there is security tradeoff if blindnet and trusted contact ally against client to decrypt his data
+- option 2: Client can have one (or more) trusted contacts who have half the secret S and we, blindnet, have half the secret S which is used to derive the key K. K is used decrypt client's private key. There is security tradeoff if blindnet and trusted contact ally against client to decrypt his data
 - option 3: The reset can be done via other devices on which client is already logged in so he can transfer the keys
 - option 4: Blindnet stores key, which breaks e2e principle and zero trust 
 
