@@ -1,6 +1,6 @@
 # Notes - Lost password reset
 
-Working documents on figma : [diagrams and associated sketches](https://www.figma.com/file/G7Fm7WiOecw3n7MScbtSL9/Lost-password-reset?node-id=0%3A1)
+> Working documents on figma : [Lost password reset diagrams and associated sketches](https://www.figma.com/file/G7Fm7WiOecw3n7MScbtSL9/Lost-password-reset?node-id=0%3A1)
 
 ## Multi user context 
 In a multi user context, the admin user should have the possibility to choose the **organisation** trusted contacts settigns among the following options : 
