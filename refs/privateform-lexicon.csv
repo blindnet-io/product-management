@@ -1,0 +1,8 @@
+fr,en,meaning,current angular ref,API
+privateform,privateform,"(noun) Interface, data structures and to them associated settings and logic allowing to capture Data Captures from submitters (aka end-user facing form / front-office)",,
+back-office,back-office,"where administrators manage the collected data (futur form.blindnet.io / aka the admin interface)",,
+consommateur de données,data consumer,"a user of the back-office",,
+administrateur,administrator,"a data consumer with specific rights to manage the back-office and the functionning of privateforms",,
+DPDP, DPO,"a data consumer, user of the back-office with particular rights to manage data-rights requests made by submitters",,
+fournisseur de données,submitter,"user submitting data via a privateform (aka end-user)",,
+organisation,organization,"group of data consumers interacting with blindnet Sales & SE to define and manage several privateforms related to their activity",,
