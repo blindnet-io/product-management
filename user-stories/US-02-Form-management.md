@@ -24,4 +24,4 @@
 
 **US-02-12.** As a logged user, I want to be able to delete a form, because legal conservation due date is past and I no longer need that data 
 
-(cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.zfg5ns10gci1))
+> _cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.zfg5ns10gci1)_

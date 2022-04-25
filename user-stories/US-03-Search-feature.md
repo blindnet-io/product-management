@@ -22,4 +22,4 @@
 
 **US-03-10** As a logged user, Amélie, I want to sort the search results (list of forms) by ascending or descending date order because I might need to view the last forms submitted or the first forms submitted
 
-(cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.wn6oeyggumgu))
+> _cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.wn6oeyggumgu)_

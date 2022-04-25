@@ -22,10 +22,10 @@
 
 **US-05-10** As an admin user, I need to be able to search for a specific doctor because I might need to delete him when he leaves the medical center / or I might need to changes the access he has to the different feature (change his role)
 
-**ALT-US-05** As an admin user for the account, I need to be able to add a user to the account and define the role. The list of roles is predefined with viewing and feature access rights. The viewing rights consist of whether a user needs to see only the forms they requested or all forms. The feature access rights consist of whether a user has access to particular feature set of Privateform: request/submit a new form, send forms to users, delete submitted forms, download submitted forms, fulfill compliance (GDPR) request. The alternative view on multi-user account usage stems from Mailchimp (screenshot below) - majority of Privateform users are not IT professionals and seek simplicity for role assignment. 
+**ALT-US-05** As an admin user for the account, I need to be able to add a user to the account and define the role. The list of roles is predefined with viewing and feature access rights. The viewing rights consist of whether a user needs to see only the forms they requested or all forms. The feature access rights consist of whether a user has access to particular feature set of Privateform: request/submit a new form, send forms to users, delete submitted forms, download submitted forms, fulfill compliance (GDPR) request. The alternative view on multi-user account usage stems from Mailchimp (screenshot below) - majority of Privateform users are not IT professionals and seek simplicity for role assignment.
 
-Mailchimp example to invite users to the existing account : 
+Mailchimp example to invite users to the existing account: 
 
-![mail chimp](https://user-images.githubusercontent.com/89908145/164700577-bc105e52-04ff-4876-ac5b-f4ca491b6f56.jpg)
+![mailchimp example](./assets/US-05-mailchimp-example.jpg)
 
-(cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.u0rdgpmfwqmq))
+> _cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.u0rdgpmfwqmq)_

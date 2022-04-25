@@ -14,4 +14,4 @@
 
 **US-01-07.** As a logged user,  I want to export all of my data (collected forms) decrypted, and have them stored somewhere else at my convenience.
 
-(cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.pqofnto5tlbp))
+> _cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.pqofnto5tlbp)_

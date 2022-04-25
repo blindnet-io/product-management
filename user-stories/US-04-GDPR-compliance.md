@@ -79,4 +79,4 @@
 
 **US-04-2-14** As a logged user, Amélie, if a user is asking me by email to delete/modify/view his data, I want to be able to send a GDPR rights request link to him because I need to processthe request in PrivateFrom so that I can easily manage it and keep record of it
 
-(cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.nblpfijw6qyc))
+> _cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.nblpfijw6qyc)_
