@@ -2,7 +2,7 @@
 
 ## What is a User Story
 
-A User Story is a general explanation of a feature from the user's perspective in natural/informal language.
+A User Story is a general explanation of a feature from the user's perspective in natural/informal language (not in a technical perspective).
 
 A user story describes in one sentence:
 
@@ -24,6 +24,7 @@ The objective of crafting User stories is to be able to rely on it to plan and i
 - Make sure no similar user story has been written already.
 - Use the following structure : _<span style="text-decoration:underline;">As a</span>_ **[type of user]**, _<span style="text-decoration:underline;">I want to</span>_ **[the goal]** _<span style="text-decoration:underline;">because</span>_ **[the benefit, the reason]**
 - Each User Story has a unique ID, in the following structure "US-XX-YY" where XX is the number of the section and YY is the number of the user story within that section
+- Each User Story are consistent level 2 titles (e.g. ## US-01-01) as this will allow us to refer to them using an anchor link (automatically added by Github)
 
 ## Related documents
 
