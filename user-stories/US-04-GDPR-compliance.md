@@ -84,65 +84,65 @@ As a user who submitted a form in the past, Jean-Pierre, my data deletion reques
 
 As a user who submitted several different form in the past (e.g. Covid and Medical History), Jean-Pierre, I want to modify some data that are only on one of the forms I submitted because something has changed in my life
 
-# 04-2 Client
+## 04-2 Client
 
-## US-04-2-01
+### US-04-2-01
 
 As a logged user, Amélie, I want a dedicated space for GDPR requests because I need to manage and keep track of them
 
-## US-04-2-02
+### US-04-2-02
 
 As a logged user, Amélie, I want to be able to be informed with a notification on the tab label when I receive a new GDPR request, and that this notification mark stays until I have answered all request because I want to easily see I have new/pending requests so I don’t forget to answers them and stay in legality
 
-## US-04-2-03
+### US-04-2-03
 
 As a logged user, Amélie, I want to be able to see the list of all the GDPR requests (new ones and processed one) because I need to keep track of them for legal reason
 
-## US-04-2-04
+### US-04-2-04
 
 As a logged user, Amélie, I want to able to see the details of a new request : type of request, name of the user, date of the request, identification document, because I need to manage it
 
-## US-04-2-05
+### US-04-2-05
 
 As a logged user, Amélie, I want to be able to see the details of an old request : type of request, name of the user, date of the request, type of answer (approved/denied), date of the answer, date of the action associated with the type of request (user has accessed data, user has modified data, data has been deleted) because I need to keep track of them for legal reason
 
-## US-04-2-05bis
+### US-04-2-05bis
 
 As a logged user, Amélie, I want to download/print proof of GDPR request approval/rejection with dates of request submission and my answer, because I need to justify having complied with regulations.
 
-## US-04-2-06
+### US-04-2-06
 
 As a logged user, Amélie, I want to be able to reply to a request by also adding a message because I might have to deny a request and in that case i must give my reason to Jean-Pierre (eg. identification document not valid, or patient still followed by the doctor, contractual relationship still ongoing…)
 
-## US-04-2-07
+### US-04-2-07
 
 As a logged user, Amélie, I want to be able to configure GDPR features with regards to my geography and that of my clients and only have them available to clients when actually needed, because I don’t want to do any unnecessary work or confuse my american clients with GDPR.
 
-## US-04-2-08
+### US-04-2-08
 
 As a logged user, Amélie, I want to collect compliant valid consent (separate consent for different personal data processing operations) from my users for the data collection and treatment I am doing, because I want to be compliant.
 
-## US-04-2-09
+### US-04-2-09
 
 As a logged user, Amélie, I want to inform my user giving data to me, transparently, about the extent of my usage of their data (about how personal data concerning them are collected, used, consulted or otherwise processed and to what extent the personal data are or will be processed) and reassure them about my data collection practices (make them aware of risks, rules, safeguards and rights in relation to the processing of personal data and how to exercise their rights in relation to such processing. In particular, the specific purposes for which personal data are processed should be explicit and legitimate and determined at the time of the collection of the personal data. The personal data should be adequate, relevant and limited to what is necessary for the purposes for which they are processed. This requires, in particular, ensuring that the period for which the personal data are stored is limited to a strict minimum. Personal data should be processed only if the purpose of the processing could not reasonably be fulfilled by other means. In order to ensure that the personal data are not kept longer than necessary, time limits should be established by the controller for erasure or for a periodic review. Every reasonable step should be taken to ensure that personal data which are inaccurate are rectified or deleted.) because I want to be compliant with GDPR transparency mandate.
 
-## US-04-2-10
+### US-04-2-10
 
 As a logged user, Amélie, I want to inform my users that their data is treated securely and confidentially and only the necessary data is stored proportionate for the purposes because I want to be compliant with GDPR transparency mandate.
 
-## US-04-2-11
+### US-04-2-11
 
 As a logged user, Amélie, when I receive a GDPR-related request I want to clearly see the deadline by which I have to legally reply to it and be reminded of the circumstances under which I can deny a request and of possible justifications I can legally provide, because I want to stay out of any legal trouble.
 
-## US-04-2-12
+### US-04-2-12
 
 As a logged user, Amélie, I want to have the list of requests organized by date, the most recent one top because it is easier for me
 
-## US-04-2-13
+### US-04-2-13
 
 As a logged user, Amélie, I want to have a distinguished mark on each pending request I still have to respond to so that when I check my requests list I immediately see them and I do not forget to answer them and stay out of any legal trouble
 
-## US-04-2-14
+### US-04-2-14
 
 As a logged user, Amélie, if a user is asking me by email to delete/modify/view his data, I want to be able to send a GDPR rights request link to him because I need to processthe request in PrivateFrom so that I can easily manage it and keep record of it
 
