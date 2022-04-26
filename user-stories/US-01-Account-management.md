@@ -1,4 +1,10 @@
-# US 01 Account management
+# Account management
+
+<!-- prettier-ignore -->
+| User Stories | 01 |
+| ---------- | ---- |
+| **Design** | 
+| **Previous discussions** | [Privateform User Stories (google doc)](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.pqofnto5tlbp)
 
 ## US-01-01
 
@@ -27,5 +33,3 @@ As a logged user, I forgot my password and want to gain access to my account :)
 ## US-01-07
 
 As a logged user, I want to export all of my data (collected forms) decrypted, and have them stored somewhere else at my convenience.
-
-> _cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.pqofnto5tlbp)_

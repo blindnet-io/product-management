@@ -1,10 +1,12 @@
-# 04 GDPR Compliance
+# GDPR Compliance
 
-> figma [GDPR activity diagrams](https://www.figma.com/file/o35QBM1F9Twf4FAELBvyWh/PF-GDPR-Activity-Diagrams)
->
-> figma [GDPR state-machine diagrams](https://www.figma.com/file/a0dCY1rYBHSiyoyq8ABXIi/PF-GDPR-State-diagrams)
->
-> figma [GDPR sketches](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches)
+<!-- prettier-ignore -->
+| User Stories | 05 |
+| ---------- | ---- |
+| **Design** | [GDPR activity diagrams (figma)](https://www.figma.com/file/o35QBM1F9Twf4FAELBvyWh/PF-GDPR-Activity-Diagrams)
+|| [GDPR state-machine diagrams (figma)](https://www.figma.com/file/a0dCY1rYBHSiyoyq8ABXIi/PF-GDPR-State-diagrams)
+|| [GDPR sketches (figma)](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches)
+| **Previous discussions** | [Privateform User Stories (google doc)](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.nblpfijw6qyc)
 
 # 04-1 User
 
@@ -145,5 +147,3 @@ As a logged user, Amélie, I want to have a distinguished mark on each pending r
 ### US-04-2-14
 
 As a logged user, Amélie, if a user is asking me by email to delete/modify/view his data, I want to be able to send a GDPR rights request link to him because I need to processthe request in PrivateFrom so that I can easily manage it and keep record of it
-
-> _cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.nblpfijw6qyc)_

@@ -1,6 +1,10 @@
-# US 05 Multi-user feature
+# Multi-user feature
 
-> figma [Multi-user diagrams and sketches](https://www.figma.com/file/Gu0Jk46m5iRLCaWugM81DX/PF-Multi-user)
+<!-- prettier-ignore -->
+| User Stories | 05 |
+| ---------- | ---- |
+| **Design** | [Multi-user diagrams and sketches (figma)](https://www.figma.com/file/Gu0Jk46m5iRLCaWugM81DX/PF-Multi-user)
+| **Previous discussions** | [Privateform User Stories (google doc)](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.u0rdgpmfwqmq)
 
 ## US-05-01
 
@@ -49,5 +53,3 @@ As an admin user for the account, I need to be able to add a user to the account
 Mailchimp example to invite users to the existing account:
 
 ![mailchimp example](./assets/US-05-mailchimp-example.jpg)
-
-> _cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.u0rdgpmfwqmq)_

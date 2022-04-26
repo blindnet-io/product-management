@@ -1,6 +1,10 @@
-# US 03 Search feature
+# Search feature
 
-> figma [SEARCH diagrams and sketches](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=0%3A1)
+<!-- prettier-ignore -->
+| User Stories | 03 |
+| ---------- | ---- |
+| **Design** | [SEARCH diagrams and sketches (figma)](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=0%3A1)
+| **Previous discussions** | [Privateform User Stories (google doc)](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.wn6oeyggumgu)
 
 ## US-03-01
 
@@ -41,5 +45,3 @@ As a logged user, Amélie, I want to search by email address, because I might ha
 ## US-03-10
 
 As a logged user, Amélie, I want to sort the search results (list of forms) by ascending or descending date order because I might need to view the last forms submitted or the first forms submitted
-
-> _cf. [Privateform User Stories google doc](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.wn6oeyggumgu)_
