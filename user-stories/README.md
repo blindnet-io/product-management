@@ -14,10 +14,22 @@ The objective of crafting User stories is to be able to rely on it to plan and i
 
 ## How to craft User Stories
 
-> ***Personas***
->
-> <span style="text-decoration:underline;">Amélie</span>, the client of our system (e.g. the dentist)\
-> <span style="text-decoration:underline;">Jean-Pierre</span>, the user filling the form (e.g. the patient)
+### New Context
+
+Follow the steps above when creating a group of user stories for a new context:
+
+1. copy the [`US-NN-template.md`](./US-NN-template.md) template file in this directory
+2. give it a unique two-digits id and short title describing a clear context (e.g. `US-19-sign-in.md`)
+3. update the document title and header accordingly
+4. write new user stories [Good Practices](#good-practices)
+
+### Personas
+
+<span style="text-decoration:underline;">Amélie</span>, the client of our system (e.g. the dentist).
+
+<span style="text-decoration:underline;">Jean-Pierre</span>, the user filling the form (e.g. the patient).
+
+### Good Practices
 
 - Put yourself in Amélie and Jean-Pierre shoes and imagine the goals they would like to achieve in PrivateForm for Amélie, while filling the forms for Jean-Pierre.
 - Think of what would need Amélie while using PrivateForm and what would need Jean-Pierre while/after filling the form.
