@@ -12,16 +12,16 @@ Among the many definitions proposed in scientific literature, we use the followi
 
 > **“Privacy is the selective control of access to the self”** - *Irwin Altman[^1]*
 
-This definition captures the essential fetures of the concept, in particular:
+This definition captures the essential features of the concept, in particular:
 - Privacy is about the **self**.
 
 The *self* is a very important element of human experience playing *"an integral part in human motivation, cognition, affect, and social identity"*[^2]. 
 
 The self is not the same as identity. While the *self is the totality of the individual*[^3], the *identity is an individual’s sense of self defined by (a) a set of physical, psychological, and interpersonal characteristics that is not wholly shared with any other person and (b) a range of affiliations (e.g., ethnicity) and social roles*[^4].
 
-Some scientists challenge the ability of an indifidual to know the *self*, under which view the self might be only intelligible through its manifestations or consequences. It is generally accepted that the self is developed. Also, undoubtably, in part *"the self emerges through interaction with others"*[^5].
+Some scientists challenge the ability of an individual to know the *self*, under which view the self might be only intelligible through its manifestations or consequences. It is generally accepted that the self is developed. Also, undoubtably, in part *"the self emerges through interaction with others"*[^5].
 
-Due to the relational provenance of the knowledge of the self, privacy is one of the key features of the relationship of oneself with the surrounding world (other humans and artefacts) through which the knoweledge of the self is formed. Privacy is a "factor of connection to oneself and to others"[^6].
+Due to the relational provenance of the knowledge of the self, privacy is one of the key features of the relationship of oneself with the surrounding world (other humans and artefacts) through which the knowledge of the self is formed. Privacy is a "factor of connection to oneself and to others"[^6].
 
 
 - Privacy is about **control of access**.
@@ -34,11 +34,11 @@ It is not an absolute binary "come in" vs. "go away". It is a nuanced choice to 
 
 ### Genesis and Function
 
-Privacy seems to trace its origins in biological processes, and "withdrawal from others is ubiquitous across the animal kingdom"[^7]. Researchers make an anlogy with cell membrane[^1] that seletively allows material inputs and outputs, similarly as privacy selectively regulates external stimulation to one's self or the flow of information to others[^7].
+Privacy seems to trace its origins in biological processes, and "withdrawal from others is ubiquitous across the animal kingdom"[^7]. Researchers make an analogy with cell membrane[^1] that selectively allows material inputs and outputs, similarly as privacy selectively regulates external stimulation to one's self or the flow of information to others[^7].
 
-Biology research suggests that, in social species, privacy might have emerged as the cost-benefit balance between the advantages offered by the life in a group and the interest of the individual's competition over scarce resources. The practice of witholding information or actively sending deceiving signals might have have origins in a survival mechanism i.e. sending away the individuals competing for the same resources. *"By increasing another idividual's misinformation about the environment, an animal may increase its own fitness"*[^7].
+Biology research suggests that, in social species, privacy might have emerged as the cost-benefit balance between the advantages offered by the life in a group and the interest of the individual's competition over scarce resources. The practice of withholding information or actively sending deceiving signals might have had origins in a survival mechanism i.e. sending away the individuals competing for the same resources. *"By increasing another individual's misinformation about the environment, an animal may increase its own fitness"*[^7].
 
-In such primitive groups, privacy emerges as a strategy to establish **information asymmetry**[^8] and compensate for the power disbalance among individuals. It is thus possible that the need for privacy in modern society remains still linked to the power differential. Without privacy and the information asymmetry it creates, and individual is made vulnerable and its ability to ensure fitness for survival is diminished.
+In such primitive groups, privacy emerges as a strategy to establish **information asymmetry**[^8] and compensate for the power disbalance among individuals. It is thus possible that the need for privacy in modern society remains still linked to the power differential. Without privacy and the information asymmetry it creates, an individual is made vulnerable and its ability to ensure fitness for survival is diminished.
 
 Compelling animals to remain in contact contrary to their own privacy inclinations, in laboratory settings, has resulted in physiological changes, reproductive failure and adrenal dysfunction[^7].
 
@@ -52,7 +52,7 @@ Information asymmetry[^8] is clearly a key concept for privacy as identified by 
 
 In the context of a power differential, where an individual interacts with a more powerful entity, the need for management of information asymmetry is twofold:
 - reduce the information given by the less powerfull
-- increase the transparency about about what the more powerful does with the information obtained. [^9]
+- increase the transparency about what the more powerful does with the information obtained. [^9]
 
 Indeed, in order to selectively control the access to self, the individual has to know what the other party will do if given access to a part of the self. This two-way understanding of the information asymmetry that privacy seeks to create is the ground on which the legislation around *data minimization*, *transparency of treatment* and *consent* is formed.
 
@@ -71,7 +71,7 @@ Privacy is strongly linked with trust. Because privacy is about the access to *s
 
 #### Privacy and Identity
 
-As we derive the knoweledge of self from our relationships with others, the freedom to engage and disengage from those relationships and selectively allow access to self is crucial to our ability to keep our identity safe. At the psychological level, privacy supports social interaction which, in turn,
+As we derive the knowledge of self from our relationships with others, the freedom to engage and disengage from those relationships and selectively allow access to self is crucial to our ability to keep our identity safe. At the psychological level, privacy supports social interaction which, in turn,
 provides feedback on our competence to deal with the world which, in turn, affects our self-definition[^1][^16].
 
 Inability to obtain privacy has important psychological consequences[^16].
@@ -85,7 +85,7 @@ The existance of the privacy paradox is not indicative of a false concern for pr
 
 ## Privacy in Software Systems
 
-Software Systems, and especialy the ones operating over the internet, put an indivdual in a situation of *need* to control the access to self, naturally enabled by the context of use of such systems. The user has to balance the need for connection (ranging from simple information gathering, over social interactions to economic transactions) with the need for protection of the self from unwanted connection, harm and abuse.
+Software Systems, and especially the ones operating over the internet, put an individual in a situation of *need* to control the access to self, naturally enabled by the context of use of such systems. The user has to balance the need for connection (ranging from simple information gathering, over social interactions to economic transactions) with the need for protection of the self from unwanted connection, harm and abuse.
 
 Having control (having the system respond predictably to user's actions) is one of the key features a user can expect from a properly designed human-computer interaction[^17].
 
