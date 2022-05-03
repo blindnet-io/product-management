@@ -1,3 +1,5 @@
+# Notions of Privacy
+
 > The purpose of this document is to list definitions of privacy and related notions, sourced from literature, and provide fundamental understanding about the key concepts of interests for blindnet. 
 > 
 > We are interested in privacy from a perspective of builders of computer systems, who have to account for the human, its psychology and relationships with other humans and with the machines. 
@@ -5,9 +7,7 @@
 > In this document, we are not interested in the general perspectives related to politics, democracy and justice other than those views and findings that directly impact the building of a software system made for humans.
 
 
-## General Notion of Privacy
-
-### Definition
+## Definition
 Among the many definitions proposed in scientific literature, we use the following one:
 
 > **“Privacy is the selective control of access to the self”** - *Irwin Altman[^1]*
@@ -32,7 +32,7 @@ As relationships play a key role in shaping the view on the self, it is of cruci
 
 It is not an absolute binary "come in" vs. "go away". It is a nuanced choice to control access to parts of the *self*.
 
-### Genesis and Function
+## Genesis and Function
 
 Privacy seems to trace its origins in biological processes, and "withdrawal from others is ubiquitous across the animal kingdom"[^7]. Researchers make an analogy with cell membrane[^1] that selectively allows material inputs and outputs, similarly as privacy selectively regulates external stimulation to one's self or the flow of information to others[^7].
 
@@ -44,9 +44,9 @@ Compelling animals to remain in contact contrary to their own privacy inclinatio
 
 Beyond the privacy of an individual, privacy also has a group-preserving function in the relationship between one group to another[^15].
 
-### Privacy and Other Topics
+## Privacy and Other Topics
 
-#### Privacy and Information Asymmetry
+### Privacy and Information Asymmetry
 
 Information asymmetry[^8] is clearly a key concept for privacy as identified by biological studies of privacy in animal societies. 
 
@@ -57,26 +57,32 @@ In the context of a power differential, where an individual interacts with a mor
 Indeed, in order to selectively control the access to self, the individual has to know what the other party will do if given access to a part of the self. This two-way understanding of the information asymmetry that privacy seeks to create is the ground on which the legislation around *data minimization*, *transparency of treatment* and *consent* is formed.
 
 
-#### Privacy vs Loneliness/Isolation
+### Privacy vs Loneliness/Isolation
 Humans are social species, hardwired for connection. 
+
 >**"Connection is the energy that exists between people when they feel seen, heard and valued; when they can give and receive without judgement; and when they derive sustenance and strength from the relationship."** —*Brené Brown*
+
 It is crucial to development; without it, social animals experience distress and face severe developmental consequences[^10].
 
 Privacy is not a tool to reduce connection and favor isolation (which leads to loneliness - correlated with negative effects on health[^11]). On the contrary, privacy is a necessary element of connection making connection compatible with survival in the natural context of power differential and scarce resources.
 
-#### Privacy and Trust
-> **“Trust is choosing to make something important to you vulnerable to the actions of someone else.”** - *Charles Feldman*
+### Privacy and Trust
+> **“Trust is choosing to make something important to you vulnerable to the actions of someone else.”** - *Charles Feldman*[^20]
 
 Privacy is strongly linked with trust. Because privacy is about the access to *self*, and self is clearly of great importance, an individual is expected to choose a particular level of privacy in relation to the level of trust.
 
-#### Privacy and Identity
+### Privacy and Identity
 
-As we derive the knowledge of self from our relationships with others, the freedom to engage and disengage from those relationships and selectively allow access to self is crucial to our ability to keep our identity safe. At the psychological level, privacy supports social interaction which, in turn,
-provides feedback on our competence to deal with the world which, in turn, affects our self-definition[^1][^16].
+As we derive the knowledge of self from our relationships with others, the freedom to engage and disengage from those relationships and selectively allow access to self is crucial to our ability to keep our identity safe. 
 
-Inability to obtain privacy has important psychological consequences[^16].
+At the psychological level:
+- privacy supports social interaction,
+- social interaction provides feedback on our competence to deal with the world,
+- our competence to deal with the world affects our self-definition[^1][^16].
 
-#### Privacy Paradox
+Inability to obtain privacy has important psychological consequences ranging from embarrassment and stigma to de-individuation and dehumanization[^16].
+
+### Privacy Paradox
 The privacy paradox is a phenomenon in which online users state that they are concerned about their privacy but behave as if they were not.[^12] Anecdotal and empirical evidence indicate that individuals are willing to trade their personal information for relatively small rewards[^14].
 
 However, as we have seen, privacy regulates the conflict of the need for connection with the need for competition, survival and overcoming the power diferential. Habits, and other needs, indeniably play a role in the persons choice of privacy related behavior and may yeald behavior inconsistent with the persons beliefs and interests (as outlined by the *privacy paradox*)[^18].
@@ -108,3 +114,4 @@ Having control (having the system respond predictably to user's actions) is one 
 [^17]: Shneiderman, [Eight Golden Rules of Interface Design](http://www.cs.umd.edu/~ben/goldenrules.html)
 [^18]: Alessandro Acquisti, [Privacy in Electronic Commerce and the Economics of Immediate Gratification](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.580.5737&rep=rep1&type=pdf)
 [^19]: Jochen Peter and Patti M. Valkenburg, [Adolescents’ Online Privacy: Toward a Developmental Perspective](https://www.researchgate.net/profile/Patti-Valkenburg/publication/279190144_Adolescents'_Online_Privacy_Toward_a_Developmental_Perspective/links/567028d208ae2b1f87acd4ce/Adolescents-Online-Privacy-Toward-a-Developmental-Perspective.pdf)
+[^20] Charles Feltman, The Thin Book of Trust: An Essential Primer for Building Trust at Work
