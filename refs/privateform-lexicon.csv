@@ -6,3 +6,9 @@ administrateur,administrator,"a data consumer with specific rights to manage the
 DPDP, DPO,"a data consumer, user of the back-office with particular rights to manage data-rights requests made by submitters",,
 fournisseur de données,submitter,"user submitting data via a privateform (aka end-user)",,
 organisation,organization,"group of data consumers interacting with blindnet Sales & SE to define and manage several privateforms related to their activity",,
+personne concernée,data subject,a person that is concerned by a particular data capture (may be different or the same as submitter),,
+capture de données,data capture,a record of data,,
+demande légale,rights request,a request made by the data subject to exercise one of thier data-related rights,,
+
+
+
