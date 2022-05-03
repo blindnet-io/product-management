@@ -123,7 +123,7 @@ Having control (having the system respond predictably to user's actions) is one 
 [^17]: Shneiderman, [Eight Golden Rules of Interface Design](http://www.cs.umd.edu/~ben/goldenrules.html)
 [^18]: Alessandro Acquisti, [Privacy in Electronic Commerce and the Economics of Immediate Gratification](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.580.5737&rep=rep1&type=pdf)
 [^19]: Jochen Peter and Patti M. Valkenburg, [Adolescents’ Online Privacy: Toward a Developmental Perspective](https://www.researchgate.net/profile/Patti-Valkenburg/publication/279190144_Adolescents'_Online_Privacy_Toward_a_Developmental_Perspective/links/567028d208ae2b1f87acd4ce/Adolescents-Online-Privacy-Toward-a-Developmental-Perspective.pdf)
-[^20] Charles Feltman, The Thin Book of Trust: An Essential Primer for Building Trust at Work
-[^21] Hanbyul Choia, Jonghwa Parka, Yoonhyuk Jung, [The role of privacy fatigue in online privacy behavior](https://iranarze.ir/wp-content/uploads/2018/04/E6393-IranArze.pdf)
-[^23] [Learned Helplessness](https://en.wikipedia.org/wiki/Learned_helplessness)
-[^24] Seligman ME (1975). Helplessness: On Depression, Development, and Death. San Francisco: W. H. Freeman
+[^20]: Charles Feltman, The Thin Book of Trust: An Essential Primer for Building Trust at Work
+[^21]: Hanbyul Choia, Jonghwa Parka, Yoonhyuk Jung, [The role of privacy fatigue in online privacy behavior](https://iranarze.ir/wp-content/uploads/2018/04/E6393-IranArze.pdf)
+[^23]: [Learned Helplessness](https://en.wikipedia.org/wiki/Learned_helplessness)
+[^24]: Seligman ME (1975). Helplessness: On Depression, Development, and Death. San Francisco: W. H. Freeman
