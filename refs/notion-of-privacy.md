@@ -79,12 +79,15 @@ Inability to obtain privacy has important psychological consequences[^16].
 #### Privacy Paradox
 The privacy paradox is a phenomenon in which online users state that they are concerned about their privacy but behave as if they were not.[^12] Anecdotal and empirical evidence indicate that individuals are willing to trade their personal information for relatively small rewards[^14].
 
-However, as we have seen, privacy regulates the conflic of the need for connection with the need for competition, survival and overcoming the power diferential. Habits, and other needs, indeniably play a role in the persons choice of privacy related behavior and may yeald behavior inconsistent with the persons beliefs and interests (as outlined by the *privacy paradox*).
+However, as we have seen, privacy regulates the conflict of the need for connection with the need for competition, survival and overcoming the power diferential. Habits, and other needs, indeniably play a role in the persons choice of privacy related behavior and may yeald behavior inconsistent with the persons beliefs and interests (as outlined by the *privacy paradox*)[^18].
 
-The existance of the privacy paradox is not indicative of a false concern for privacy, but rather of the context not favoring behavior aligned with this concern, as is common with attitude-behavior gap[^13].
+The existance of the privacy paradox is not indicative of a false concern for privacy, but rather of the context not favoring behavior aligned with this concern, as is common with attitude-behavior gap[^13]. Researchers consider privacy-oblivious behavior to be a result of technological limitations as much as a consequence of users’ deficiencies[^19].
 
 ## Privacy in Software Systems
 
+Software Systems, and especialy the ones operating over the internet, put an indivdual in a situation of *need* to control the access to self, naturally enabled by the context of use of such systems. The user has to balance the need for connection (ranging from simple information gathering, over social interactions to economic transactions) with the need for protection of the self from unwanted connection, harm and abuse.
+
+Having control (having the system respond predictably to user's actions) is one of the key features a user can expect from a properly designed human-computer interaction[^17].
 
 [^1]: Altman I (1975) The environment and social behavior. Wadsworth, Belmont
 [^2]: Sedikides, C. & Spencer, S.J. (Eds.) (2007). The Self. New York: Psychology Press
@@ -102,3 +105,6 @@ The existance of the privacy paradox is not indicative of a false concern for pr
 [^14]: Spyros Kokolakis [Privacy attitudes and privacy behaviour: A review of current research on the privacy paradox phenomenon] (https://www.researchgate.net/profile/Spyros-Kokolakis/publication/280244291_Privacy_attitudes_and_privacy_behaviour_A_review_of_current_research_on_the_privacy_paradox_phenomenon/links/5a1bdb5a4585155c26ae08e2/Privacy-attitudes-and-privacy-behaviour-A-review-of-current-research-on-the-privacy-paradox-phenomenon.pdf)
 [^15]: Barry Schwartz, [The_Social_Psychology_of_Privacy](https://www.researchgate.net/profile/Barry-Schwartz-2/publication/17491080_The_Social_Psychology_of_Privacy/links/583315c408aef19cb81c8c80/The-Social-Psychology-of-Privacy.pdf)
 [^16]: Stephen T. Margulis, [Privacy as a Social Issue and Behavioral Concept](http://www.sfu.ca/~palys/Margulis-2003-PrivacyAsASocialIssue&BehavioralConcept.pdf)
+[^17]: Shneiderman, [Eight Golden Rules of Interface Design](http://www.cs.umd.edu/~ben/goldenrules.html)
+[^18]: Alessandro Acquisti, [Privacy in Electronic Commerce and the Economics of Immediate Gratification](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.580.5737&rep=rep1&type=pdf)
+[^19]: Jochen Peter and Patti M. Valkenburg, [Adolescents’ Online Privacy: Toward a Developmental Perspective](https://www.researchgate.net/profile/Patti-Valkenburg/publication/279190144_Adolescents'_Online_Privacy_Toward_a_Developmental_Perspective/links/567028d208ae2b1f87acd4ce/Adolescents-Online-Privacy-Toward-a-Developmental-Perspective.pdf)
