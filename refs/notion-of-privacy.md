@@ -19,7 +19,7 @@ The *self* is a very important element of human experience playing *"an integral
 
 The self is not the same as identity. While the *self is the totality of the individual*[^3], the *identity is an individual’s sense of self defined by (a) a set of physical, psychological, and interpersonal characteristics that is not wholly shared with any other person and (b) a range of affiliations (e.g., ethnicity) and social roles*[^4].
 
-Some scientists challenge the ability of an individual to know the *self*, under which view the self might be only intelligible through its manifestations or consequences. It is generally accepted that the self is developed. Also, undoubtably, in part *"the self emerges through interaction with others"*[^5].
+Some scientists challenge the ability of an individual to know the *self*. Under this view the self might only be intelligible through its manifestations or consequences. It is generally accepted that the self is developed over time. Also, undoubtably, in part *"the self emerges through interaction with others"*[^5].
 
 Due to the relational provenance of the knowledge of the self, privacy is one of the key features of the relationship of oneself with the surrounding world (other humans and artefacts) through which the knowledge of the self is formed. Privacy is a "factor of connection to oneself and to others"[^6].
 
@@ -36,7 +36,7 @@ It is not an absolute binary "come in" vs. "go away". It is a nuanced choice to 
 
 Privacy seems to trace its origins in biological processes, and "withdrawal from others is ubiquitous across the animal kingdom"[^7]. Researchers make an analogy with cell membrane[^1] that selectively allows material inputs and outputs, similarly as privacy selectively regulates external stimulation to one's self or the flow of information to others[^7].
 
-Biology research suggests that, in social species, privacy might have emerged as the cost-benefit balance between the advantages offered by the life in a group and the interest of the individual's competition over scarce resources. The practice of withholding information or actively sending deceiving signals might have had origins in a survival mechanism i.e. sending away the individuals competing for the same resources. *"By increasing another individual's misinformation about the environment, an animal may increase its own fitness"*[^7].
+Biology research suggests that, in social species, privacy might have emerged as the cost-benefit balance between the advantages offered by the life in a group and the interests of the individual's competition over scarce resources. The practice of withholding information or actively sending deceiving signals might have had origins in a survival mechanism i.e. sending away the individuals competing for the same resources. *"By increasing another individual's misinformation about the environment, an animal may increase its own fitness"*[^7].
 
 In such primitive groups, privacy emerges as a strategy to establish **information asymmetry**[^8] and compensate for the power disbalance among individuals. It is thus possible that the need for privacy in modern society remains still linked to the power differential. Without privacy and the information asymmetry it creates, an individual is made vulnerable and its ability to ensure fitness for survival is diminished.
 
