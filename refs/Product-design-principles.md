@@ -2,19 +2,21 @@
 
 |  Version | 0.1 |
 | -------- | --- |
-| **Update** | 2021-02-27
+| **Update** | 2021-05-03
 
-The purpose of this document is to ensure efficiency of the design process while imposing product qualities compatible with the company’s values. The document defines principles to be used in the process of designing the product, and should inform all decisions to be made in the design process.
+The purpose of this document is to ensure the efficiency of the design process while imposing product qualities compatible with the company’s values.
+The document defines principles to be used when designing the product.
+It should inform all decisions to be made in the design process.
 
-For the purposes of this document we distinguish:
+For this document, we distinguish:
 
 The CLIENT - the company implementing Blindnet software in its software solutions. Also the implementing solution;
 
-From the USER - the end user of the CLIENT
+From the USER - the end-user of the CLIENT
 
 ## 1. Minimal Friction Principle
 
-Any decision related to the product should be taken in such a way to allow the product to deliver its intended functionality while generating minimal friction. 
+Any decision related to the product should be taken in such a way to allow the product to deliver its intended functionality while generating minimal friction.
 
 This implies that product design options are considered in the following order:
 
