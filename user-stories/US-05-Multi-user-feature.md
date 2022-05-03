@@ -3,7 +3,8 @@
 <!-- prettier-ignore -->
 | User Stories | 05 |
 | ---------- | ---- |
-| **Status** | Work in progress |
+| **Status** | Proposed |
+| **PR**      | (optionnal) [project#XXX](link to the PR integrating this US in the product) |
 | **Design** | [Multi-user diagrams and sketches (figma)](https://www.figma.com/file/Gu0Jk46m5iRLCaWugM81DX/PF-Multi-user)
 | **Previous discussions** | [Privateform User Stories (google doc)](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.u0rdgpmfwqmq)
 

@@ -3,13 +3,14 @@
 <!-- prettier-ignore -->
 | User Stories | 02 |
 | ---------- | ---- |
-| **Status** | Work in progress |
+| **Status** | Mixed - Work in progress |
+| **PR**      | (optionnal) [project#XXX](link to the PR integrating this US in the product) |
 | **Design** | 
 | **Previous discussions** | [Privateform User Stories (google doc)](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.zfg5ns10gci1)
 
 ## US-02-01
 
-> TBD
+> Proposed
 
 **As a** logged user, 
 
@@ -17,7 +18,7 @@
 
 ## US-02-02
 
-> TBD
+> Proposed
 
 **As a** logged user, 
 
@@ -25,7 +26,7 @@
 
 ## US-02-03
 
-> TBD
+> Proposed
 
 **As a** logged user, 
 
@@ -33,7 +34,7 @@
 
 ## US-02-04
 
-> Developped
+> Released
 
 **As a** logged user, 
 
@@ -41,7 +42,7 @@
 
 ## US-02-05
 
-> Developped
+> Released
 
 **As a** logged user, Amélie, 
 
@@ -51,7 +52,7 @@
 
 ## US-02-06
 
-> Developped
+> Released
 
 **As a** logged user, Amélie, 
 
@@ -61,7 +62,7 @@
 
 ## US-02-07
 
-> Developped
+> Released
 
 **As a** logged user, Amélie, 
 
@@ -71,7 +72,7 @@
 
 ## US-02-08
 
-> Developped
+> Released
 
 **As a** logged user, Amélie, 
 
@@ -81,7 +82,7 @@
 
 ## US-02-09
 
-> Developped
+> Released
 
 **As a** logged user, Amélie, 
 
@@ -91,7 +92,8 @@
 
 ## US-02-10
 
-> Work in progress
+> In devlopment
+> 
 > [Issue #364](https://github.com/blindnet-io/product-management/issues/384)
 
 **As a** logged user, Amélie, 
@@ -102,7 +104,8 @@
 
 ## US-02-11
 
-> Work in progress
+> In development
+> 
 > [Issue #424](https://github.com/blindnet-io/product-management/issues/424)
 
 **As a** logged user, 
@@ -111,7 +114,7 @@
 
 ## US-02-12
 
-> Developped
+> Released
 
 **As a** logged user, 
 

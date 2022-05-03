@@ -3,7 +3,8 @@
 <!-- prettier-ignore -->
 | User Stories | 03 |
 | ---------- | ---- |
-| **Status** | Developped |
+| **Status** | Released |
+| **PR**      | (optionnal) [project#XXX](link to the PR integrating this US in the product) |
 | **Design** | [SEARCH diagrams and sketches (figma)](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=0%3A1)
 | **Previous discussions** | [Privateform User Stories (google doc)](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.wn6oeyggumgu)
 

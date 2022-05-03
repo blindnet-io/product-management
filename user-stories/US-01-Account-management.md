@@ -3,13 +3,14 @@
 <!-- prettier-ignore -->
 | User Stories | 01 |
 | ---------- | ---- |
-| Status | Work in progress |
+| Status | Mixed - Work in progress |
+| **PR**      | (optionnal) [project#XXX](link to the PR integrating this US in the product) |
 | **Design** | US-01-06 : [Lost password reset diagrams and sketches (figma)](https://www.figma.com/file/G7Fm7WiOecw3n7MScbtSL9/Lost-password-reset), [Notes - Lost password rest](https://github.com/blindnet-io/product-management/blob/aa85548a2a32fb7e1a75b353d5632f155b3c9fbd/user-stories/Notes_Lost-password-reset.md)
 | **Previous discussions** | [Privateform User Stories (google doc)](https://docs.google.com/document/d/1-_iVgamjIm0aH-txl2aVDIfSNRuwS-agKf74G1q1KRk/edit#heading=h.pqofnto5tlbp)
 
 ## US-01-01
 
-> Developped
+> Released
 
 **As a** unregistered user, Amélie, 
 
@@ -19,7 +20,7 @@
 
 ## US-01-02
 
-> TBD
+> Proposed
 
 **As a** looged user, as soon as I request to open an account, 
 
@@ -27,7 +28,7 @@
 
 ## US-01-03
 
-> Work in progress
+> In development
 
 **As a** logged user, paying a premium subscription, 
 
@@ -35,7 +36,7 @@
 
 ## US-01-04
 
-> TBD
+> Proposed
 
 **As a** logged user, 
 
@@ -43,7 +44,7 @@
 
 ## US-01-05
 
-> Developped
+> Released
 
 **As a** logged user, 
 
@@ -51,7 +52,7 @@
 
 ## US-01-06
 
-> Work in progress
+> Proposed
 > 
 > [Lost password reset diagrams and sketches (figma)](https://www.figma.com/file/G7Fm7WiOecw3n7MScbtSL9/Lost-password-reset)
 > 
@@ -63,7 +64,9 @@
 
 ## US-01-07
 
-> Developped
+> In development
+> 
+> [Issue #384](https://github.com/blindnet-io/product-management/issues/384)
 
 **As a** logged user, 
 

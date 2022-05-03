@@ -3,7 +3,8 @@
 <!-- prettier-ignore -->
 | User Stories | NN  (unique id for this context matching this file's name)  |
 | ---------- | ---- |
-| **Status**| Is it {TBD / Work in progress / Developped} |
+| **Status** | {Draft / Proposed / Accepted / In Development / Integrated / Tested / Released}|
+| **PR**      | (optionnal) [project#XXX](link to the PR integrating this US in the product) |
 | **Design** | [{associated figma link}](https://www.figma.com/file/{XXXXX})
 
 ## US-NN-NN

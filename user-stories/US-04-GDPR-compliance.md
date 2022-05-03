@@ -3,7 +3,8 @@
 <!-- prettier-ignore -->
 | User Stories | 05 |
 | ---------- | ---- |
-| **Status** | Work in progress |
+| **Status** | Mixed - Work in progress |
+| **PR**      | (optionnal) [project#XXX](link to the PR integrating this US in the product) |
 | **Design** | [GDPR activity diagrams (figma)](https://www.figma.com/file/o35QBM1F9Twf4FAELBvyWh/PF-GDPR-Activity-Diagrams)
 || [GDPR state-machine diagrams (figma)](https://www.figma.com/file/a0dCY1rYBHSiyoyq8ABXIi/PF-GDPR-State-diagrams)
 || [GDPR sketches (figma)](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches)

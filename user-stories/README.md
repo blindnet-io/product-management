@@ -33,10 +33,18 @@ The objective of crafting User stories is to be able to rely on it to plan and i
 
 Follow the steps above when creating a group of user stories for a new feature context:
 
-1. copy the [`US-NN-template.md`](./US-NN-template.md) template file in this directory
+1. copy the [`US-NN-template.md`](./US-NN-template.md) template file in this directory 
 2. give it a unique two-digits id and short title describing a clear context (e.g. `US-19-sign-in.md`)
-3. update the document title and header accordingly
-4. write new user stories following the [good practices](#good-practices)
+4. indicate the status : 
+- `Draft`: unfinished US redaction (US doc "in progress")
+- `Proposed`: finished US redaction
+- `Accepted`: US doc reviewed and validated with @blindnet-io/engineering (therefore To Be Developed)
+- `In Development`: @blindnet-io/engineering started working on it
+- `Integrated`: development merged and released in staging environment
+- `Tested`: US validated in staging environment
+- `Released`: US released in production environment
+4. (optional) add links to the draft PRs integrating this US in the codebase
+5.  write new user stories following the [good practices](#good-practices)
 
 ## Related documents
 
