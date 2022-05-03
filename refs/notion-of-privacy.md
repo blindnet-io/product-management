@@ -40,7 +40,7 @@ Biology research suggests that, in social species, privacy might have emerged as
 
 In such primitive groups, privacy emerges as a strategy to establish **information asymmetry**[^8] and compensate for the power disbalance among individuals. It is thus possible that the need for privacy in modern society remains still linked to the power differential. Without privacy and the information asymmetry it creates, and individual is made vulnerable and its ability to ensure fitness for survival is diminished.
 
-Compelling animals to remain inn contact contrary to their own privacy inclinations, in laboratory settings, has resulted in physiological changes, reproductive failure and adrenal dysfunction[^7].
+Compelling animals to remain in contact contrary to their own privacy inclinations, in laboratory settings, has resulted in physiological changes, reproductive failure and adrenal dysfunction[^7].
 
 Beyond the privacy of an individual, privacy also has a group-preserving function in the relationship between one group to another[^15].
 
