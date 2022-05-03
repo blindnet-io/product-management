@@ -1,4 +1,8 @@
-> *The purpose of this document is to list definitions of privacy and related notions, sourced from literature, and provide fundamental understanding about the key concepts of interests for blindnet*
+> The purpose of this document is to list definitions of privacy and related notions, sourced from literature, and provide fundamental understanding about the key concepts of interests for blindnet. 
+> 
+> We are interested in privacy from a perspective of builders of computer systems, who have to account for the human, its psychology and relationships with other humans and with the machines. 
+> 
+> In this document, we are not interested in the general perspectives related to politics, democracy and justice other than those views and findings that directly impact the building of a software system made for humans.
 
 
 ## General Notion of Privacy
@@ -38,6 +42,8 @@ In such primitive groups, privacy emerges as a strategy to establish **informati
 
 Compelling animals to remain inn contact contrary to their own privacy inclinations, in laboratory settings, has resulted in physiological changes, reproductive failure and adrenal dysfunction[^7].
 
+Beyond the privacy of an individual, privacy also has a group-preserving function in the relationship between one group to another[^15].
+
 ### Privacy and Other Topics
 
 #### Privacy and Information Asymmetry
@@ -65,8 +71,13 @@ Privacy is strongly linked with trust. Because privacy is about the access to *s
 
 #### Privacy and Identity
 
+As we derive the knoweledge of self from our relationships with others, the freedom to engage and disengage from those relationships and selectively allow access to self is crucial to our ability to keep our identity safe. At the psychological level, privacy supports social interaction which, in turn,
+provides feedback on our competence to deal with the world which, in turn, affects our self-definition[^1][^16].
+
+Inability to obtain privacy has important psychological consequences[^16].
+
 #### Privacy Paradox
-The privacy paradox is a phenomenon in which online users state that they are concerned about their privacy but behave as if they were not.[^12]
+The privacy paradox is a phenomenon in which online users state that they are concerned about their privacy but behave as if they were not.[^12] Anecdotal and empirical evidence indicate that individuals are willing to trade their personal information for relatively small rewards[^14].
 
 However, as we have seen, privacy regulates the conflic of the need for connection with the need for competition, survival and overcoming the power diferential. Habits, and other needs, indeniably play a role in the persons choice of privacy related behavior and may yeald behavior inconsistent with the persons beliefs and interests (as outlined by the *privacy paradox*).
 
@@ -88,3 +99,6 @@ The existance of the privacy paradox is not indicative of a false concern for pr
 [^11]: [Loneliness](https://en.wikipedia.org/wiki/Loneliness)
 [^12]: Bedrick, B., Lerner, B., Whitehead, B. "The privacy paradox: Introduction", "News Media and the Law", Washington, DC, Volume 22, Issue 2, Spring 1998, pp. P1–P3.
 [^13]: [Attitude-behavior gap](https://en.wikipedia.org/wiki/Value-action_gap)
+[^14]: Spyros Kokolakis [Privacy attitudes and privacy behaviour: A review of current research on the privacy paradox phenomenon] (https://www.researchgate.net/profile/Spyros-Kokolakis/publication/280244291_Privacy_attitudes_and_privacy_behaviour_A_review_of_current_research_on_the_privacy_paradox_phenomenon/links/5a1bdb5a4585155c26ae08e2/Privacy-attitudes-and-privacy-behaviour-A-review-of-current-research-on-the-privacy-paradox-phenomenon.pdf)
+[^15]: Barry Schwartz, [The_Social_Psychology_of_Privacy](https://www.researchgate.net/profile/Barry-Schwartz-2/publication/17491080_The_Social_Psychology_of_Privacy/links/583315c408aef19cb81c8c80/The-Social-Psychology-of-Privacy.pdf)
+[^16]: Stephen T. Margulis, [Privacy as a Social Issue and Behavioral Concept](http://www.sfu.ca/~palys/Margulis-2003-PrivacyAsASocialIssue&BehavioralConcept.pdf)
