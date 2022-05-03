@@ -1,6 +1,6 @@
 # Notions of Privacy
 
-> The purpose of this document is to list definitions of privacy and related notions, sourced from literature, and provide fundamental understanding about the key concepts of interests for blindnet. 
+> The purpose of this document is to list definitions of privacy and related notions, sourced from literature, and provide fundamental understanding about the key concepts of interest for blindnet. 
 > 
 > We are interested in privacy from a perspective of builders of computer systems, who have to account for the human, its psychology and relationships with other humans and with the machines. 
 > 
@@ -34,7 +34,7 @@ It is not an absolute binary "come in" vs. "go away". It is a nuanced choice to 
 
 ## Genesis and Function
 
-Privacy seems to trace its origins in biological processes, and "withdrawal from others is ubiquitous across the animal kingdom"[^7]. Researchers make an analogy with cell membrane[^1] that selectively allows material inputs and outputs, similarly as privacy selectively regulates external stimulation to one's self or the flow of information to others[^7].
+Privacy seems to trace its origins in biological processes. "Withdrawal from others is ubiquitous across the animal kingdom"[^7]. Researchers make an analogy with cell membrane[^1] that selectively allows material inputs and outputs, similarly as privacy selectively regulates external stimulation to one's self or the flow of information to others[^7].
 
 Biology research suggests that, in social species, privacy might have emerged as the cost-benefit balance between the advantages offered by the life in a group and the interests of the individual's competition over scarce resources. The practice of withholding information or actively sending deceiving signals might have had origins in a survival mechanism i.e. sending away the individuals competing for the same resources. *"By increasing another individual's misinformation about the environment, an animal may increase its own fitness"*[^7].
 
