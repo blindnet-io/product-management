@@ -89,6 +89,15 @@ However, as we have seen, privacy regulates the conflict of the need for connect
 
 The existance of the privacy paradox is not indicative of a false concern for privacy, but rather of the context not favoring behavior aligned with this concern, as is common with attitude-behavior gap[^13]. Researchers consider privacy-oblivious behavior to be a result of technological limitations as much as a consequence of users’ deficiencies[^19].
 
+### Privacy Fatigue
+Privacy fatigue reflects a sense of weariness toward privacy issues, in which individuals believe that there is no effective means of managing their personal information on the internet[^21].
+
+This fatigue, brought on by casual data breaches and the complexity of online privacy control, can reduce users’ attention to privacy issues. Yet, being consistently exposed to a mismatch between what one hopes for and what the environment affords leads to increased psychological strain[^21].
+
+Privacy fatigue is closely related to the concept of *learned helplessness*[^23]. Learned helplessness is the behavior exhibited by a subject after enduring repeated aversive stimuli beyond their control. The subject affected by this phenomenon discontinues attempts to escape or avoid the aversive stimulus, even when such alternatives are unambiguously presented. Learned helplessness is linked to a degraded self-efficacy - the individual's belief in their innate ability to achieve goals. Researchers suggest that clinical depression and related mental illnesses may result from a real or perceived absence of control over the outcome of a situation[^24].
+
+Indeed, privacy is related to identity, and to our perception of our own competence to deal with the world[^1][^16]. Repetetive exposure to technological limitations[^19], as well as the privacy paradox attitude-behavior gap[^12] might situate the explanation of privacy fatigue in the scope of learned helplessness.
+
 ## Privacy in Software Systems
 
 Software Systems, and especially the ones operating over the internet, put an individual in a situation of *need* to control the access to self, naturally enabled by the context of use of such systems. The user has to balance the need for connection (ranging from simple information gathering, over social interactions to economic transactions) with the need for protection of the self from unwanted connection, harm and abuse.
@@ -108,10 +117,13 @@ Having control (having the system respond predictably to user's actions) is one 
 [^11]: [Loneliness](https://en.wikipedia.org/wiki/Loneliness)
 [^12]: Bedrick, B., Lerner, B., Whitehead, B. "The privacy paradox: Introduction", "News Media and the Law", Washington, DC, Volume 22, Issue 2, Spring 1998, pp. P1–P3.
 [^13]: [Attitude-behavior gap](https://en.wikipedia.org/wiki/Value-action_gap)
-[^14]: Spyros Kokolakis [Privacy attitudes and privacy behaviour: A review of current research on the privacy paradox phenomenon] (https://www.researchgate.net/profile/Spyros-Kokolakis/publication/280244291_Privacy_attitudes_and_privacy_behaviour_A_review_of_current_research_on_the_privacy_paradox_phenomenon/links/5a1bdb5a4585155c26ae08e2/Privacy-attitudes-and-privacy-behaviour-A-review-of-current-research-on-the-privacy-paradox-phenomenon.pdf)
+[^14]: Spyros Kokolakis [Privacy attitudes and privacy behaviour: A review of current research on the privacy paradox phenomenon](https://www.researchgate.net/profile/Spyros-Kokolakis/publication/280244291_Privacy_attitudes_and_privacy_behaviour_A_review_of_current_research_on_the_privacy_paradox_phenomenon/links/5a1bdb5a4585155c26ae08e2/Privacy-attitudes-and-privacy-behaviour-A-review-of-current-research-on-the-privacy-paradox-phenomenon.pdf)
 [^15]: Barry Schwartz, [The_Social_Psychology_of_Privacy](https://www.researchgate.net/profile/Barry-Schwartz-2/publication/17491080_The_Social_Psychology_of_Privacy/links/583315c408aef19cb81c8c80/The-Social-Psychology-of-Privacy.pdf)
 [^16]: Stephen T. Margulis, [Privacy as a Social Issue and Behavioral Concept](http://www.sfu.ca/~palys/Margulis-2003-PrivacyAsASocialIssue&BehavioralConcept.pdf)
 [^17]: Shneiderman, [Eight Golden Rules of Interface Design](http://www.cs.umd.edu/~ben/goldenrules.html)
 [^18]: Alessandro Acquisti, [Privacy in Electronic Commerce and the Economics of Immediate Gratification](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.580.5737&rep=rep1&type=pdf)
 [^19]: Jochen Peter and Patti M. Valkenburg, [Adolescents’ Online Privacy: Toward a Developmental Perspective](https://www.researchgate.net/profile/Patti-Valkenburg/publication/279190144_Adolescents'_Online_Privacy_Toward_a_Developmental_Perspective/links/567028d208ae2b1f87acd4ce/Adolescents-Online-Privacy-Toward-a-Developmental-Perspective.pdf)
 [^20] Charles Feltman, The Thin Book of Trust: An Essential Primer for Building Trust at Work
+[^21] Hanbyul Choia, Jonghwa Parka, Yoonhyuk Jung, [The role of privacy fatigue in online privacy behavior](https://iranarze.ir/wp-content/uploads/2018/04/E6393-IranArze.pdf)
+[^23] [Learned Helplessness](https://en.wikipedia.org/wiki/Learned_helplessness)
+[^24] Seligman ME (1975). Helplessness: On Depression, Development, and Death. San Francisco: W. H. Freeman
