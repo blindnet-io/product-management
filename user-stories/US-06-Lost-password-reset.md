@@ -58,7 +58,7 @@
 
 **because** I might not be aware of this kind of procedure 
 
-## US-06-05
+## US-06-06
 
 > Proposed
 
@@ -68,7 +68,7 @@
 
 **because** I might think the procedure is set up while in reality there is a missing step 
 
-## US-06-06
+## US-06-07
 
 > Proposed
 
@@ -78,7 +78,7 @@
 
 **because** I might think all users can only set up trusted contacts themselves 
 
-## US-06-07
+## US-06-08
 
 > Proposed
 
@@ -88,7 +88,7 @@
 
 **because** I want to make sure I can access my account again if one of my trusted contact fails
 
-## US-06-08
+## US-06-09
 
 > Proposed
 
