@@ -10,8 +10,6 @@
 
 ## US-06-01
 
-> Proposed
-
 **As a** registered user,
 
 **I want to** be able to reset my password,
@@ -19,8 +17,6 @@
 **because** I have lost it
 
 ## US-06-02
-
-> Proposed
 
 **As a** registered user
 
@@ -30,8 +26,6 @@
 
 ## US-06-03
 
-> Proposed
-
 **As a** registered user in a multi user context
 
 **I want to** make sure the users of my organisation can access their account again in case of password loss even if they don't set up reset password procedure
@@ -39,8 +33,6 @@
 **because** they might don't set up reset password procedure and still expect they can access their account again in case of password loss
 
 ## US-06-04
-
-> Proposed
 
 **As a** registered user 
 
@@ -50,8 +42,6 @@
 
 ## US-06-05
 
-> Proposed
-
 **As a** trusted contact
 
 **I want to** know who asks me to be a trusted, why I am being asked to be a trusted contact, and what I need to do
@@ -59,8 +49,6 @@
 **because** I might not be aware of this kind of procedure 
 
 ## US-06-06
-
-> Proposed
 
 **As a** logged user who asked someone to be a trusted contact
 
@@ -70,8 +58,6 @@
 
 ## US-06-07
 
-> Proposed
-
 **As a** logged user of single account 
 
 **I want to** know I can set up trusted contacts settings for the organisation when I add a new user
@@ -80,8 +66,6 @@
 
 ## US-06-08
 
-> Proposed
-
 **As a** logged user
 
 **I want to** be able to add several trusted contacts
@@ -89,8 +73,6 @@
 **because** I want to make sure I can access my account again if one of my trusted contact fails
 
 ## US-06-09
-
-> Proposed
 
 **As a** logged user
 
