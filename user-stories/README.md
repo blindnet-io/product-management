@@ -36,14 +36,16 @@ Follow the steps above when creating a group of user stories for a new feature c
 1. copy the [`US-NN-template.md`](./US-NN-template.md) template file in this directory 
 2. give it a unique two-digits id and short title describing a clear context (e.g. `US-19-sign-in.md`)
 3. indicate the status of the document for the group of US : 
-- `Draft`: unfinished US redaction (US doc "in progress")
-- `Proposed`: finished US redaction
-- `Accepted`: US doc reviewed and validated with @blindnet-io/engineering (therefore To Be Developed)
-- `In Development`: @blindnet-io/engineering started working on it
-- `Released`: US released in production environment
-4. when `In Development` status, indicate the status of specific US :
-- `Integrated`: US development merged and released in staging environment
-- `Tested`: US validated in staging environment
+    - `Draft`: unfinished group of US redaction (US doc "in progress")
+    - `Proposed`: finished group of US redaction
+    - `Accepted`: group of US doc reviewed and validated with @blindnet-io/engineering (therefore To Be Developed)
+    - `In Development`: @blindnet-io/engineering started working on group of US
+    - `Released`: group of US released in production environment
+4. indicate the status of specific US :
+    - `In Development`: @blindnet-io/engineering started working on the US
+    - `Integrated`: US development merged and released in staging environment
+    - `Tested`: US validated in staging environment
+    - `Released`: US released in production environment
 5. (optional) add links to the draft PRs integrating this US in the codebase
 6.  write new user stories following the [good practices](#good-practices)
 
