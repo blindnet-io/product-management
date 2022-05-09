@@ -1,14 +1,28 @@
 # HIGH-LEVEL COMPONENT ARCHITECTURE
-| Version | Date      | Authors | Status      | Improvements needed by     |
-|---------|-----------|---------|-------------|----------------------------|
-| 0.0.1   | 2022-05-6 |@milstan | First Draft | 2022-05-27                 |
 
-> This documents describes the high-level view of the context in which our product requirments exists and suggests a high-level structure of components of the product that can meet those requirements.
+| Status        | DRAFT                                                                                  |
+| :------------ | :------------------------------------------------------------------------------------- |
+| **PR #**      | [596](https://github.com/blindnet-io/product-management/pull/596)                      |
+| **Author(s)** | milstan (milstan@blindnet.io)                                                          |
+| **Sponsor**   | Filip  (filip@blindnet.io)                                                             |  
+| **Updated**   | 2022-05-09                                                                             |
 
-## OVERVIEW
+## Objective
+This document describes the high-level view of the context in which our product requirments exists and suggests a high-level structure of components of the product that can meet those requirements. The goal is to complement the [High Level Conceptualisation](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md) document with additional information about the workflows and context in which those concepts exists, and at the same time suggest a very general component structrue of our system.
+
+## Motivation
+
+The understanding of the context of use is very important on order to cover relveant user needs. 
+
+Also, having the right structure of components is very important for several reasons, including for:
+- client systems to be able to use only a part of our system,
+- our system to be interoperable with 3rd party solutions (that cover a sub-scope of our scope or that cover requirements adjacent to our scope),
+- our system to be able to evolve in certain aspects with as little as possible impact to its functioning in other aspects.
+
+### Overview of the Context
 <img width="1400" alt="HIGH-LEVEL ARCHITECTURE" src="./img/hla.png">
 
-## FUNCTIONS
+### Key Functions
 
 The system supports secure capture of data and management of Data Subjects' rights throughout the data lifecycle. As such is needs to support the following functions:
 - Data Capture
@@ -17,7 +31,7 @@ The system supports secure capture of data and management of Data Subjects' righ
 - Transfer
 - Data Rights Management
 
-## COMPONENTS
+## Proposal - Components
 
 ### Capture Component
 
@@ -68,7 +82,9 @@ The Storage component allows to store the Data Captures. It can interface with s
 
 The storage component can be configured to automatically interpret and execute data-deletions and modifications according to the output of the Data Rights Computation Engine.
 
-## BRIDGE AND INTEROPERABILITY
+## Other Requirements
+
+### Bridge and Interoperability
 
 The components of the system should be made in a way that favours interoperability. I.e. components can easily interoperate with software made in another project for the same purpose. 
 
@@ -79,11 +95,11 @@ This interoperability should support the following (extreme) example scenarios:
 - A system that is essentially a wordpress website, can embed the Capture Component in a wordpress webform, use the Storage Component, the Data Consumer Interface (as separate from the wordpress website), use Data Rights Computation Engine and embed the A Data Rights Request Capture Interface in the wordpress website respecting its look and feel. 
 - A system that has their own user identity management, uses 3rd party e2ee library, has its own storage and interfaces for data view, can instantiate the Data Rights Computation Engine and use only the parts of the Data Consumer Interface related to Data Rights Request parametration and approval.
 
-## SEPARATION OF FORM AND FUNCTION
+### Separation of Form and Function
 
 The components of the system should be made in such a way that a client system can use only the functional part and implement its own interfaces or otherwise achieve its own desired look and feel and UX.
 
-## RELATED DOCUMENTS
+## Related Documents
 - [High Level Conceptualization](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-conceptualization)
 - [Lexicon](https://github.com/blindnet-io/product-management/blob/master/refs/privateform-lexicon.csv)
 - [Digital Rights Management](https://en.wikipedia.org/wiki/Digital_rights_management)
