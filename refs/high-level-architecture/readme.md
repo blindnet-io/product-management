@@ -9,12 +9,16 @@
 
 ## Objective
 
-This document describes the high-level view of the context in which our product requirements exist and suggests a high-level structure of components of the product that can meet those requirements.
-The goal is to complement the [High Level Conceptualisation](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md) document with additional information about the workflows and context in which those concepts exist and at the same time suggest a very general component structure of our system.
+This document is about: 
+- the context in which our product has to operate, and
+- the structure of components of our product (in relation to that context).
+
+
+This document complements the [High Level Conceptualisation](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md). It's goal is to propose the optimal component structure of the product.
 
 ## Motivation
 
-The understanding of the context of use is very important in order to cover relevant user needs.
+The the [High Level Conceptualisation](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md) is insufficient for understanding of the context of use. We need more clarity about the data capture lifecycle and the parties involved.
 
 Also, having the right structure of components is very important for several reasons, including for:
 
@@ -29,6 +33,7 @@ Also, having the right structure of components is very important for several rea
 ### Key Functions
 
 The system supports secure capture of data and management of Data Subjects' rights throughout the data lifecycle.
+
 As such it needs to support the following functions:
 
 - Data Capture
@@ -41,7 +46,7 @@ As such it needs to support the following functions:
 
 ### Capture Component
 
-The Capture Component is the key entry point responsible for putting in motion [Data Captures](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#the-main-concept---data-capture) in a way that reinforces privacy by ensuring confidentiality and control.
+The Capture Component is the entry point of the product. It is responsible for putting in motion [Data Captures](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#the-main-concept---data-capture) in a way that reinforces privacy by ensuring confidentiality and control.
 It may be responsible for encrypting the data, obtaining [Consent](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#data-capture--consent), and generating Data Capture metadata.
 
 ### Encryption and Access Management Engine
@@ -49,12 +54,12 @@ It may be responsible for encrypting the data, obtaining [Consent](https://githu
 The Encryption and Access Management is composed of SDKs and APIs allowing to encrypt and decrypt the data in the context of [Data Captures](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#the-main-concept---data-capture).
 
 This component can work with external user identity management solutions.
-The component allows Client Systems and end-user-facing components to define and modify the intended Data Consumers of a particular Data Capture.
+The component allows Client Systems and user-facing components to define and modify the intended Data Consumers of a particular Data Capture.
 This component also provides functions allowing to support [Data Consumers](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#submitter--data-consumer--dpo) in situations of lost access.
 
 ### Data Rights Computation Engine
 
-Data Rights Computation Engine is a component that client systems can run in order to interpret their rights to hold and treat a particular [Data Capture](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#the-main-concept---data-capture) at a particular point of time, as well as in order to respond to [Data Subjects](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#submitter--data-consumer--dpo)' [Data Rights Requests](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md#data-capture--rights-requests).
+Data Rights Computation Engine is a component that client systems can run in order to interpret their rights to hold and treat a particular [Data Capture](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#the-main-concept---data-capture) at a particular point of time. The engine can also calculate a response to [Data Subjects](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#submitter--data-consumer--dpo)' [Data Rights Requests](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md#data-capture--rights-requests).
 
 A Data Rights Computation Engine component is composed of three elements:
 
