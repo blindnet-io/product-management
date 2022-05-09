@@ -49,7 +49,7 @@ It may be responsible for encrypting the data, obtaining [Consent](https://githu
 The Encryption and Access Management is composed of SDKs and APIs allowing to encrypt and decrypt the data in the context of [Data Captures](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#the-main-concept---data-capture).
 
 This component can work with external user identity management solutions.
-The component allows {**WHO?**} to define and modify the intended Data Consumers of a particular Data Capture.
+The component allows Client Systems and end-user-facing components to define and modify the intended Data Consumers of a particular Data Capture.
 This component also provides functions allowing to support [Data Consumers](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#submitter--data-consumer--dpo) in situations of lost access.
 
 ### Data Rights Computation Engine
@@ -82,7 +82,7 @@ A global Data Rights Request Capture Interface can be hosted on an easy-to-remem
 
 #### Customizable API
 
-The **_Customizable API_** allows {**WHO?**} to:
+The **_Customizable API_** allows Client Systems and end-user-facing components to:
 
 - set and modify system-specific [Settings](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#form-follows-function) related to Data Rights and compliance (e.g. storage location, mandatory duration of data keeping, legal grounds of treatment etc.)
 - register and keep track of system-to-system transfers of data captures and noteworthy operations performed on data
@@ -111,7 +111,7 @@ For the system to support interoperability with other systems and solutions, the
 
 ### Storage
 
-The Storage component allows {**WHO?**} to store the Data Captures.
+The Storage component allows Client Systems to store the Data Captures.
 It can interface with systems that don't have their own storage but integrate the whole confidential data capturing as a fully external workflow, only integrated at the front-end level with their website or app.
 
 The storage component can be configured to automatically interpret and execute data deletions and modifications according to the output of the Data Rights Computation Engine.
