@@ -9,17 +9,17 @@
 
 ## Objective
 
-This document is about: 
+This document is about:
+
 - the context in which our product has to operate, and
 - the structure of components of our product (in relation to that context).
 
-
 This document complements the [High Level Conceptualisation](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md).
-It's goal is to propose the optimal component structure of the product.
+Its goal is to propose the optimal component structure of the product.
 
 ## Motivation
 
-The the [High Level Conceptualisation](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md) is insufficient for understanding of the context of use. We need more clarity about the data capture lifecycle and the parties involved.
+The [High Level Conceptualisation](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md) is insufficient for understanding of the context of use. We need more clarity about the data capture lifecycle and the parties involved.
 
 Also, having the right structure of components is very important for several reasons, including for:
 
@@ -83,7 +83,7 @@ To compute the appropriate actions, this component can register and take into ac
 
 #### Data Rights Request Capture Interface
 
-A **\*Data Rights Request Capture Interface** is a standardized end-user interface that systems can (optionally) run to capture Data Rights Requests from Data Subjects.
+A **_Data Rights Request Capture Interface_** is a standardized end-user interface that systems can (optionally) run to capture Data Rights Requests from Data Subjects.
 A global Data Rights Request Capture Interface can be hosted on an easy-to-remember URL to capture Data Rights Requests in a standardized format (Data Rights Request Schema) on behalf of other systems.
 
 #### Customizable API
