@@ -81,6 +81,30 @@
 
 **because** I am wondering if the company is keeping my data on servers in Europe or in the US
 
+### US-07-1-10
+
+**As a** internet user, when creating a GDPR request
+
+**I want to** make a request [to delete my data that are published on a webiste](https://www.cnil.fr/fr/webmaster-ou-responsables-de-sites-comment-repondre-aux-demandes-de-suppression-de-donnees)
+
+**because** I don't want my data to appear on the website anymore
+
+### US-07-1-11
+
+**As a** internet user, when creating a GDPR request
+
+**I want to** request that [the removal of my image online (photo or video)](https://www.cnil.fr/fr/demander-le-retrait-de-votre-image-en-ligne)
+
+**because** this image has been published without my consent
+
+## US-07-1-12
+
+**As a** internet user, when creating a GDPR request
+
+**I want to** make arequest to exerce [my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite)
+
+**because** I want to receive the data that conernes me and reuse them, transmit them to another data controller
+
 ## 07-2 Company receiving GDPR request 
 
 ### US-07-2-01
