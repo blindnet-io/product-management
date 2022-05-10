@@ -14,7 +14,8 @@ This document is about:
 - the structure of components of our product (in relation to that context).
 
 
-This document complements the [High Level Conceptualisation](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md). It's goal is to propose the optimal component structure of the product.
+This document complements the [High Level Conceptualisation](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md).
+It's goal is to propose the optimal component structure of the product.
 
 ## Motivation
 
