@@ -93,7 +93,7 @@
 
 **As a** internet user, when creating a GDPR request
 
-**I want to** request that [the removal of my image online (photo or video)](https://www.cnil.fr/fr/demander-le-retrait-de-votre-image-en-ligne)
+**I want to** request [the removal of my image online (photo or video)](https://www.cnil.fr/fr/demander-le-retrait-de-votre-image-en-ligne)
 
 **because** this image has been published without my consent
 
