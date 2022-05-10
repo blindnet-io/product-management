@@ -13,7 +13,7 @@
 
 ### US-04-1-00
 
-> Status : Integrated
+> Status: Integrated
 
 **As a** user filling a form,
 
@@ -21,7 +21,7 @@
 
 ### US-04-1-01
 
-> Status : Released
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre,
 
@@ -31,7 +31,7 @@
 
 ### US-04-1-02
 
-> Status : In Development
+> Status: In Development
 
 **As a** user who submitted a form in the past, Jean-Pierre,
 
@@ -41,7 +41,7 @@
 
 ### US-04-1-03
 
-> Status : Released
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre,
 
@@ -51,7 +51,7 @@
 
 ### US-04-1-04
 
-> Status : Released
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre,
 
@@ -78,7 +78,7 @@
 
 ### US-04-1-06
 
-> Status : Released
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre,
 
@@ -88,7 +88,7 @@
 
 ### US-04-1-06-1
 
-> Status : Released
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre,
 
@@ -98,7 +98,7 @@
 
 ### US-04-1-07
 
-> Status : Integrated
+> Status: Integrated
 
 **As a** user filling a form, Jean-Pierre,
 
@@ -108,7 +108,7 @@
 
 ### US-04-1-08
 
-> Status : Released
+> Status: Released
 
 **As a** user filling a form, Jean-Pierre,
 
@@ -118,7 +118,7 @@
 
 ### US-04-1-09
 
-> Status : Integrated
+> Status: Integrated
 
 **As a** user filling a form, Jean-Pierre,
 
@@ -128,7 +128,7 @@
 
 ### US-04-1-10
 
-> Status : Released
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre, I made a data access/modification/deletion request more than a month ago, and
 
@@ -138,7 +138,7 @@
 
 ### US-04-1-11
 
-> Status : Integrated
+> Status: Integrated
 
 **As a** user filling a form, Jean-Pierre,
 
@@ -156,7 +156,7 @@
 
 ### US-04-1-13
 
-> Status : Released
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre, when I receive my data after I filed a data access request,
 
@@ -166,7 +166,7 @@
 
 ### US-04-1-14
 
-> Status : Released
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre, when I receive my data after I filed a data access request,
 
@@ -176,7 +176,7 @@
 
 ### US-04-1-15
 
-> Status : Released
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre, my data deletion request is denied and
 
@@ -186,7 +186,7 @@
 
 ### US-04-1-16
 
-> Status : In Development
+> Status: In Development
 
 **As a** user who submitted several different form in the past (e.g. Covid and Medical History), Jean-Pierre,
 
@@ -196,7 +196,7 @@
 
 ### US-04-2-01
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -206,7 +206,7 @@
 
 ### US-04-2-02
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -216,7 +216,7 @@
 
 ### US-04-2-03
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -226,7 +226,7 @@
 
 ### US-04-2-04
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -236,7 +236,7 @@
 
 ### US-04-2-05
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -246,7 +246,7 @@
 
 ### US-04-2-05bis
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -256,7 +256,7 @@
 
 ### US-04-2-06
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -274,7 +274,7 @@
 
 ### US-04-2-08
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -284,7 +284,7 @@
 
 ### US-04-2-09
 
-> Status : Integrated
+> Status: Integrated
 
 **As a** logged user, Amélie,
 
@@ -294,7 +294,7 @@
 
 ### US-04-2-10
 
-> Status : Integrated
+> Status: Integrated
 
 **As a** logged user, Amélie,
 
@@ -304,7 +304,7 @@
 
 ### US-04-2-11
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie, when I receive a GDPR-related request
 
@@ -314,7 +314,7 @@
 
 ### US-04-2-12
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -324,7 +324,7 @@
 
 ### US-04-2-13
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -332,7 +332,7 @@
 
 ### US-04-2-14
 
-> Status : Released
+> Status: Released
 
 **As a** logged user, Amélie, if a user is asking me by email to delete/modify/view his data,
 
