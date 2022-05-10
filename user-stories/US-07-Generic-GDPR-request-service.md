@@ -45,10 +45,41 @@
 
 **As a** internet user, when creating a GDPR request
 
-**I want to** I want to add the address of the company I am sending my request to and be able to easily access it next time
+**I want to** add the address of the company I am sending my request to and be able to easily access it next time
 
-**because** because I or other users might need the address of that company to send GDPR request in the future
+**because** I or other users might need the address of that company to send GDPR request in the future
 
+### US-07-1-06
+
+**As a** internet user, when creating a GDPR request
+
+**I want to** delete my data 
+
+**because** I don't need the service of that company anymore
+
+### US-07-1-07
+
+**As a** internet user, when creating a GDPR request
+
+**I want to** access my data
+
+**because** I want te see what data that company has on me
+
+### US-07-1-08
+
+**As a** internet user, when creating a GDPR request
+
+**I want to** modify my data
+
+**because** because I moved and my address has changed
+
+### US-07-1-09
+
+**As a** internet user, when creating a GDPR request
+
+**I want to** know where my data is being kept
+
+**because** I am wondering if the company is keeping my data on servers in Europe or in the US
 
 ## 07-2 Company receiving GDPR request 
 
@@ -80,6 +111,14 @@
 
 **As a** company receiving GDPR request (with or without Privateform account)
 
-**I want to** transfer the request to another company if the request concerns data I gave to another company
+**I want to** transfer the request to another company if the request concerns data I transfered to another company
 
-**because** I need to be compliant, if a user wants his data deleted, I have to informed the other company I gave the user's data to also delete the data
+**because** I need to be compliant, if a user wants his data deleted, I have to informed the other company I transfered the user's data to also delete the data
+
+### US-07-2-05
+
+**As a** company receiving GDPR request (with or without Privateform account)
+
+**I want to** have an entry point for the GDPR request service embedded on the GDPR section of my website
+
+**because** my customers might direclty go to my website to make their GDPR request, and it is easier for my cutomers and for me to use this service
