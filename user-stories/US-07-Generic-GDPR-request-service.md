@@ -101,9 +101,17 @@
 
 **As a** internet user, when creating a GDPR request
 
-**I want to** make arequest to exerce [my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite)
+**I want to** make a request to exerce [my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite)
 
 **because** I want to receive the data that conernes me and reuse them, transmit them to another data controller
+
+## US-07-1-13
+
+**As a** internet user, when creating a GDPR request
+
+**I want to** make a request to exerce [my right of opposion](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees)
+
+**because** I refuse the use of my data or of certain data but I don't want to delete my account or all my data
 
 ## 07-2 Company receiving GDPR request 
 
