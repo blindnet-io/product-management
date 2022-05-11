@@ -6,6 +6,7 @@
 | **Status** | Draft |
 | **Design** | 
 | **Previous discussions** | https://github.com/blindnet-io/product-ideas/issues/22
+| **Other documents** | [CNIL atomic requests list](https://docs.google.com/spreadsheets/d/1XGODz4S7X8NehhJnFwdk5PVi551ggaVp0dSnH4UojJc/edit#gid=0)
 
 ## 07-1 Internet user (a submitter or a data subejct)
 
@@ -97,7 +98,7 @@
 
 **because** this image has been published without my consent
 
-## US-07-1-12
+### US-07-1-12
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
@@ -105,7 +106,7 @@
 
 **because** I want to receive the data that concerns me and reuse them, transmit them to another data controller
 
-## US-07-1-13
+### US-07-1-13
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
@@ -113,7 +114,7 @@
 
 **because** I refuse the use of my data or of certain data but I don't want to delete my account or all my data
 
-## US-07-1-14
+### US-07-1-14
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
@@ -121,7 +122,7 @@
 
 **because** I want that data deleted from all organisations that have it 
 
-## US-07-1-15
+### US-07-1-15
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
@@ -129,7 +130,7 @@
 
 **because** I don't want to receive advertising from this organization anymore
 
-## US-07-1-16
+### US-07-1-16
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
