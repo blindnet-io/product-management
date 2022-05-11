@@ -113,6 +113,14 @@
 
 **because** I refuse the use of my data or of certain data but I don't want to delete my account or all my data
 
+## US-07-1-14
+
+**As an** internet user (a submitter or a data subejct), when creating a Data rights request
+
+**I want** the organization to delete the data it has on me, AND I also want this organziation to make every other organziation to which they have communicated my data aware of my request that they too delete data they have on me
+
+**because** I want that data deleted from all organisations that have it 
+
 ## 07-2 Organization receiving Data rights request
 
 ### US-07-2-01
@@ -137,7 +145,7 @@
 
 **I want to** receive the request in the Data rights request section of my Privatefrom account
 
-**because** it is more convenient for me to have all my Data rights request centralised
+**because** it is more convenient for me to have all my Data rights requests centralised
 
 ### US-07-2-04
 
