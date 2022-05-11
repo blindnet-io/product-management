@@ -1,4 +1,4 @@
-# Data rights request service
+# Data rights request capture service
 
 <!-- prettier-ignore -->
 | User Stories | 07 |
@@ -119,9 +119,9 @@
 
 **As an** organization receiving Data rights request (no Privateform account)
 
-**I want to** know the request I received has been sent by Privateform and understand what service Privateform offers
+**I want to** know the request I received has been sent by blindnet Data rights request capture service and be informed about Privateform
 
-**because** I might be interesting in the service
+**because** I might be interested in the service Privateform offers
 
 ### US-07-2-02
 
