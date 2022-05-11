@@ -109,7 +109,7 @@
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
-**I want to** make a request to exerce [my right of opposion](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees)
+**I want to** make a request to exercise [my right of opposion](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees)
 
 **because** I refuse the use of my data or of certain data but I don't want to delete my account or all my data
 
@@ -117,7 +117,7 @@
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
-**I want** the organization to delete the data it has on me, AND I also want this organziation to make every other organziation to which they have communicated my data aware of my request that they too delete data they have on me
+**I want to** make a request to an organization to delete the data it has on me, AND I also want this organziation to make every other organziation to which they have communicated my data aware of my request that they too delete data they have on me
 
 **because** I want that data deleted from all organisations that have it 
 
@@ -128,6 +128,14 @@
 **I want** the organization to [delete my contact details from its avdertising contact list](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites)
 
 **because** I don't want to receive advertising from this organization anymore
+
+## US-07-1-16
+
+**As an** internet user (a submitter or a data subejct), when creating a Data rights request
+
+**I want to** make a request to an organization for [opposition to commercial prospecting](https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers) 
+
+**because** I want the organization to stop using the contact details it has on me for prospecting purpose, AND to delete my contact details from its prospection contact list, AND that the organisation notifies the request to other organisations that it may have made recipient of my data
 
 ## 07-2 Organization receiving Data rights request
 
