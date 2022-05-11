@@ -25,7 +25,7 @@
 
 **because** it is unclear to me and it seems complicated
 
-### US-07-2-03
+### US-07-1-03
 
 **As an** internet user (a submitter or a data subejct)
 
@@ -120,6 +120,14 @@
 **I want** the organization to delete the data it has on me, AND I also want this organziation to make every other organziation to which they have communicated my data aware of my request that they too delete data they have on me
 
 **because** I want that data deleted from all organisations that have it 
+
+## US-07-1-15
+
+**As an** internet user (a submitter or a data subejct), when creating a Data rights request
+
+**I want** the organization to [delete my contact details from its avdertising contact list](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites)
+
+**because** I don't want to receive advertising from this organization anymore
 
 ## 07-2 Organization receiving Data rights request
 
