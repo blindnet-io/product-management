@@ -70,8 +70,16 @@ But, connection also has the potential to expose the individual to existential v
 Privacy makes connection possible, by managing the risk associated to it. 
 Without privacy, the need for connection conflicts with the goal of protecting vital interests.
 
-Privacy is not the opposite of connection. The opposite of connection is isolation, which leads to loneliness - correlated with negative effects on health[^11].
-On the contrary, privacy is a necessary element of connection making connection compatible with survival in the natural context of power differential and scarce resources.
+<img width="900" alt="connectedness" src="./img/connectedness.png">
+
+Privacy is not the opposite of connectedness. 
+
+Connectedness exists on the continuum between fusion and isolation.
+Fusion is the state of total absence of boundaries and separateness. 
+Isolation is the psychological equivalent of death. 
+It leads to loneliness - correlated with negative effects on health[^11].
+
+Humans need connectedness to avoid isolation. Privacy regulates connectedness to avoid fusion (where there is not enough separateness for anything to need connecting).
 
 ### Privacy Works Through Information Asymmetry
 
