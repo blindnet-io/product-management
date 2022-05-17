@@ -128,6 +128,15 @@ Also, rights have states, meaning that in a particular state, a particular type 
 
 > _The information provided here is just for illustrative purposes and does not imply any definitive naming or semantics of actual states._
 
+## DATA CAPTURE – VERSIONING
+
+Data Capture Fragments are subject to versioning. A particuler data fragment can evolve as a result of:
+- **Changes** by Data Subject during submission
+- **Rights Requests** by Data Subject asking to modify the data
+- **Modifications** by Data Consumers and DPOs (when the new data is collected offline from the Data Subject)
+
+Rights Request to modify data must be compatible with the versioning of Data Capture Fragments and allow for automatic update upon Rights Request acceptance.
+
 ## DATA CAPTURE – INTEROPERABILITY
 
 <img width="900" alt="interoperability" src="./img/interoperability.png">
