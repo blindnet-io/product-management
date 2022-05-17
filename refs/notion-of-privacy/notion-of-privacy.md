@@ -178,15 +178,22 @@ In essence, the available knowledge teaches us the following:
 Therefore, we believe that a properly designed Internet System is designed for Privacy-enabled Connectedness. 
 
 The Privacy-enabled Connectedness is achieved through the following design principles:
-- **No Access without Control**. The system is designed to prevent any form of access to the user or to the user’s data without giving user the control over such access.
 
-Examples:
-A system collecting user’s data over a web form and storing the data unencrypted in a database is not designed to prevent any form of access to the user or to the user’s data without giving user the control over such access. A system collecting data end-to-end encrypted for clearly identified target consumers, is.
+#### **No Access without Control**
 
-- **Distributed Control for Distributed Access**. A system collecting user’s data, that shares this data with other systems, is designed to propagate any access-related instruction given by the user across the receiving systems. (No loose ends)
+The system is designed to prevent any form of access to the user or to the user’s data without giving user the control over such access.
 
-Examples:
-When a user deletes their data from one system, a properly designed system allows the user to have the delete action propagated to other systems to which the data was transmitted. A poorly designed system only deletes the data from its own storage.
+> **Examples**
+>
+> A system collecting user’s data over a web form and storing the data unencrypted in a database is not designed to prevent any form of access to the user or to the user’s data without giving user the control over such access. A system collecting data end-to-end encrypted for clearly identified target consumers, is.
+
+#### Distributed Control for Distributed Access
+
+A system collecting user’s data, that shares this data with other systems, is designed to propagate any access-related instruction given by the user across the receiving systems. (No loose ends)
+
+> **Examples**
+>
+> When a user deletes their data from one system, a properly designed system allows the user to have the delete action propagated to other systems to which the data was transmitted. A poorly designed system only deletes the data from its own storage.
 
 [^1]: Altman I (1975) The environment and social behavior. Wadsworth, Belmont
 [^2]: Sedikides, C. & Spencer, S.J. (Eds.) (2007). The Self. New York: Psychology Press
