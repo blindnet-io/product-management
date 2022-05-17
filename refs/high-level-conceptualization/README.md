@@ -96,6 +96,7 @@ Capturing requests related to a particular Data Capture or Data Capture Fragment
 
 <img width="275" alt="rights requests" src="./img/rights-requests.png">
 
+
 ## DATA CAPTURE - STATES
 
 Data Captures have states. States can be observed on the Data Capture level, or on the level of a Data Capture Fragment.
@@ -109,7 +110,13 @@ States concern different qualities, such as (not limited to):
 
 Legal grounds also have states indicating if the data MUST or CAN be kept/deleted.
 
-Rights requests also have states (e.g., received, denied, granted,...) – states relative to a particular request.
+Rights Requests also have states with regards to:
+
+- **Their treatment** by the Data Consumers / Organisation (received, viewed/under review, treated)
+- **Acceptance** (accepted, partially accepted, rejected)
+- **Fulfillment** of the Data Subject's need (data accessed, data modified, data deleted)
+
+The system keeps a record of every status change and the corresponding timestamp allowing to build a timeline.
 
 Also, rights have states, meaning that in a particular state, a particular type of rights request MUST be rejected. For example, during mandatory keeping a DELETE request from the user MUST be rejected.
 
