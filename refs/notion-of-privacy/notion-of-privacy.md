@@ -83,7 +83,7 @@ It leads to loneliness - correlated with negative effects on health[^11].
 
 Humans need connectedness to avoid isolation. Privacy regulates connectedness to avoid fusion (where there is not enough separateness for anything to need connecting).
 
-**There is no connectedness without privacy.**
+To acheive different levels of connectedness on this continuum, an individual needs to balance and regulate, in other words control the access to self. Privacy is thus a necessary condition for connectedness. **There is no connectedness without privacy.**
 
 ### Privacy Works Through Information Asymmetry
 
