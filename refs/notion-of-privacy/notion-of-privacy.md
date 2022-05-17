@@ -59,7 +59,7 @@ Compelling animals to remain in contact contrary to their own privacy inclinatio
 
 Beyond the privacy of an individual, privacy also has a group-preserving function in the relationship between one group to another[^15].
 
-### Connection equals Humans' Survival
+### Connection is a prerequisite for Humans' Survival
 
 Humans are social species, hardwired for connection.
 
@@ -109,14 +109,13 @@ At the psychological level:
 
 Inability to obtain privacy has important psychological consequences ranging from embarrassment and stigma to de-individuation and dehumanization[^16].
 
-### Where There is Privacy There Can be Trust
+### Privacy is strongly linked with Trust
 
 > « **Trust is choosing to make something important to you vulnerable to the actions of someone else.** » &mdash; _Charles Feldman_[^20]
 
-Privacy is strongly linked with trust.
 Because privacy is about the access to _self_, and self is clearly of great importance, an individual is expected to choose a particular level of privacy in relation to the level of trust.
 
-### Where there is No Privacy, There is Privacy Fatigue
+### No Privacy leads to Privacy Fatigue
 
 Privacy fatigue reflects a sense of weariness toward privacy issues, in which individuals believe that there is no effective means of managing their personal information on the internet[^21].
 
