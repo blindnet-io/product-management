@@ -31,7 +31,7 @@ Privacy is a "factor of connection to oneself and to others"[^6].
 
 - Privacy is about **control of access**.
 
-As relationships play a key role in shaping the view on the self, it is of crucial importance for the individual to control the access to self, and thus maintain control over thheir own view of the self.
+As relationships play a key role in shaping the view on the self, it is of crucial importance for the individual to control the access to self, and thus maintain control over their own view of the self.
 
 - Privacy is **selective**.
 
