@@ -43,11 +43,17 @@ Examples include: a file and a comment explaining it; a set of fields composing 
 
 The data structure of Data Capture Fragments allows to have interface elements such as granular progress bars, or checklists to present to the user the state of completement of the submission.
 
+Data Capture Fragments have names, that exist in a multitude of languages and allow for easy reference by Data Sumbitters and Data Consumers.
+
 The granularity can also allow, when needed, to the data consumers to accept or reject certain fragments for reasons of readability/conformity, and make the submitter submit them again.
 
-It may also favor incremental data submission (submit par of the for today, and another part some other day when the submitter collects more data), as well as partial modification and data update focused only on particular fragments.
+It may also favor incremental data submission (submit part of the form today, and another part some other day when the submitter collects more data), as well as partial modification and data update focused only on particular fragments.
 
 <img width="300" alt="Checklist" src="./img/checklist.png">
+
+Capture Fragments can be subject to validations:
+- **a priori** using automatic validators (like checking the format of an e-mail adress, or extension of a file)
+- **a posteriori** using human input to vlaidate the conformity of submitted data with what is expected
 
 ## DATA CAPTURE – LEGAL GROUND
 
