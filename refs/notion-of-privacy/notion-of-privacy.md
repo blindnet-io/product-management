@@ -66,9 +66,11 @@ Humans are social species, hardwired for connection.
 > « **Connection is the energy that exists between people when they feel seen, heard and valued; when they can give and receive without judgement; and when they derive sustenance and strength from the relationship.** » &mdash; _Brené Brown_
 
 Connection is crucial to development; without it, social animals experience distress and face severe developmental consequences[^10]. 
-But, connection also has the potential to expose the individual to existential vulnerabilities. 
-Privacy makes connection possible, by managing the risk associated to it. 
+Yet, connection can also expose the individual to existential vulnerabilities. 
+
+The risk associated with connection has to be managed.
 Without privacy, the need for connection conflicts with the goal of protecting vital interests.
+Connection is **not** possible without privacy.
 
 <img width="900" alt="connectedness" src="./img/connectedness.png">
 
