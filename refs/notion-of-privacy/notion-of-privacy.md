@@ -59,7 +59,7 @@ Compelling animals to remain in contact contrary to their own privacy inclinatio
 
 Beyond the privacy of an individual, privacy also has a group-preserving function in the relationship between one group to another[^15].
 
-### For Humans, Connection = Survival
+### Connection equals Humans' Survival
 
 Humans are social species, hardwired for connection.
 
