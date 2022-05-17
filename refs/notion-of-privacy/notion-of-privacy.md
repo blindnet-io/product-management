@@ -83,6 +83,8 @@ It leads to loneliness - correlated with negative effects on health[^11].
 
 Humans need connectedness to avoid isolation. Privacy regulates connectedness to avoid fusion (where there is not enough separateness for anything to need connecting).
 
+**There is no connectedness without privacy.**
+
 ### Privacy Works Through Information Asymmetry
 
 Information asymmetry[^8] is clearly a key concept for privacy as identified by biological studies of privacy in animal societies.
