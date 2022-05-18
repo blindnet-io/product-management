@@ -6,7 +6,7 @@
 | **Status** | Draft |
 | **Design** | 
 | **Previous discussions** | https://github.com/blindnet-io/product-ideas/issues/22
-| **Other documents** | [CNIL atomic requests list](https://docs.google.com/spreadsheets/d/1XGODz4S7X8NehhJnFwdk5PVi551ggaVp0dSnH4UojJc/edit#gid=0)
+| **Other documents** | [Notes - Requests list and types of treatment list](https://github.com/blindnet-io/product-management/blob/Generic-GDPR-request-service/user-stories/Notes_07-Data-rights-request-capture-service.md) ([Old requests list google doc](https://docs.google.com/spreadsheets/d/1XGODz4S7X8NehhJnFwdk5PVi551ggaVp0dSnH4UojJc/edit#gid=0))
 
 ## 07-1 Internet user (a submitter or a data subejct)
 
