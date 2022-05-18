@@ -33,7 +33,7 @@
 | 27 | **Revoke consent** |  | Type of treatment (to choose from possible type of treatment list  | https://www.cnil.fr/fr/les-bases-legales/consentement "Droit au retrait : la personne doit avoir la possibilité de retirer son consentement à tout moment, par le biais d’une modalité simple et équivalente à celle utilisée pour recueillir le consentement (par exemple, si le recueil s’est fait en ligne, il doit pouvoir être retiré en ligne également)." |
 | 28 | **Propagation of request** (can only be ask in addition of another request) |  |  |  |
 
-## Type of treatment list
+## Types of treatment list
 | Nb | Treatment | Description | CNIL reference
 | ---------- | ---- | ---- | ---- |
 | 01 |  |  |  |
