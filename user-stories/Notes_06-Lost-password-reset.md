@@ -1,4 +1,4 @@
-# Notes - Lost password reset
+# Notes - 06 Lost password reset
 
 > Working documents on figma : [Lost password reset diagrams and associated sketches](https://www.figma.com/file/G7Fm7WiOecw3n7MScbtSL9/Lost-password-reset?node-id=0%3A1)
 
