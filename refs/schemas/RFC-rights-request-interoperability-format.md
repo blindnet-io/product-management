@@ -43,7 +43,7 @@ Make sure you’ve thought through and addressed the following sections. If a se
 
 The proposed desing comes in two forms that are to be considered together:
 (1) This reference document, definining key concepts, terms and relationships in a human-readable format
-(2) A JSON Schema document (link soon), for machine-readable interpretation of Rights Requests
+(2) A JSON Schema document (link soon), for machine-readable interpretation of Rights Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
 
 The key requirements of the desing are to enable:
 - Unambiguous expression of Rights Requests in a machine-readable form
