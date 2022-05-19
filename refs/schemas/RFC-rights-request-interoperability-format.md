@@ -21,9 +21,15 @@ Therefore, a common format is needed to facilitate exchange of information witho
 **TBD** How will users (or other contributors) benefit from this work? What would be the
 headline in documentation, release notes or blog post?
 
+## Terminology
+
+We use the terms "Rights Request" and "Data Rights Request" interchangeably.
+
 ## Proposal
 
-**TBD - Clémentine: you can imput your lists of request types, tratment types etc here.**This is the meat of the document, where you explain your proposal. If you have
+**TBD - Clémentine: you can imput your lists of request types, tratment types etc here.** 
+
+This is the meat of the document, where you explain your proposal. If you have
 multiple alternatives, be sure to use sub-sections for better separation of the
 idea, and list pros/cons to each approach. If there are alternatives that you
 have eliminated, you should also list those here, and explain why you believe
