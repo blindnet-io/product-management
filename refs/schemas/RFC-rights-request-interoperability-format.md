@@ -1,4 +1,4 @@
-# Rights Request Interoperability Format
+# Rights Request Interoperability Format (RRIF)
 
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
@@ -11,7 +11,7 @@
 
 We propose a simple, structured data format for representing [Rights Requests](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-conceptualization#data-capture--rights-requests).
 
-Rights Request exist within the relationship between an individual and software systems (and organisations operating them) treating data that concerns that individual. 
+Rights Requests exist within the relationship between an individual and software systems (and organisations operating them) treating data that concerns that individual. 
 
 Systems MAY trat and respond to Rights Request by legal obligation, or as a simple courtesy in the pursuit of gaining and maintaining the individual's trust.
 
@@ -21,10 +21,11 @@ Different systems, and different compontents of a single system, including diffe
 
 Therefore, a common format is needed to facilitate exchange of information without loss of semantics.
 
-## Benefit
+## Design Considerations
 
-**TBD** How will users (or other contributors) benefit from this work? What would be the
-headline in documentation, release notes or blog post?
+The goal of the desing of the format, is to enable Rights Request interoperability, while allowing the use of different protocols and tools for:
+- user identity management and authentication,
+- encryption.
 
 ## Terminology
 
@@ -43,16 +44,16 @@ headline in documentation, release notes or blog post?
 | 02 | **Modify data organization has on me** | Rectify incorrect data organization has on me  | Information to modify, Information rectified (PF Access request + diff) | https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes |
 | 03 | **Rectify incomplete data organization has on me** | Rectify incomplete data organization has on me | Information to modify, Information rectified | https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes |
 | 04 | **Delete data organization has on me** | Deletion of data the organization has on me  | Information to delete*, Reason of deletion | https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles |
-| 05 | **Opposition to commercial prospecting** | Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files, Propagation of request to other organizations the organization may have shared the data it has me with | Account number | https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers |
+| 05 | **Opposition to commercial prospecting** | Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | Account number | https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers |
 | 06 | **Opposition to treatment of data organization has on me** | Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | Reason of deletion | https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees |
 | 07 | **Access to data financial organization has on me** | Access to all data the (financial) organization has on me, Provide with any available information on the origin of this data concerning me | Account number | https://www.cnil.fr/fr/modele/courrier/connaitre-les-informations-detenues-par-un-etablissement-financier |
 | 08 | **Stop receiving advertising from organization** | Deletion of my contact details from organization avdertising contact list | Reason of deletion | https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites |
 | 09 | **Access to data "Fichier central des Chèques (FCC)" has on me** | Access to all data Fichier central des Chèques (FCC) has on me | ID, Birthdate | https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc |
 | 10 | **Access to data "Fichier national des Incidents de remboursement de Crédit (FICP)" has on me** | Access to all data "Fichier national des Incidents de remboursement de Crédit (FICP)" has on me | ID, Birthdate | https://www.cnil.fr/fr/modele/courrier/acceder-aux-donnees-du-fichier-national-des-incidents-de-remboursement-de-credit |
-| 11 | **Access geolocation data or an access control device an organization has on me** | Access to data organization has on me on a device on a specific period of time | Device type, Date and time | https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces |
+| 11 | **Access geolocation data or an access control device an organization has on me** | Access to data organization has on me on a device on a specific period of time | "Device type, Date and time" | https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces |
 | 12 | **Acces to video data on organization has on me** | Access to video data organization has on me on a specific period of time | Date and time | https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant |
-| 13 | **Closing an online account** | Closing online account, Deletion of all data the organization has on me | Account name, Website name, URL of the pages with my data, Data to delete | https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne |
-| 14 | **Delete my data that are published on a webiste** | Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | URL of the pages with my data, Data to delete, Reason of deletion | https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet |
+| 13 | **Closing an online account** | "Closing online account, Deletion of all data the organization has on me " | Account name, Website name, URL of the pages with my data, Data to delete | https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne |
+| 14 | **Delete my data that are published on a webiste** | Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | "URL of the pages with my data, Data to delete, Reason of deletion" | https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet |
 | 15 | **Access to my medical record** | Acces to my medical record | ID |  https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical |
 | 16 | **Access to data "Preventel" has on me** | Access to data "Preventel" has on me | ID | https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel |
 | 17 | **Know where is stored the data organization has on me** |  |  |  |
@@ -89,17 +90,70 @@ headline in documentation, release notes or blog post?
 | ---------- | ---- | ---- | ---- |
 | 01 | Name | Firstname, Surname |  |
 | 02 | Postal address |  |  |
-| 03 | Email address |  |  |
+| 03 | email address |  |  |
 | 04 | ID number |  |  |
 | 05 | Financial data |  |  |
 | 06 | Login data |  |  |
 | 07 | Location data |  |  |
-| 08 | Image, Video |  |  |
-| 09 | Medical data |  |  |
 
 ### Alternatives Considered
 
-**TBD**- Make sure to discuss the relative merits of alternatives to your proposal.
+#### Transcend
+
+Transcend proposes the following [action (demand) types](https://github.com/transcend-io/privacy-types/blob/main/src/actions.ts): 
+| Demand Type | Description | Observation |
+| -------------- | ----------------------------------------- | ------------------------ |
+| ACCESS | Data Download request | |
+| ERASURE | Erase the file completely | |
+| ACCOUNT_DELETION | Run an account deletion instead of a fully compliant deletion | |
+| AUTOMATED_DECISION_MAKING_OPT_OUT | Opt out of automated decision making | |
+| CONTACT_OPT_OUT | A contact opt out request | |
+| SALE_OPT_OUT | Opt-out of the sale of personal data | |
+| TRACKING_OPT_OUT | A tracking opt out request | |
+| RECTIFICATION | Make an update to an inaccurate record | |
+| RESTRICTION | A restriction of processing request | | 
+
+All of those can be modeled using our Demand Types.
+
+Transced proposes the following [treatment types](https://github.com/transcend-io/privacy-types/blob/main/src/objects.ts):
+| Treatment Type | Description | Observation |
+| -------------- | ----------------------------------------- | ------------------------ |
+| ESSENTIAL | Provide a service that the user explicitly requests and that is part of the product's basic service or functionality| |
+| ADDITIONAL_FUNCTIONALITY | Provide a service that the user explicitly requests but that is not a necessary part of the product's basic service | |
+| ADVERTISING | To show ads that are either targeted to the specific user or not targeted | |
+| MARKETING | To contact the user to offer products, services, or other promotions | |
+| ANALYTICS | For understanding the product’s audience, improving the product, inform company strategy, or general research | |
+| PERSONALIZATION | For providing user with a personalized experience | |
+| OPERATION_SECURITY | For product operation and security, enforcement of terms of service, fraud prevention, protecting users and property, etc. | |
+| LEGAL | For compliance with legal obligations | |
+| TRANSFER | For data that was transferred as part of a change in circumstance (e.g. a merger or acquisition) | |
+| SALE | For selling the data to third parties | |
+| HR | For personnel training, recruitment, payroll, management, etc. | corresponds to ongoing contract in our terminology|
+| OTHER | Other specific purpose not covered above | |
+| UNSPECIFIED | The purpose is not explicitly stated or is unclear | |
+
+All of those SHOULD be modeled using our Treatment Types.
+
+Transced proposes the following [data categories](https://github.com/transcend-io/privacy-types/blob/main/src/objects.ts):
+| Data Category | Description | Observation |
+| -------------- | ----------------------------------------- | ------------------------ |
+| FINANCIAL | Financial information | |
+| HEALTH | Health information | |
+| CONTACT | Contact information | |
+| LOCATION |  Geo-location information | |
+| DEMOGRAPHIC | Demographic Information | |
+| ID | Identifiers that uniquely identify a person | |
+| ONLINE_ACTIVITY | The user's online activities on the first party website/app or other websites/apps | |
+| USER_PROFILE | he user’s profile on the first-party website/app and its contents | |
+| SOCIAL_MEDIA | User profile and data from a social media website/app or other third party service | |
+| CONNECTION | Connection information for the current browsing session, e.g. device IDs, MAC addresses, IP addresses, etc. | |
+| TRACKING | Cookies and tracking elements | |
+| DEVICE | Computer or device information | |
+| SURVEY | Any data that is collected through surveys | |
+| OTHER | A specific type of information not covered by the above categories | |
+| UNSPECIFIED | The type of information is not explicitly stated or unclear| |
+
+
 
 ### User Impact
 
@@ -123,9 +177,32 @@ Systems exchanging Rignts Requests MUST be able to do so in a way allowing them 
 
 For this purposes Rignts Requests MAY be embedded as 'Claims' in [JWTs (FRC7519)](https://datatracker.ietf.org/doc/html/rfc7519).
 
-### Golbaly Unique System and User IDs
+### Golbaly Unique Data Subject IDs
 
-The identifyers used to refer to Systems and to Data Subjects MUST be globaly unique.
+The identifyers used to refer to Data Subjects MUST be globaly unique. One Data Subject ID corresponds to one Data Subject. One Data Subject can have several Data Subject IDs.
+
+When refering to a Data Subject, Systems MUST use both of the following atributes:
+- `dsid` - Data Subject ID
+- `dsid-scheme` - A scheme allowign to dereference the Data Subject ID
+
+The (`dsid`,`dsid-scheme`) pair denotes a globaly unique reference to always the same Data Subject.
+
+### Data Subject ID Schemes
+
+Systems using RRIF MUST implement at least the following `dsid-scheme`:
+
+|`dsid-scheme` value | Interpretation of corresponding `dsid` value |
+| ------------------ | ---- |
+|`email-sha-256`| Indicates that the value of the corresponding `dsid` attribute is the result of the SHA-256 hashing function taking the e-mail of the Data Subject as argument |
+
+Additional Data Subject ID Schemes MAY be definied by convention.
+
+
+### Data Subject MUST be authenticated
+
+
+
+A System MAY use 
 
 
 ## Questions and Discussion Topics
