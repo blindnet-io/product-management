@@ -56,17 +56,17 @@ The goal of the desing of the format, is to enable Rights Request interoperabili
 | 14 | **Delete my data that are published on a webiste** | Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | "URL of the pages with my data, Data to delete, Reason of deletion" | https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet |
 | 15 | **Access to my medical record** | Acces to my medical record | ID |  https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical |
 | 16 | **Access to data "Preventel" has on me** | Access to data "Preventel" has on me | ID | https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel |
-| 17 | **Know where is stored the data organization has on me** |  |  |  |
-| 18 | **Know who can access the data organization has on me** |  |  |  |
-| 19 | **Know the provenance of data organization has on me** |  |  |  |
-| 20 | **Know for how long the data organization has me will be kept** |  |  | https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees |
-| 21 | **Know when my data will be deleted** |  |  |  |
-| 22 | **Know what is the policy of the organization to keep data it has on me** |  |  |  |
-| 23 | **Know the purpose of the treatment organization does on the data it has on me** |  |  |  |
+| 17 | **Where is stored the data organization has on me** | Know where is stored the data organization has on me |  |  |
+| 18 | **Who can access the data organization has on me** | Know who can access the data organization has on m |  |  |
+| 19 | **What is the provenance of data organization has on me** | Know the provenance of data organization has on me |  |  |
+| 20 | **For how long the data organization has me will be kept** | Know for how long the data organization has me will be kept |  | https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees |
+| 21 | **When my data will be deleted** | Know when my data will be deleted |  |  |
+| 22 | **What is the policy of the organization to keep data it has on me** | Know what is the policy of the organization to keep data it has on me |  |  |
+| 23 | **What is the purpose of the treatment organization does on the data it has on me** | Know the purpose of the treatment organization does on the data it has on me |  |  |
 | 24 | **Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me** |  | Type of treatment (to choose from possible type of treatment list |  |
-| 25 | **Know what type(s) of treatment organization does on the data it has on me** |  |  |  |
+| 25 | **What type(s) of treatment organization does on the data it has on me** | Know what type(s) of treatment organization does on the data it has on me** |  |  |
 | 26 | **Know if a particular type of treatment is done by organisation on the data it has on me** |  | Type of treatment (to choose from possible type of treatment list |  |
-| 27 | **Revoke consent** |  | Type of treatment (to choose from possible type of treatment list  | https://www.cnil.fr/fr/les-bases-legales/consentement "Droit au retrait : la personne doit avoir la possibilité de retirer son consentement à tout moment, par le biais d’une modalité simple et équivalente à celle utilisée pour recueillir le consentement (par exemple, si le recueil s’est fait en ligne, il doit pouvoir être retiré en ligne également)." |
+| 27 | **Revoke consent** | Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | Type of treatment (to choose from possible type of treatment list  | https://www.cnil.fr/fr/les-bases-legales/consentement "Droit au retrait : la personne doit avoir la possibilité de retirer son consentement à tout moment, par le biais d’une modalité simple et équivalente à celle utilisée pour recueillir le consentement (par exemple, si le recueil s’est fait en ligne, il doit pouvoir être retiré en ligne également)." |
 | 28 | **Propagation of request** (can only be ask in addition of another request) | Send the request to other organizations the organization may have shared the data it has me with |  |  |
 
 ### Types of treatment list
