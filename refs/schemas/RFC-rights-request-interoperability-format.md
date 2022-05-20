@@ -110,6 +110,7 @@ The design also aimes to maximise:
 | XX | **Ongoing contract** |  |  |
 | XX | **OTHER** | Other specific purpose not covered above |  |
 | XX | **UNSPECIFIED** | The purpose is not explicitly stated or is unclear |  |
+| XX | **ALL** |  |  |
 
 ### Data categories list
 | Nb | Data category | Description | CNIL reference
@@ -130,6 +131,7 @@ The design also aimes to maximise:
 | 13 | Survey data |  |  |
 | 14 | OTHER | A specific type of information not covered by the above categories | |
 | 15 | UNSPECIFIED | The type of information is not explicitly stated or unclear|
+| XX | **UNSPECIFIED** |  |  |
 
 ### Alternatives Considered
 
