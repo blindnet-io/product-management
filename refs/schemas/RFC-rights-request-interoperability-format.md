@@ -254,9 +254,9 @@ When processing Rights Request, Systems MAY automatically disregard the (`dsid`,
 
 However, the authentication does not necessairly have to be performed during the collection of the Rights Request. It can be done separately.
 
-### Data Capture IDs, Data Capture Fragment IDs, Rights Request IDs, Demand IDs, Rights Request Respons IDs are Globally Unique
+### Data Capture IDs, Data Capture Fragment IDs, Consent IDs, Rights Request IDs, Demand IDs, Rights Request Respons IDs are Globally Unique
 
-All of the following identifiers `data-capture-id`, `fragment-id`, `rights-request-id`, `demand-id`, `rights-response-id` MUST be globally unique and be generated according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html) in order for the corresponding objects to be easily identifiable across systems.
+All of the following identifiers `data-capture-id`, `fragment-id`, `consent-id`, `rights-request-id`, `demand-id`, `rights-response-id` MUST be globally unique and be generated according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html) in order for the corresponding objects to be easily identifiable across systems.
 
 
 ## Questions and Discussion Topics
