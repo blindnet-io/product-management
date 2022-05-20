@@ -1,4 +1,4 @@
-# Title of RFC
+# Rights Request Interoperability Format
 
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
@@ -11,9 +11,14 @@
 
 We propose a simple, structured data format for representing [Rights Requests](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-conceptualization#data-capture--rights-requests).
 
+Rights Request exist within the relationship between an individual and software systems (and organisations operating them) treating data that concerns that individual. 
+
+Systems MAY trat and respond to Rights Request by legal obligation, or as a simple courtesy in the pursuit of gaining and maintaining the individual's trust.
+
 ## Motivation
 
 Different systems, and different compontents of a single system, including different comnponents of blindnet devkit are likely to exchange information about Rights Requests.
+
 Therefore, a common format is needed to facilitate exchange of information without loss of semantics.
 
 ## Benefit
@@ -23,7 +28,10 @@ headline in documentation, release notes or blog post?
 
 ## Terminology
 
-We use the terms "Rights Request" and "Data Rights Request" interchangeably.
+- We use the terms Rights Request, Data Subject, System as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
+- We use the terms Rights Request and Data Rights Request interchangeably
+- We use MUST, MUST NOT and MAY, as defined in [IETF RFC2119](https://datatracker.ietf.org/doc/html/rfc2119)
+
 
 ## Proposal
 
@@ -97,15 +105,26 @@ We use the terms "Rights Request" and "Data Rights Request" interchangeably.
 
 ## Detailed Design
 
-The proposed desing comes in two forms that are to be considered together:
-(1) This reference document, definining key concepts, terms and relationships in a human-readable format
-(2) A JSON Schema document (link soon), for machine-readable interpretation of Rights Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
+### JSON format
 
-The key requirements of the desing are to enable:
+In addition to this specification document we provide a JSON Schema document (link soon), for machine-readable interpretation of Rights Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
+
+The key requirements of the design are to enable:
 - Unambiguous expression of Rights Requests in a machine-readable form
 - Integrity of Rights Requests semantics when exchanged between components and systems. 
 I.e. A system that has not directly collected the Rights Requests from the user, but has received in in JSON format from another system, can make the exact same interpretation of the request as if it had collected the request directly.
 - A way of uniquely identifying one and the same Rights Request across systems and components concerned by it.
+
+### Authenticated exchanges
+
+Systems exchanging Rignts Requests MUST be able to do so in a way allowing them to very the integrity of their content, and the identity of the system having emitted the Rignts Request.
+
+For this purposes Rignts Requests MAY be embedded as 'Claims' in [JWTs (FRC7519)](https://datatracker.ietf.org/doc/html/rfc7519).
+
+### Golbaly Unique System and User IDs
+
+The identifyers used to refer to Systems and to Data Subjects MUST be globaly unique.
+
 
 ## Questions and Discussion Topics
 
