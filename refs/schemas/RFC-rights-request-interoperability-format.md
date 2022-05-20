@@ -131,7 +131,7 @@ The design also aimes to maximise:
 | 13 | Survey data |  |  |
 | 14 | OTHER | A specific type of information not covered by the above categories | |
 | 15 | UNSPECIFIED | The type of information is not explicitly stated or unclear|
-| XX | **UNSPECIFIED** |  |  |
+| XX | **ALL** |  |  |
 
 ### Alternatives Considered
 
