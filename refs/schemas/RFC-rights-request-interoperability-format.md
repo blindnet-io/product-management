@@ -25,9 +25,15 @@ Our goal is to establish a shared semantics of Rights Request so that their proc
 
 ## Design Considerations
 
-The goal of the desing of the format, is to enable Rights Request interoperability, while allowing the use of different protocols and tools for:
-- user identity management and authentication,
-- encryption.
+The design also aimes to maximise:
+- Consistent Interpretation of Rights Request accorss different Systems
+- Automatisation of Rights Request Processing
+- Confidentialty of data
+- Compatibility with the use of different protocols and tools for:
+    - user identity management and authentication,
+    - encryption.
+
+
 
 ## Terminology
 
