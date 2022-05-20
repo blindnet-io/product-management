@@ -40,10 +40,10 @@ The goal of the desing of the format, is to enable Rights Request interoperabili
 <!-- prettier-ignore -->
 | Nb | Request | Description | Advised elements to provide| CNIL reference
 | ---------- | ---- | ---- | ---- |---- |
-| 01 | **Access to data organization has on me** | Access to all data the organization has on me  |  | https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces |
-| 02 | **Modify data organization has on me** | Rectify incorrect data organization has on me  | Information to modify, Information rectified (PF Access request + diff) | https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes |
+| 01 | **Access** | Access to all data the organization has on me  |  | https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces |
+| 02 | **Modification** | Rectify incorrect data organization has on me  | Information to modify, Information rectified (PF Access request + diff) | https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes |
 | 03 | **Rectify incomplete data organization has on me** | Rectify incomplete data organization has on me | Information to modify, Information rectified | https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes |
-| 04 | **Delete data organization has on me** | Deletion of data the organization has on me  | Information to delete*, Reason of deletion | https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles |
+| 04 | **Deletion** | Delete the data the organization has on me  | Information to delete*, Reason of deletion | https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles |
 | 05 | **Opposition to commercial prospecting** | Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | Account number | https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers |
 | 06 | **Opposition to treatment of data organization has on me** | Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | Reason of deletion | https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees |
 | 07 | **Access to data financial organization has on me** | Access to all data the (financial) organization has on me, Provide with any available information on the origin of this data concerning me | Account number | https://www.cnil.fr/fr/modele/courrier/connaitre-les-informations-detenues-par-un-etablissement-financier |
@@ -51,7 +51,7 @@ The goal of the desing of the format, is to enable Rights Request interoperabili
 | 09 | **Access to data "Fichier central des Chèques (FCC)" has on me** | Access to all data Fichier central des Chèques (FCC) has on me | ID, Birthdate | https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc |
 | 10 | **Access to data "Fichier national des Incidents de remboursement de Crédit (FICP)" has on me** | Access to all data "Fichier national des Incidents de remboursement de Crédit (FICP)" has on me | ID, Birthdate | https://www.cnil.fr/fr/modele/courrier/acceder-aux-donnees-du-fichier-national-des-incidents-de-remboursement-de-credit |
 | 11 | **Access geolocation data or an access control device an organization has on me** | Access to data organization has on me on a device on a specific period of time | "Device type, Date and time" | https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces |
-| 12 | **Acces to video data on organization has on me** | Access to video data organization has on me on a specific period of time | Date and time | https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant |
+| 12 | **Access to video data** | Access to video data organization has on me on a specific period of time | Date and time | https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant |
 | 13 | **Closing an online account** | "Closing online account, Deletion of all data the organization has on me " | Account name, Website name, URL of the pages with my data, Data to delete | https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne |
 | 14 | **Delete my data that are published on a webiste** | Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | "URL of the pages with my data, Data to delete, Reason of deletion" | https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet |
 | 15 | **Access to my medical record** | Acces to my medical record | ID |  https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical |
@@ -68,6 +68,10 @@ The goal of the desing of the format, is to enable Rights Request interoperabili
 | 26 | **Know if a particular type of treatment is done by organisation on the data it has on me** |  | Type of treatment (to choose from possible type of treatment list |  |
 | 27 | **Revoke consent** | Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | Type of treatment (to choose from possible type of treatment list  | https://www.cnil.fr/fr/les-bases-legales/consentement "Droit au retrait : la personne doit avoir la possibilité de retirer son consentement à tout moment, par le biais d’une modalité simple et équivalente à celle utilisée pour recueillir le consentement (par exemple, si le recueil s’est fait en ligne, il doit pouvoir être retiré en ligne également)." |
 | 28 | **Propagation of request** (can only be ask in addition of another request) | Send the request to other organizations the organization may have shared the data it has me with |  |  |
+| 29 | **Opt out of automated decision making** | Opposition to automated decision making on the data organizatio has on me |  |  |
+| 30 | **Opt out of sale of my data** | Opposition to sale of the data an organization has on me|  |  |
+| 31 | **Opt out of tracking on my data** | Opposition to the tracking of my data from an organization |  |  |
+| 32 | **Opt out of contact lists** | Delete my contact details from all contact lists an ornaginzation has with my contact details|  |  |
 
 ### Types of treatment list
 | Nb | Treatment | Description | CNIL reference
@@ -84,17 +88,40 @@ The goal of the desing of the format, is to enable Rights Request interoperabili
 | 11 | **Communication** | Data communication by transmission or broadcast or any other form of data communication | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
 | 12| *FR: "Rapprochement" -> EN: "Matching" or "Reconciliation" ?* |  | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
 | 13 | **Automatic Inference and Descisionmaking** | Any automatic inference made on the data | [GDPR chap3 art. 13 section 2. c)](https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article13)|
+| XX | **Essential/basic** | Provide a service that the user explicitly requests and that is part of the product's basic service or functionality |  |
+| XX | **Additonal functionality** | Provide a service that the user explicitly requests but that is not a necessary part of the product's basic service |  |
+| XX | **Advertising** | To show ads that are either targeted to the specific user or not targeted |  |
+| XX | **Marketing** |  To contact the user to offer products, services, or other promotions |  |
+| XX | **Analytics** | For understanding the product’s audience, improving the product, inform company strategy, or general research |  |
+| XX | **Personnalisation** | For providing user with a personalized experience |  |
+| XX | **Operation security** | For product operation and security, enforcement of terms of service, fraud prevention, protecting users and property, etc. |  |
+| XX | **Legal** | For compliance with legal obligations |  |
+| XX | **Ongoing contract** |  |  |
+| XX | **Transfer** | For data that was transferred as part of a change in circumstance (e.g. a merger or acquisition) |  |
+| XX | **Sale** | Selling data to third parties |  |
+| XX | **Ongoing contract** |  |  |
+| XX | **OTHER** | Other specific purpose not covered above |  |
+| XX | **UNSPECIFIED** | The purpose is not explicitly stated or is unclear |  |
 
 ### Data categories list
 | Nb | Data category | Description | CNIL reference
 | ---------- | ---- | ---- | ---- |
 | 01 | Name | Firstname, Surname |  |
-| 02 | Postal address |  |  |
-| 03 | email address |  |  |
-| 04 | ID number |  |  |
+| 02 | Postal address | *contact information* |  |
+| 03 | Email address | *contact information* |  |
+| 04 | Phone number | *contact information* |  |
+| 04 | ID data | Identifiers that uniquely identify a person |  |
 | 05 | Financial data |  |  |
-| 06 | Login data |  |  |
-| 07 | Location data |  |  |
+| 06 | Connection data |  |  |
+| 07 | Location data | Geolocation information |  |
+| 08 | Health data |  |  |
+| 09 | Online activity data |  |  |
+| 10 | Tracking data |  |  |
+| 11 | User profile | user’s profile on the first-party website/app and its contents |  |
+| 12 | Device data |  |  |
+| 13 | Survey data |  |  |
+| 14 | OTHER | A specific type of information not covered by the above categories | |
+| 15 | UNSPECIFIED | The type of information is not explicitly stated or unclear|
 
 ### Alternatives Considered
 
