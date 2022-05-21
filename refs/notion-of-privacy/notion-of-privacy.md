@@ -151,7 +151,7 @@ Researchers consider privacy-oblivious behavior to be a result of technological 
 
 ### Internet Systems are Tools For Connection
 
-The rise of Internet Systems and of the Web is inspired by the concept of Memex, proposed by Vannevar Bush in 1945 in his article *As We May Think*[^25]. Memex is imagined as a tehorethical machine that humans can use to augment their cognitive powers. Memex can store information and provide access to it at later times. Also Memex is collaborative, as it can facilitate access to information provided by others - a *collective memory-extension tool*.
+The rise of Internet Systems and of the Web[^29] is inspired by the concept of Memex, proposed by Vannevar Bush in 1945 in his article *As We May Think*[^25]. Memex is imagined as a tehorethical machine that humans can use to augment their cognitive powers. Memex can store information and provide access to it at later times. Also Memex is collaborative, as it can facilitate access to information provided by others - a *collective memory-extension tool*.
 
 Memex was the inspiration for:
 - NLS[^26], a system that used the early internet infrastructure to demonstrate the pioneering use of videoconferencing, collaborative document editing, hypermedia, document version control and many other concepts prevalent in modern Internet Systems. Developed in 1968, by Doug Engelbart, it was the first system to implement practical use of hypertext links[^27] for connecting information
@@ -225,3 +225,4 @@ A system collecting user’s data, that shares this data with other systems, is 
 [^26]: [NLS](https://en.wikipedia.org/wiki/NLS_(computer_system)) by Doug Engelbart
 [^27]: [Hypertext](https://en.wikipedia.org/wiki/Hypertext)
 [^28]: [World Wide Web](https://en.wikipedia.org/wiki/World_Wide_Web)
+[^29]: The **Internet** is a global network, while the **Web** is a structure of information that is accessed via the Internet
