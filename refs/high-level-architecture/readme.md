@@ -29,11 +29,11 @@ Also, having the right structure of components is very important for several rea
 
 ### Overview of the Context
 
-<img width="1400" alt="HIGH-LEVEL ARCHITECTURE" src="./img/hla.png">
-
 ### Key Functions
 
 The system supports secure capture of data and management of Data Subjects' rights throughout the data lifecycle.
+
+<img width="1400" alt="HIGH-LEVEL ARCHITECTURE" src="./img/hla.png">
 
 As such it needs to support the following functions:
 
@@ -45,10 +45,17 @@ As such it needs to support the following functions:
 
 ## Proposal - Components
 
+All components can be observed in their roles in the following, more detailed immage:
+
+<img width="1400" alt="HIGH-LEVEL ARCHITECTURE" src="./img/HLA-detail.png">
+
 ### Capture Component
 
 The Capture Component is the entry point of the product. It is responsible for putting in motion [Data Captures](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#the-main-concept---data-capture) in a way that reinforces privacy by ensuring confidentiality and control.
+
 It may be responsible for encrypting the data, obtaining [Consent](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#data-capture--consent), and generating Data Capture metadata.
+
+Data can be captured from the Data Subject themself, or from someone else, a Data Submitter. The roles of Data Subject, Data Submitter and Data Consumer are not exclusive. The same person can be in all roles.
 
 ### Encryption and Access Management Engine
 
@@ -86,9 +93,9 @@ To compute the appropriate actions, this component can register and take into ac
 A **_Data Rights Request Capture Interface_** is a standardized end-user interface that systems can (optionally) run to capture Data Rights Requests from Data Subjects.
 A global Data Rights Request Capture Interface can be hosted on an easy-to-remember URL to capture Data Rights Requests in a standardized format (Data Rights Request Schema) on behalf of other systems.
 
-#### Customizable API
+#### Customization API
 
-The **_Customizable API_** allows Client Systems and end-user-facing components to:
+The **_Customization API_** allows Client Systems and end-user-facing components to:
 
 - set and modify system-specific [Settings](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#form-follows-function) related to Data Rights and compliance (e.g. storage location, mandatory duration of data keeping, legal grounds of treatment etc.)
 - register and keep track of system-to-system transfers of data captures and noteworthy operations performed on data
@@ -104,7 +111,7 @@ This engine works in a way inspired by [Digital Rights Management](https://en.wi
 The Data Consumer Interface component allows [Data Consumers (in different roles, including system administrators and DPOs)](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#submitter--data-consumer--dpo) to interact with the components of the system.
 It allows the following functions (that can be used separately and should correspond to separate subcomponents):
 
-- _VIEW_: Data display for the eyes of authorized, authenticated Data Consumers, [acceptance/validation of Data Captures](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md#data-capture---states), and data deletion/modification;
+- _VIEW_AND_MANAGE_: Data display for the eyes of authorized, authenticated Data Consumers, [acceptance/validation of Data Captures](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md#data-capture---states), and data deletion/modification;
 - _CONFIGURE_: Input of parameters related to data rights management, necessary for the operation of the Data Rights Computation Engine (e.g. storage location, mandatory duration of data keeping, [Legal Grounds](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md#data-capture--legal-ground) etc.);
 - _COMPLY_: Input related to treatment (acceptance, denial) of Data Rights Requests, review of past Data Rights Requests and obtaining proof of past Data Rights Requests responses.
 
