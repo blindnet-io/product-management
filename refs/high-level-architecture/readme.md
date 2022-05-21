@@ -5,7 +5,7 @@
 | **PR #**      | [596](https://github.com/blindnet-io/product-management/pull/596) |
 | **Author(s)** | milstan (milstan@blindnet.io)                                     |
 | **Sponsor**   | Filip (filip@blindnet.io)                                         |
-| **Updated**   | 2022-05-09                                                        |
+| **Updated**   | 2022-05-20                                                        |
 
 ## Objective
 
@@ -45,9 +45,9 @@ As such it needs to support the following functions:
 
 ## Proposal - Components
 
-All components can be observed in their roles in the following, more detailed immage:
+All components can be observed in their roles in the following, more detailed image:
 
-<img width="1400" alt="HIGH-LEVEL ARCHITECTURE" src="./img/HLA-detail.png">
+<img width="1400" alt="HIGH-LEVEL ARCHITECTURE DETAIL" src="./img/HLA-detail.png">
 
 ### Capture Component
 
@@ -143,13 +143,36 @@ These abstractions should follow the [Bridge Pattern](https://en.wikipedia.org/w
 
 This interoperability should support the following (extreme) example scenarios:
 
-- A system that users Keycloak for user identity management, can use our Data Capture component in combination with 3rd party Encryption library. The system can instantiate and use our Data Rights Computation Engine, and implement their own Storage able to automatically interpret and enforce actions resulting as output of the Data Rights Computation Engine (automatic deletion and modification).
+- A system that uses Keycloak for user identity management, can use our Data Capture component in combination with 3rd party Encryption library. The system can instantiate and use our Data Rights Computation Engine, and implement their own Storage able to automatically interpret and enforce actions resulting as output of the Data Rights Computation Engine (automatic deletion and modification).
 - A system that is essentially a wordpress website, can embed the Capture Component in a wordpress webform, use the Storage Component, the Data Consumer Interface (as separate from the wordpress website), use Data Rights Computation Engine and embed the A Data Rights Request Capture Interface in the wordpress website respecting its look and feel.
 - A system that has their own user identity management, uses 3rd party e2ee library, has its own storage and interfaces for data view, can instantiate the Data Rights Computation Engine and use only the parts of the Data Consumer Interface related to Data Rights Request parametration and approval.
 
 ### Separation of Form and Function
 
 The components of the system should be made in such a way that a client system can use only the functional part and implement its own interfaces or otherwise achieve its own desired look and feel and UX.
+
+### Different Rights Request Response Scenrarios
+
+Thanks to the *Data Rights Computation Engine* the system allows to automatically (or semi-automatically) process Data Rights Requests, and do so in a distributed context of several Systems sharing and processing Data Subject's data.
+
+When *Data Rights Requests* are trnsmitted from one System to another, there may be several scenarios for responding to the Data Subject. The design supports at least the following
+
+#### Scenario 1 - Nested Responses
+
+In this scenario, one System receives a Data Rights Request from the Data Subject, and transmits it to other Systems. Those Systems calculate their own responses to the Data Rights Request, and they send their reponses to the System from whom they have received the Data Rights Request. This System then replies to the Data Subject.
+
+<img width="1400" alt="Scenario 1 - Nested Responses" src="./img/drr-response-scenario1.png">
+
+This scenario is adapted to Data Rights Requests that do not involve access to the data, especially when not all systems have the Data Subject's contact information (and may want to remain blind for it). For this scenario to work, Systems must expose functions for receving the responses from other Systems.
+
+#### Scenario 2 - Direct Responses
+
+In this scenario, one System receives a Data Rights Request from the Data Subject, and transmits it to other Systems. Those Systems calculate their own responses to the Data Rights Request, and they send their reponses directly to the Data Subject.
+
+<img width="1400" alt="Scenario 2 - Direct Responses" src="./img/drr-response-scenario2.png">
+
+This scenario is adapted to Data Rights Requests where revealing of the response to other Systems (instaed of sending it directly to the Data Subject) might further compromise the Data Subject's privacy OR when the system having collected the Data Rights Request from the Data Subject is a serverless system (unable to receive responses from other systems). For this scenario to work, it might be necessary, if not already the case, to share Data Subject's contact data among the corresponding Systems.
+
 
 ## Related Documents
 
