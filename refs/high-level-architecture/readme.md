@@ -61,9 +61,11 @@ Data can be captured from the Data Subject themself, or from someone else, a Dat
 
 The Encryption and Access Management is composed of SDKs and APIs allowing to encrypt and decrypt the data in the context of [Data Captures](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#the-main-concept---data-capture).
 
-This component can work with external user identity management solutions.
-The component allows Client Systems and user-facing components to define and modify the intended Data Consumers of a particular Data Capture.
+This component can work with external user identity management solutions, as well as external encryption tools.
+The component is responsible to allow Client Systems and user-facing components to define and modify the intended Data Consumers of a particular Data Capture.
 This component also provides functions allowing to support [Data Consumers](https://github.com/blindnet-io/product-management/blob/milstan-hla/refs/high-level-conceptualization/README.md#submitter--data-consumer--dpo) in situations of lost access.
+
+The component MAY accomlish those responsabilites through coordination with user identity management and encryption tools (external or not).
 
 ### Data Rights Computation Engine
 
