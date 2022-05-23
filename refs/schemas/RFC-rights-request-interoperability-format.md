@@ -4,7 +4,7 @@
 | :------------ | :------------------------------------------------------------------------------------- |
 | **PR #**      | [NNN](https://github.com/blindnet-io/PROJECT/pull/NNN) (update when you have PR #)     |
 | **Author(s)** | milstan (milstan@blindnet.io), Clémentine VINCENT (clementine@blindnet.io)             |
-| **Sponsor**   | Filip (filip@blindnet.io)                                                              |
+| **Sponsor**   | milstan (milstan@blindnet.io)                                                         |
 | **Updated**   | 2022-05-19                                                                             |
 
 ## Objective
@@ -37,9 +37,12 @@ The design also aimes to maximise:
 
 ## Terminology
 
+>**TO BE Updated** once Lexicon and High Level Conceptualization are synchronised
+
 - We use the terms Rights Request, Data Subject, System as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
 - We use the terms Rights Request and Data Rights Request interchangeably
 - We use MUST, MUST NOT and MAY, as defined in [IETF RFC2119](https://datatracker.ietf.org/doc/html/rfc2119)
+- We use all the terms from the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv) as defined there.
 
 
 ## Proposal
@@ -214,9 +217,15 @@ Systems exchanging Rignts Requests MUST be able to do so in a way allowing them 
 
 For this purposes Rignts Requests MAY be embedded as 'Claims' in [JWTs (FRC7519)](https://datatracker.ietf.org/doc/html/rfc7519).
 
-### Globaly Unique Data Subject IDs
+### Decentralized Identity of Data Subject
 
-The identifyers used to refer to Data Subjects MUST be globaly unique. One Data Subject ID corresponds to one Data Subject. One Data Subject can have several Data Subject IDs.
+The Systems are only able to provide control to Data Subjects if they can identify them. On the other hand, there is no cetnral authority to manage Data Subject identity globally. 
+
+Therefore, we use a set of atributes to uniquely indenitfy one Data Subject. One and the same Data Subject can have multiple such identities.
+
+#### Globaly Unique Data Subject Identities
+
+The identifyers used to refer to Data Subjects MUST be globaly unique. One Data Subject identity corresponds to one Data Subject. One Data Subject can have several Data Subject Identity.
 
 When refering to a Data Subject, Systems MUST use both of the following atributes:
 - `dsid` - Data Subject ID
@@ -224,9 +233,11 @@ When refering to a Data Subject, Systems MUST use both of the following atribute
 
 The (`dsid`,`dsid-schema`) pair denotes a globaly unique reference to always the same Data Subject.
 
+We refer to (`dsid`,`dsid-schema`) pairs as Data Subject Identities.
+
 A Rights Request MAY include several (`dsid`,`dsid-schema`) pairs that refer to the same user, in order to facilitate the interoperability of Rights Requests across systems.
 
-### Data Subject ID Schemas
+#### Data Subject ID Schemas
 
 Systems using RRIF MUST implement at least the following `dsid-schema`:
 
@@ -246,15 +257,23 @@ Additional Data Subject ID Schemes MAY be definied by convention. For example th
 | ------------------- | ---- |
 |`global-id`| Indicates that the value of the corresponding `dsid` attribute is the `gid_name` - User's GlobaliD name - used to identify the Data Subject in [GlobalId](https://developer.global.id/documentation/api%2Fidentity.html)|
 
-### Data Subject SHOULD be Authenticated
+#### Data Subject SHOULD be Authenticated
 
 In some cases, valid reasons MAY exist for Systems to respond to Rights Requests even from anonymous Data Subjects. This is the case, for example, with request relative to general data treatment practices practiced by the system.
 
-However, in most cases, Systems SHOULD require the Data Subject to be authenticated as being indeed the person corresponding to the (`dsid`,`dsid-schema`) pair.
+However, in most cases, Systems MUST require the Data Subject to be authenticated as being indeed the person corresponding to the (`dsid`,`dsid-schema`) pair.
 
 When processing Rights Request, Systems MAY automatically disregard the (`dsid`,`dsid-schema`) paris for which they have not been able to establish Data Subject authentication.
 
 However, the authentication does not necessairly have to be performed during the collection of the Rights Request. It can be done separately.
+
+#### Matching Multiple Data Subject Identities
+
+Systems MAY keep track of Data Subject Identities that refer to the same Data Subject. In some cases, valid reasons MAY exist for Systems to ignore such information.
+
+When Systems do know that one Data Subject Identity corresponds to the same user as another Data Subject Identity, then Systems SHOULD offer the Data Subject a possibility for their Rights Requests, expressed in relation to one Data Subject Identity to be automatically extended to include other equivalent Data Subject Identities.
+
+Systems SHOULD NOT imply Data Subject Identity equivalence from Rights Requests, especially when granding Rights Requests that require authentication.
 
 ### Data Capture IDs, Data Capture Fragment IDs, Consent IDs, Rights Request IDs, Demand IDs, Rights Request Respons IDs are Globally Unique
 
