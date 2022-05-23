@@ -73,9 +73,6 @@ When System B receives an `INTRANSITIVE` Rights Request, it SHOULD NOT transfer 
 
 Systems should interpret the transitivity of Rights Request the same way regardless of the Rights Request being received directly from the Data Subject or from a corresponding System.
 
-> **Note**
-> 
-> Systems that exchange Data Subject information with other Systems MUST expose an interface for receiving Rights Requests from those other Systems.
 
 ### Requests list
 <!-- prettier-ignore -->
@@ -317,6 +314,10 @@ When data about Data Subjects is transmitted from one system to another, in orde
 - Identifiers (`data-capture-id`s,`fragment-id`s) associated to the data being trasnfered
 - Consents (`consent-id`) associated to the data being trasnfered
 - Data Subject Identities (`dsid`,`dsid-schema`) pairs associated to the data being trasnfered
+
+> **Note**
+> 
+> Systems that exchange Data Subject information with other Systems MUST expose an interface for receiving Rights Requests from those other Systems. They MUST aslo be able to gather Rights Request Responses from other Systems in the case of [Nested Responses Scenario](https://github.com/blindnet-io/product-management/tree/devkit-schemas/refs/high-level-architecture#different-rights-request-response-scenrarios). 
 
 ## Questions and Discussion Topics
 
