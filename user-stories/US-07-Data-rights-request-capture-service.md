@@ -66,11 +66,11 @@
 
 **because** I want to exercise several data rights on the data an organization has one me
 
-## 07-2 Organization receiving Data rights request
+## 07-2 Organization (not using blindnet devkit/Privateform) receiving Data rights request
 
 ### US-07-2-01
 
-**As an** organization receiving Data rights request (not using blindnet devkit/Privateform)
+**As an** organization (not using blindnet devkit/Privateform) receiving Data rights request 
 
 **I want to** know the request I received has been sent by blindnet Data rights request capture service and be informed about Privateform
 
@@ -78,7 +78,7 @@
 
 ### US-07-2-02
 
-**As an** organization receiving Data rights request (not using blindnet devkit/Privateform)
+**As an** organization (not using blindnet devkit/Privateform) receiving Data rights request 
 
 **I want to** be able to recognize the user who made the request in my system
 
@@ -86,7 +86,7 @@
 
 ### US-07-2-03
 
-**As an** organization receiving Data rights request using blindnet devkit/Privateform
+**As an** organization, using blindnet devkit/Privateform, receiving Data rights request 
 
 **I want to** receive the request in the Data rights request section of my system/my Privatefrom account
 
@@ -94,7 +94,7 @@
 
 ### US-07-2-04
 
-**As an** organization receiving Data rights request (using or not using blindnet devkit/Privateform)
+**As an** organization (using or not using blindnet devkit/Privateform) receiving Data rights request
 
 **I want to** transfer the request to another organization if the request concerns data I transfered to another organization
 
@@ -102,7 +102,7 @@
 
 ### US-07-2-05
 
-**As an** organization receiving Data rights request (using blindnet devkit/Privateform)
+**As an** organization, using blindnet devkit/Privateform, receiving Data rights request
 
 **I want to** have an entry point for the Data rights request service embedded on the GDPR section of my website
 
