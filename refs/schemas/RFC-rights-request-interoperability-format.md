@@ -47,6 +47,36 @@ The design also aimes to maximise:
 
 ## Proposal
 
+### Rights Request
+
+A Rights Request is made by a Data Subject. 
+An array of one or more [Data Subject Identities](#decentralized-identity-of-data-subjects) MUST be provided in order to match the Data Subject with the data concerning them.
+
+The Data Subject can request several things (e.g. see the data the System has on me, and have it deleted).
+A Rights Request includes an array of one or more Demands.
+
+#### Demands
+
+#### Transitive Rights Request
+
+A Rights Request can be transitive.
+Transitive Rights Requests are usefull in a distributed context where System A gave information about the Data Subject to System B, and System B gave information about the Data Subject to System C.
+
+When a System receives a transitive Rights Request, it SHOULD not only respond to it, but also transfer it to corresponding Systems with which it exchnaged data about the Data Subject.
+
+Transitivity of Rights Requests can be `DOWNWARD` `UPWARD`, `BIDIRECTIONAL` or `INTRANSITIVE`. In the absence of any indication `INTRANSITIVE` SHOULD be assumed.
+
+When System B receives a `DOWNWARD` transitive Rights Request, it MUST also send it to all systems to which it tranfered data about the Data Subject (System C).
+When System B receives a `UPWARD` transitive Rights Request, it MUST also send it to all systems from which it obtained data about the Data Subject (System A).
+When System B receives a `BIDIRECTIONAL` transitive Rights Request, it MUST also send it to all systems from which it obtained data about the Data Subject or to which it gave information about the Data Subject (System A and System C).
+When System B receives an `INTRANSITIVE` Rights Request, it SHOULD NOT transfer it to any other system.
+
+Systems should interpret the transitivity of Rights Request the same way regardless of the Rights Request being received directly from the Data Subject or from a corresponding System.
+
+> **Note**
+> 
+> Systems that exchange Data Subject information with other Systems MUST expose an interface for receiving Rights Requests from those other Systems.
+
 ### Requests list
 <!-- prettier-ignore -->
 | Nb | Request | Description | Advised elements to provide| CNIL reference
@@ -217,7 +247,7 @@ Systems exchanging Rignts Requests MUST be able to do so in a way allowing them 
 
 For this purposes Rignts Requests MAY be embedded as 'Claims' in [JWTs (FRC7519)](https://datatracker.ietf.org/doc/html/rfc7519).
 
-### Decentralized Identity of Data Subject
+### Decentralized Identity of Data Subjects
 
 The Systems are only able to provide control to Data Subjects if they can identify them. On the other hand, there is no cetnral authority to manage Data Subject identity globally. 
 
@@ -279,6 +309,14 @@ Systems SHOULD NOT imply Data Subject Identity equivalence from Rights Requests,
 
 All of the following identifiers `data-capture-id`, `fragment-id`, `consent-id`, `rights-request-id`, `demand-id`, `rights-response-id` MUST be globally unique and be generated according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html) in order for the corresponding objects to be easily identifiable across systems.
 
+### Remembering Transfers
+
+When data about Data Subjects is transmitted from one system to another, in order to be able to process [Transitive Rights Requests](#transitive-rights-request), Systems MUST keep track of:
+- System of destination/origin
+- Categories of data being trasnfered
+- Identifiers (`data-capture-id`s,`fragment-id`s) associated to the data being trasnfered
+- Consents (`consent-id`) associated to the data being trasnfered
+- Data Subject Identities (`dsid`,`dsid-schema`) pairs associated to the data being trasnfered
 
 ## Questions and Discussion Topics
 
