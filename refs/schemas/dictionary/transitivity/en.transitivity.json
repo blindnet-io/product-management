@@ -1,0 +1,6 @@
+{
+  "INTRANSITIVE": "Do not transfer this Rights Request to any other system", 
+  "BIDIRECTIONAL": "Transfer this Rights Request to systems that gave or that received data about me", 
+  "DOWNWARD": "Transfer this Rights Request to all the systems which you have shared my data with", 
+  "UPWARD": "Transfer this Rights Request to all the systems that have shared my data with you"
+}
