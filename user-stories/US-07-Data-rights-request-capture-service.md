@@ -4,7 +4,7 @@
 | User Stories | 07 |
 | ---------- | ---- |
 | **Status** | Draft |
-| **Design** | [Figma activity diagram](https://www.figma.com/file/miUd9PEmLrjut53rwrQViX/Data-rights-request-capture-service?node-id=0%3A1)
+| **Design** | [Figma activity diagram (draft)](https://www.figma.com/file/miUd9PEmLrjut53rwrQViX/Data-rights-request-capture-service?node-id=0%3A1)
 | **Previous discussions** | https://github.com/blindnet-io/product-ideas/issues/22
 | **Other documents** | [Requests list](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/RFC-rights-request-interoperability-format.md)
 
