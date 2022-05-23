@@ -52,12 +52,12 @@ The design also aimes to maximise:
 | 01 | **Access** | Access to all data the organization has on me  | ID | https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces |
 | 15 | **Access to my medical record** | Acces to my medical record | ID |  https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical |
 | 16 | **Access to data "Preventel" has on me** | Access to data "Preventel" has on me | ID | https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel |
-| 07 | **Access to data a financial organization has on me** | Access to all data the (financial) organization has on me, Provide with any available information on the origin of this data concerning me | ID, Account number | https://www.cnil.fr/fr/modele/courrier/connaitre-les-informations-detenues-par-un-etablissement-financier |
+| 07 | **Access to data a financial organization has on me** | Access to all data the (financial) organization has on me, Provide with any available information on the origin of this data concerning me *(access+provenance info request)* | ID, Account number | https://www.cnil.fr/fr/modele/courrier/connaitre-les-informations-detenues-par-un-etablissement-financier |
 | 09 | **Access to data "Fichier central des Chèques (FCC)" has on me** | Access to all data Fichier central des Chèques (FCC) has on me | ID, Birthdate | https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc |
 | 10 | **Access to data "Fichier national des Incidents de remboursement de Crédit (FICP)" has on me** | Access to all data "Fichier national des Incidents de remboursement de Crédit (FICP)" has on me | ID, Birthdate | https://www.cnil.fr/fr/modele/courrier/acceder-aux-donnees-du-fichier-national-des-incidents-de-remboursement-de-credit |
-| 11 | **Access to geolocation data or an access control device an organization has on me** | Access to data organization has on me on a device on a specific period of time | ID, Device type, Date and time | https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces |
-| 12 | **Access to video data** | Access to video data organization has on me on a specific period of time | ID, Date and time | https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant |
-| 34 | **Exerce my right to portability** | Receive the data that concerns me and reuse them, transmit them to another data controller | ID | https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite |
+| 11 | **Access to geolocation data or an access control device an organization has on me** | Access to data organization has on me on a device on a specific period of time *access request to geolocation data and device data* | ID, Device type, Date and time | https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces |
+| 12 | **Access to video surveillance data** | Access to video data organization has on me on a specific period of time *access request to video surveillance data* | ID, Date and time | https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant |
+| 34 | **Exerce my right to portability** | Receive the data that concerns me and reuse them, transmit them to another data controller *access request + donwnload?* | ID | https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite |
 | -- | MODIFICATION TYPE | ---- | ---- |---- |
 | 02 | **Modification** | Rectify incorrect data organization has on me  | ID, Information to modify, Information rectified (PF Access request + diff) | https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes |
 | 03 | **Rectification** | Rectify incomplete data organization has on me | ID, Information to modify, Information rectified | https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes |
@@ -129,16 +129,18 @@ The design also aimes to maximise:
 | 04 | **ID data** | Identifiers that uniquely identify a person |  |
 | 05 | **Financial data** | Financial information |  |
 | 06 | **Connection data** | Information associated to connection |  |
-| 07 | **Location data** | Geolocation information |  |
+| 07 | **Geoocation data** | Location information |  |
 | 08 | **Health data** | Health information |  |
 | 09 | **Online activity data** | The user's online activities on the first party website/app or other websites/apps |  |
 | 10 | **Tracking data** | Cookies and tracking information |  |
 | 11 | **User profile** | user’s profile on the first-party website/app and its contents |  |
 | 12 | **Device data** | Device (desktop, tablet, mobile...) information |  |
 | 13 | **Form data** | Information collected through forms  |  |
-| 14 | **OTHER** | A specific type of information not covered by the above categories | |
-| 15 | **UNSPECIFIED** | The type of information is not explicitly stated or unclear|
-| 16 | **ALL** |  |  |
+| 14 | **Image data** |  Photo or video |  |
+| 15 | **Video surveillance data** |  Video from video surveillance |  |
+| 16 | **OTHER** | A specific type of information not covered by the above categories | |
+| 17 | **UNSPECIFIED** | The type of information is not explicitly stated or unclear|
+| 18 | **ALL** |  |  |
 
 ### Alternatives Considered
 
