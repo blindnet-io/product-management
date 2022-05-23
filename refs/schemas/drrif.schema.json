@@ -7,7 +7,7 @@
   
   "type": "object",
   "properties": {
-        "rights-request-id": {
+        "request-id": {
             "description": "Unique Identifier of the Rights Request",
             "type": "string",
             "format": "uuid"
