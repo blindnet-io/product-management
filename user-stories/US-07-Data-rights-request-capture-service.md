@@ -28,7 +28,7 @@
 
 ### US-07-1-03
 
-**As an** internet user (a submitter or a data subejct)
+**As an** internet user (a submitter or a data subejct) (Global data rights request capture service)
 
 **I want to** easily find the address (email or postal) I need to send my Data rights request to 
 
@@ -36,7 +36,7 @@
 
 ### US-07-1-04
 
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
+**As an** internet user (a submitter or a data subejct), when creating a Data rights request (Global data rights request capture service)
 
 **I want to** have a proposition of addresses related to the organization I want to address my Data rights request to, if the address is known
 
@@ -44,7 +44,7 @@
 
 ### US-07-1-05
 
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
+**As an** internet user (a submitter or a data subejct), when creating a Data rights request (Global data rights request capture service)
 
 **I want to** add the address of the organization I am sending my request to, that doesn't use blindnet devkit/Privaform, and be able to easily access it next time
 
@@ -66,7 +66,15 @@
 
 **because** I want to exercise several data rights on the data an organization has one me
 
-## 07-2 Organization (not using blindnet devkit/Privateform) receiving Data rights request
+### US-07-1-08
+
+**As an** internet user (a submitter or a data subejct), when creating a Data rights request
+
+**I want to** modify my address and to modify a field from an allergy record 
+
+**because** because I just moved and also dicovered I have a new allergy
+
+## 07-2 Organization receiving Data rights request (Global data rights request capture service)
 
 ### US-07-2-01
 
@@ -100,10 +108,20 @@
 
 **because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transfered the user's data to to also delete the data
 
-### US-07-2-05
+## 07-3 Organization developping Local data rights request capture service
 
-**As an** organization, using blindnet devkit/Privateform, receiving Data rights request
+### US-07-3-01
+
+**As an** organization, using blindnet devkit, receiving Data rights request
 
 **I want to** have an entry point for the Data rights request service embedded on the GDPR section of my website
 
 **because** my customers might direclty go to my website to make their Data rights request, and it is easier for my cutomers and for me to use this service
+
+### US-07-3-02
+
+**As an** organization, using blindnet devkit, receiving Data rights request
+
+**I want to** receive the Data rights requests in a format that is compatible with my system
+
+**because** otherwise I cannot use blindnet devkit to for data rights request capture 
