@@ -61,7 +61,7 @@ The design also aimes to maximise:
 | 11 | **Access geolocation data or an access control device an organization has on me** | Access to data organization has on me on a device on a specific period of time | "Device type, Date and time" | https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces |
 | 12 | **Access to video data** | Access to video data organization has on me on a specific period of time | Date and time | https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant |
 | 13 | **Closing an online account** | "Closing online account, Deletion of all data the organization has on me " | Account name, Website name, URL of the pages with my data, Data to delete | https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne |
-| 14 | **Delete my data that are published on a webiste** | Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | "URL of the pages with my data, Data to delete, Reason of deletion" | https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet |
+| 14 | **Delete my data that are published on a webiste** | Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | "URL of the pages with my data, Data to delete, Reason of deletion" | https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet, https://www.cnil.fr/fr/webmaster-ou-responsables-de-sites-comment-repondre-aux-demandes-de-suppression-de-donnees |
 | 15 | **Access to my medical record** | Acces to my medical record | ID |  https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical |
 | 16 | **Access to data "Preventel" has on me** | Access to data "Preventel" has on me | ID | https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel |
 | 17 | **Where is stored the data organization has on me** | Know where is stored the data organization has on me |  |  |
@@ -71,7 +71,7 @@ The design also aimes to maximise:
 | 21 | **When my data will be deleted** | Know when my data will be deleted |  |  |
 | 22 | **What is the policy of the organization to keep data it has on me** | Know what is the policy of the organization to keep data it has on me |  |  |
 | 23 | **What is the purpose of the treatment organization does on the data it has on me** | Know the purpose of the treatment organization does on the data it has on me |  |  |
-| 24 | **Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me** |  | Type of treatment (to choose from possible type of treatment list |  |
+| 24 | **Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me** | I refuse the use of my data or of certain data but I don't want to delete my account or all my data | Type of treatment (to choose from possible type of treatment list | https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees |
 | 25 | **What type(s) of treatment organization does on the data it has on me** | Know what type(s) of treatment organization does on the data it has on me** |  |  |
 | 26 | **Know if a particular type of treatment is done by organisation on the data it has on me** |  | Type of treatment (to choose from possible type of treatment list |  |
 | 27 | **Revoke consent** | Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | Type of treatment (to choose from possible type of treatment list  | https://www.cnil.fr/fr/les-bases-legales/consentement "Droit au retrait : la personne doit avoir la possibilité de retirer son consentement à tout moment, par le biais d’une modalité simple et équivalente à celle utilisée pour recueillir le consentement (par exemple, si le recueil s’est fait en ligne, il doit pouvoir être retiré en ligne également)." |
@@ -80,6 +80,8 @@ The design also aimes to maximise:
 | 30 | **Opt out of sale of my data** | Opposition to sale of the data an organization has on me|  |  |
 | 31 | **Opt out of tracking on my data** | Opposition to the tracking of my data from an organization |  |  |
 | 32 | **Opt out of contact lists** | Delete my contact details from all contact lists an ornaginzation has with my contact details|  |  |
+| 33 | **Removal of my image online** | Remove photo or video of me that has been published without my consent| ID | https://www.cnil.fr/fr/demander-le-retrait-de-votre-image-en-ligne |
+| 34 | **Exerce my right to portability** | Receive the data that concerns me and reuse them, transmit them to another data controller | ID | https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite |
 
 ### Types of treatment list
 | Nb | Treatment | Description | CNIL reference
