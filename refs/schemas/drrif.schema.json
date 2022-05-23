@@ -1,0 +1,53 @@
+{
+  "$id": "https://blindnet.io/schemas/rights-request",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  
+  "title": "Data Rights Request",
+  "description": "This document defines a format for interoperability of Data Rights Requests",
+  
+  "type": "object",
+  "properties": {
+        "rights-request-id": {
+            "description": "Unique Identifier of the Rights Request",
+            "type": "string",
+            "format": "uuid"
+        },
+        "transitivity": {
+         "description": "Transitivity of the Data Rights Request. One of {DOWNWARD,UPWARD,BIDIRECTIONAL,INTRANSITIVE}.",
+         "enum": ["DOWNWARD","UPWARD","BIDIRECTIONAL","INTRANSITIVE"] 
+        },
+        "date": {
+            "description": "Date and Time of the request",
+            "type": "string",
+            "format": "date-time"
+        },
+        "reply-to": {
+         "description": "Mode of Reply - to the SYSTEM that the Rights Request was received from or to the USER Data Subject directly",
+         "enum": ["SYSTEM","USER"] 
+        },
+  },
+  
+  "required": ["rights-request-id", "timestamp"],
+
+  "definitions": {
+      
+  },
+  
+  "$defs": {
+      "data-subject-identity": {
+        "$id": "/schemas/data-subject-identity",
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "type": "object",
+        
+        "properties": {
+          "dsid-schema": { "type": "string" },
+          "dsid": { "type": "string" },
+         },
+        
+        "required": ["dsid-schema", "dsid"],
+
+      },
+
+}
+
+  }
