@@ -4,7 +4,7 @@
 | :------------ | :------------------------------------------------------------------------------------- |
 | **PR #**      | [NNN](https://github.com/blindnet-io/PROJECT/pull/NNN) (update when you have PR #)     |
 | **Author(s)** | milstan (milstan@blindnet.io), Clémentine VINCENT (clementine@blindnet.io)             |
-| **Sponsor**   | milstan (milstan@blindnet.io)                                                         |
+| **Sponsor**   | milstan (milstan@blindnet.io)                                                          |
 | **Updated**   | 2022-05-19                                                                             |
 
 ## Objective
@@ -49,10 +49,23 @@ The design also aimes to maximise:
 
 ### Rights Request
 
-A Rights Request is made by a Data Subject. 
+Data Subjects is the author of a Rights Request.
+
+| Schema propery | JSON Type | Expected cardinality | Expected values |
+| --------------- | ------------ | ------ | -------------------- |
+| 'data-subject' | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | An array of objects, each containing a (`dsid`,`dsid-schema`) pair |
+
 An array of one or more [Data Subject Identities](#decentralized-identity-of-data-subjects) MUST be provided in order to match the Data Subject with the data concerning them.
 
+In addition, the Rights Request has other meta-data:
+
+| Schema propery | JSON Type | Expected cardinality | Expected values |
+| --------------- | ------------ | ------ | -------------------- |
+| 'date' | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | Date and Time when Rights Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| 'language' | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD format** Language of textual message associated with demands |
+
 The Data Subject can request several things (e.g. see the data the System has on me, and have it deleted).
+
 A Rights Request includes an array of one or more Demands.
 
 #### Demands
@@ -64,6 +77,10 @@ Transitive Rights Requests are usefull in a distributed context where System A g
 
 When a System receives a transitive Rights Request, it SHOULD not only respond to it, but also transfer it to corresponding Systems with which it exchnaged data about the Data Subject.
 
+| Schema propery | JSON Type | Expected cardinality | Expected values |
+| --------------- | ------------ | ------ | -------------------- |
+| 'transitivity' | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | One of {`DOWNWARD`, `UPWARD`, `BIDIRECTIONAL`, `INTRANSITIVE`} |
+
 Transitivity of Rights Requests can be `DOWNWARD` `UPWARD`, `BIDIRECTIONAL` or `INTRANSITIVE`. In the absence of any indication `INTRANSITIVE` SHOULD be assumed.
 
 When System B receives a `DOWNWARD` transitive Rights Request, it MUST also send it to all systems to which it tranfered data about the Data Subject (System C).
@@ -73,6 +90,19 @@ When System B receives an `INTRANSITIVE` Rights Request, it SHOULD NOT transfer 
 
 Systems should interpret the transitivity of Rights Request the same way regardless of the Rights Request being received directly from the Data Subject or from a corresponding System.
 
+Convenient tables of Transitivity vlaues and corresponding user-facing descriptions, in different languages, are provided [here](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/dictionary/transitivity/).
+
+#### Reply-to
+
+In a distributed context, where one System transmits the Rights Request to another System, a `reply-to` field MAY be specified.
+
+| Schema propery | JSON Type | Expected cardinality | Expected values |
+| --------------- | ------------ | ------ | -------------------- |
+| 'reply-to' | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | One of {`SYSTEM`, `USER`} |
+
+`SYSTEM` indicates that the [scenario of nested responses](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#scenario-1---nested-responses) is prefered. The System having registered the Rights Request from the Data Subject gathers responses and presents them to the Data Subject.
+
+`USER` indicated the [scenario of direct responses](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#scenario-2---direct-responses) is prefered. Each System having received a Rights Request is expected to reply directly to the Data Subject, using contact information it has.
 
 ### Requests list
 <!-- prettier-ignore -->
@@ -261,7 +291,7 @@ Therefore, we use a set of atributes to uniquely indenitfy one Data Subject. One
 
 #### Globaly Unique Data Subject Identities
 
-The identifyers used to refer to Data Subjects MUST be globaly unique. One Data Subject identity corresponds to one Data Subject. One Data Subject can have several Data Subject Identity.
+The identifiers used to refer to Data Subjects MUST be globaly unique. One Data Subject identity corresponds to one Data Subject. One Data Subject can have several Data Subject Identity.
 
 When refering to a Data Subject, Systems MUST use both of the following atributes:
 - `dsid` - Data Subject ID
@@ -318,7 +348,7 @@ All of the following identifiers `data-capture-id`, `fragment-id`, `consent-id`,
 ### Remembering Transfers
 
 When data about Data Subjects is transmitted from one system to another, in order to be able to process [Transitive Rights Requests](#transitive-rights-request), Systems MUST keep track of:
-- System of destination/origin
+- System of destination/origin and addresses where their APIs can be reached
 - Categories of data being trasnfered
 - Identifiers (`data-capture-id`s,`fragment-id`s) associated to the data being trasnfered
 - Consents (`consent-id`) associated to the data being trasnfered
@@ -326,10 +356,30 @@ When data about Data Subjects is transmitted from one system to another, in orde
 
 > **Note**
 > 
-> Systems that exchange Data Subject information with other Systems MUST expose an interface for receiving Rights Requests from those other Systems. They MUST aslo be able to gather Rights Request Responses from other Systems in the case of [Nested Responses Scenario](https://github.com/blindnet-io/product-management/tree/devkit-schemas/refs/high-level-architecture#different-rights-request-response-scenrarios). 
+> Systems that exchange Data Subject information with other Systems MUST:
+> - expose an API for communicating with other systems about Rights Requests:
+>     - receiving Rights Requests from those other Systems,
+>     - receiving Rights Request Responses from other Systems in the case of [Nested Responses Scenario](https://github.com/blindnet-io/product-management/tree/devkit-schemas/refs/high-level-architecture#different-rights-request-response-scenrarios).
+
 
 ## Questions and Discussion Topics
 
 ### Use UUID for identifying Data Subjects
 
 We chould immagine an alternative design, where we would force systems to use an [UUID]([uuid](https://en.wikipedia.org/wiki/Universally_unique_identifier)) (according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html)), to identify the users. That would require us to provide some way for systems to match UUIDs with their local IDs (usernames, or e-mails), and would ponteltially limit the ability of 3rd party systems to interprete Rights Request made at another system. This goal of proposed design is to allow for flexibility. However it is a very important aspect of the proposal, that deserves further debate.
+
+### Mandatory properties and value constrains
+
+Should we include rescritions in the schema according to the [JSON-schema-validation vocabulary](https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#page-4) in order to make certian properties mandatory and ensure to limit string values to the values we suppoort? 
+
+In the curent proposal, this is the case for Transitivity, but not for request types, data categories, and user identity schemas. We might want to include more forma constraints there, or deliberately leave flexibility. This is a discussion we need to have.
+
+## References
+
+### Normative References
+
+
+- **[RFC8259]**  Bray, T., ["The JavaScript Object Notation (JSON) Data Interchange Format"](https://datatracker.ietf.org/doc/html/rfc8259), STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017. 
+
+### Informative References
+- 
