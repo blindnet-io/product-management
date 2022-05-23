@@ -4,9 +4,9 @@
 | User Stories | 07 |
 | ---------- | ---- |
 | **Status** | Draft |
-| **Design** | 
+| **Design** | [Figma activity diagram](https://www.figma.com/file/miUd9PEmLrjut53rwrQViX/Data-rights-request-capture-service?node-id=0%3A1)
 | **Previous discussions** | https://github.com/blindnet-io/product-ideas/issues/22
-| **Other documents** | [Notes - Requests list and types of treatment list](https://github.com/blindnet-io/product-management/blob/Generic-GDPR-request-service/user-stories/Notes_07-Data-rights-request-capture-service.md) ([Old requests list google doc](https://docs.google.com/spreadsheets/d/1XGODz4S7X8NehhJnFwdk5PVi551ggaVp0dSnH4UojJc/edit#gid=0))
+| **Other documents** | [Requests list](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/RFC-rights-request-interoperability-format.md)
 
 ## 07-1 Internet user (a submitter or a data subejct)
 
@@ -46,7 +46,7 @@
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
-**I want to** add the address of the organization I am sending my request to, that doesn't use Privaform, and be able to easily access it next time
+**I want to** add the address of the organization I am sending my request to, that doesn't use blindnet devkit/Privaform, and be able to easily access it next time
 
 **because** I or other users might need the address of that organization to send Data rights request in the future
 
@@ -54,95 +54,23 @@
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
-**I want** the organisation to delete it has on me
+**I want** be able to make any of the requests mentionned in the [requests list of this document](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/RFC-rights-request-interoperability-format.md)
 
-**because** I don't need the service of that organization anymore
+**because** this list of requests covers my data rights needs
 
 ### US-07-1-07
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
-**I want to** access my data
+**I want to** send several requests at the same time
 
-**because** I want te see what data that organization has on me
-
-### US-07-1-08
-
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
-
-**I want to** modify my data
-
-**because** because I moved and my address has changed
-
-### US-07-1-09
-
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
-
-**I want to** know where my data is being kept
-
-**because** I am wondering if the organization is keeping my data on servers in Europe or in the US
-
-### US-07-1-10
-
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
-
-**I want to** make a request [to delete my data that are published on a webiste](https://www.cnil.fr/fr/webmaster-ou-responsables-de-sites-comment-repondre-aux-demandes-de-suppression-de-donnees)
-
-**because** I don't want my data to appear on the website anymore
-
-### US-07-1-11
-
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
-
-**I want to** request [the removal of my image online (photo or video)](https://www.cnil.fr/fr/demander-le-retrait-de-votre-image-en-ligne)
-
-**because** this image has been published without my consent
-
-### US-07-1-12
-
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
-
-**I want to** make a request to exerce [my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite)
-
-**because** I want to receive the data that concerns me and reuse them, transmit them to another data controller
-
-### US-07-1-13
-
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
-
-**I want to** make a request to exercise [my right of opposion](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees)
-
-**because** I refuse the use of my data or of certain data but I don't want to delete my account or all my data
-
-### US-07-1-14
-
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
-
-**I want to** make a request to an organization to delete the data it has on me, AND I also want this organziation to make every other organziation to which they have communicated my data aware of my request that they too delete data they have on me
-
-**because** I want that data deleted from all organisations that have it 
-
-### US-07-1-15
-
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
-
-**I want** the organization to [delete my contact details from its avdertising contact list](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites)
-
-**because** I don't want to receive advertising from this organization anymore
-
-### US-07-1-16
-
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
-
-**I want to** make a request to an organization for [opposition to commercial prospecting](https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers) 
-
-**because** I want the organization to stop using the contact details it has on me for prospecting purpose, AND to delete my contact details from its prospection contact list, AND that the organisation notifies the request to other organisations that it may have made recipient of my data
+**because** I want to exercise several data rights on the data an organization has one me
 
 ## 07-2 Organization receiving Data rights request
 
 ### US-07-2-01
 
-**As an** organization receiving Data rights request (no Privateform account)
+**As an** organization receiving Data rights request (not using blindnet devkit/Privateform)
 
 **I want to** know the request I received has been sent by blindnet Data rights request capture service and be informed about Privateform
 
@@ -150,7 +78,7 @@
 
 ### US-07-2-02
 
-**As an** organization receiving Data rights request (no Privateform account)
+**As an** organization receiving Data rights request (not using blindnet devkit/Privateform)
 
 **I want to** be able to recognize the user who made the request in my system
 
@@ -158,23 +86,23 @@
 
 ### US-07-2-03
 
-**As an** organization receiving Data rights request and having a Privateform account
+**As an** organization receiving Data rights request using blindnet devkit/Privateform
 
-**I want to** receive the request in the Data rights request section of my Privatefrom account
+**I want to** receive the request in the Data rights request section of my system/my Privatefrom account
 
 **because** it is more convenient for me to have all my Data rights requests centralised
 
 ### US-07-2-04
 
-**As an** organization receiving Data rights request (with or without Privateform account)
+**As an** organization receiving Data rights request (using or not using blindnet devkit/Privateform)
 
 **I want to** transfer the request to another organization if the request concerns data I transfered to another organization
 
-**because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transfered the user's data to also delete the data
+**because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transfered the user's data to to also delete the data
 
 ### US-07-2-05
 
-**As an** organization receiving Data rights request (with or without Privateform account)
+**As an** organization receiving Data rights request (using blindnet devkit/Privateform)
 
 **I want to** have an entry point for the Data rights request service embedded on the GDPR section of my website
 
