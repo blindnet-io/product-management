@@ -13,11 +13,15 @@
 
 ### US-04-1-00
 
+> Status: Integrated
+
 **As a** user filling a form,
 
 **I want to** know how my data is going to be treated - what data is stored, where it is stored, for how long, who has access to it.
 
 ### US-04-1-01
+
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre,
 
@@ -27,6 +31,8 @@
 
 ### US-04-1-02
 
+> Status: In Development
+
 **As a** user who submitted a form in the past, Jean-Pierre,
 
 **I want to** be able to ask to modify my data
@@ -35,6 +41,8 @@
 
 ### US-04-1-03
 
+> Status: Released
+
 **As a** user who submitted a form in the past, Jean-Pierre,
 
 **I want to** be able to ask to delete my data
@@ -42,6 +50,8 @@
 **because** I do no longer want them available
 
 ### US-04-1-04
+
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre,
 
@@ -68,6 +78,8 @@
 
 ### US-04-1-06
 
+> Status: Released
+
 **As a** user who submitted a form in the past, Jean-Pierre,
 
 **I want to** be able to send an identification ID document when I ask for my GDPR right to be exercised
@@ -75,6 +87,8 @@
 **because** I need to be identified if I want my request to be approved
 
 ### US-04-1-06-1
+
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre,
 
@@ -84,6 +98,8 @@
 
 ### US-04-1-07
 
+> Status: Integrated
+
 **As a** user filling a form, Jean-Pierre,
 
 **I want to** know what data is collected by Amélie, what treatment is done with it, how long is she keeping which data,
@@ -91,6 +107,8 @@
 **because** I don’t trust Amélie and I want to be picky about my rights and appear smart.
 
 ### US-04-1-08
+
+> Status: Released
 
 **As a** user filling a form, Jean-Pierre,
 
@@ -100,6 +118,8 @@
 
 ### US-04-1-09
 
+> Status: Integrated
+
 **As a** user filling a form, Jean-Pierre,
 
 **I want to** know where my data is stored
@@ -108,6 +128,8 @@
 
 ### US-04-1-10
 
+> Status: Released
+
 **As a** user who submitted a form in the past, Jean-Pierre, I made a data access/modification/deletion request more than a month ago, and
 
 **I want to** know what is going on with it,
@@ -115,6 +137,8 @@
 **because** I did not get a reply.
 
 ### US-04-1-11
+
+> Status: Integrated
 
 **As a** user filling a form, Jean-Pierre,
 
@@ -132,6 +156,8 @@
 
 ### US-04-1-13
 
+> Status: Released
+
 **As a** user who submitted a form in the past, Jean-Pierre, when I receive my data after I filed a data access request,
 
 **I want to** know that my data is delivered to me in a secure way so that only I can access it,
@@ -139,6 +165,8 @@
 **because** I have AIDS (written in my data records) and I don’t want anyone to know it.
 
 ### US-04-1-14
+
+> Status: Released
 
 **As a** user who submitted a form in the past, Jean-Pierre, when I receive my data after I filed a data access request,
 
@@ -148,6 +176,8 @@
 
 ### US-04-1-15
 
+> Status: Released
+
 **As a** user who submitted a form in the past, Jean-Pierre, my data deletion request is denied and
 
 **I want to** know why
@@ -155,6 +185,8 @@
 **because** I think I have the right to have my data deleted.
 
 ### US-04-1-16
+
+> Status: In Development
 
 **As a** user who submitted several different form in the past (e.g. Covid and Medical History), Jean-Pierre,
 
@@ -164,6 +196,8 @@
 
 ### US-04-2-01
 
+> Status: Released
+
 **As a** logged user, Amélie,
 
 **I want** a dedicated space for GDPR requests
@@ -171,6 +205,8 @@
 **because** I need to manage and keep track of them
 
 ### US-04-2-02
+
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -180,6 +216,8 @@
 
 ### US-04-2-03
 
+> Status: Released
+
 **As a** logged user, Amélie,
 
 **I want to** be able to see the list of all the GDPR requests (new ones and processed one)
@@ -187,6 +225,8 @@
 **because** I need to keep track of them for legal reason
 
 ### US-04-2-04
+
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -196,6 +236,8 @@
 
 ### US-04-2-05
 
+> Status: Released
+
 **As a** logged user, Amélie,
 
 **I want to** be able to see the details of an old request : type of request, name of the user, date of the request, type of answer (approved/denied), date of the answer, date of the action associated with the type of request (user has accessed data, user has modified data, data has been deleted)
@@ -204,6 +246,8 @@
 
 ### US-04-2-05bis
 
+> Status: Released
+
 **As a** logged user, Amélie,
 
 **I want to** download/print proof of GDPR request approval/rejection with dates of request submission and my answer,
@@ -211,6 +255,8 @@
 **because** I need to justify having complied with regulations.
 
 ### US-04-2-06
+
+> Status: Released
 
 **As a** logged user, Amélie,
 
@@ -228,6 +274,8 @@
 
 ### US-04-2-08
 
+> Status: Released
+
 **As a** logged user, Amélie,
 
 **I want to** collect compliant valid consent (separate consent for different personal data processing operations) from my users for the data collection and treatment I am doing,
@@ -235,6 +283,8 @@
 **because** I want to be compliant.
 
 ### US-04-2-09
+
+> Status: Integrated
 
 **As a** logged user, Amélie,
 
@@ -244,6 +294,8 @@
 
 ### US-04-2-10
 
+> Status: Integrated
+
 **As a** logged user, Amélie,
 
 **I want to** inform my users that their data is treated securely and confidentially and only the necessary data is stored proportionate for the purposes
@@ -251,6 +303,8 @@
 **because** I want to be compliant with GDPR transparency mandate.
 
 ### US-04-2-11
+
+> Status: Released
 
 **As a** logged user, Amélie, when I receive a GDPR-related request
 
@@ -260,6 +314,8 @@
 
 ### US-04-2-12
 
+> Status: Released
+
 **As a** logged user, Amélie,
 
 **I want to** have the list of requests organized by date, the most recent one top
@@ -268,11 +324,15 @@
 
 ### US-04-2-13
 
+> Status: Released
+
 **As a** logged user, Amélie,
 
 **I want to** have a distinguished mark on each pending request I still have to respond to so that when I check my requests list I immediately see them and I do not forget to answer them and stay out of any legal trouble
 
 ### US-04-2-14
+
+> Status: Released
 
 **As a** logged user, Amélie, if a user is asking me by email to delete/modify/view his data,
 
