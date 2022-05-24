@@ -1,4 +1,4 @@
-# Rights Request Interoperability Format (RRIF)
+# Privacy Request Interoperability Format (PRIF)
 
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
@@ -7,21 +7,34 @@
 | **Sponsor**   | milstan (milstan@blindnet.io)                                                          |
 | **Updated**   | 2022-05-19                                                                             |
 
-## Objective
+## Introduction
 
-We propose a simple, structured data format for representing [Rights Requests](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-conceptualization#data-capture--rights-requests).
+We propose a simple, structured data format for representing [Privacy Requests](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-conceptualization#data-capture--rights-requests).
 
-Rights Requests exist within the relationship between an individual and software systems (and organisations operating them) treating data that concerns that individual. 
+Privacy Requests exist within the relationship between an individual and software Systems (and Organisations operating them) processing data that concerns that individual. 
 
+Internet Systems are tools for connection. 
+[Connectedness requires privacy - the selective control of access to the self](https://github.com/blindnet-io/product-management/blob/10bebeefc14f7db7bf7a491932d62a4a5d18ad70/refs/notion-of-privacy/notion-of-privacy.md). 
+An individual MAY formulate a Privacy Request in order to establish that control and regulate the relationship, . 
 Systems MAY process and respond to Rights Request by legal obligation, or as a simple courtesy in the pursuit of gaining and maintaining the individual's trust.
 
 ## Motivation
 
-Different systems, and different compontents of a single system, including different comnponents of blindnet devkit are likely to exchange information about Rights Requests.
+Different Systems, and different compontents of a single System, including different comnponents of blindnet devkit are likely to exchange information about Privacy Requests.
 
 Therefore, a common format is needed to facilitate exchange of information without loss of semantics. 
 
-Our goal is to establish a shared semantics of Rights Request so that their processing can be, as much as possible, automatised by the Systems.
+The goal of Privacy Request Interoperability Format is to establish a shared conceptualisation and format of Privacy Request so that their processing can be, as much as possible, automatised by the Systems.
+
+## Terminology
+
+>**TO BE Updated** once Lexicon and High Level Conceptualization are synchronised
+
+- We use the term Privacy Request interchangeably with the (deprecated) terms Rights Request and Data Rights Request as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
+- We use the terms Individual, Person, You, and Data Subject as defined in the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv)
+- We use the term System as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
+- We use MUST, MUST NOT and MAY, as defined in [IETF RFC2119](https://datatracker.ietf.org/doc/html/rfc2119)
+- We use the terms Organization, Submitter, Data Consumer as defined in the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv) as defined there.
 
 ## Design Considerations
 
@@ -34,17 +47,6 @@ The design also aimes to maximise:
     - encryption.
 
 
-
-## Terminology
-
->**TO BE Updated** once Lexicon and High Level Conceptualization are synchronised
-
-- We use the terms Rights Request, Data Subject, System as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
-- We use the terms Rights Request and Data Rights Request interchangeably
-- We use MUST, MUST NOT and MAY, as defined in [IETF RFC2119](https://datatracker.ietf.org/doc/html/rfc2119)
-- We use all the terms from the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv) as defined there.
-
-
 ## Proposal
 
 ### Rights Request
@@ -55,6 +57,8 @@ Data Subjects is the author of a Rights Request.
 | --------------- | ------------ | ------ | -------------------- |
 | `data-subject` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | An array of objects, each containing a (`dsid`,`dsid-schema`) pair |
 
+A System MAY have muptiple ways to identify the Data Subject, especially when data about them came from some other System that uses different identifiers. The System capturing the Rights Request MAY associate multiple Data Subject Identities to the Rights Request, especially if the Rights Request is likely to be transmitted to other systems. 
+
 An array of one or more [Data Subject Identities](#decentralized-identity-of-data-subjects) MUST be provided in order to match the Data Subject with the data concerning them.
 
 In addition, the Rights Request has other meta-data:
@@ -63,6 +67,7 @@ In addition, the Rights Request has other meta-data:
 | --------------- | ------------ | ------ | -------------------- |
 | `request-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this request in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | Date and Time when Rights Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `demands` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | An array of [Demands](#demands) |
 | `language` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD format** Language of textual message associated with demands |
 
 The Data Subject can request several things (e.g. see the data the System has on me, know the source from where you have got it, and have my data deleted). We call those 'Demands'.
@@ -76,11 +81,17 @@ A Demand is a concrete action that the user requests.
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
 | `demande-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this demande in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `action` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | **TBD** |
+| `action` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique value. One of {`ACCESS`, `DELETE`, `MODIFY`, `PORTABILITY`, `OBJECT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.PROCESSING`} |
 | `legal-grounds`| [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings representing legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.1798.105" indicates Section 1798.105 of CCPA |
 | `message` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Optional comment, motivation or explanation of Demand |
 
+The key element that defines the nature of the Demand is the `action`. A Demande MUST have one and only one `action`. 
+
+Actions are hierarchical. Their relationships are dentoed with a dot "." sparating two actions, the more one being written on the left. `TRANSPARENCY` includes `TRANSPARENCY.WHERE`. When `TRANSPARENCY` is demanded, Systems MUST interpret the demand as if all the subcategories of `TRANSPARENCY` (`TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.PROCESSING`) were demanded.
+
 ##### Demand Restrictions
+
+The `action` that the Data Subject requests with a particular Demand MUST be interpreted in the context of restrictions. A Demand MAY refer to only certain categories of data, or certain types of processing, certain purposes of processing etc.
 
 ###### Data Categories
 
@@ -88,11 +99,11 @@ A Demand MAY be restricted to one or more data categories. For example, a Data S
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| `data-category` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.CONNECTION`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER`} |
+| `data-category` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER`} |
 
 When several values are given, Systems MUST interpret the `data-category` restriction as a union of all the categories indicated. 
 
-Categories are organised as a hierarchy, denoted with a full-stop ".", the more general category being written on the left. E.g. the following two `data-category` restrictions are equivalent:
+Categories are organised as a hierarchy, denoted with a dot ".", the more general category being written on the left. E.g. the following two `data-category` restrictions are equivalent:
 - `CONTACT`,`CONTACT.EMAIL`
 - `CONTACT`
 
@@ -104,7 +115,7 @@ A Demand can be restricted to particular kind of data Treatment. For example, a 
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| `processing-categories` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `OTHER`} |
+| `processing-categories` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `USING`, `OTHER`} |
 
 When several values are given, Systems MUST interpret the `treatment` restriction as a union of all the treatments indicated. 
 
@@ -122,7 +133,7 @@ A Demand can be restricted to particular purpose of Treatment. For example, a Da
 
 When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated. 
 
-Purposes are organised as a hierarchy, denoted with a full-stop ".", the more general category being written on the left. E.g. the following two `data-category` restrictions are equivalent:
+Purposes are organised as a hierarchy, denoted with a dot ".", the more general purpose being written on the left. E.g. the following two `pruposes` restrictions are equivalent:
 - `NECESSARY`,`NECESSARY.LEGAL`
 - `NECESSARY`
 
@@ -134,7 +145,7 @@ A Demand can be restricted to particular Consent ID(s). For example, a Data Subj
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| `consent-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of consent ids to indicate that the Demand (e.g. a `REVOQUE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `consent-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of consent ids to indicate that the Demand (e.g. a `REVOKE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 
 When one or more `consent-ids` are idnicated, Systems MUST interpret the Demand as related to all Consents related to indicated `consent-ids`. 
 
@@ -458,21 +469,42 @@ Should we include rescritions in the schema according to the [JSON-schema-valida
 
 In the curent proposal, this is the case for Transitivity, but not for request types, data categories, and user identity schemas. We might want to include more forma constraints there, or deliberately leave flexibility. This is a discussion we need to have.
 
+### Dot-notation for category hierarchies
+
+Hierarchies of categories are represented using the "supercategory.subcategory" notation. The idea behind this is to allow developers to use the level of granularity that is adapted to them, yet be able to easily situate the subcategory in supercategory when dealing with more generic requests.
+
+E.g. We have a data capture associated to "CONTACT.ADDRESS" data category. The Data Subject makes a DELETE request related to all of their data falling under "CONTACT" data category. The developer can easily identify "CONTACT.ADDRESS" as being a subcategory of ""CONTACT.ADDRESS".
+
+However, this notation (although intuitive) is to the best of my knoweldge, non-standard. Maybe there are reasons for it, or a standard (better) notation we can adopt?
+
+### Reply-to is maybe unnecessary
+
+The schema allows requests to specify a [`reply-to`](#reply-to) and idnicate which mode of answer is prefered with regards to the two possible scenarios: [scenario of nested responses](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#scenario-1---nested-responses) and [scenario of direct responses](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#scenario-2---direct-responses).
+
+However, it is likely that the System receiving a request will decide how to respond depending on the type of request and depending on its relationship with the user, in which case speficying this field is unnecessary.
+
+### Representation of Legal Articles
+
+Is there a better way to unambiguousely refer, in a machine-readable way, to parts of legislations?
+
+
 ## References
 
 ### Normative References
 
-
 - **[RFC8259]**  Bray, T., ["The JavaScript Object Notation (JSON) Data Interchange Format"](https://datatracker.ietf.org/doc/html/rfc8259), STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017. 
 
 ### Informative References
+
 - 
 
 ### Supported Legilsation
+
 - [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj)
 - [CCPA](https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5)
 
 ### Yet to be Supported Legilsation
+
 - [CPRA]([https://eur-lex.europa.eu/eli/reg/2016/679/oj](https://vig.cdn.sos.ca.gov/2020/general/pdf/topl-prop24.pdf))
 - [HIPPA]([https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5](https://www.govinfo.gov/content/pkg/PLAW-104publ191/pdf/PLAW-104publ191.pdf))
 
