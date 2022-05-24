@@ -36,6 +36,11 @@
         "reply-to": {
          "enum": ["SYSTEM","USER"] 
         },
+    
+        "legal-grounds": {
+          "type": "array",
+          "items": { "type": "string" } 
+        }.
 
   },
   
@@ -70,7 +75,7 @@
             "type": "string"
           },
           
-         "data-category": {
+         "data-categories": {
             "enum": ["NAME",
                      "CONTACT",
                      "CONTACT.EMAIL",
@@ -90,10 +95,12 @@
                      "OTHER"] 
          },
           
+          
+          
         
          },
         
-        "required": ["dsid-schema", "dsid"],
+       
 
       },
 
