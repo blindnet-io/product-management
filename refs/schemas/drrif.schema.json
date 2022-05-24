@@ -111,8 +111,8 @@
          "data-categories": {
             "enum": ["AFFILIATION",
                      "BEHAVIOR",
-                     "BEHAVIOR.CONNECTION",
                      "BEHAVIOR.ACTIVITY",
+                     "BEHAVIOR.CONNECTION",
                      "BEHAVIOR.PREFERENCE",
                      "BIOMETRIC",
                      "CONTACT",
