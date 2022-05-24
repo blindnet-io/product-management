@@ -53,7 +53,7 @@ Data Subjects is the author of a Rights Request.
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| 'data-subject' | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | An array of objects, each containing a (`dsid`,`dsid-schema`) pair |
+| `data-subject` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | An array of objects, each containing a (`dsid`,`dsid-schema`) pair |
 
 An array of one or more [Data Subject Identities](#decentralized-identity-of-data-subjects) MUST be provided in order to match the Data Subject with the data concerning them.
 
@@ -61,14 +61,40 @@ In addition, the Rights Request has other meta-data:
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| 'date' | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | Date and Time when Rights Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| 'language' | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD format** Language of textual message associated with demands |
+| `request-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this request in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `date` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | Date and Time when Rights Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `language` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD format** Language of textual message associated with demands |
 
-The Data Subject can request several things (e.g. see the data the System has on me, and have it deleted).
+The Data Subject can request several things (e.g. see the data the System has on me, know the source from where you have got it, and have my data deleted). We call those 'Demands'.
 
 A Rights Request includes an array of one or more Demands.
 
 #### Demands
+
+A Demand is a concrete action that the user requests.
+
+| Schema propery | JSON Type | Expected cardinality | Expected values |
+| --------------- | ------------ | ------ | -------------------- |
+| `demande-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this demande in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `what` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | **TBD** |
+| `data-category` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD**|
+| `treatment` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD**|
+| `legal ground`| [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD**|
+| `message` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Optional comment or explanation of Demand |
+
+A Demand MAY be restricted to one or more data categories. For example, a Data Subject can request to access to all data concerning his location.
+
+| Schema propery | JSON Type | Expected cardinality | Expected values |
+| --------------- | ------------ | ------ | -------------------- |
+| `data-category` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`NAME`,`CONTACT`,`CONTACT.EMAIL`,`CONTACT.ADDRESS`,`CONTACT.PHONE`,`UID`,`FINANCIAL`,`HEALTH`,`IMAGE`,`LOCATION`,`DEVICE`,`BEHAVIOR`,`BEHAVIOR.CONNECTION`BEHAVIOR.ACTIVITY`, `BEHAVIOR.PREFERENCE`,`PROFILING`,`OTHER`} |
+
+When several values are given, Systems MUST interpret the `data-category` restriction as a union of all the categories indicated. 
+
+Categories are organised as a hierarchy, denoted with a full-stop ".", the more general category being written on the left. E.g. the following two `data-category` restrictions are equivalent:
+- `CONTACT`,`CONTACT.EMAIL`
+- `CONTACT`
+
+In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data.
 
 #### Transitive Rights Request
 
@@ -79,7 +105,7 @@ When a System receives a transitive Rights Request, it SHOULD not only respond t
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| 'transitivity' | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | One of {`DOWNWARD`, `UPWARD`, `BIDIRECTIONAL`, `INTRANSITIVE`} |
+| `transitivity` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | One of {`DOWNWARD`, `UPWARD`, `BIDIRECTIONAL`, `INTRANSITIVE`} |
 
 Transitivity of Rights Requests can be `DOWNWARD` `UPWARD`, `BIDIRECTIONAL` or `INTRANSITIVE`. In the absence of any indication `INTRANSITIVE` SHOULD be assumed.
 
@@ -98,7 +124,7 @@ In a distributed context, where one System transmits the Rights Request to anoth
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| 'reply-to' | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | One of {`SYSTEM`, `USER`} |
+| `reply-to` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | One of {`SYSTEM`, `USER`} |
 
 `SYSTEM` indicates that the [scenario of nested responses](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#scenario-1---nested-responses) is prefered. The System having registered the Rights Request from the Data Subject gathers responses and presents them to the Data Subject.
 
