@@ -40,7 +40,22 @@
         "legal-grounds": {
           "type": "array",
           "items": { "type": "string" } 
-        }.
+        },
+    
+        "consent-ids": {
+          "type": "array",
+          "items": { 
+            "type": "string",
+            "format": "uuid"
+          } 
+        },
+      "capture-ids": {
+          "type": "array",
+          "items": { 
+            "type": "string",
+            "format": "uuid"
+          } 
+      }
 
   },
   
