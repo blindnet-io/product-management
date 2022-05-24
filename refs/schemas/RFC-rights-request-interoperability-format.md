@@ -77,8 +77,10 @@ A Demand is a concrete action that the user requests.
 | --------------- | ------------ | ------ | -------------------- |
 | `demande-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this demande in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `action` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | **TBD** |
-| `data-categories` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | **TBD**|
+| `data-categories` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings indicating particular categories of data to which the demand is limited to. See [Demand Restrictions](#demand-restrictions) for reserved values. |
 | `treatment` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD**|
+| `consent-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of consent ids to indicate that the Demand (e.g. a `REVOQUE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `capture-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of Data Capture IDs to indicate that the Demand (e.g. a `DELETE` Demand) is restricted to data captured within particular Data Captures. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `legal-grounds`| [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings represented legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.C" indicates Section C of CCPA |
 | `message` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Optional comment, motivation or explanation of Demand |
 
@@ -88,7 +90,7 @@ A Demand MAY be restricted to one or more data categories. For example, a Data S
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| `data-category` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`NAME`,`CONTACT`,`CONTACT.EMAIL`,`CONTACT.ADDRESS`,`CONTACT.PHONE`,`UID`,`FINANCIAL`,`HEALTH`,`IMAGE`,`LOCATION`,`DEVICE`,`BEHAVIOR`,`BEHAVIOR.CONNECTION`,`BEHAVIOR.ACTIVITY`, `BEHAVIOR.PREFERENCE`,`PROFILING`,`OTHER`} |
+| `data-category` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`NAME`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `UID`, `FINANCIAL`, `HEALTH`, `IMAGE`, `LOCATION`, `DEVICE`, `BEHAVIOR`, `BEHAVIOR.CONNECTION`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.PREFERENCE`, `PROFILING`, `OTHER`} |
 
 When several values are given, Systems MUST interpret the `data-category` restriction as a union of all the categories indicated. 
 
