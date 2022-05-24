@@ -25,7 +25,8 @@
         },
     
         "transitivity": {
-         "enum": ["DOWNWARD","UPWARD","BIDIRECTIONAL","INTRANSITIVE"] 
+         "enum": ["DOWNWARD","UPWARD","BIDIRECTIONAL","INTRANSITIVE"],
+         "default": "INTRANSITIVE",
         },
 
         "date": {
@@ -119,7 +120,7 @@
                      "OTHER"] 
          },
           
-          "treatments": {
+          "processing-categories": {
             "enum": ["ANONYMIZATION",
                      "AUTOMATED-INFERENCE",
                      "AUTOMATED-DECISION-MAKING",
