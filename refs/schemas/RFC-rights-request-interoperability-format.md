@@ -108,9 +108,9 @@ A Demand can be restricted to particular kind of data Treatment. For example, a 
 
 When several values are given, Systems MUST interpret the `treatment` restriction as a union of all the treatments indicated. 
 
-In the absence of indication of any `treatment` restriction, Systems MUST interpret the Demand as being related to all kinds of data treatments.
+In the absence of indication of any `purpose` restriction, Systems MUST interpret the Demand as being related to all and any purpose of treatment.
 
-[A list of eligible `treatments` values with corresponding user-facing descriptions is provided](./dictionary/processing-categories/) for conveniance.
+[A list of eligible `treatments` values with corresponding user-facing descriptions is provided](./dictionary/purposes/) for conveniance.
 
 ###### Purposes of Processing
 
@@ -118,9 +118,13 @@ A Demand can be restricted to particular purpose of Treatment. For example, a Da
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| `purposes` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `OTHER`} |
+| `purposes` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ADVERTISING`, `CONTRACT`, `CONTRACT.BASIC-SERVICE`, `CONTRACT.ADDITIONAL-SERVICES`, `NECESSARY`, `NECESSARY.JUSTICE`, `NECESSARY.LEGAL`, `NECESSARY.MEDICAL`, `NECESSARY.PUBLIC-INTERESTS`, `NECESSARY.VITAL-INTERESTS`, `NECESSARY.SOCIAL-PROTECTION`, `MARKETING`, `PERSONNALISATION`, `SALE`, `SECURITY`, `TRACKING`, `OTHER`, `ANY`} |
 
 When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated. 
+
+Purposes are organised as a hierarchy, denoted with a full-stop ".", the more general category being written on the left. E.g. the following two `data-category` restrictions are equivalent:
+- `NECESSARY`,`NECESSARY.LEGAL`
+- `NECESSARY`
 
 [A list of eligible `purposes` values with corresponding user-facing descriptions is provided](./dictionary/purposes/) for conveniance.
 
