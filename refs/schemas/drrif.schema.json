@@ -126,13 +126,33 @@
                      "AUTOMATED-DECISION-MAKING",
                      "COLLECTION",
                      "GENERATING",
+                     "MATCHING",
                      "PUBLISHING",
                      "STORING",
                      "SHARING",
                      "OTHER"]
-          }
-          ,
-          
+          },
+
+          "purposes": {
+            "enum": ["ADVERTISING",
+                     "CONTRACT",
+                     "CONTRACT.BASIC-SERVICE",
+                     "CONTRACT.ADDITIONAL-SERVICES",
+                     "NECESSARY",
+                     "NECESSARY.JUSTICE"
+                     "NECESSARY.LEGAL",
+                     "NECESSARY.MEDICAL",
+                     "NECESSARY.SOCIAL-PROTECTION",
+                     "NECESSARY.PUBLIC-INTERESTS",
+                     "NECESSARY.VITAL-INTERESTS",
+                     "MARKETING",
+                     "PERSONNALISATION",
+                     "SALE",
+                     "SECURITY",
+                     "TRACKING",
+                     "ANY"]
+          },
+
           
         
          },
