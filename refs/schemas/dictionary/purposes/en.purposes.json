@@ -1,0 +1,21 @@
+{
+  "ADVERTISING": "To show ads that are either targeted to the specific user or not targeted",
+  "CONTRACT": "processing is necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract",
+  "CONTRACT.BASIC-SERVICE": "Providing the basic service to the person",
+  "CONTRACT.ADDITIONAL-SERVICES": "Providing the services that the person requires that are not part of the basic service",  
+  "MARKETING": "To contact the user to offer products, services, or other promotions",
+  "NECESSARY": "Processing is necessary for security reasons, legal reasons or protection of rights",
+  "NECESSARY.JUSTICE": "processing is necessary for the establishment, exercise or defence of legal claims or whenever courts are acting in their judicial capacity",
+  "NECESSARY.LEGAL": "Processing is necessary for compliance with a legal obligation",
+  "NECESSARY.MEDICAL": "Processing is necessary for the purposes of preventive or occupational medicine, for the assessment of the working capacity of the employee, medical diagnosis, the provision of health or social care or treatment or the management of health or social care systems and services",
+  "NECESSARY.PUBLIC-INTERESTS": "Processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority",
+  "NECESSARY.SOCIAL-PROTECTION": "Processing is necessary for the purposes of employment and social security and social protection",
+  "NECESSARY.VITAL-INTERESTS": "Processing is necessary in order to protect the vital interests of the data subject or of another natural person",
+  "PERSONNALISATION": "For providing user with a personalized experience",
+  "SALE": "Selling data to third parties",
+  "SECURITY": "For product operation and security, enforcement of terms of service, fraud prevention, protecting users and property, etc. ", 
+  "TRACKING": "Tracking information about user behavior and activity online",
+  "OTHER": "Other specific purpose",
+  "ANY": "Any purpose",  
+}
+
