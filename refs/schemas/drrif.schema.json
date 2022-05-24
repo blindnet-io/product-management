@@ -8,23 +8,35 @@
   "type": "object",
   "properties": {
         "request-id": {
-            "description": "Unique Identifier of the Rights Request",
             "type": "string",
             "format": "uuid"
         },
+    
+        "data-subject": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/data-subject-identity" }, 
+            "minItems": 1
+        },
+    
+         "demands": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/demand" }, 
+            "minItems": 1
+        },
+    
         "transitivity": {
-         "description": "Transitivity of the Data Rights Request. One of {DOWNWARD,UPWARD,BIDIRECTIONAL,INTRANSITIVE}.",
          "enum": ["DOWNWARD","UPWARD","BIDIRECTIONAL","INTRANSITIVE"] 
         },
+
         "date": {
-            "description": "Date and Time of the request",
             "type": "string",
             "format": "date-time"
         },
+
         "reply-to": {
-         "description": "Mode of Reply - to the SYSTEM that the Rights Request was received from or to the USER Data Subject directly",
          "enum": ["SYSTEM","USER"] 
         },
+
   },
   
   "required": ["rights-request-id", "timestamp"],
@@ -36,12 +48,49 @@
   "$defs": {
       "data-subject-identity": {
         "$id": "/schemas/data-subject-identity",
-        "$schema": "http://json-schema.org/draft-07/schema#",
+        "$schema": "https://json-schema.org/draft/2020-12/schema#",
         "type": "object",
         
         "properties": {
           "dsid-schema": { "type": "string" },
           "dsid": { "type": "string" },
+         },
+        
+        "required": ["dsid-schema", "dsid"],
+
+      },
+        
+     "demand": {
+        "$id": "/schemas/demand",
+        "$schema": "https://json-schema.org/draft/2020-12/schema#",
+        "type": "object",
+        
+        "properties": {
+          "demande-id": {
+            "type": "string"
+          },
+          
+         "data-category": {
+            "enum": ["NAME",
+                     "CONTACT",
+                     "CONTACT.EMAIL",
+                     "CONTACT.ADDRESS",
+                     "CONTACT.PHONE",
+                     "UID",
+                     "FINANCIAL",
+                     "HEALTH",
+                     "IMAGE",
+                     "LOCATION",
+                     "DEVICE",
+                     "BEHAVIOR",
+                     "BEHAVIOR.CONNECTION",
+                     "BEHAVIOR.ACTIVITY",
+                     "BEHAVIOR.PREFERENCE",
+                     "PROFILING",
+                     "OTHER"] 
+         },
+          
+        
          },
         
         "required": ["dsid-schema", "dsid"],
