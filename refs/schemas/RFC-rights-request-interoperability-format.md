@@ -76,17 +76,19 @@ A Demand is a concrete action that the user requests.
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
 | `demande-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this demande in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `what` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | **TBD** |
-| `data-category` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD**|
+| `action` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | **TBD** |
+| `data-categories` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | **TBD**|
 | `treatment` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD**|
-| `legal ground`| [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD**|
-| `message` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Optional comment or explanation of Demand |
+| `legal-grounds`| [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings represented legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.C" indicates Section C of CCPA |
+| `message` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Optional comment, motivation or explanation of Demand |
+
+##### Demand Restrictions
 
 A Demand MAY be restricted to one or more data categories. For example, a Data Subject can request to access to all data concerning his location.
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| `data-category` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`NAME`,`CONTACT`,`CONTACT.EMAIL`,`CONTACT.ADDRESS`,`CONTACT.PHONE`,`UID`,`FINANCIAL`,`HEALTH`,`IMAGE`,`LOCATION`,`DEVICE`,`BEHAVIOR`,`BEHAVIOR.CONNECTION`BEHAVIOR.ACTIVITY`, `BEHAVIOR.PREFERENCE`,`PROFILING`,`OTHER`} |
+| `data-category` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`NAME`,`CONTACT`,`CONTACT.EMAIL`,`CONTACT.ADDRESS`,`CONTACT.PHONE`,`UID`,`FINANCIAL`,`HEALTH`,`IMAGE`,`LOCATION`,`DEVICE`,`BEHAVIOR`,`BEHAVIOR.CONNECTION`,`BEHAVIOR.ACTIVITY`, `BEHAVIOR.PREFERENCE`,`PROFILING`,`OTHER`} |
 
 When several values are given, Systems MUST interpret the `data-category` restriction as a union of all the categories indicated. 
 
@@ -95,6 +97,7 @@ Categories are organised as a hierarchy, denoted with a full-stop ".", the more 
 - `CONTACT`
 
 In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data.
+
 
 #### Transitive Rights Request
 
