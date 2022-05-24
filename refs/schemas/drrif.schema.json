@@ -91,25 +91,46 @@
           },
           
          "data-categories": {
-            "enum": ["NAME",
-                     "CONTACT",
-                     "CONTACT.EMAIL",
-                     "CONTACT.ADDRESS",
-                     "CONTACT.PHONE",
-                     "UID",
-                     "FINANCIAL",
-                     "HEALTH",
-                     "IMAGE",
-                     "LOCATION",
-                     "DEVICE",
+            "enum": ["AFFILIATION",
                      "BEHAVIOR",
                      "BEHAVIOR.CONNECTION",
                      "BEHAVIOR.ACTIVITY",
                      "BEHAVIOR.PREFERENCE",
+                     "BIOMETRIC",
+                     "CONTACT",
+                     "CONTACT.EMAIL",
+                     "CONTACT.ADDRESS",
+                     "CONTACT.PHONE",
+                     "DEMOGRAPHIC",
+                     "DEMOGRAPHIC.GENDER",
+                     "DEMOGRAPHIC.AGE",
+                     "DEMOGRAPHIC.ORIGIN",
+                     "DEMOGRAPHIC.RACE",
+                     "DEVICE",
+                     "FINANCIAL",
+                     "GENETIC",
+                     "HEALTH",
+                     "IMAGE",
+                     "LOCATION",
+                     "NAME",
+                     "RELATIONSHIPS",
                      "PROFILING",
+                     "UID",
                      "OTHER"] 
          },
           
+          "treatments": {
+            "enum": ["ANONYMIZATION",
+                     "AUTOMATED-INFERENCE",
+                     "AUTOMATED-DECISION-MAKING",
+                     "COLLECTION",
+                     "GENERATING",
+                     "PUBLISHING",
+                     "STORING",
+                     "SHARING",
+                     "OTHER"]
+          }
+          ,
           
           
         
