@@ -91,11 +91,28 @@
             "type": "string"
           },
           
+          "action": {
+            "enum":["ACCESS",
+                    "DELETE",
+                    "MODIFY",
+                    "PORTABILITY",
+                    "OBJECT",
+                    "REVOKE-CONSENT",
+                    "TRANSPARENCY",
+                    "TRANSPARENCY.WHERE",
+                    "TRANSPARENCY.WHO",
+                    "TRANSPARENCY.PROVENANCE",
+                    "TRANSPARENCY.RETENTION",
+                    "TRANSPARENCY.POLICY",
+                    "TRANSPARENCY.PURPOSE",
+                    "TRANSPARENCY.PROCESSING"]
+          },
+          
          "data-categories": {
             "enum": ["AFFILIATION",
                      "BEHAVIOR",
-                     "BEHAVIOR.CONNECTION",
                      "BEHAVIOR.ACTIVITY",
+                     "BEHAVIOR.CONNECTION",
                      "BEHAVIOR.PREFERENCE",
                      "BIOMETRIC",
                      "CONTACT",
@@ -103,8 +120,9 @@
                      "CONTACT.ADDRESS",
                      "CONTACT.PHONE",
                      "DEMOGRAPHIC",
-                     "DEMOGRAPHIC.GENDER",
                      "DEMOGRAPHIC.AGE",
+                     "DEMOGRAPHIC.BELIEFS",
+                     "DEMOGRAPHIC.GENDER",
                      "DEMOGRAPHIC.ORIGIN",
                      "DEMOGRAPHIC.RACE",
                      "DEVICE",
@@ -130,6 +148,7 @@
                      "PUBLISHING",
                      "STORING",
                      "SHARING",
+                     "USING",
                      "OTHER"]
           },
 
