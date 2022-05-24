@@ -77,10 +77,6 @@ A Demand is a concrete action that the user requests.
 | --------------- | ------------ | ------ | -------------------- |
 | `demande-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this demande in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `action` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | **TBD** |
-| `data-categories` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings indicating particular categories of data to which the demand is limited to. See [Demand Restrictions](#demand-restrictions) for reserved values. |
-| `treatment` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings represeting treatment types to which the Demand is limited to |
-| `consent-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of consent ids to indicate that the Demand (e.g. a `REVOQUE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `capture-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of Data Capture IDs to indicate that the Demand (e.g. a `DELETE` Demand) is restricted to data captured within particular Data Captures. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `legal-grounds`| [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings representing legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.1798.105" indicates Section 1798.105 of CCPA |
 | `message` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Optional comment, motivation or explanation of Demand |
 
@@ -102,18 +98,51 @@ Categories are organised as a hierarchy, denoted with a full-stop ".", the more 
 
 In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data. [A list of eligible `data-category` values with corresponding user-facing descriptions is provided](./dictionary/data-categories/) for conveniance.
 
-###### Treatment Types
+###### Categories of Processing
 
 A Demand can be restricted to particular kind of data Treatment. For example, a Data Subject can oppose to automatic inference but continue to accept their data beeing collected and stored.
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| `treatment` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `OTHER`} |
+| `processing-categories` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `OTHER`} |
 
 When several values are given, Systems MUST interpret the `treatment` restriction as a union of all the treatments indicated. 
 
 In the absence of indication of any `treatment` restriction, Systems MUST interpret the Demand as being related to all kinds of data treatments.
 
+[A list of eligible `treatments` values with corresponding user-facing descriptions is provided](./dictionary/processing-categories/) for conveniance.
+
+###### Purposes of Processing
+
+A Demand can be restricted to particular purpose of Treatment. For example, a Data Subject can oppose to any treatment done for Marketing purposes, but still accept their data being treated for the sake of personalisation of their experience.
+
+| Schema propery | JSON Type | Expected cardinality | Expected values |
+| --------------- | ------------ | ------ | -------------------- |
+| `purposes` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `OTHER`} |
+
+When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated. 
+
+[A list of eligible `purposes` values with corresponding user-facing descriptions is provided](./dictionary/purposes/) for conveniance.
+
+###### Consent IDs
+
+A Demand can be restricted to particular Consent ID(s). For example, a Data Subject revoques a particular consent only (the one related to his data being shared with 3rd parties) but maintains other consents they may have given.
+
+| Schema propery | JSON Type | Expected cardinality | Expected values |
+| --------------- | ------------ | ------ | -------------------- |
+| `consent-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of consent ids to indicate that the Demand (e.g. a `REVOQUE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+
+When one or more `consent-ids` are idnicated, Systems MUST interpret the Demand as related to all Consents related to indicated `consent-ids`. 
+
+###### Capture IDs
+
+A Demand can be restricted to particular Capture ID(s). For example, a Data Subject to delete a particular data, they indicate the data capture concerned by their Demand.
+
+| Schema propery | JSON Type | Expected cardinality | Expected values |
+| --------------- | ------------ | ------ | -------------------- |
+| `capture-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of Data Capture IDs to indicate that the Demand (e.g. a `DELETE` Demand) is restricted to data captured within particular Data Captures. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+
+When one or more `capture-ids` are indicated, Systems MUST interpret the demande all related to all the data captured as part of those Data Captures.
 
 #### Transitive Rights Request
 
