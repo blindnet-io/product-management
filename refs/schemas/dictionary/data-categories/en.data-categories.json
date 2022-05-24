@@ -1,6 +1,6 @@
 {
   "NAME": "First names, last names, nicknames, and other names", 
-  "DEMOGRAPHIC": "All information related to  
+  "DEMOGRAPHIC": "All information allowing to class the person in a demographic category",
   "DEMOGRAPHIC.GENDER": "Data related to gender and gender identity",
   "DEMOGRAPHIC.AGE": "Data related to age, including date of birth",
   "DEMOGRAPHIC.ORIGIN": "Data related ethnic origin and nationality",
