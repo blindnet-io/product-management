@@ -78,19 +78,21 @@ A Demand is a concrete action that the user requests.
 | `demande-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this demande in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `action` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | **TBD** |
 | `data-categories` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings indicating particular categories of data to which the demand is limited to. See [Demand Restrictions](#demand-restrictions) for reserved values. |
-| `treatment` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD**|
+| `treatment` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings represeting treatment types to which the Demand is limited to |
 | `consent-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of consent ids to indicate that the Demand (e.g. a `REVOQUE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `capture-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of Data Capture IDs to indicate that the Demand (e.g. a `DELETE` Demand) is restricted to data captured within particular Data Captures. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `legal-grounds`| [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings represented legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.C" indicates Section C of CCPA |
+| `legal-grounds`| [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings representing legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.1798.105" indicates Section 1798.105 of CCPA |
 | `message` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Optional comment, motivation or explanation of Demand |
 
 ##### Demand Restrictions
+
+###### Data Categories
 
 A Demand MAY be restricted to one or more data categories. For example, a Data Subject can request to access to all data concerning his location.
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| `data-category` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`NAME`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `UID`, `FINANCIAL`, `HEALTH`, `IMAGE`, `LOCATION`, `DEVICE`, `BEHAVIOR`, `BEHAVIOR.CONNECTION`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.PREFERENCE`, `PROFILING`, `OTHER`} |
+| `data-category` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.CONNECTION`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER`} |
 
 When several values are given, Systems MUST interpret the `data-category` restriction as a union of all the categories indicated. 
 
@@ -98,7 +100,19 @@ Categories are organised as a hierarchy, denoted with a full-stop ".", the more 
 - `CONTACT`,`CONTACT.EMAIL`
 - `CONTACT`
 
-In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data.
+In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data. [A list of eligible `data-category` values with corresponding user-facing descriptions is provided](./dictionary/data-categories/) for conveniance.
+
+###### Treatment Types
+
+A Demand can be restricted to particular kind of data Treatment. For example, a Data Subject can oppose to automatic inference but continue to accept their data beeing collected and stored.
+
+| Schema propery | JSON Type | Expected cardinality | Expected values |
+| --------------- | ------------ | ------ | -------------------- |
+| `treatment` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `OTHER`} |
+
+When several values are given, Systems MUST interpret the `treatment` restriction as a union of all the treatments indicated. 
+
+In the absence of indication of any `treatment` restriction, Systems MUST interpret the Demand as being related to all kinds of data treatments.
 
 
 #### Transitive Rights Request
@@ -376,6 +390,12 @@ Systems SHOULD NOT imply Data Subject Identity equivalence from Rights Requests,
 
 All of the following identifiers `data-capture-id`, `fragment-id`, `consent-id`, `rights-request-id`, `demand-id`, `rights-response-id` MUST be globally unique and be generated according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html) in order for the corresponding objects to be easily identifiable across systems.
 
+### Data Categories, Treatment Types, Actions, and Purposes SHOULD be Unambiguous and Complete
+
+The lists of Data Categories, Treatment Types, Actions, and Purposes SHOULD be desiged in such a way to be:
+- **Unambiguous** : The developer using the schema knows without ambiguity which one (of which ones) to use in any given situation, AND
+- **Complete** : They allow to exress the totality of possible needs in the context of a user wanting to [regulate their privacy/connectedness](https://github.com/blindnet-io/product-management/blob/dogma/refs/notion-of-privacy/notion-of-privacy.md), as well as the totality of requests defined by the [supported legilsation](#supported-legilsation).
+
 ### Remembering Transfers
 
 When data about Data Subjects is transmitted from one system to another, in order to be able to process [Transitive Rights Requests](#transitive-rights-request), Systems MUST keep track of:
@@ -414,3 +434,12 @@ In the curent proposal, this is the case for Transitivity, but not for request t
 
 ### Informative References
 - 
+
+### Supported Legilsation
+- [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj)
+- [CCPA](https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5)
+
+### Yet to be Supported Legilsation
+- [CPRA]([https://eur-lex.europa.eu/eli/reg/2016/679/oj](https://vig.cdn.sos.ca.gov/2020/general/pdf/topl-prop24.pdf))
+- [HIPPA]([https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5](https://www.govinfo.gov/content/pkg/PLAW-104publ191/pdf/PLAW-104publ191.pdf))
+
