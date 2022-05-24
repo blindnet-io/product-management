@@ -91,6 +91,23 @@
             "type": "string"
           },
           
+          "action": {
+            "enum":["ACCESS",
+                    "DELETE",
+                    "MODIFY",
+                    "PORTABILITY",
+                    "OBJECT",
+                    "REVOKE-CONSENT",
+                    "TRANSPARENCY",
+                    "TRANSPARENCY.WHERE",
+                    "TRANSPARENCY.WHO",
+                    "TRANSPARENCY.PROVENANCE",
+                    "TRANSPARENCY.RETENTION",
+                    "TRANSPARENCY.POLICY",
+                    "TRANSPARENCY.PURPOSE",
+                    "TRANSPARENCY.PROCESSING"]
+          },
+          
          "data-categories": {
             "enum": ["AFFILIATION",
                      "BEHAVIOR",
@@ -130,6 +147,7 @@
                      "PUBLISHING",
                      "STORING",
                      "SHARING",
+                     "USING",
                      "OTHER"]
           },
 
