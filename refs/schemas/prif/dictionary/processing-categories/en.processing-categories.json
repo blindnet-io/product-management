@@ -1,6 +1,6 @@
 {
-  "ANONYMIZATION": "Transforming data to make data sets in which the person can no longer be identified", 
-  "AUTOMATED-INFERENCE": "Automatically infering data about the person, including profiling and clustering",
+  "ANONYMIZATION": "Processing of personal data in such a manner that the personal data can no longer be attributed to a specific data subject without the use of additional information", 
+  "AUTOMATED-INFERENCE": "Automatically infering data about the person, including for profiling and clustering",
   "AUTOMATED-DECISION-MAKING": "Automated decision-making", 
   "COLLECTION": "Collecting data about the person from the person or from another source, including ", 
   "GENERATING": "Producing novel data related to the person, such as making photo, voice or video recordings, or reconding user actions such as making a log.",

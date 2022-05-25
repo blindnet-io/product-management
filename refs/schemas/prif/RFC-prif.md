@@ -5,24 +5,25 @@
 | **PR #**      | [NNN](https://github.com/blindnet-io/PROJECT/pull/NNN) (update when you have PR #)     |
 | **Author(s)** | milstan (milstan@blindnet.io), Clémentine VINCENT (clementine@blindnet.io)             |
 | **Sponsor**   | milstan (milstan@blindnet.io)                                                          |
-| **Updated**   | 2022-05-19                                                                             |
+| **Updated**   | 2022-05-25                                                                             |
 
 ## Introduction
 
 We propose a simple, structured data format for representing [Privacy Requests](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-conceptualization#data-capture--rights-requests).
+This format corresponds to the [Data Rights Request Schema](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High- Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
 
-Privacy Requests exist within the relationship between an individual and software Systems (and Organisations operating them) processing data that concerns that individual. 
+Privacy Requests exist within the relationship between an individual and software Systems (and Organisations operating them) processing data that concerns that individual.
 
-Internet Systems are tools for connection. 
-[Connectedness requires privacy - the selective control of access to the self](https://github.com/blindnet-io/product-management/blob/10bebeefc14f7db7bf7a491932d62a4a5d18ad70/refs/notion-of-privacy/notion-of-privacy.md). 
-An individual MAY formulate a Privacy Request in order to establish that control and regulate the relationship, . 
+Internet Systems are tools for connection.
+[Connectedness requires privacy - the selective control of access to the self](https://github.com/blindnet-io/product-management/blob/10bebeefc14f7db7bf7a491932d62a4a5d18ad70/refs/notion-of-privacy/notion-of-privacy.md).
+An individual MAY formulate a Privacy Request in order to establish that control and regulate the relationship, .
 Systems MAY process and respond to Rights Request by legal obligation, or as a simple courtesy in the pursuit of gaining and maintaining the individual's trust.
 
 ## Motivation
 
 Different Systems, and different compontents of a single System, including different comnponents of blindnet devkit are likely to exchange information about Privacy Requests.
 
-Therefore, a common format is needed to facilitate exchange of information without loss of semantics. 
+Therefore, a common format is needed to facilitate exchange of information without loss of semantics.
 
 The goal of Privacy Request Interoperability Format is to establish a shared conceptualisation and format of Privacy Request so that their processing can be, as much as possible, automatised by the Systems.
 
@@ -44,6 +45,7 @@ With this design we seek:
 - Making processing of Privacy Requests as automatic as possible,
 - Compatibility with the use of different protocols and tools for user identity management, authentication, and encryption,
 - Allowing developers to be fully comply with [supported legislation](#supported-legislation) quickly and easily
+- Exhaustivity with regards to situations we need to support in response to [supported legislation](#supported-legislation) yet Extensibility in case new situations arise in the future.
 - Highly normative minimal specification, using as much as possible the [Plain Language](https://www.plainlanguage.gov/media/FederalPLGuidelines.pdf) while at the same time making clear references to the (often misfortunate) language of the [supported legislations](#supported-legislation)
 - Decentralised design compatible with both the Internet's Client-Server Architecture and Metaverse/Web3 Architecture
 
@@ -58,8 +60,8 @@ Data Subject is the author of a Privacy Request.
 | --------------- | ------------ | ------ | -------------------- |
 | `data-subject` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | An array of objects, each containing a (`dsid`,`dsid-schema`) pair |
 
-A System MAY have muptiple ways to identify the Data Subject, especially when data about them came from some other System that uses different identifiers. 
-The System capturing the Privacy Request MAY associate multiple Data Subject Identities to the Privacy Request, especially if the Privacy Request is likely to be transmitted to other systems. 
+A System MAY have muptiple ways to identify the Data Subject, especially when data about them came from some other System that uses different identifiers.
+The System capturing the Privacy Request MAY associate multiple Data Subject Identities to the Privacy Request, especially if the Privacy Request is likely to be transmitted to other systems.
 
 An array of one or more [Data Subject Identities](#decentralized-identity-of-data-subjects) MUST be provided in order to match the Data Subject with the data concerning them.
 
@@ -82,21 +84,31 @@ A Demand is a concrete action that the user requests.
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
 | `demande-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this demande in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `action` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique value. One of {`ACCESS`, `DELETE`, `MODIFY`, `PORTABILITY`, `OBJECT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.PROCESSING`} |
+| `action` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique value. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER`} |
 | `legal-grounds`| [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings representing legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.1798.105" indicates Section 1798.105 of CCPA |
 | `message` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Optional comment, motivation or explanation of Demand |
 | `language` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 
-The key element that defines the nature of the Demand is the `action`. A Demande MUST have one and only one `action`. 
+The key element that defines the nature of the Demand is the `action`. A Demande MUST have one and only one `action`.
 
-Actions are hierarchical. 
-Their relationships are dentoed with a dot "." separating two actions, the more general one being written on the left. 
-`TRANSPARENCY` includes `TRANSPARENCY.WHERE`. 
-When `TRANSPARENCY` is demanded, Systems MUST interpret the demand as if all the subcategories of `TRANSPARENCY` (`TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.PROCESSING`) were demanded.
+Actions are hierarchical.
+Their relationships are dentoed with a dot "." separating two actions, the more general one being written on the left.
+`TRANSPARENCY` includes `TRANSPARENCY.WHERE`.
+When `TRANSPARENCY` is demanded, Systems MUST interpret the demand as if all the subcategories of `TRANSPARENCY` were demanded.
+
+> **Note**
+>
+> To be compliant with GDPR.{13,14,15} and use this schema, the Systems MUST ensure to include the following information in their Privacy Policy:
+> - the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or to object to processing as well as the right to data portability
+> - where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal
+> - the right to lodge a complaint with a supervisory authority;
+> - whether the provision of personal data is a statutory or contractual requirement, or a requirement necessary to enter into a contract, as well as whether the data subject is obliged to provide the personal data and of the possible consequences of failure to provide such data
+> - the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject.
+> - Where personal data are transferred to a third country or to an international organisation, the data subject shall have the right to be informed of the appropriate safeguards pursuant to Article 46 relating to the transfer.
 
 ##### Demand Restrictions
 
-The `action` that the Data Subject requests with a particular Demand MUST be interpreted in the context of restrictions. 
+The `action` that the Data Subject requests with a particular Demand MUST be interpreted in the context of restrictions.
 A Demand MAY refer to only certain categories of data, or certain types of processing, certain purposes of processing etc.
 
 ###### Data Categories
@@ -105,28 +117,28 @@ A Demand MAY be restricted to one or more data categories. For example, a Data S
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
-| `data-category` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER`} |
+| `data-category` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER`} |
 
-When several values are given, Systems MUST interpret the `data-category` restriction as a union of all the categories indicated. 
+When several values are given, Systems MUST interpret the `data-category` restriction as a union of all the categories indicated.
 
-Categories are organised as a hierarchy, denoted with a dot ".", the more general category being written on the left. 
+Categories are organised as a hierarchy, denoted with a dot ".", the more general category being written on the left.
 E.g. the following two `data-category` restrictions are equivalent:
 - `CONTACT`,`CONTACT.EMAIL`
 - `CONTACT`
 
-In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data. 
+In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data.
 [A list of eligible `data-category` values with corresponding user-facing descriptions is provided](./dictionary/data-categories/) for conveniance.
 
 ###### Categories of Processing
 
-A Demand can be restricted to particular kinds of data processing. 
+A Demand can be restricted to particular kinds of data processing.
 For example, a Data Subject can oppose to automatic inference but continue to accept their data beeing collected and stored.
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
 | `processing-categories` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `USING`, `OTHER`} |
 
-When several values are given, Systems MUST interpret the `processing-categories` restriction as a union of all the processing categories indicated. 
+When several values are given, Systems MUST interpret the `processing-categories` restriction as a union of all the processing categories indicated.
 
 In the absence of indication of any `processing-categories` restriction, Systems MUST interpret the Demand as being related to all and any `processing-categories` of treatment.
 
@@ -140,7 +152,7 @@ A Demand can be restricted to particular purpose of data processing. For example
 | --------------- | ------------ | ------ | -------------------- |
 | `purposes` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ADVERTISING`, `CONTRACT`, `CONTRACT.BASIC-SERVICE`, `CONTRACT.ADDITIONAL-SERVICES`, `NECESSARY`, `NECESSARY.JUSTICE`, `NECESSARY.LEGAL`, `NECESSARY.MEDICAL`, `NECESSARY.PUBLIC-INTERESTS`, `NECESSARY.VITAL-INTERESTS`, `NECESSARY.SOCIAL-PROTECTION`, `MARKETING`, `PERSONNALISATION`, `SALE`, `SECURITY`, `TRACKING`, `OTHER`, `ANY`} |
 
-When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated. 
+When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated.
 
 Purposes are organised as a hierarchy, denoted with a dot ".", the more general purpose being written on the left. E.g. the following two `pruposes` restrictions are equivalent:
 - `NECESSARY`,`NECESSARY.LEGAL`
@@ -158,7 +170,7 @@ A Demand can be restricted to particular Consent ID(s). For example, a Data Subj
 | --------------- | ------------ | ------ | -------------------- |
 | `consent-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of consent ids to indicate that the Demand (e.g. a `REVOKE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 
-When one or more `consent-ids` are idnicated, Systems MUST interpret the Demand as related to all Consents related to indicated `consent-ids`. 
+When one or more `consent-ids` are idnicated, Systems MUST interpret the Demand as related to all Consents related to indicated `consent-ids`.
 
 ###### Capture IDs
 
@@ -204,176 +216,19 @@ In a distributed context, where one System transmits the Rights Request to anoth
 
 `USER` indicated the [scenario of direct responses](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#scenario-2---direct-responses) is prefered. Each System having received a Rights Request is expected to reply directly to the Data Subject, using contact information it has.
 
-### Requests list
-<!-- prettier-ignore -->
-| Nb | Request | Description | Associated treatment | Associated data category | Advised elements to provide | Legal ground | CNIL reference
-| ---------- | ---- | ---- | ---- | ---- | ---- | ---- |---- |
-| -- | ACCESS TYPE | ---- | ---- | ---- | ---- | ---- | ---- |
-| 01 | **Access** | Access to all data the organization has on me  | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces |
-| 15 | **Access to my medical record** | Acces to my medical record | ---- | ---- | ID | ---- |  https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical |
-| 16 | **Access to data "Preventel" has on me** | Access to data "Preventel" has on me | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel |
-| 07 | **Access to data a financial organization has on me** *-> to delete and let user make access request + provenance request to the financial organization* | Access to all data the (financial) organization has on me, Provide with any available information on the origin of this data concerning me *(access+provenance info request)* | ---- | ---- | ID, Account number | ---- | https://www.cnil.fr/fr/modele/courrier/connaitre-les-informations-detenues-par-un-etablissement-financier |
-| 09 | **Access to data "Fichier central des Chèques (FCC)" has on me** *-> to delete and let user make access request to the "Fichier central des Chèques (FCC)" ?*| Access to all data Fichier central des Chèques (FCC) has on me | ---- | ---- | ID, Birthdate | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc |
-| 10 | **Access to data "Fichier national des Incidents de remboursement de Crédit (FICP)" has on me** *-> to delete and let user make access request to the "Fichier national des Incidents de remboursement de Crédit (FICP)" ?*| Access to all data "Fichier national des Incidents de remboursement de Crédit (FICP)" has on me | ---- | ---- | ID, Birthdate | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-aux-donnees-du-fichier-national-des-incidents-de-remboursement-de-credit |
-| 11 | **Access to geolocation data or an access control device an organization has on me** | Access to data organization has on me on a device on a specific period of time *access request to geolocation data and device data* | ---- | ---- | ID, Device type, Date and time | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces |
-| 12 | **Access to video surveillance data** | Access to video data organization has on me on a specific period of time *access request to video surveillance data* | ---- | ---- | ID, Date and time | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant |
-| 34 | **Exerce my right to portability** | Receive the data that concerns me and reuse them, transmit them to another data controller *access request + donwnload?* | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite |
-| -- | MODIFICATION TYPE | ---- | ---- |---- |
-| 02 | **Modification** | Rectify incorrect data organization has on me  | ---- | ---- | ID, Information to modify, Information rectified | ---- | https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes |
-| 03 | **Rectification** *to merge in one modification?* | Rectify incomplete data organization has on me | ---- | ---- | ID, Information to modify, Information rectified | ---- | https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes |
-| -- | DELETION TYPE | ---- | ---- |---- |
-| 04 | **Deletion** | Delete the data the organization has on me  | ---- | ---- | ID, Information to delete*, Reason of deletion | ---- | https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles |
-| 08 | **Stop receiving advertising from organization** | Deletion of my contact details from organization avdertising contact list | ---- | ---- | ID, Reason of deletion | ---- | https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites |
-| 13 | **Closing an online account** | Closing online account, Deletion of all data the organization has on me | ---- | ---- | ID, Account name, Website name, URL of the pages with my data, Data to delete | ---- | https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne |
-| 14 | **Delete my data that are published on a webiste** | Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | ---- | ---- | ID, URL of the pages with my data, Data to delete, Reason of deletion | ---- | https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet, https://www.cnil.fr/fr/webmaster-ou-responsables-de-sites-comment-repondre-aux-demandes-de-suppression-de-donnees |
-| 32 | **Opt out of contact lists** | Delete my contact details from all contact lists an ornaginzation has with my contact details| ---- | ---- | ID | ---- |  |
-| 33 | **Removal of my image online** | Remove photo or video of me that has been published without my consent| ---- | ---- | ID | ---- | https://www.cnil.fr/fr/demander-le-retrait-de-votre-image-en-ligne |
-| -- | OPPOSITION TO TREATMENT TYPE | ---- | ---- |---- |
-| 05 | **Opposition to commercial prospecting** | Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | ---- | ---- |ID, Account number | ---- | https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers |
-| 06 | **Opposition to treatment of all data an organization has on me** | Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | ---- | ---- | ID, Reason of deletion | ---- | https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees |
-| 24 | **Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me** | I refuse the use of my data or of certain data but I don't want to delete my account or all my data | *Type of treatment (to choose from possible type of treatment list)* | ---- |  | ---- | https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees |
-| 29 | **Opt out of automated decision making** *-> to delete to include in 24. Limit treatment* | Opposition to automated decision making on the data organizatio has on me | ---- | ---- | ID | ---- |  |
-| 30 | **Opt out of sale of my data** *-> to delete to include in 24. Limit treatment* | Opposition to sale of the data an organization has on me| ---- | ---- | ID | ---- |  |
-| 31 | **Opt out of tracking on my data** *-> to delete to include in 24. Limit treatment* | Opposition to the tracking of my data from an organization | ---- | ---- | ID | ---- |  |
-| 27 | **Revoke consent** | Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | *Type of treatment (to choose from possible type of treatment list)* | ---- | ID | ---- | https://www.cnil.fr/fr/les-bases-legales/consentement "Droit au retrait : la personne doit avoir la possibilité de retirer son consentement à tout moment, par le biais d’une modalité simple et équivalente à celle utilisée pour recueillir le consentement (par exemple, si le recueil s’est fait en ligne, il doit pouvoir être retiré en ligne également)." |
-| -- | INFORMATIONNAL TYPE | ---- | ---- |---- |
-| 17 | **Storage information** | Know where is stored the data organization has on me | ---- | ---- | ID | ---- |  |
-| 18 | **Accessibility information** | Know who can access the data organization has on me | ---- | ---- | ID | ---- |  |
-| 19 | **Provenance information** | Know the provenance of data organization has on me | ---- | ---- | ID | ---- |  |
-| 20 | **Retention information** | Know for how long the data organization has on me will be kept | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees |
-| 21 | **Deletion information** | Know when my data will be deleted | ---- | ---- | ID | ---- |  |
-| 22 | **Policy information** | Know what is the policy of the organization to keep data it has on me | ---- | ---- | ID | ---- |  |
-| 23 | **Purpose of treatment information** | Know the purpose of the treatment organization does on the data it has on me | ---- | ---- | ID | ---- |  |
-| 25 | **Treatment information** | Know what type(s) of treatment organization does on the data it has on me | ---- | ---- | ID | ---- |  |
-| 26 | **Particular type(s) of treatment information** | Know if a particular type of treatment is done by organisation on the data it has on me | *Type of treatment (to choose from possible type of treatment list)* | ---- | ID | ---- |  |
-| -- | OTHER TYPE | ---- | ---- |---- |
-| 28 | **Propagation of request** (can only be ask in addition of another request) | Send the request to other organizations the organization may have shared the data it has me with | ---- | ---- |  | ---- |  |
+## Detailed Design
 
-### Types of treatment list
-| Nb | Treatment | Description | CNIL reference
-| ---------- | ---- | ---- | ---- |
-| 01 | **Collection** | Data collection | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 02 | **Recording** | Data recording | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 03 | **Organisation** | Data organisation | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 04 | **Retention** | Data retention | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 05 | **Adapation** | Data adaptation | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 07 | **Modification** | Data modification | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 08 | **Extraction** | Data extraction | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 09 | **Consultation** | Data consultation| https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 10 | **Usage** | Data usage | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 11 | **Communication** | Data communication by transmission or broadcast or any other form of data communication | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 12| *FR: "Rapprochement" -> EN: "Matching" or "Reconciliation" ?* |  | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 13 | **Automatic Inference and Descisionmaking** | Any automatic inference made on the data | [GDPR chap3 art. 13 section 2. c)](https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article13)|
-| 14 | **Basic service** | Provide a service that the user explicitly requests and that is part of the product's basic service or functionality |  |
-| 15 | **Additonal service** | Provide a service that the user explicitly requests but that is not a necessary part of the product's basic service |  |
-| 16 | **Tracking** | Tracking information about user behavior and activity online |  |
-| 17 | **Advertising** | To show ads that are either targeted to the specific user or not targeted |  |
-| 18 | **Marketing** |  To contact the user to offer products, services, or other promotions |  |
-| 19 | **Analytics** | For understanding the product’s audience, improving the product, inform company strategy, or general research |  |
-| 20 | **Personnalisation** | For providing user with a personalized experience |  |
-| 21 | **Operation security** | For product operation and security, enforcement of terms of service, fraud prevention, protecting users and property, etc. |  |
-| 22 | **Legal** | For compliance with legal obligations |  |
-| 23 | **Ongoing contract** | For ongoing contract purpose |  |
-| 24 | **Data transfer** | For data that was transferred as part of a change in circumstance (e.g. a merger or acquisition) |  |
-| 25 | **Sale** | Selling data to third parties |  |
-| 26 | **OTHER** | Other specific purpose not covered above |  |
-| 27 | **UNSPECIFIED** | The purpose is not explicitly stated or is unclear |  |
-| 28 | **ALL** |  |  |
-
-### Data categories list
-| Nb | Data category | Description | CNIL reference
-| ---------- | ---- | ---- | ---- |
-| 01 | **Name** | Firstname, Surname |  |
-| 02 | **Postal address** | *contact information* |  |
-| 03 | **Email address** | *contact information* |  |
-| 04 | **Phone number** | *contact information* |  |
-| 04 | **ID data** | Identifiers that uniquely identify a person |  |
-| 05 | **Financial data** | Financial information |  |
-| 06 | **Connection data** | Information associated to connection |  |
-| 07 | **Geoocation data** | Location information |  |
-| 08 | **Health data** | Health information |  |
-| 09 | **Tracking data** | Cookies and tracking information about user behavior and activity online|  |
-| 10 | **User profile** | User’s profile on the first-party website/app and its contents |  |
-| 11 | **Device data** | Device (desktop, tablet, mobile...) information |  |
-| 12 | **Form data** | Information collected through forms  |  |
-| 13 | **Image data** | Photo or video |  |
-| 14 | **Video surveillance data** | Video from video surveillance |  |
-| 15 | **OTHER** | A specific type of information not covered by the above categories | |
-| 16 | **UNSPECIFIED** | The type of information is not explicitly stated or unclear|
-| 17 | **ALL** |  |  |
-
-### Alternatives Considered
-
-#### Transcend
-
-Transcend proposes the following [action (demand) types](https://github.com/transcend-io/privacy-types/blob/main/src/actions.ts): 
-| Demand Type | Description | Observation |
-| -------------- | ----------------------------------------- | ------------------------ |
-| ACCESS | Data Download request | |
-| ERASURE | Erase the file completely | |
-| ACCOUNT_DELETION | Run an account deletion instead of a fully compliant deletion | |
-| AUTOMATED_DECISION_MAKING_OPT_OUT | Opt out of automated decision making | |
-| CONTACT_OPT_OUT | A contact opt out request | |
-| SALE_OPT_OUT | Opt-out of the sale of personal data | |
-| TRACKING_OPT_OUT | A tracking opt out request | |
-| RECTIFICATION | Make an update to an inaccurate record | |
-| RESTRICTION | A restriction of processing request | | 
-
-All of those can be modeled using our Demand Types.
-
-Transced proposes the following [treatment types](https://github.com/transcend-io/privacy-types/blob/main/src/objects.ts):
-| Treatment Type | Description | Observation |
-| -------------- | ----------------------------------------- | ------------------------ |
-| ESSENTIAL | Provide a service that the user explicitly requests and that is part of the product's basic service or functionality| |
-| ADDITIONAL_FUNCTIONALITY | Provide a service that the user explicitly requests but that is not a necessary part of the product's basic service | |
-| ADVERTISING | To show ads that are either targeted to the specific user or not targeted | |
-| MARKETING | To contact the user to offer products, services, or other promotions | |
-| ANALYTICS | For understanding the product’s audience, improving the product, inform company strategy, or general research | |
-| PERSONALIZATION | For providing user with a personalized experience | |
-| OPERATION_SECURITY | For product operation and security, enforcement of terms of service, fraud prevention, protecting users and property, etc. | |
-| LEGAL | For compliance with legal obligations | |
-| TRANSFER | For data that was transferred as part of a change in circumstance (e.g. a merger or acquisition) | |
-| SALE | For selling the data to third parties | |
-| HR | For personnel training, recruitment, payroll, management, etc. | corresponds to ongoing contract in our terminology|
-| OTHER | Other specific purpose not covered above | |
-| UNSPECIFIED | The purpose is not explicitly stated or is unclear | |
-
-All of those SHOULD be modeled using our Treatment Types.
-
-Transced proposes the following [data categories](https://github.com/transcend-io/privacy-types/blob/main/src/objects.ts):
-| Data Category | Description | Observation |
-| -------------- | ----------------------------------------- | ------------------------ |
-| FINANCIAL | Financial information | |
-| HEALTH | Health information | |
-| CONTACT | Contact information | |
-| LOCATION |  Geo-location information | |
-| DEMOGRAPHIC | Demographic Information | |
-| ID | Identifiers that uniquely identify a person | |
-| ONLINE_ACTIVITY | The user's online activities on the first party website/app or other websites/apps | |
-| USER_PROFILE | he user’s profile on the first-party website/app and its contents | |
-| SOCIAL_MEDIA | User profile and data from a social media website/app or other third party service | |
-| CONNECTION | Connection information for the current browsing session, e.g. device IDs, MAC addresses, IP addresses, etc. | |
-| TRACKING | Cookies and tracking elements | |
-| DEVICE | Computer or device information | |
-| SURVEY | Any data that is collected through surveys | |
-| OTHER | A specific type of information not covered by the above categories | |
-| UNSPECIFIED | The type of information is not explicitly stated or unclear| |
-
-
-
-### User Impact
-
-**TBD**- What are the user-facing changes? How will this feature be rolled out?
+A separate document lists [examples](./examples.md) on how real-life Privacy Requests, as defined in [supported legislation](#supported-legislation), or as modeled in existing systems with which we seek interoperability.
 
 ## Detailed Design
 
 ### JSON format
 
-We provide a JSON Schema document (**!!!link soon!!!!!**) for machine-readable interpretation of Privacy Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
+We provide a [JSON Schema document](./prif.schema.json) for machine-readable interpretation of Privacy Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
 
 The key requirements of the design are to enable:
 - Unambiguous expression of Privacy Requests in a machine-readable form
-- Integrity of Privacy Requests semantics when exchanged between components and systems. 
+- Integrity of Privacy Requests semantics when exchanged between components and systems.
 I.e. A system that has not directly collected the Privacy Requests from the user, but has received in in JSON format from another system, can make the exact same interpretation of the request as if it had collected the request directly.
 - A way of uniquely identifying one and the same Privacy Request across systems and components concerned by it.
 
@@ -381,11 +236,11 @@ I.e. A system that has not directly collected the Privacy Requests from the user
 
 Systems exchanging Privacy Requests MUST be able to do so in a way allowing them to very the integrity of their content, and the identity of the system having emitted the Rignts Request.
 
-For this purposes Privacy Requests MAY be embedded as 'Claims' in [JWTs (FRC7519)](https://datatracker.ietf.org/doc/html/rfc7519).
+For this purposes Privacy Requests MAY be embedded as 'Claims' in [JWTs (RFC7519)](https://datatracker.ietf.org/doc/html/rfc7519).
 
 ### Decentralized Identity of Data Subjects
 
-The Systems are only able to provide control to Data Subjects if they can identify them. On the other hand, there is no cetnral authority to manage Data Subject identity globally. 
+The Systems are only able to provide control to Data Subjects if they can identify them. On the other hand, there is no cetnral authority to manage Data Subject identity globally.
 
 Therefore, we use a set of atributes to uniquely indenitfy one Data Subject. One and the same Data Subject can have multiple such identities.
 
@@ -465,7 +320,7 @@ When data about Data Subjects is transmitted from one system to another, in orde
 - Data Subject Identities (`dsid`,`dsid-schema`) pairs associated to the data being trasnfered
 
 > **Note**
-> 
+>
 > Systems that exchange Data Subject information with other Systems MUST:
 > - expose an API for communicating with other systems about Rights Requests:
 >     - receiving Rights Requests from those other Systems,
@@ -480,7 +335,7 @@ We chould immagine an alternative design, where we would force systems to use an
 
 ### Mandatory properties and value constrains
 
-Should we include rescritions in the schema according to the [JSON-schema-validation vocabulary](https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#page-4) in order to make certian properties mandatory and ensure to limit string values to the values we suppoort? 
+Should we include rescritions in the schema according to the [JSON-schema-validation vocabulary](https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#page-4) in order to make certian properties mandatory and ensure to limit string values to the values we suppoort?
 
 In the curent proposal, this is the case for Transitivity, but not for request types, data categories, and user identity schemas. We might want to include more forma constraints there, or deliberately leave flexibility. This is a discussion we need to have.
 
@@ -501,18 +356,22 @@ However, it is likely that the System receiving a request will decide how to res
 
 ### Representation of Legal Articles
 
-Is there a better way to unambiguousely refer, in a machine-readable way, to parts of legislations? 
+Is there a better way to unambiguousely refer, in a machine-readable way, to parts of legislations?
 
+### Schema elegance and modularity
+
+We need a way to make enums different categories and types more elegant, and reusable in the perspective of using them to also represent Data Captures, Consents and responses to Privacy Requests.
 
 ## References
 
 ### Normative References
 
-- **[RFC8259]**  Bray, T., ["The JavaScript Object Notation (JSON) Data Interchange Format"](https://datatracker.ietf.org/doc/html/rfc8259), STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017. 
+- **[RFC8259]**  Bray, T., ["The JavaScript Object Notation (JSON) Data Interchange Format"](https://datatracker.ietf.org/doc/html/rfc8259), STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017.
+- **[RFC2119]**  Bradner, S., ["Key words for use in RFCs to Indicate Requirement Levels"](https://datatracker.ietf.org/doc/html/rfc2119), BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997,
 
 ### Informative References
 
-- 
+-
 
 ### Supported Legislation
 
@@ -523,4 +382,3 @@ Is there a better way to unambiguousely refer, in a machine-readable way, to par
 
 - [CPRA]([https://eur-lex.europa.eu/eli/reg/2016/679/oj](https://vig.cdn.sos.ca.gov/2020/general/pdf/topl-prop24.pdf))
 - [HIPPA]([https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5](https://www.govinfo.gov/content/pkg/PLAW-104publ191/pdf/PLAW-104publ191.pdf))
-
