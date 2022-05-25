@@ -38,41 +38,42 @@ The goal of Privacy Request Interoperability Format is to establish a shared con
 
 ## Design Considerations
 
-The design also aimes to maximise:
-- Consistent Interpretation of Rights Request accorss different Systems
-- Automatisation of Rights Request Processing
-- Confidentialty of data
-- Compatibility with the use of different protocols and tools for:
-    - user identity management and authentication,
-    - encryption.
+With this design we seek:
+- Consistent unambiguous interpretation of Privacy Request across different Systems, independently of programming languages and components they use,
+- Minimal exposure of Data Subject and their data during the processing of a Privacy Request,
+- Making processing of Privacy Requests as automatic as possible,
+- Compatibility with the use of different protocols and tools for user identity management, authentication, and encryption,
+- Allowing developers to be fully comply with [supported legislation](#supported-legislation) quickly and easily
+- Highly normative minimal specification, using as much as possible the [Plain Language](https://www.plainlanguage.gov/media/FederalPLGuidelines.pdf) while at the same time making clear references to the (often misfortunate) language of the [supported legislations](#supported-legislation)
+- Decentralised design compatible with both the Internet's Client-Server Architecture and Metaverse/Web3 Architecture
 
 
 ## Proposal
 
-### Rights Request
+### Privacy Request
 
-Data Subjects is the author of a Rights Request.
+Data Subject is the author of a Privacy Request.
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
 | `data-subject` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | An array of objects, each containing a (`dsid`,`dsid-schema`) pair |
 
-A System MAY have muptiple ways to identify the Data Subject, especially when data about them came from some other System that uses different identifiers. The System capturing the Rights Request MAY associate multiple Data Subject Identities to the Rights Request, especially if the Rights Request is likely to be transmitted to other systems. 
+A System MAY have muptiple ways to identify the Data Subject, especially when data about them came from some other System that uses different identifiers. 
+The System capturing the Privacy Request MAY associate multiple Data Subject Identities to the Privacy Request, especially if the Privacy Request is likely to be transmitted to other systems. 
 
 An array of one or more [Data Subject Identities](#decentralized-identity-of-data-subjects) MUST be provided in order to match the Data Subject with the data concerning them.
 
-In addition, the Rights Request has other meta-data:
+In addition, the Privacy Request has other meta-data:
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
 | `request-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this request in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `date` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | Date and Time when Rights Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `date` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | Date and Time when Privacy Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `demands` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | An array of [Demands](#demands) |
-| `language` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | **TBD format** Language of textual message associated with demands |
 
 The Data Subject can request several things (e.g. see the data the System has on me, know the source from where you have got it, and have my data deleted). We call those 'Demands'.
 
-A Rights Request includes an array of one or more Demands.
+A Privacy Request includes an array of one or more Demands.
 
 #### Demands
 
@@ -84,14 +85,19 @@ A Demand is a concrete action that the user requests.
 | `action` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique value. One of {`ACCESS`, `DELETE`, `MODIFY`, `PORTABILITY`, `OBJECT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.PROCESSING`} |
 | `legal-grounds`| [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings representing legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.1798.105" indicates Section 1798.105 of CCPA |
 | `message` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Optional comment, motivation or explanation of Demand |
+| `language` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 
 The key element that defines the nature of the Demand is the `action`. A Demande MUST have one and only one `action`. 
 
-Actions are hierarchical. Their relationships are dentoed with a dot "." sparating two actions, the more one being written on the left. `TRANSPARENCY` includes `TRANSPARENCY.WHERE`. When `TRANSPARENCY` is demanded, Systems MUST interpret the demand as if all the subcategories of `TRANSPARENCY` (`TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.PROCESSING`) were demanded.
+Actions are hierarchical. 
+Their relationships are dentoed with a dot "." separating two actions, the more general one being written on the left. 
+`TRANSPARENCY` includes `TRANSPARENCY.WHERE`. 
+When `TRANSPARENCY` is demanded, Systems MUST interpret the demand as if all the subcategories of `TRANSPARENCY` (`TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.PROCESSING`) were demanded.
 
 ##### Demand Restrictions
 
-The `action` that the Data Subject requests with a particular Demand MUST be interpreted in the context of restrictions. A Demand MAY refer to only certain categories of data, or certain types of processing, certain purposes of processing etc.
+The `action` that the Data Subject requests with a particular Demand MUST be interpreted in the context of restrictions. 
+A Demand MAY refer to only certain categories of data, or certain types of processing, certain purposes of processing etc.
 
 ###### Data Categories
 
@@ -103,29 +109,32 @@ A Demand MAY be restricted to one or more data categories. For example, a Data S
 
 When several values are given, Systems MUST interpret the `data-category` restriction as a union of all the categories indicated. 
 
-Categories are organised as a hierarchy, denoted with a dot ".", the more general category being written on the left. E.g. the following two `data-category` restrictions are equivalent:
+Categories are organised as a hierarchy, denoted with a dot ".", the more general category being written on the left. 
+E.g. the following two `data-category` restrictions are equivalent:
 - `CONTACT`,`CONTACT.EMAIL`
 - `CONTACT`
 
-In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data. [A list of eligible `data-category` values with corresponding user-facing descriptions is provided](./dictionary/data-categories/) for conveniance.
+In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data. 
+[A list of eligible `data-category` values with corresponding user-facing descriptions is provided](./dictionary/data-categories/) for conveniance.
 
 ###### Categories of Processing
 
-A Demand can be restricted to particular kind of data Treatment. For example, a Data Subject can oppose to automatic inference but continue to accept their data beeing collected and stored.
+A Demand can be restricted to particular kinds of data processing. 
+For example, a Data Subject can oppose to automatic inference but continue to accept their data beeing collected and stored.
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
 | `processing-categories` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `USING`, `OTHER`} |
 
-When several values are given, Systems MUST interpret the `treatment` restriction as a union of all the treatments indicated. 
+When several values are given, Systems MUST interpret the `processing-categories` restriction as a union of all the processing categories indicated. 
 
-In the absence of indication of any `purpose` restriction, Systems MUST interpret the Demand as being related to all and any purpose of treatment.
+In the absence of indication of any `processing-categories` restriction, Systems MUST interpret the Demand as being related to all and any `processing-categories` of treatment.
 
-[A list of eligible `treatments` values with corresponding user-facing descriptions is provided](./dictionary/purposes/) for conveniance.
+[A list of eligible `processing-categories` values with corresponding user-facing descriptions is provided](./dictionary/purposes/) for conveniance.
 
 ###### Purposes of Processing
 
-A Demand can be restricted to particular purpose of Treatment. For example, a Data Subject can oppose to any treatment done for Marketing purposes, but still accept their data being treated for the sake of personalisation of their experience.
+A Demand can be restricted to particular purpose of data processing. For example, a Data Subject can oppose to any data processing done for marketing purposes, but still accept their data being processed for the sake of personalisation of their experience.
 
 | Schema propery | JSON Type | Expected cardinality | Expected values |
 | --------------- | ------------ | ------ | -------------------- |
@@ -136,6 +145,8 @@ When several values are given, Systems MUST interpret the `purposes` restriction
 Purposes are organised as a hierarchy, denoted with a dot ".", the more general purpose being written on the left. E.g. the following two `pruposes` restrictions are equivalent:
 - `NECESSARY`,`NECESSARY.LEGAL`
 - `NECESSARY`
+
+In the absence of indication of any `purpose` restriction, Systems MUST interpret the Demand as being related to all and any purpose of treatment.
 
 [A list of eligible `purposes` values with corresponding user-facing descriptions is provided](./dictionary/purposes/) for conveniance.
 
@@ -159,10 +170,10 @@ A Demand can be restricted to particular Capture ID(s). For example, a Data Subj
 
 When one or more `capture-ids` are indicated, Systems MUST interpret the demande all related to all the data captured as part of those Data Captures.
 
-#### Transitive Rights Request
+#### Transitive Privacy Request
 
-A Rights Request can be transitive.
-Transitive Rights Requests are usefull in a distributed context where System A gave information about the Data Subject to System B, and System B gave information about the Data Subject to System C.
+A Privacy Request can be transitive.
+Transitive Privacy Requests are usefull in a distributed context where System A gave information about the Data Subject to System B, and System B gave information about the Data Subject to System C.
 
 When a System receives a transitive Rights Request, it SHOULD not only respond to it, but also transfer it to corresponding Systems with which it exchnaged data about the Data Subject.
 
@@ -179,7 +190,7 @@ When System B receives an `INTRANSITIVE` Rights Request, it SHOULD NOT transfer 
 
 Systems should interpret the transitivity of Rights Request the same way regardless of the Rights Request being received directly from the Data Subject or from a corresponding System.
 
-Convenient tables of Transitivity vlaues and corresponding user-facing descriptions, in different languages, are provided [here](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/dictionary/transitivity/).
+Convenient tables of `transitivity` vlaues and corresponding user-facing descriptions, in different languages, are provided [here](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/dictionary/transitivity/).
 
 #### Reply-to
 
@@ -358,19 +369,19 @@ Transced proposes the following [data categories](https://github.com/transcend-i
 
 ### JSON format
 
-In addition to this specification document we provide a JSON Schema document (link soon), for machine-readable interpretation of Rights Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
+We provide a JSON Schema document (**!!!link soon!!!!!**) for machine-readable interpretation of Privacy Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
 
 The key requirements of the design are to enable:
-- Unambiguous expression of Rights Requests in a machine-readable form
-- Integrity of Rights Requests semantics when exchanged between components and systems. 
-I.e. A system that has not directly collected the Rights Requests from the user, but has received in in JSON format from another system, can make the exact same interpretation of the request as if it had collected the request directly.
-- A way of uniquely identifying one and the same Rights Request across systems and components concerned by it.
+- Unambiguous expression of Privacy Requests in a machine-readable form
+- Integrity of Privacy Requests semantics when exchanged between components and systems. 
+I.e. A system that has not directly collected the Privacy Requests from the user, but has received in in JSON format from another system, can make the exact same interpretation of the request as if it had collected the request directly.
+- A way of uniquely identifying one and the same Privacy Request across systems and components concerned by it.
 
 ### Authenticated exchanges
 
-Systems exchanging Rignts Requests MUST be able to do so in a way allowing them to very the integrity of their content, and the identity of the system having emitted the Rignts Request.
+Systems exchanging Privacy Requests MUST be able to do so in a way allowing them to very the integrity of their content, and the identity of the system having emitted the Rignts Request.
 
-For this purposes Rignts Requests MAY be embedded as 'Claims' in [JWTs (FRC7519)](https://datatracker.ietf.org/doc/html/rfc7519).
+For this purposes Privacy Requests MAY be embedded as 'Claims' in [JWTs (FRC7519)](https://datatracker.ietf.org/doc/html/rfc7519).
 
 ### Decentralized Identity of Data Subjects
 
@@ -433,6 +444,10 @@ Systems SHOULD NOT imply Data Subject Identity equivalence from Rights Requests,
 ### Data Capture IDs, Data Capture Fragment IDs, Consent IDs, Rights Request IDs, Demand IDs, Rights Request Respons IDs are Globally Unique
 
 All of the following identifiers `data-capture-id`, `fragment-id`, `consent-id`, `rights-request-id`, `demand-id`, `rights-response-id` MUST be globally unique and be generated according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html) in order for the corresponding objects to be easily identifiable across systems.
+The reason for using UUDIs is to allow Systems to independently generate globally unique identifiers while being autonomous from a central entity that would ensure identifier uniqueness.
+
+Having a public ledger for UUDIs MAY be considered for Consents and Data Captures, but serious implications to Data Subject exposure MUST also be considered.
+However, the design MUST be compatible with building a public decentralised ledger.
 
 ### Data Categories, Treatment Types, Actions, and Purposes SHOULD be Unambiguous and Complete
 
@@ -476,6 +491,7 @@ Hierarchies of categories are represented using the "supercategory.subcategory" 
 E.g. We have a data capture associated to "CONTACT.ADDRESS" data category. The Data Subject makes a DELETE request related to all of their data falling under "CONTACT" data category. The developer can easily identify "CONTACT.ADDRESS" as being a subcategory of ""CONTACT.ADDRESS".
 
 However, this notation (although intuitive) is to the best of my knoweldge, non-standard. Maybe there are reasons for it, or a standard (better) notation we can adopt?
+Or if none (which would be surprising) we could define our syntax using [Backus-Naur Form](https://datatracker.ietf.org/doc/html/rfc4234). Advantage: geeks will love us.
 
 ### Reply-to is maybe unnecessary
 
@@ -485,7 +501,7 @@ However, it is likely that the System receiving a request will decide how to res
 
 ### Representation of Legal Articles
 
-Is there a better way to unambiguousely refer, in a machine-readable way, to parts of legislations?
+Is there a better way to unambiguousely refer, in a machine-readable way, to parts of legislations? 
 
 
 ## References
@@ -498,7 +514,7 @@ Is there a better way to unambiguousely refer, in a machine-readable way, to par
 
 - 
 
-### Supported Legilsation
+### Supported Legislation
 
 - [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj)
 - [CCPA](https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5)

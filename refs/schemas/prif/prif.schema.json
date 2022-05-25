@@ -2,8 +2,8 @@
   "$id": "https://blindnet.io/schemas/rights-request",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   
-  "title": "Data Rights Request",
-  "description": "This document defines a format for interoperability of Data Rights Requests",
+  "title": "Privacy Request",
+  "description": "This document defines a format for interoperability of Privacy Requests",
   
   "type": "object",
   "properties": {
@@ -38,25 +38,7 @@
          "enum": ["SYSTEM","USER"] 
         },
     
-        "legal-grounds": {
-          "type": "array",
-          "items": { "type": "string" } 
-        },
-    
-        "consent-ids": {
-          "type": "array",
-          "items": { 
-            "type": "string",
-            "format": "uuid"
-          } 
-        },
-      "capture-ids": {
-          "type": "array",
-          "items": { 
-            "type": "string",
-            "format": "uuid"
-          } 
-      }
+       
 
   },
   
@@ -90,6 +72,34 @@
           "demande-id": {
             "type": "string"
           },
+          
+          "message": {
+            "type": "string"
+          },
+          
+           "language": {
+            "type": "string"
+          },
+          
+           "legal-grounds": {
+          "type": "array",
+          "items": { "type": "string" } 
+        },
+    
+        "consent-ids": {
+          "type": "array",
+          "items": { 
+            "type": "string",
+            "format": "uuid"
+          } 
+        },
+      "capture-ids": {
+          "type": "array",
+          "items": { 
+            "type": "string",
+            "format": "uuid"
+          } 
+      }
           
           "action": {
             "enum":["ACCESS",
