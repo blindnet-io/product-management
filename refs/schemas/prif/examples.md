@@ -9,7 +9,7 @@
 
 ## Introduction
 
-This documents examines how the [Privacy Request Interoperability Format](./RFC-prif.md) can be used to represent Privacy Requests:
+This document examines how the [Privacy Request Interoperability Format](./RFC-prif.md) can be used to represent Privacy Requests:
 - introduced by the [supported legislation](#supported-legislation),
 - illustrated by tutorials and request templates from regulatory bodies (e.g. [CNIL](https://www.cnil.fr/)),
 - or made possible by existing software solutions with which interoperability SHOULD be achieved (e.g. Transcend, Alias.dev)  

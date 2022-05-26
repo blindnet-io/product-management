@@ -66,7 +66,7 @@ We have made the following choices:
 
 Data Subject is the author of a Privacy Request.
 
-| Schema property | Expected cardinality | Expected values |
+| Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
 
@@ -78,7 +78,7 @@ An array of one or more [Data Subject Identities](#decentralized-identity-of-dat
 
 In addition, the Privacy Request has other meta-data:
 
-| Schema property | Expected cardinality | Expected values |
+| Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `request-id` | 1 | Unique ID for referring to this request in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Privacy Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
@@ -92,13 +92,13 @@ A Privacy Request includes an array of one or more Demands.
 
 A Demand is a concrete action that the user requests.
 
-| Schema property | Expected cardinality | Expected values |
+| Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `demande-id` | 1 | Unique ID for referring to this demande in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `action` | 1 | Unique value. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.KNOWN`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER`} |
 | `legal-grounds`| 0-* | Optional strings representing legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.1798.105" indicates Section 1798.105 of CCPA |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
-| `language` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
+| `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 
 The key element that defines the nature of the Demand is the `action`. A Demande MUST have one and only one `action`.
 
@@ -116,7 +116,7 @@ A Demand MAY refer to only certain categories of data, or certain types of proce
 
 A Demand MAY be restricted to one or more data categories. For example, a Data Subject can request to access to all data concerning his location.
 
-| Schema property | Expected cardinality | Expected values |
+| Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `data-category` |  0-* | `AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER` |
 
@@ -128,7 +128,7 @@ E.g. the following two `data-category` restrictions are equivalent:
 - `CONTACT`
 
 In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data.
-[A list of eligible `data-category` values with corresponding user-facing descriptions is provided](dictionary/data-categories/) for conveniance.
+[A list of eligible `data-category` values with corresponding user-facing descriptions is provided](dictionary/data-categories/) for convenience.
 
 ###### Categories of Processing
 
@@ -143,13 +143,13 @@ When several values are given, Systems MUST interpret the `processing-categories
 
 In the absence of indication of any `processing-categories` restriction, Systems MUST interpret the Demand as being related to all and any `processing-categories` of treatment.
 
-[A list of eligible `processing-categories` values with corresponding user-facing descriptions is provided](dictionary/purposes) for conveniance.
+[A list of eligible `processing-categories` values with corresponding user-facing descriptions is provided](dictionary/purposes) for convenience.
 
 ###### Purposes of Processing
 
 A Demand can be restricted to particular purpose of data processing. For example, a Data Subject can oppose to any data processing done for marketing purposes, but still accept their data being processed for the sake of personalisation of their experience.
 
-| Schema property | Expected cardinality | Expected values |
+| Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `purposes` | 0-* | `ADVERTISING`, `CONTRACT`, `CONTRACT.BASIC-SERVICE`, `CONTRACT.ADDITIONAL-SERVICES`, `NECESSARY`, `NECESSARY.JUSTICE`, `NECESSARY.LEGAL`, `NECESSARY.MEDICAL`, `NECESSARY.PUBLIC-INTERESTS`, `NECESSARY.VITAL-INTERESTS`, `NECESSARY.SOCIAL-PROTECTION`, `MARKETING`, `PERSONNALISATION`, `SALE`, `SECURITY`, `TRACKING`, `OTHER`, `ANY` |
 
@@ -167,7 +167,7 @@ In the absence of indication of any `purpose` restriction, Systems MUST interpre
 
 A Demand can be restricted to particular Consent ID(s). For example, a Data Subject revokes a particular consent only (the one related to his data being shared with 3rd parties) but maintains other consents they may have given.
 
-| Schema property | Expected cardinality | Expected values |
+| Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `consent-ids` | 0-* | Optional array of consent ids to indicate that the Demand (e.g. a `REVOKE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 
@@ -177,7 +177,7 @@ When one or more `consent-ids` are indicated, Systems MUST interpret the Demand 
 
 A Demand can be restricted to particular Capture ID(s). For example, a Data Subject to delete a particular data, they indicate the data capture concerned by their Demand.
 
-| Schema property | Expected cardinality | Expected values |
+| Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `capture-ids` | 0-* | Optional array of Data Capture IDs to indicate that the Demand (e.g. a `DELETE` Demand) is restricted to data captured within particular Data Captures. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 
@@ -190,7 +190,7 @@ Transitive Privacy Requests are useful in a distributed context where System A g
 
 When a System receives a transitive Rights Request, it SHOULD not only respond to it, but also transfer it to corresponding Systems with which it exchanged data about the Data Subject.
 
-| Schema property | Expected cardinality | Expected values |
+| Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `transitivity` | 0-1 | Optionally one of {`DOWNWARD`, `UPWARD`, `BIDIRECTIONAL`, `INTRANSITIVE`} |
 
@@ -204,6 +204,28 @@ When System B receives an `INTRANSITIVE` Rights Request, it SHOULD NOT transfer 
 Systems should interpret the transitivity of Rights Request the same way regardless of the Rights Request being received directly from the Data Subject or from a corresponding System.
 
 Convenient tables of `transitivity` values and corresponding user-facing descriptions, in different languages, are provided [here](dictionary/transitivity).
+
+### Privacy Request Response
+
+Systems SHOULD respond to [Privacy Requests](#privacy-request).
+Regardless of the [scenario (Responding to the Data Subject directly or to the System)](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#different-rights-request-response-scenrarios) that should be defined by a protocol (**TO BE WRITTEN**), Systems SHOULD generate a response using the Privacy Request Interoperability Format.
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `response-id` | 1 | Unique ID for referring to this request in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `in-response-to` | 1 | `request-id` of the Privacy Request to which response is made or `demand-id` of the particular Demand to which response is made, in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `date` | 1 | Date and Time when Privacy Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `by` | 1 | **TBD ID of the System having generated the response** |
+| `status` | 1 | One of {`GRANTED`, `DENIED`, `UNDER-REVIEW`} |
+| `motive` | 0-1 | Optionally one of {`IDENTITY-UNCONFIRMED`, `USER-UNKNOWN`, `LEGAL-OBLIGATIONS`, `LEGAL-GROUNDS`, `LANGUAGE-UNSUPPORTED`, `REQUEST-UNSUPPORTED`} |
+| `terms` | 0-* | Any of the terms the meaning of which is defined by the present format and its dictionaries |
+| `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
+| `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
+| `includes` | 0-* | Optionally an array of one or more [Privacy Request Response](#privacy-request-response)s |
+
+//**TODO** make dictionaries for statuses, motives. Add defined TERMS for Yes and No, check if it covers all possible responses. Make Expected behavior document
+
+
 
 ## Detailed Design
 
@@ -351,7 +373,12 @@ The Systems that implementing the Privacy Request Interoperability Format SHOULD
 
 A System MAY be made only to collect Privacy Requests and send them to other Systems implementing the above-mentioned APIs.
 
+It SHOULD be possible for systems to expose Privacy Request APIs in such a way that browsers can detect them while a Data Subject is on their website. The browser SHOULD be able to make (at least a simple `TRANSPARENCY.KNOW` or `TRANSPARENCY.POLICY`) requests and get instant answers to show to the user.
 
+
+### Compliance History
+
+Systems SHOULD keep a log of received [Privacy Requests](#privacy-request), generated [responses](#privacy-request-response), and as much as possible proofs of response delivery and visualisation.
 
 
 
@@ -372,10 +399,25 @@ In the curent proposal, this is the case for Transitivity, but not for request t
 
 Hierarchies of categories are represented using the "supercategory.subcategory" notation. The idea behind this is to allow developers to use the level of granularity that is adapted to them, yet be able to easily situate the subcategory in supercategory when dealing with more generic requests.
 
-E.g. We have a data capture associated to "CONTACT.ADDRESS" data category. The Data Subject makes a DELETE request related to all of their data falling under "CONTACT" data category. The developer can easily identify "CONTACT.ADDRESS" as being a subcategory of ""CONTACT.ADDRESS".
+E.g. We have a data capture associated to "CONTACT.ADDRESS" data category. The Data Subject makes a DELETE request related to all of their data falling under "CONTACT" data category. The developer can easily identify "CONTACT.ADDRESS" as being a subcategory of ""CONTACT.ADDRESS" (either in SQL or in jquery).
 
-However, this notation (although intuitive) is to the best of my knowledge, non-standard. Maybe there are reasons for it, or a standard (better) notation we can adopt?
+The advantages are:
+- It is human-readable
+- It is easy to filter and get what you need
+
+The disadvantages:
+- Takes a lot of bites to store (as it is text) and the search operations in it a string operations (also taking time). Those disadvantages can be easily managed on the level of the storage used for the data, and do not have to be managed on the level of this interoperability format,
+- this notation (although intuitive) is to the best of my knowledge, non-standard.
+
+Maybe there are reasons for it (although similar notations are used for packages in programming languages, which are also hierarchical structures).
+
+*Is there a standard (better) notation we can adopt?*
+
+A candidate for a standard notation is the [URN](https://datatracker.ietf.org/doc/html/rfc8141). It is - less pretty (still human-readable), + standard, = equally searchable, = equally bad for storage and time. However we would still need to specify our own notation of the part of the URN that we want to customise. So the advantages are limited (if any).
+
 Or if none (which would be surprising) we could define our syntax using [Backus-Naur Form](https://datatracker.ietf.org/doc/html/rfc4234). Advantage: geeks will love us.
+We would need to ensure: that any string used on any side of any dot, it is not contained in any other string not containing a dot.
+Disadvantage: using a non-standard notation we expose ourselves to unpredictable risks.
 
 ### Representation of Legal Articles
 
@@ -387,13 +429,13 @@ We need a way to make enums different categories and types more elegant, and reu
 
 ### Addressability of System Endpoints
 
-Is there a standard way for representing peer-to-peer System's API endpoints that we can reuse here for representing systems.
+Is there a standard way for representing peer-to-peer System's API endpoints (compatible with our [implications for systems](#exposing-privacy-request-api)) that we can reuse here for representing systems?
 
 ### Anonymous Privacy Requests
 
 In the current design, a Privacy Request must have at least one Data Subject Identity associated to it. However it might be useful to allow change the Expected cardinality from `1-*` to `0-*` so that a request can be made about general practices (`TRANSPARENCY`) without reference to any user.
 
-This would make sense if the Systems would be responsable for finding a way to respond to such, unidentified user.
+This would make sense if the Systems would be responsible for finding a way to respond to such, unidentified user.
 
 ### General vs Specific Interpretation of `TRANSPARENCY` Privacy Requests
 
@@ -406,6 +448,8 @@ This design choice MAY be a bad idea.
 ### Inform-as-you-capture
 
 To better explain Inform-as-you-capture, we introduce to the concept of a theoretical superprivate System, in which the Data Subject's ability of control is absolute.
+
+This absolute control involves also the ability to acquire absolute transparency about future processing at the time of capture.
 
 As the user provides the data to the superprivate system, the system is able to dynamically show, for each field (Data Capture Fragment) the intended usage (including purposes and categories of processing, duration of retention, legal grounds and other privacy-related parameters). As they enter data, the Data Subject, if they wish so, is able to dynamically restrict this intended usage and impose their own terms.
 
@@ -421,6 +465,19 @@ To achieve this ability, the superprivate system uses a data structure describin
 After negotiation with the Data Subject during Data Capture, the superprivate System applies metadata to the Data Capture to indicate concrete consents and limitations that it wants to respect in run-time of data processing.
 
 Even if a less than superprivate System does not want to dynamically negotiate consent, it can still benefit from this data structure in order to show (fragment by fragment) the policies in place. The information obligation during capture (as defined by GDPR.13 and GDPR.14) is currently mostly achieved by Privacy Policies (that nobody ever reads). The inform-as-you-capture paradigm works as tooltip (or equivalent interface element), more adapted to the actual demonstration of transparency.
+
+### A Way for Systems to Sign Responses
+
+Should we include a way for systems to sign responses and allow to confirm their authenticity. Maybe it can be a set of optional variables for signatures and keys in the [Privacy Request Response](#privacy-request-response)) so that they can be easily nested as they only sign the body of the response? Or is there (certainly is, but should we use it) some standard way to handle this separately from the format of the requests and responses?
+
+### Place of `message`, `lang`, `transitivity`
+
+Should `message`, `lang`, `transitivity` be properties of Privacy Request, Demand or both?
+
+### Expect Language
+
+Should we implement the Accept-Language logic from HTTP? Data Subjects arent' supposed to all speak English?
+
 
 ## References
 
