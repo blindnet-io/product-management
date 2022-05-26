@@ -66,9 +66,9 @@ We have made the following choices:
 
 Data Subject is the author of a Privacy Request.
 
-| Schema propery | JSON Type | Expected cardinality | Expected values |
-| --------------- | ------------ | ------ | -------------------- |
-| `data-subject` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | An array of objects, each containing a (`dsid`,`dsid-schema`) pair |
+| Schema propery | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `data-subject` |  1-* | Objects, each containing a (`dsid`,`dsid-schema`) pair |
 
 A System MAY have muptiple ways to identify the Data Subject, especially when data about them came from some other System that uses different identifiers.
 The System capturing the Privacy Request MAY associate multiple Data Subject Identities to the Privacy Request, especially if the Privacy Request is likely to be transmitted to other systems.
@@ -77,11 +77,11 @@ An array of one or more [Data Subject Identities](#decentralized-identity-of-dat
 
 In addition, the Privacy Request has other meta-data:
 
-| Schema propery | JSON Type | Expected cardinality | Expected values |
-| --------------- | ------------ | ------ | -------------------- |
-| `request-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this request in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `date` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | Date and Time when Privacy Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `demands` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1-* | An array of [Demands](#demands) |
+| Schema propery | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `request-id` | 1 | Unique ID for referening to this request in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `date` | 1 | Date and Time when Privacy Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `demands` | 1-* | [Demands](#demands) |
 
 The Data Subject can request several things (e.g. see the data the System has on me, know the source from where you have got it, and have my data deleted). We call those 'Demands'.
 
@@ -91,13 +91,13 @@ A Privacy Request includes an array of one or more Demands.
 
 A Demand is a concrete action that the user requests.
 
-| Schema propery | JSON Type | Expected cardinality | Expected values |
-| --------------- | ------------ | ------ | -------------------- |
-| `demande-id` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique ID for referening to this demande in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `action` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 1 | Unique value. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER`} |
-| `legal-grounds`| [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of strings representing legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.1798.105" indicates Section 1798.105 of CCPA |
-| `message` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Optional comment, motivation or explanation of Demand |
-| `language` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
+| Schema propery | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `demande-id` | 1 | Unique ID for referening to this demande in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `action` | 1 | Unique value. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER`} |
+| `legal-grounds`| 0-* | Optional strings representing legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.1798.105" indicates Section 1798.105 of CCPA |
+| `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
+| `language` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 
 The key element that defines the nature of the Demand is the `action`. A Demande MUST have one and only one `action`.
 
@@ -115,9 +115,9 @@ A Demand MAY refer to only certain categories of data, or certain types of proce
 
 A Demand MAY be restricted to one or more data categories. For example, a Data Subject can request to access to all data concerning his location.
 
-| Schema propery | JSON Type | Expected cardinality | Expected values |
-| --------------- | ------------ | ------ | -------------------- |
-| `data-category` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER`} |
+| Schema propery | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `data-category` |  0-* | `AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER` |
 
 When several values are given, Systems MUST interpret the `data-category` restriction as a union of all the categories indicated.
 
@@ -134,9 +134,9 @@ In the absence of indication of any `data-category` restriction, Systems MUST in
 A Demand can be restricted to particular kinds of data processing.
 For example, a Data Subject can oppose to automatic inference but continue to accept their data beeing collected and stored.
 
-| Schema propery | JSON Type | Expected cardinality | Expected values |
-| --------------- | ------------ | ------ | -------------------- |
-| `processing-categories` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `USING`, `OTHER`} |
+| Schema propery | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `processing-categories` | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `USING`, `OTHER`} |
 
 When several values are given, Systems MUST interpret the `processing-categories` restriction as a union of all the processing categories indicated.
 
@@ -148,9 +148,9 @@ In the absence of indication of any `processing-categories` restriction, Systems
 
 A Demand can be restricted to particular purpose of data processing. For example, a Data Subject can oppose to any data processing done for marketing purposes, but still accept their data being processed for the sake of personalisation of their experience.
 
-| Schema propery | JSON Type | Expected cardinality | Expected values |
-| --------------- | ------------ | ------ | -------------------- |
-| `purposes` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | One of {`ADVERTISING`, `CONTRACT`, `CONTRACT.BASIC-SERVICE`, `CONTRACT.ADDITIONAL-SERVICES`, `NECESSARY`, `NECESSARY.JUSTICE`, `NECESSARY.LEGAL`, `NECESSARY.MEDICAL`, `NECESSARY.PUBLIC-INTERESTS`, `NECESSARY.VITAL-INTERESTS`, `NECESSARY.SOCIAL-PROTECTION`, `MARKETING`, `PERSONNALISATION`, `SALE`, `SECURITY`, `TRACKING`, `OTHER`, `ANY`} |
+| Schema propery | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `purposes` | 0-* | `ADVERTISING`, `CONTRACT`, `CONTRACT.BASIC-SERVICE`, `CONTRACT.ADDITIONAL-SERVICES`, `NECESSARY`, `NECESSARY.JUSTICE`, `NECESSARY.LEGAL`, `NECESSARY.MEDICAL`, `NECESSARY.PUBLIC-INTERESTS`, `NECESSARY.VITAL-INTERESTS`, `NECESSARY.SOCIAL-PROTECTION`, `MARKETING`, `PERSONNALISATION`, `SALE`, `SECURITY`, `TRACKING`, `OTHER`, `ANY` |
 
 When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated.
 
@@ -166,9 +166,9 @@ In the absence of indication of any `purpose` restriction, Systems MUST interpre
 
 A Demand can be restricted to particular Consent ID(s). For example, a Data Subject revoques a particular consent only (the one related to his data being shared with 3rd parties) but maintains other consents they may have given.
 
-| Schema propery | JSON Type | Expected cardinality | Expected values |
-| --------------- | ------------ | ------ | -------------------- |
-| `consent-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of consent ids to indicate that the Demand (e.g. a `REVOKE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| Schema propery | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `consent-ids` | 0-* | Optional array of consent ids to indicate that the Demand (e.g. a `REVOKE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 
 When one or more `consent-ids` are idnicated, Systems MUST interpret the Demand as related to all Consents related to indicated `consent-ids`.
 
@@ -176,22 +176,22 @@ When one or more `consent-ids` are idnicated, Systems MUST interpret the Demand 
 
 A Demand can be restricted to particular Capture ID(s). For example, a Data Subject to delete a particular data, they indicate the data capture concerned by their Demand.
 
-| Schema propery | JSON Type | Expected cardinality | Expected values |
-| --------------- | ------------ | ------ | -------------------- |
-| `capture-ids` | [array](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-* | Optional array of Data Capture IDs to indicate that the Demand (e.g. a `DELETE` Demand) is restricted to data captured within particular Data Captures. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| Schema propery | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `capture-ids` | 0-* | Optional array of Data Capture IDs to indicate that the Demand (e.g. a `DELETE` Demand) is restricted to data captured within particular Data Captures. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 
 When one or more `capture-ids` are indicated, Systems MUST interpret the demande all related to all the data captured as part of those Data Captures.
 
 #### Transitive Privacy Request
 
 A Privacy Request can be transitive.
-Transitive Privacy Requests are usefull in a distributed context where System A gave information about the Data Subject to System B, and System B gave information about the Data Subject to System C.
+Transitive Privacy Requests are useful in a distributed context where System A gave information about the Data Subject to System B, and System B gave information about the Data Subject to System C.
 
-When a System receives a transitive Rights Request, it SHOULD not only respond to it, but also transfer it to corresponding Systems with which it exchnaged data about the Data Subject.
+When a System receives a transitive Rights Request, it SHOULD not only respond to it, but also transfer it to corresponding Systems with which it exchanged data about the Data Subject.
 
-| Schema propery | JSON Type | Expected cardinality | Expected values |
-| --------------- | ------------ | ------ | -------------------- |
-| `transitivity` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | One of {`DOWNWARD`, `UPWARD`, `BIDIRECTIONAL`, `INTRANSITIVE`} |
+| Schema property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `transitivity` | 0-1 | Optionally one of {`DOWNWARD`, `UPWARD`, `BIDIRECTIONAL`, `INTRANSITIVE`} |
 
 Transitivity of Rights Requests can be `DOWNWARD` `UPWARD`, `BIDIRECTIONAL` or `INTRANSITIVE`. In the absence of any indication `INTRANSITIVE` SHOULD be assumed.
 
