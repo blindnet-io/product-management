@@ -12,20 +12,16 @@
 We propose a simple, structured data format for representing [Privacy Requests](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-conceptualization#data-capture--rights-requests).
 This format corresponds to the [Data Rights Request Schema](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High- Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
 
-Privacy Requests exist within the relationship between an individual and software Systems (and Organisations operating them) processing data that concerns that individual.
-
-Internet Systems are tools for connection.
-[Connectedness requires privacy - the selective control of access to the self](https://github.com/blindnet-io/product-management/blob/10bebeefc14f7db7bf7a491932d62a4a5d18ad70/refs/notion-of-privacy/notion-of-privacy.md).
-An individual MAY formulate a Privacy Request in order to establish that control and regulate the relationship, .
-Systems MAY process and respond to Rights Request by legal obligation, or as a simple courtesy in the pursuit of gaining and maintaining the individual's trust.
-
 ## Motivation
 
-Different Systems, and different compontents of a single System, including different comnponents of blindnet devkit are likely to exchange information about Privacy Requests.
+An individual is in connection with software Systems (and Organisations operating them) that process the individual's data.
+In order to [regulate the relationship](https://github.com/blindnet-io/product-management/blob/10bebeefc14f7db7bf7a491932d62a4a5d18ad70/refs/notion-of-privacy/notion-of-privacy.md) with those Systems (and Organisations), the individual makes requests related to their privacy.
 
-Therefore, a common format is needed to facilitate exchange of information without loss of semantics.
+With a Privacy Request the individual aims to gain a degree of transparency about data processing and a degree of control over the data and over the data processing. Allowing individuals to make Privacy Requests is becoming more and more a legal obligation.
 
-The goal of Privacy Request Interoperability Format is to establish a shared conceptualisation and format of Privacy Request so that their processing can be, as much as possible, automatised by the Systems.
+Different Systems, and different compontents of a single System, including different comnponents of blindnet devkit are likely to exchange information about Privacy Requests. Therefore, a common format is needed to facilitate exchange of information without loss of semantics. The goal of Privacy Request Interoperability Format is to establish a shared conceptualisation and format of Privacy Request so that their processing can be, as much as possible, automatised by the Systems.
+
+
 
 ## Terminology
 
@@ -39,16 +35,30 @@ The goal of Privacy Request Interoperability Format is to establish a shared con
 
 ## Design Considerations
 
+### Design Goals
+
 With this design we seek:
-- Consistent unambiguous interpretation of Privacy Request across different Systems, independently of programming languages and components they use,
+- Consistent unambiguous interpretation of Privacy Requests (including shared understanding of their meaning and ways to uniquely identify them) across different Systems, independently of programming languages and components they use
 - Minimal exposure of Data Subject and their data during the processing of a Privacy Request,
 - Making processing of Privacy Requests as automatic as possible,
 - Compatibility with the use of different protocols and tools for user identity management, authentication, and encryption,
-- Allowing developers to be fully comply with [supported legislation](#supported-legislation) quickly and easily
+- Allowing developers to be fully comply with [supported legislation](#supported-legislation) related to Privacy Requests quickly and easily
 - Exhaustivity with regards to situations we need to support in response to [supported legislation](#supported-legislation) yet Extensibility in case new situations arise in the future.
 - Highly normative minimal specification, using as much as possible the [Plain Language](https://www.plainlanguage.gov/media/FederalPLGuidelines.pdf) while at the same time making clear references to the (often misfortunate) language of the [supported legislations](#supported-legislation)
 - Decentralised design compatible with both the Internet's Client-Server Architecture and Metaverse/Web3 Architecture
 
+### Design Choices
+
+We have made the following choices:
+- **Language Independence**. The Privacy Request Interoperability Format is independent from any language for expressing structured data, and can be materialised in different forms such as json, xml, or other. A [json schema](prif.schema.json) is provided for convenience.
+
+- **Rich Semantics**. The Privacy Request Interoperability Format includes reserved words to describe common types of Privacy Requests, categories of data, categories of data processing and other key concepts. This choice is made to facilitate their uniform interpretation by the implementing systems. Their [human-readable titles and descriptions](dictionary) are provided in json format for convenience.
+
+- **Multiple User Identities**. The Privacy Request Interoperability Format  allows for a Data Subject to be identified using more than one user identity. This choice is made to enable the Privacy Request to be easily exchanged across Systems that use different user identifiers.
+
+- **System as a Target**. The Privacy Requests are interpreted at the level of a particular System. If an Organisation operates several systems, and if the Data Subject wants to have the Privacy Request transmitted to all of them, each System may respond differently. The target of a Privacy Request is thus the System exposing an API for Privacy Requests.
+
+- **Decentralised IDs**. The Privacy Request Interoperability Format uses decentralised ways to uniquely identify Data Subjects, Systems, Requests and their elements. The exchange of Privacy Requests can happen without a centralised entity to control identity disambiguation.
 
 ## Proposal
 
@@ -96,16 +106,6 @@ Their relationships are dentoed with a dot "." separating two actions, the more 
 `TRANSPARENCY` includes `TRANSPARENCY.WHERE`.
 When `TRANSPARENCY` is demanded, Systems MUST interpret the demand as if all the subcategories of `TRANSPARENCY` were demanded.
 
-> **Note**
->
-> To be compliant with GDPR.{13,14,15} and use this schema, the Systems MUST ensure to include the following information in their Privacy Policy:
-> - the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or to object to processing as well as the right to data portability
-> - where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal
-> - the right to lodge a complaint with a supervisory authority;
-> - whether the provision of personal data is a statutory or contractual requirement, or a requirement necessary to enter into a contract, as well as whether the data subject is obliged to provide the personal data and of the possible consequences of failure to provide such data
-> - the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject.
-> - Where personal data are transferred to a third country or to an international organisation, the data subject shall have the right to be informed of the appropriate safeguards pursuant to Article 46 relating to the transfer.
-
 ##### Demand Restrictions
 
 The `action` that the Data Subject requests with a particular Demand MUST be interpreted in the context of restrictions.
@@ -127,7 +127,7 @@ E.g. the following two `data-category` restrictions are equivalent:
 - `CONTACT`
 
 In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data.
-[A list of eligible `data-category` values with corresponding user-facing descriptions is provided](./dictionary/data-categories/) for conveniance.
+[A list of eligible `data-category` values with corresponding user-facing descriptions is provided](dictionary/data-categories/) for conveniance.
 
 ###### Categories of Processing
 
@@ -142,7 +142,7 @@ When several values are given, Systems MUST interpret the `processing-categories
 
 In the absence of indication of any `processing-categories` restriction, Systems MUST interpret the Demand as being related to all and any `processing-categories` of treatment.
 
-[A list of eligible `processing-categories` values with corresponding user-facing descriptions is provided](./dictionary/purposes/) for conveniance.
+[A list of eligible `processing-categories` values with corresponding user-facing descriptions is provided](dictionary/purposes) for conveniance.
 
 ###### Purposes of Processing
 
@@ -202,35 +202,17 @@ When System B receives an `INTRANSITIVE` Rights Request, it SHOULD NOT transfer 
 
 Systems should interpret the transitivity of Rights Request the same way regardless of the Rights Request being received directly from the Data Subject or from a corresponding System.
 
-Convenient tables of `transitivity` vlaues and corresponding user-facing descriptions, in different languages, are provided [here](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/dictionary/transitivity/).
-
-#### Reply-to
-
-In a distributed context, where one System transmits the Rights Request to another System, a `reply-to` field MAY be specified.
-
-| Schema propery | JSON Type | Expected cardinality | Expected values |
-| --------------- | ------------ | ------ | -------------------- |
-| `reply-to` | [string](https://datatracker.ietf.org/doc/html/rfc8259#page-6) | 0-1 | One of {`SYSTEM`, `USER`} |
-
-`SYSTEM` indicates that the [scenario of nested responses](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#scenario-1---nested-responses) is prefered. The System having registered the Rights Request from the Data Subject gathers responses and presents them to the Data Subject.
-
-`USER` indicated the [scenario of direct responses](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#scenario-2---direct-responses) is prefered. Each System having received a Rights Request is expected to reply directly to the Data Subject, using contact information it has.
+Convenient tables of `transitivity` values and corresponding user-facing descriptions, in different languages, are provided [here](dictionary/transitivity).
 
 ## Detailed Design
 
-A separate document lists [examples](./examples.md) on how real-life Privacy Requests, as defined in [supported legislation](#supported-legislation), or as modeled in existing systems with which we seek interoperability.
+A separate document gives a list of [examples](examples.md) on how to represent real-life Privacy Requests, as defined in [supported legislation](#supported-legislation), or as modeled in existing systems with which we seek interoperability.
 
 ## Detailed Design
 
 ### JSON format
 
 We provide a [JSON Schema document](./prif.schema.json) for machine-readable interpretation of Privacy Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
-
-The key requirements of the design are to enable:
-- Unambiguous expression of Privacy Requests in a machine-readable form
-- Integrity of Privacy Requests semantics when exchanged between components and systems.
-I.e. A system that has not directly collected the Privacy Requests from the user, but has received in in JSON format from another system, can make the exact same interpretation of the request as if it had collected the request directly.
-- A way of uniquely identifying one and the same Privacy Request across systems and components concerned by it.
 
 ### Authenticated exchanges
 
@@ -310,9 +292,11 @@ The lists of Data Categories, Treatment Types, Actions, and Purposes SHOULD be d
 - **Unambiguous** : The developer using the schema knows without ambiguity which one (of which ones) to use in any given situation, AND
 - **Complete** : They allow to exress the totality of possible needs in the context of a user wanting to [regulate their privacy/connectedness](https://github.com/blindnet-io/product-management/blob/dogma/refs/notion-of-privacy/notion-of-privacy.md), as well as the totality of requests defined by the [supported legilsation](#supported-legilsation).
 
+## Design Implications for Systems Implementing PRIF
+
 ### Remembering Transfers
 
-When data about Data Subjects is transmitted from one system to another, in order to be able to process [Transitive Rights Requests](#transitive-rights-request), Systems MUST keep track of:
+When data about Data Subjects is transmitted from one system to another, in order to be able to process [Transitive Rights Requests](#transitive-rights-request), and in order to reply to `TRANSPARENCY.WHO` and `TRANSPARENCY.PROVENANCE` demands, Systems MUST keep track of:
 - System of destination/origin and addresses where their APIs can be reached
 - Categories of data being trasnfered
 - Identifiers (`data-capture-id`s,`fragment-id`s) associated to the data being trasnfered
@@ -325,6 +309,40 @@ When data about Data Subjects is transmitted from one system to another, in orde
 > - expose an API for communicating with other systems about Rights Requests:
 >     - receiving Rights Requests from those other Systems,
 >     - receiving Rights Request Responses from other Systems in the case of [Nested Responses Scenario](https://github.com/blindnet-io/product-management/tree/devkit-schemas/refs/high-level-architecture#different-rights-request-response-scenrarios).
+
+### Storing General Information
+
+In order to automatically respond to `TRANSPARENCY` demands, Systems should store general information about:
+- Countries where data servers are located (`TRANSPARENCY.WHERE`)
+- The identity of the organization controling them, and the Organization's representative(s) (`TRANSPARENCY.WHO`)
+- The categories of Data Consumers, and access policies (`TRANSPARENCY.WHO`)
+- Identity and contact of a Data Protection Officer (`TRANSPARENCY.DPO`)
+- A link to their Privacy Policy (`TRANSPARENCY.POLICY`)
+> **Note**
+>
+> To be compliant with GDPR.{13,14,15} and use this schema, the Systems MUST ensure to include the following information in their Privacy Policy:
+> - the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or to object to processing as well as the right to data portability
+> - where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal
+> - the right to lodge a complaint with a supervisory authority;
+> - whether the provision of personal data is a statutory or contractual requirement, or a requirement necessary to enter into a contract, as well as whether the data subject is obliged to provide the personal data and of the possible consequences of failure to provide such data
+> - the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject.
+> - Where personal data are transferred to a third country or to an international organisation, the data subject shall have the right to be informed of the appropriate safeguards pursuant to Article 46 relating to the transfer.
+
+### Storing Capture-related Information
+
+In order to automatically respond to data-specific demands, Systems should store particular information about every Data Capture (and make sure to implement ways of configuring how this information is applied to Data Captures):
+- Legal Basis for processing particular data - can be different per Data Capture Fragment (`TRANSPARENCY.LEGAL-BASES`, but also for automatically evaluating the legality of keeping data upon `REVOKE-CONSENT`, `OBJECT`, `RESTRICT`, `DELETE` requests)
+- Purposes of data processing - can be different per Data Capture Fragment (`TRANSPARENCY.PURPOSES`, but also for automatically evaluating  `OBJECT` and `RESTRICT` requests related to particular Purposes)
+- Duration of mandatory data keeping, as well as period after which the data is automatically deleted - Can be difernt per Data Capture Fragment, and relative to en event such as Data Capture, End of Contract, Account Deletion (`TRANSPARENCY.RETENTION`, but also for automatically evaluating the legality of keeping data at a certain time and upon `REVOKE-CONSENT`, `OBJECT`, `RESTRICT`, `DELETE` requests)
+- Data Categories - can be different per Data Capture Fragment (`TRANSPARENCY.DATA-CATEGORIES`)
+- Data Processing Categories - can be different per Data Capture Fragment (`TRANSPARENCY.PROCESSING-CATEGORIES`)
+- Purposes of Data Processing  - can be different per Data Capture Fragment (`TRANSPARENCY.PURPOSE`)
+
+>**Note**
+>
+> To automatically calculate legality of keeping a particular data, Systems MUST track events such as Data Capture, End of Contract, Account Deletion
+
+
 
 
 ## Questions and Discussion Topics
@@ -348,12 +366,6 @@ E.g. We have a data capture associated to "CONTACT.ADDRESS" data category. The D
 However, this notation (although intuitive) is to the best of my knoweldge, non-standard. Maybe there are reasons for it, or a standard (better) notation we can adopt?
 Or if none (which would be surprising) we could define our syntax using [Backus-Naur Form](https://datatracker.ietf.org/doc/html/rfc4234). Advantage: geeks will love us.
 
-### Reply-to is maybe unnecessary
-
-The schema allows requests to specify a [`reply-to`](#reply-to) and idnicate which mode of answer is prefered with regards to the two possible scenarios: [scenario of nested responses](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#scenario-1---nested-responses) and [scenario of direct responses](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#scenario-2---direct-responses).
-
-However, it is likely that the System receiving a request will decide how to respond depending on the type of request and depending on its relationship with the user, in which case speficying this field is unnecessary.
-
 ### Representation of Legal Articles
 
 Is there a better way to unambiguousely refer, in a machine-readable way, to parts of legislations?
@@ -361,6 +373,11 @@ Is there a better way to unambiguousely refer, in a machine-readable way, to par
 ### Schema elegance and modularity
 
 We need a way to make enums different categories and types more elegant, and reusable in the perspective of using them to also represent Data Captures, Consents and responses to Privacy Requests.
+
+### Addressability of System Endpoints
+
+Is there a standard way for representing peer-to-peer System's API endpoints that we can reuse here for representing systems.
+
 
 ## References
 

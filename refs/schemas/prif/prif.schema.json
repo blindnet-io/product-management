@@ -1,29 +1,29 @@
 {
   "$id": "https://blindnet.io/schemas/rights-request",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  
+
   "title": "Privacy Request",
   "description": "This document defines a format for interoperability of Privacy Requests",
-  
+
   "type": "object",
   "properties": {
         "request-id": {
             "type": "string",
             "format": "uuid"
         },
-    
+
         "data-subject": {
             "type": "array",
-            "items": { "$ref": "#/$defs/data-subject-identity" }, 
+            "items": { "$ref": "#/$defs/data-subject-identity" },
             "minItems": 1
         },
-    
+
          "demands": {
             "type": "array",
-            "items": { "$ref": "#/$defs/demand" }, 
+            "items": { "$ref": "#/$defs/demand" },
             "minItems": 1
         },
-    
+
         "transitivity": {
          "enum": ["DOWNWARD","UPWARD","BIDIRECTIONAL","INTRANSITIVE"],
          "default": "INTRANSITIVE",
@@ -34,73 +34,71 @@
             "format": "date-time"
         },
 
-        "reply-to": {
-         "enum": ["SYSTEM","USER"] 
-        },
     
-       
+
+
 
   },
-  
+
   "required": ["rights-request-id", "timestamp"],
 
   "definitions": {
-      
+
   },
-  
+
   "$defs": {
       "data-subject-identity": {
         "$id": "/schemas/data-subject-identity",
         "$schema": "https://json-schema.org/draft/2020-12/schema#",
         "type": "object",
-        
+
         "properties": {
           "dsid-schema": { "type": "string" },
           "dsid": { "type": "string" },
          },
-        
+
         "required": ["dsid-schema", "dsid"],
 
       },
-        
+
      "demand": {
         "$id": "/schemas/demand",
         "$schema": "https://json-schema.org/draft/2020-12/schema#",
         "type": "object",
-        
+
         "properties": {
           "demande-id": {
             "type": "string"
           },
-          
+
           "message": {
             "type": "string"
           },
-          
+
            "language": {
             "type": "string"
           },
-          
+
            "legal-grounds": {
           "type": "array",
-          "items": { "type": "string" } 
+          "items": { "type": "string" }
         },
-    
+
         "consent-ids": {
           "type": "array",
-          "items": { 
+          "items": {
             "type": "string",
             "format": "uuid"
-          } 
+          }
         },
       "capture-ids": {
           "type": "array",
-          "items": { 
+          "items": {
             "type": "string",
             "format": "uuid"
-          } 
+          }
       }
-          
+
           "action": {
             "enum":["ACCESS",
                     "DELETE",
@@ -123,7 +121,7 @@
                     "TRANSPARENCY.WHO",
                     "OTHER"]
           },
-          
+
          "data-categories": {
             "enum": ["AFFILIATION",
                      "BEHAVIOR",
@@ -152,9 +150,9 @@
                      "RELATIONSHIPS",
                      "PROFILING",
                      "UID",
-                     "OTHER"] 
+                     "OTHER"]
          },
-          
+
           "processing-categories": {
             "enum": ["ANONYMIZATION",
                      "AUTOMATED-INFERENCE",
@@ -189,11 +187,11 @@
                      "ANY"]
           },
 
-          
-        
+
+
          },
-        
-       
+
+
 
       },
 
