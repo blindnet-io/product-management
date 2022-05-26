@@ -64,7 +64,13 @@ In the following examples we show how, requests introduced by different regulati
 
 #### Article 15.1
 
-*The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed, and, where that is the case, access to the personal data and the following information:*
+*The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed*
+
+| LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` |
+| -------- | ----------------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
+| `GDPR.15.1` | confirmation as to whether or not personal data concerning him or her are being processed  | `TRANSPARENCY.KNOW` | `null` | `null` | `null` |
+
+*and, where that is the case, access to the personal data and the following information:*
 
 | LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` |
 | -------- | ----------------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
@@ -78,6 +84,9 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.15.1.h` | the existence of automated decision-making, including profiling  | `TRANSPARENCY.PROCESSING` | `null` | `null` | `null` |
 | `GDPR.15.1.h` | the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject  | `TRANSPARENCY.POLICY` | `null` | `null` | `null` |
 
+>**Note**
+>
+> To make a request to know if the System has data on them (`GDPR.15.1`) and know about the purposes of processing of that data, the Data Subject MUST make a request with two demands, one `TRANSPARENCY.KNOW` and one `TRANSPARENCY.PURPOSE`
 #### Article 15.2 and 15.3
 
 | LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` |
