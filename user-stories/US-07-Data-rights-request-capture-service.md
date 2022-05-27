@@ -134,14 +134,14 @@
 
 **because** I want to continue using my existing interface that already covers some of my compliance needs
 
-### US-07-3-03
+### US-07-3-04
 **As an** organization, using blindnet devkit
 
 **I want to** only use some of the components, a subset of the scope of blindnet devkit for things I don't have yet
 
 **because** I want to continue using my existing system that already covers some of my compliance needs
 
-### US-07-3-04
+### US-07-3-05
 **As an** organization, using blindnet devkit
 
 **I want to** use the whole blindnet devkit to automate the processing of requests
