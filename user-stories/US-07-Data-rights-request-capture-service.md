@@ -78,7 +78,7 @@
 
 ### US-07-2-01
 
-**As an** organization (not using blindnet devkit/Privateform) receiving Data rights request 
+**As an** organization (not using blindnet devkit) receiving Data rights request 
 
 **I want to** know the request I received has been sent by blindnet Data rights request capture service and be informed about Privateform
 
@@ -86,7 +86,7 @@
 
 ### US-07-2-02
 
-**As an** organization (not using blindnet devkit/Privateform) receiving Data rights request 
+**As an** organization (not using blindnet devkit) receiving Data rights request 
 
 **I want to** be able to recognize the user who made the request in my system
 
@@ -94,7 +94,7 @@
 
 ### US-07-2-03
 
-**As an** organization, using blindnet devkit/Privateform, receiving Data rights request 
+**As an** organization, using blindnet devkit, receiving Data rights request 
 
 **I want to** receive the request in the Data rights request section of my system/my Privatefrom account
 
@@ -102,7 +102,7 @@
 
 ### US-07-2-04
 
-**As an** organization (using or not using blindnet devkit/Privateform) receiving Data rights request
+**As an** organization (using or not using blindnet devkit) receiving Data rights request
 
 **I want to** transfer the request to another organization if the request concerns data I transfered to another organization
 
