@@ -62,9 +62,9 @@
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
-**I want to** send several requests at the same time
+**I want to** send several demands per request
 
-**because** I want to exercise several data rights on the data an organization has one me
+**because** I want to exercise several data rights at the same time, on the data an organization has on me
 
 ### US-07-1-08
 
@@ -108,7 +108,7 @@
 
 **because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transfered the user's data to to also delete the data
 
-## 07-3 Organization developping Local data rights request capture service
+## 07-3 Organization using Local data rights request capture service
 
 ### US-07-3-01
 
