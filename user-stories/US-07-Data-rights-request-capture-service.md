@@ -125,3 +125,25 @@
 **I want to** receive the Data rights requests in a format that is compatible with my system
 
 **because** otherwise I cannot use blindnet devkit to for data rights request capture 
+
+
+### US-07-3-03
+**As an** organization, using blindnet devkit
+
+**I want to** only use some of the components, a subset of the scope of blindnet devkit for things I don't have yet
+
+**because** I want to continue using my existing interface that already covers some of my compliance needs
+
+### US-07-3-03
+**As an** organization, using blindnet devkit
+
+**I want to** only use some of the components, a subset of the scope of blindnet devkit for things I don't have yet
+
+**because** I want to continue using my existing system that already covers some of my compliance needs
+
+### US-07-3-04
+**As an** organization, using blindnet devkit
+
+**I want to** use the whole blindnet devkit to automate the processing of requests
+
+**because** I don't have any system that covers my compliance needs, I do everything manually
