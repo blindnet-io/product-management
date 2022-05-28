@@ -1,4 +1,4 @@
-# Privacy Request Interoperability Format (PRIF)
+# Privacy Request Interchange Vocabulary (PRIV)
 
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
@@ -7,10 +7,15 @@
 | **Sponsor**   | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
 | **Updated**   | 2022-05-25                                                                             |
 
+
+
 ## Introduction
 
-We propose a simple, structured data format for representing [Privacy Requests](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-conceptualization#data-capture--rights-requests).
-This format corresponds to the [Data Rights Request Schema](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High- Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
+We propose a simple vocabulary for representing [Privacy Requests](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-conceptualization#data-capture--rights-requests).
+
+The vocabulary introduces a finite set of `concepts`, `properties` and `terms`. `Concepts` define the objects of exchange, `properties` define their characteristics, and `terms` define commonly understood values of properties.
+
+This vocabulary corresponds to the [Data Rights Request Schema](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High- Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
 
 ## Motivation
 
@@ -19,8 +24,7 @@ In order to [regulate the relationship](https://github.com/blindnet-io/product-m
 
 With a Privacy Request the individual aims to gain a degree of transparency about data processing and a degree of control over the data and over the data processing. Allowing individuals to make Privacy Requests is becoming more and more a legal obligation.
 
-Different Systems, and different components of a single System, including different components of blindnet devkit are likely to exchange information about Privacy Requests. Therefore, a common format is needed to facilitate exchange of information without loss of semantics. The goal of Privacy Request Interoperability Format is to establish a shared conceptualisation and format of Privacy Request so that their processing can be, as much as possible, automatised by the Systems.
-
+Different Systems, and different components of a single System, including different components of blindnet devkit are likely to exchange information about Privacy Requests. Therefore, a common format is needed to facilitate exchange of information without loss of semantics. The goal of Privacy Request Interchange Vocabulary is to establish a shared conceptualisation and format of Privacy Request so that their processing can be, as much as possible, automatised by the Systems.
 
 
 ## Terminology
@@ -32,6 +36,10 @@ Different Systems, and different components of a single System, including differ
 - We use the term System as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
 - We use MUST, MUST NOT and MAY, as defined in [IETF RFC2119](https://datatracker.ietf.org/doc/html/rfc2119)
 - We use the terms Organization, Submitter, Data Consumer as defined in the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv) as defined there.
+
+## Version
+
+This document defines the version `1.0` of the Privacy Request Interchange Vocabulary.
 
 ## Design Considerations
 
@@ -50,15 +58,15 @@ With this design we seek:
 ### Design Choices
 
 We have made the following choices:
-- **Language Independence**. The Privacy Request Interoperability Format is independent from any language for expressing structured data, and can be materialised in different forms such as json, xml, or other. A [json schema](prif.schema.json) is provided for convenience.
+- **Language Independence**. The Privacy Request Interchange Vocabulary is independent from any programming language, or any format or language for expressing structured data, and can be materialised in different forms such as json, xml, or other. A [json schema](PRIV.schema.json) is provided for convenience.
 
-- **Rich Semantics**. The Privacy Request Interoperability Format includes reserved words to describe common types of Privacy Requests, categories of data, categories of data processing and other key concepts. This choice is made to facilitate their uniform interpretation by the implementing systems. Their [human-readable titles and descriptions](dictionary) are provided in json format for convenience.
+- **Rich Semantics**. The Privacy Request Interchange Vocabulary includes `terms` - reserved words to describe common types of Privacy Requests, categories of data, categories of data processing and other key notions. This choice is made to facilitate their uniform interpretation by the implementing systems. Their [human-readable titles and descriptions](dictionary) are provided in json format for convenience.
 
-- **Multiple User Identities**. The Privacy Request Interoperability Format  allows for a Data Subject to be identified using more than one user identity. This choice is made to enable the Privacy Request to be easily exchanged across Systems that use different user identifiers.
+- **Multiple User Identities**. The Privacy Request Interchange Vocabulary  allows for a Data Subject to be identified using more than one user identity. This choice is made to enable the Privacy Request to be easily exchanged across Systems that use different user identifiers.
 
 - **System as a Target**. The Privacy Requests are interpreted at the level of a particular System. If an Organisation operates several systems, and if the Data Subject wants to have the Privacy Request transmitted to all of them, each System may respond differently. The target of a Privacy Request is thus the System exposing an API for Privacy Requests.
 
-- **Decentralised IDs**. The Privacy Request Interoperability Format uses decentralised ways to uniquely identify Data Subjects, Systems, Requests and their elements. The exchange of Privacy Requests can happen without a centralised entity to control identity disambiguation.
+- **Decentralised IDs**. The Privacy Request Interchange Vocabulary uses decentralised ways to uniquely identify Data Subjects, Systems, Requests and their elements. The exchange of Privacy Requests can happen without a centralised entity to control identity disambiguation.
 
 ## Proposal
 
@@ -208,7 +216,7 @@ Convenient tables of `transitivity` values and corresponding user-facing descrip
 ### Privacy Request Response
 
 Systems SHOULD respond to [Privacy Requests](#privacy-request).
-Regardless of the [scenario (Responding to the Data Subject directly or to the System)](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#different-rights-request-response-scenrarios) that should be defined by a protocol (**TO BE WRITTEN**), Systems SHOULD generate a response using the Privacy Request Interoperability Format.
+Regardless of the [scenario (Responding to the Data Subject directly or to the System)](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#different-rights-request-response-scenrarios) that should be defined by a protocol (**TO BE WRITTEN** - the System SHOULD know when to wait for a response from another system), Systems SHOULD generate a response using the Privacy Request Interchange Vocabulary.
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
@@ -216,7 +224,7 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 | `in-response-to` | 1 | `request-id` of the Privacy Request to which response is made or `demand-id` of the particular Demand to which response is made, in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Privacy Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `by` | 1 | **TBD ID of the System having generated the response** |
-| `status` | 1 | One of {`GRANTED`, `DENIED`, `UNDER-REVIEW`} |
+| `status` | 1 | One of {`GRANTED`, `PARTIALLY-GRANTED`, `DENIED`, `UNDER-REVIEW`} |
 | `motive` | 0-1 | Optionally one of {`IDENTITY-UNCONFIRMED`, `USER-UNKNOWN`, `LEGAL-OBLIGATIONS`, `LEGAL-GROUNDS`, `LANGUAGE-UNSUPPORTED`, `REQUEST-UNSUPPORTED`} |
 | `terms` | 0-* | Any of the terms the meaning of which is defined by the present format and its dictionaries |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
@@ -235,7 +243,7 @@ A separate document gives a list of [examples](examples.md) on how to represent 
 
 ### JSON format
 
-We provide a [JSON Schema document](./prif.schema.json) for machine-readable interpretation of Privacy Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
+We provide a [JSON Schema document](./PRIV.schema.json) for machine-readable interpretation of Privacy Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
 
 ### Authenticated exchanges
 
@@ -293,6 +301,7 @@ When processing Rights Request, Systems MAY automatically disregard the (`dsid`,
 
 However, the authentication does not necessarily have to be performed during the collection of the Rights Request. It can be done separately.
 
+
 #### Matching Multiple Data Subject Identities
 
 Systems MAY keep track of Data Subject Identities that refer to the same Data Subject. In some cases, valid reasons MAY exist for Systems to ignore such information.
@@ -315,7 +324,17 @@ The lists of Data Categories, Treatment Types, Actions, and Purposes SHOULD be d
 - **Unambiguous** : The developer using the schema knows without ambiguity which one (of which ones) to use in any given situation, AND
 - **Complete** : They allow to express the totality of possible needs in the context of a user wanting to [regulate their privacy/connectedness](https://github.com/blindnet-io/product-management/blob/dogma/refs/notion-of-privacy/notion-of-privacy.md), as well as the totality of requests defined by the [supported legilsation](#supported-legilsation).
 
-## Design Implications for Systems Implementing PRIF
+### Extending the vocabulary
+
+Systems MAY specify the vocabulary used to express data being exchanged. The value indicating this version of this vocabulary is `priv.1.0`.
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `vocab` | 0-1 | The name of the vocabulary used to describe data. In absence of indication `priv.1.0` is assumed. |
+
+This vocabulary can be extended by defining a new identifier for the new vocabulary. New vocabularies MAY include other vocabularies as long as their sets of concepts, properties and terms are disjoint.  
+
+## Design Implications for Systems Implementing PRIV
 
 ### Remembering Transfers
 
@@ -367,7 +386,7 @@ In order to automatically respond to data-specific demands, Systems should store
 
 ### Exposing Privacy Request API
 
-The Systems that implementing the Privacy Request Interoperability Format SHOULD expose an API to:
+The Systems that implementing the Privacy Request Interchange Vocabulary SHOULD expose an API to:
 - Receive Privacy Requests from other Systems and acknowledge their reception
 - Receive Privacy Request Responses from other Systems and acknowledge their reception
 
@@ -388,6 +407,10 @@ Systems SHOULD keep a log of received [Privacy Requests](#privacy-request), gene
 ### Use UUID for identifying Data Subjects
 
 We could imagine an alternative design, where we would force systems to use an [UUID]([uuid](https://en.wikipedia.org/wiki/Universally_unique_identifier)) (according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html)), to identify the users. That would require us to provide some way for systems to match UUIDs with their local IDs (usernames, or e-mails), and would potentially limit the ability of 3rd party systems to interpret Rights Request made at another system. This goal of proposed design is to allow for flexibility. However it is a very important aspect of the proposal, that deserves further debate.
+
+### Zero-knowledge proof Data Subject authentication
+
+PRIF MUST be agnostic of the authentication method, and as such MUST be compatible with Zero-knowledge proof authentication, biometric methods, password-based authentication and any other method. We should check whether this is the case with the current design.
 
 ### Mandatory properties and value constrains
 
@@ -422,6 +445,10 @@ Disadvantage: using a non-standard notation we expose ourselves to unpredictable
 ### Representation of Legal Articles
 
 Is there a better way to unambiguously refer, in a machine-readable way, to parts of legislations?
+
+The current way is not good. It does not clearly distinguish countries.
+
+We can simply include a set of terms for all supported articles of all supported legislation.
 
 ### Schema elegance and modularity
 
@@ -478,6 +505,9 @@ Should `message`, `lang`, `transitivity` be properties of Privacy Request, Deman
 
 Should we implement the Accept-Language logic from HTTP? Data Subjects arent' supposed to all speak English?
 
+### Extending the vocabulary
+
+Is the mechanism for extending the vocabulary appropriate?
 
 ## References
 

@@ -1,15 +1,13 @@
-# Privacy Request Interoperability Format : Examples
+# Privacy Request Interchange Vocabulary : Examples
 
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
-| **PR #**      | [NNN](https://github.com/blindnet-io/PROJECT/pull/NNN) (update when you have PR #)     |
 | **Author(s)** | milstan (milstan@blindnet.io), Clémentine VINCENT (clementine@blindnet.io)             |
-| **Sponsor**   | milstan (milstan@blindnet.io)                                                          |
 | **Updated**   | 2022-05-25                                                                             |
 
 ## Introduction
 
-This document examines how the [Privacy Request Interoperability Format](./RFC-prif.md) can be used to represent Privacy Requests:
+This document examines how the [Privacy Request Interchange Vocabulary](./RFC-PRIV.md) can be used to represent Privacy Requests:
 - introduced by the [supported legislation](#supported-legislation),
 - illustrated by tutorials and request templates from regulatory bodies (e.g. [CNIL](https://www.cnil.fr/)),
 - or made possible by existing software solutions with which interoperability SHOULD be achieved (e.g. Transcend, Alias.dev)  
@@ -17,7 +15,7 @@ This document examines how the [Privacy Request Interoperability Format](./RFC-p
 
 ## Motivation
 
-Elaborating the examples in detail should allow us to test the Privacy Request Interoperability Format for exhaustivity.
+Elaborating the examples in detail should allow us to test the Privacy Request Interchange Vocabulary for exhaustivity.
 
 ## Terminology
 
@@ -32,7 +30,7 @@ Elaborating the examples in detail should allow us to test the Privacy Request I
 
 ## Examples
 
-In the following examples we show how, requests introduced by different regulations and systems can be modeled using the Privacy Request Interoperability Format.
+In the following examples we show how, requests introduced by different regulations and systems can be modeled using the Privacy Request Interchange Vocabulary.
 
 ### BASIC GDPR REQUESTS
 
