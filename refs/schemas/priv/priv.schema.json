@@ -67,7 +67,7 @@
         "type": "object",
 
         "properties": {
-          "demande-id": {
+          "demand-id": {
             "type": "string"
           },
 
@@ -181,7 +181,7 @@
                      "NECESSARY.PUBLIC-INTERESTS",
                      "NECESSARY.VITAL-INTERESTS",
                      "MARKETING",
-                     "PERSONNALISATION",
+                     "PERSONALISATION",
                      "SALE",
                      "SECURITY",
                      "TRACKING",

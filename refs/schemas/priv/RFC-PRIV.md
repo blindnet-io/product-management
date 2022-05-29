@@ -53,6 +53,7 @@ With this design we seek:
 - Allowing developers to be fully comply with [supported legislation](#supported-legislation) related to Privacy Requests quickly and easily
 - Exhaustivity with regards to situations we need to support in response to [supported legislation](#supported-legislation) yet Extensibility in case new situations arise in the future.
 - Highly normative minimal specification, using as much as possible the [Plain Language](https://www.plainlanguage.gov/media/FederalPLGuidelines.pdf) while at the same time making clear references to the (often misfortunate) language of the [supported legislations](#supported-legislation)
+- Limit, as much as possible, the possibility of representing the same meaning in more than one way
 - Decentralised design compatible with both the Internet's Client-Server Architecture and Metaverse/Web3 Architecture
 
 ### Design Choices
@@ -102,13 +103,12 @@ A Demand is a concrete action that the user requests.
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `demande-id` | 1 | Unique ID for referring to this demande in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `demand-id` | 1 | Unique ID for referring to this demand in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `action` | 1 | Unique value. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.KNOWN`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER`} |
-| `legal-grounds`| 0-* | Optional strings representing legal grounds that support the Demand. E.g. "GDPR.13" indicates Article 13 of GDPR, "CCPA.1798.105" indicates Section 1798.105 of CCPA |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
 | `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 
-The key element that defines the nature of the Demand is the `action`. A Demande MUST have one and only one `action`.
+The key element that defines the nature of the Demand is the `action`. A Demand MUST have one and only one `action`.
 
 Actions are hierarchical.
 Their relationships are denoted with a dot "." separating two actions, the more general one being written on the left.
@@ -118,48 +118,60 @@ When `TRANSPARENCY` is demanded, Systems MUST interpret the demand as if all the
 ##### Demand Restrictions
 
 The `action` that the Data Subject requests with a particular Demand MUST be interpreted in the context of restrictions.
-A Demand MAY refer to only certain categories of data, or certain types of processing, certain purposes of processing etc.
+A Demand MAY refer to only certain Privacy Scope (categories of data, certain types of processing, certain purposes of processing) or may only refer to particular Consents (e.g. those that the Data Subject wants to revoke) or to particular Data Captures (e.g. those that the Data Subject want to delete).
 
-###### Data Categories
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `restrictions` |  0-* | An optional array of restriction objects, each being either a [Privacy Scope](#privacy-scope), [Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Data Range](#data-range)|
 
-A Demand MAY be restricted to one or more data categories. For example, a Data Subject can request to access to all data concerning his location.
+When more than one restriction is specified, the System MUST interpret the Demand as referring to the intersection of restrictions. For example let us consider a `DELETE` demand having two restrictions: `LOCATION` `data-category` as Privacy Scope, and from 11th to 15th of June 2022 as Data Range. The System SHOULD understand that the Data Subject wants the System to delete only their location data processed in this precise period.
+
+###### Privacy Scope
+
+A Privacy Scope MAY be defined by three dimensions: Data Categories, Categories of Processing, and Purposes of Processing.
+A Data Subject can formulate a Demand or give Consent within a particular Privacy Scope, e.g. only referring to `COLLECTING` (Category of Processing) `CONTACT` data (Category of Data) for `PERSONALISATION` (Purpose of Processing).
+
+Privacy Scope can be understood as a vector space defined by those three dimensions.
+
+```
+
+Privacy Scope = (Data Categories) x (Categories of Processing) x (Purposes of Processing)
+
+```
+
+**Data Categories**
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `data-category` |  0-* | `AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER` |
 
-When several values are given, Systems MUST interpret the `data-category` restriction as a union of all the categories indicated.
+When several values are given, Systems MUST interpret the `data-category` dimension as a union of all the categories indicated.
 
 Categories are organised as a hierarchy, denoted with a dot ".", the more general category being written on the left.
 E.g. the following two `data-category` restrictions are equivalent:
 - `CONTACT`,`CONTACT.EMAIL`
 - `CONTACT`
 
-In the absence of indication of any `data-category` restriction, Systems MUST interpret the Demand as being related to all categories of data.
+In the absence of indication of any `data-category` dimension, Systems MUST interpret the Privacy Scope as being related to all categories of data.
 [A list of eligible `data-category` values with corresponding user-facing descriptions is provided](dictionary/data-categories/) for convenience.
 
-###### Categories of Processing
-
-A Demand can be restricted to particular kinds of data processing.
-For example, a Data Subject can oppose to automatic inference but continue to accept their data being collected and stored.
-
-| Schema propery | Expected cardinality | Expected values |
-| --------------- | ------ | -------------------- |
-| `processing-categories` | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `USING`, `OTHER`} |
-
-When several values are given, Systems MUST interpret the `processing-categories` restriction as a union of all the processing categories indicated.
-
-In the absence of indication of any `processing-categories` restriction, Systems MUST interpret the Demand as being related to all and any `processing-categories` of treatment.
-
-[A list of eligible `processing-categories` values with corresponding user-facing descriptions is provided](dictionary/purposes) for convenience.
-
-###### Purposes of Processing
-
-A Demand can be restricted to particular purpose of data processing. For example, a Data Subject can oppose to any data processing done for marketing purposes, but still accept their data being processed for the sake of personalisation of their experience.
+**Categories of Processing**
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `purposes` | 0-* | `ADVERTISING`, `CONTRACT`, `CONTRACT.BASIC-SERVICE`, `CONTRACT.ADDITIONAL-SERVICES`, `NECESSARY`, `NECESSARY.JUSTICE`, `NECESSARY.LEGAL`, `NECESSARY.MEDICAL`, `NECESSARY.PUBLIC-INTERESTS`, `NECESSARY.VITAL-INTERESTS`, `NECESSARY.SOCIAL-PROTECTION`, `MARKETING`, `PERSONNALISATION`, `SALE`, `SECURITY`, `TRACKING`, `OTHER`, `ANY` |
+| `processing-categories` | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `USING`, `OTHER`} |
+
+When several values are given, Systems MUST interpret the `processing-categories` dimension as a union of all the processing categories indicated.
+
+In the absence of indication of any `processing-categories` dimension, Systems MUST interpret the Demand as being related to all and any `processing-categories` of treatment.
+
+[A list of eligible `processing-categories` values with corresponding user-facing descriptions is provided](dictionary/purposes) for convenience.
+
+**Purposes of Processing**
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `purposes` | 0-* | `ADVERTISING`, `CONTRACT`, `CONTRACT.BASIC-SERVICE`, `CONTRACT.ADDITIONAL-SERVICES`, `NECESSARY`, `NECESSARY.JUSTICE`, `NECESSARY.LEGAL`, `NECESSARY.MEDICAL`, `NECESSARY.PUBLIC-INTERESTS`, `NECESSARY.VITAL-INTERESTS`, `NECESSARY.SOCIAL-PROTECTION`, `MARKETING`, `PERSONALISATION`, `SALE`, `SECURITY`, `TRACKING`, `OTHER`, `ANY` |
 
 When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated.
 
@@ -171,7 +183,7 @@ In the absence of indication of any `purpose` restriction, Systems MUST interpre
 
 [A list of eligible `purposes` values with corresponding user-facing descriptions is provided](./dictionary/purposes/) for convenience.
 
-###### Consent IDs
+###### Consent Restriction
 
 A Demand can be restricted to particular Consent ID(s). For example, a Data Subject revokes a particular consent only (the one related to his data being shared with 3rd parties) but maintains other consents they may have given.
 
@@ -181,7 +193,7 @@ A Demand can be restricted to particular Consent ID(s). For example, a Data Subj
 
 When one or more `consent-ids` are indicated, Systems MUST interpret the Demand as related to all Consents related to indicated `consent-ids`.
 
-###### Capture IDs
+###### Capture Restriction
 
 A Demand can be restricted to particular Capture ID(s). For example, a Data Subject to delete a particular data, they indicate the data capture concerned by their Demand.
 
@@ -189,7 +201,19 @@ A Demand can be restricted to particular Capture ID(s). For example, a Data Subj
 | --------------- | ------ | -------------------- |
 | `capture-ids` | 0-* | Optional array of Data Capture IDs to indicate that the Demand (e.g. a `DELETE` Demand) is restricted to data captured within particular Data Captures. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 
-When one or more `capture-ids` are indicated, Systems MUST interpret the demande all related to all the data captured as part of those Data Captures.
+When one or more `capture-ids` are indicated, Systems MUST interpret the demand all related to all the data captured as part of those Data Captures.
+
+###### Data Range
+
+A Demand can be restricted to particular Data Range, for example the Data Subject may `OBJECT` to data collection in a particular time period, or they might want to `DELETE` only data collected at certain dates.
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `from` | 0-* | Date and Time when the Data Range starts in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `to` | 0-* | Date and Time when the Data Range ends in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+
+
+A Data Range defined by only one of the {`from`, `to`} properties indicates a period of time after or before a certain data, unbounded on the other end.
 
 #### Transitive Privacy Request
 
@@ -224,15 +248,36 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 | `in-response-to` | 1 | `request-id` of the Privacy Request to which response is made or `demand-id` of the particular Demand to which response is made, in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Privacy Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `by` | 1 | **TBD ID of the System having generated the response** |
-| `status` | 1 | One of {`GRANTED`, `PARTIALLY-GRANTED`, `DENIED`, `UNDER-REVIEW`} |
-| `motive` | 0-1 | Optionally one of {`IDENTITY-UNCONFIRMED`, `USER-UNKNOWN`, `LEGAL-OBLIGATIONS`, `LEGAL-GROUNDS`, `LANGUAGE-UNSUPPORTED`, `REQUEST-UNSUPPORTED`} |
-| `terms` | 0-* | Any of the terms the meaning of which is defined by the present format and its dictionaries |
+| `requested-action` | 0-1 | Optional information about the action that was demanded, and to which the response is made. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.KNOWN`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER`} |
+| `data-subject` |  0-* | Optional indication of the [Data Subject Identities](#decentralized-identity-of-data-subjects) to which the response refers to |
+| `status` | 1 | One of {`GRANTED`, `DENIED`, `PARTIALLY-GRANTED`, `UNDER-REVIEW`} |
+| `motive` | 0-* | Optionally one of {`IDENTITY-UNCONFIRMED`, `LANGUAGE-UNSUPPORTED`, `LEGAL-BASES`, `LEGAL-OBLIGATIONS`, `REQUEST-UNSUPPORTED`, `USER-UNKNOWN`} |
+| `answers` | 0-* | Any of the terms the meaning of which is defined by the present format and its dictionaries or an object representing a Legal Base, a Retention Policy |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
 | `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 | `includes` | 0-* | Optionally an array of one or more [Privacy Request Response](#privacy-request-response)s |
+| `data` | 0-* | Optionally concrete data to which access is being given (Format **TBD**) |
 
-//**TODO** make dictionaries for statuses, motives. Add defined TERMS for Yes and No, check if it covers all possible responses. Make Expected behavior document
+A Privacy Request Response MUST have:
+- a unique ID,
+- a clear indication of the particular Privacy Request or the particular Demand to which its content refers,
+- a date,
+- a status.
 
+Privacy Request Responses can be nested. One can imagine a Privacy Request Response to a particular Privacy Request, that `includes` Privacy Request Responses to the particular Demands made in that Privacy Request. Several Systems MAY respond to the same Privacy Request or Demand, and one System MAY nest them in order to gather them and send them back to the Data Subject.
+
+When a Demand is being denied, the Privacy Request Response MUST provide a `motive`.
+
+### Consent
+
+A Consent is given by one Data Subject which can be identified by one or more [Data Subject Identities](#decentralized-identity-of-data-subjects).
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
+| `consent-id` | 1 | Optional array of consent ids to indicate that the Demand (e.g. a `REVOKE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `date` | 1 | Date and Time when Consent was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the Consent SHOULD be interpreted as unlimited |
 
 
 ## Detailed Design
@@ -442,14 +487,6 @@ Or if none (which would be surprising) we could define our syntax using [Backus-
 We would need to ensure: that any string used on any side of any dot, it is not contained in any other string not containing a dot.
 Disadvantage: using a non-standard notation we expose ourselves to unpredictable risks.
 
-### Representation of Legal Articles
-
-Is there a better way to unambiguously refer, in a machine-readable way, to parts of legislations?
-
-The current way is not good. It does not clearly distinguish countries.
-
-We can simply include a set of terms for all supported articles of all supported legislation.
-
 ### Schema elegance and modularity
 
 We need a way to make enums different categories and types more elegant, and reusable in the perspective of using them to also represent Data Captures, Consents and responses to Privacy Requests.
@@ -503,7 +540,7 @@ Should `message`, `lang`, `transitivity` be properties of Privacy Request, Deman
 
 ### Expect Language
 
-Should we implement the Accept-Language logic from HTTP? Data Subjects arent' supposed to all speak English?
+Should we implement the Accept-Language logic from HTTP? Or can we assume that the 'lang' of request is the language in which the response is expected?
 
 ### Extending the vocabulary
 

@@ -10,7 +10,7 @@
 
 This document specifies the expected behaviour of Systems implementing [Privacy Request Interchange Vocabulary](./RFC-PRIV.md). It defines actions that the systems SHOULD undertake with regards to particular Privacy Requests and particular situations.
 
-It is a first step towards the specification of the [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler), formerly known as Data Rights Compiler.
+It is a first step towards the specification of the [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler), formerly known as Data Rights Compiler in the [High Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
 
 
 ## Motivation

@@ -1,0 +1,8 @@
+{
+ "IDENTITY-UNCONFIRMED": "Can't confirm the Data Subject Indentity",
+ "LANGUAGE-UNSUPPORTED": "The language of the request is not understood by the Organization",
+ "LEGAL-GROUNDS": "The System has legal grounds to repsond in the way it responds",
+ "LEGAL-OBLIGATIONS": "The System has legal obligation to repsond in the way it responds",
+ "REQUEST-UNSUPPORTED": "The System does not recongize the particular type of request that is made",
+ "USER-UNKNOWN":"The System does not recongize the Data Subject havign made the request",
+ }
