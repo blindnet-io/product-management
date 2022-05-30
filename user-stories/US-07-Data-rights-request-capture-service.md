@@ -154,3 +154,25 @@
 **I want to** use blindnet devkit to automate the processing of requests except for "other" type of request
 
 **because** I need to process "other" type of request manually 
+
+### US-07-3-07
+**As a** developper from an organization, using blindnet devkit
+
+**I want to** use only the capture interface component (from the HLA) to generate a json file for a request
+
+**because** this all I need, as I want to handle the file and import it to some other system 
+
+
+### US-07-3-08
+**As a** developper from an organization, using blindnet devkit
+
+**I want to** use the capture interface component and the data consumer interace component (from the HLA)
+
+**because** I need to generate a JSON file for the requests and also to view the requests. From there I will treat the requests manually
+
+### US-07-3-09
+**As a** developper from an organization, using blindnet devkit
+
+**I want to** configure the data rights computation engine component (from the HLA) in my system
+
+**because** I want it to automatically compute the responses to (at least some) requests
