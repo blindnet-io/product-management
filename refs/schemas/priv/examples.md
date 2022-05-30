@@ -107,8 +107,6 @@ In the following examples we show how, requests introduced by different regulati
 
 ### GDPR REQUEST TEMPLATES FROM CNIL
 
-*[Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant)*
-
 | LAW | Demande | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Additional element |
 | -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 | `GDPR.15` | [Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant) from 01 Feb 2021 to 03 Feb 2021 | `ACCESS` | `IMAGE` | `null` | `SECURITY` | video surveillance data from 01 Feb 2021 to 03 Feb 2021 | `ID`,`date`,`time.begining`,`time.ending` |
