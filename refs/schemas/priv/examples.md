@@ -109,9 +109,16 @@ In the following examples we show how, requests introduced by different regulati
 
 *[Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant)*
 
-| LAW | Demande | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` |
+| LAW | Demande | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Additional element |
 | -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
-| `GDPR.15` | Access to video surveillance data from 01 Feb 2021 to 03 Feb 2021 | `ACCESS` | `IMAGE` | `null` | `SECURITY` | video surveillance data from 01 Feb 2021 to 03 Feb 2021 |
+| `GDPR.15` | [Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant) from 01 Feb 2021 to 03 Feb 2021 | `ACCESS` | `IMAGE` | `null` | `SECURITY` | video surveillance data from 01 Feb 2021 to 03 Feb 2021 | `ID`,`date`,`time.begining`,`time.ending` |
+| `Code de la santé publique art. L. 1111-7` | [Acces to my medical record](https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical) | `ACCESS` | `HEALTH` | `null` | `null` | `null` | `ID` |
+| `GDPR.15` | [Access to data "Preventel" has on me](https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel) | `ACCESS` | `null` | `null` | `null` | `null` | `ID` |
+| `GDPR.15` | [Access to data a financial organization has on me](https://www.cnil.fr/fr/modele/courrier/connaitre-les-informations-detenues-par-un-etablissement-financier) | `ACCESS`, `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` | `null` | `ID`,`account number` |
+| `GDPR.15` | [Access to data "Fichier central des Chèques (FCC)" has on me](https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc) | `ACCESS` | `null` | `null` | `null` | `null` | `ID`, (birthdate) |
+| `GDPR.15` | [Access to data "Fichier national des Incidents de remboursement de Crédit (FICP)](https://www.cnil.fr/fr/modele/courrier/acceder-aux-donnees-du-fichier-national-des-incidents-de-remboursement-de-credit) | `ACCESS` | `null` | `null` | `null` | `null` | `ID`, (birthdate) |
+| `GDPR.15` | [Access to geolocation data or an access control device an organization has on me](https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces) | `ACCESS` | `null` | `null` | `null` | `null` | `ID`,`date`,`time.begining`,`time.ending` |
+| `GDPR.20` | [Exerce my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite) | `ACCESS` | `X` | `null` | `null` | `null` | `null` |
 
 >**Note**
 >
@@ -135,8 +142,8 @@ In the following examples we show how, requests introduced by different regulati
 | Nb | Request | Description | Associated treatment | Associated data category | Advised elements to provide | Legal ground | CNIL reference
 | ---------- | ---- | ---- | ---- | ---- | ---- | ---- |---- |
 | -- | ACCESS TYPE | ---- | ---- | ---- | ---- | ---- | ---- |
-| 01 | **Access** | Access to all data the organization has on me  | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces |
-| 15 | **Access to my medical record** | Acces to my medical record | ---- | ---- | ID | ---- |  https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical |
+| OK | **Access** | Access to all data the organization has on me  | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces |
+| 15 | **Access to my medical record** | Acces to my medical record | ---- | ---- | ID | art. L. 1111-7 du code de la santé publique |  https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical |
 | 16 | **Access to data "Preventel" has on me** | Access to data "Preventel" has on me | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel |
 | 07 | **Access to data a financial organization has on me** *-> to delete and let user make access request + provenance request to the financial organization* | Access to all data the (financial) organization has on me, Provide with any available information on the origin of this data concerning me *(access+provenance info request)* | ---- | ---- | ID, Account number | ---- | https://www.cnil.fr/fr/modele/courrier/connaitre-les-informations-detenues-par-un-etablissement-financier |
 | 09 | **Access to data "Fichier central des Chèques (FCC)" has on me** *-> to delete and let user make access request to the "Fichier central des Chèques (FCC)" ?*| Access to all data Fichier central des Chèques (FCC) has on me | ---- | ---- | ID, Birthdate | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc |
