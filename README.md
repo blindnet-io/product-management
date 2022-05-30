@@ -116,7 +116,7 @@ What *not* to do:
 
 ### Writing User Stories
 
-:construction: TBD by Clémentine
+:arrow_right: [User Stories Readme](https://github.com/blindnet-io/product-management/tree/master/user-stories#readme)
 
 ---
 
