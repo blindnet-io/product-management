@@ -173,6 +173,6 @@
 ### US-07-3-09
 **As a** developper from an organization, using blindnet devkit
 
-**I want to** configure the data rights computation engine component (from the HLA) in my system
+**I want to** configure the data rights computation engine component (from the HLA) in my system with information about server locations, privacy policy, data types, organisation identity etc (cf. list of TRANSPARENCY actions from the [PRIV examples](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md))
 
 **because** I want it to automatically compute the responses to (at least some) requests
