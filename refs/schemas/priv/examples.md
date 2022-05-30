@@ -110,7 +110,7 @@ In the following examples we show how, requests introduced by different regulati
 *[Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant)*
 
 | LAW | Demande | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Additional element |
-| -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
+| -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 | `GDPR.15` | [Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant) from 01 Feb 2021 to 03 Feb 2021 | `ACCESS` | `IMAGE` | `null` | `SECURITY` | video surveillance data from 01 Feb 2021 to 03 Feb 2021 | `ID`,`date`,`time.begining`,`time.ending` |
 | `Code de la santé publique art. L. 1111-7` | [Acces to my medical record](https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical) | `ACCESS` | `HEALTH` | `null` | `null` | `null` | `ID` |
 | `GDPR.15` | [Access to data "Preventel" has on me](https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel) | `ACCESS` | `null` | `null` | `null` | `null` | `ID` |
