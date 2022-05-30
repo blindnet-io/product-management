@@ -54,7 +54,7 @@
 
 **As an** internet user (a submitter or a data subejct), when creating a Data rights request
 
-**I want** be able to make any of the requests mentionned in the [requests list of this document](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/RFC-rights-request-interoperability-format.md)
+**I want** be able to make any of the requests mentionned in the [requests list of this document](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md)
 
 **because** this list of requests covers my data rights needs
 
