@@ -117,12 +117,14 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.15` | [Access to data "Fichier central des Chèques (FCC)" has on me](https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc) | `ACCESS` | `null` | `null` | `null` | `null` | `ID`, (birthdate) |
 | `GDPR.15` | [Access to data "Fichier national des Incidents de remboursement de Crédit (FICP)](https://www.cnil.fr/fr/modele/courrier/acceder-aux-donnees-du-fichier-national-des-incidents-de-remboursement-de-credit) | `ACCESS` | `null` | `null` | `null` | `null` | `ID`, (birthdate) |
 | `GDPR.15` | [Access to geolocation data or an access control device an organization has on me](https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces) on a specific period of time | `ACCESS` | `null` | `null` | `null` | `null` | `ID`,`date`,`time.begining`,`time.ending` |
-| `GDPR.20` | [Exerce my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite) : Receive the data that concerns me to reuse them and transmit them to another data controller| `ACCESS` | `X` | `null` | `null` | `null` | `ID` |
-| `GDPR.16` | [Rectify incorrect data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes)| `MODIFY` | `X` | `null` | `null` | `null` | `ID`,`Information.to-modify`,`Information.rectified` |
-| `GDPR.16` | [Rectify incomplete data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes) | `MODIFY` | `X` | `null` | `null` | `null` | `ID`,`Information.to-modify`,`Information.rectified` |
-| `GDPR.17.1` | [Deletion](https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles) | `DELETE` | `X` | `null` | `null` | `null` | `ID`,`Information.to-delete*`, `Information.reason-of-deletion` |
-| `GDPR.21.2` | [Stop receiving advertising from organization](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites) | `DELETE` | `CONTACT` | `X` | `ADVERTISING` | `null` | `ID`,`Information.reason-of-deletion` |
+| `GDPR.20` | [Exerce my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite) : Receive the data that concerns me to reuse them and transmit them to another data controller| `ACCESS` | ``**TBD**` | `null` | `null` | `null` | `ID` |
+| `GDPR.16` | [Rectify incorrect data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes)| `MODIFY` | ``**TBD**` | `null` | `null` | `null` | `ID`,`Information.to-modify`,`Information.rectified` |
+| `GDPR.16` | [Rectify incomplete data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes) | `MODIFY` | ``**TBD**` | `null` | `null` | `null` | `ID`,`Information.to-modify`,`Information.rectified` |
+| `GDPR.17.1` | [Deletion](https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles) | `DELETE` | ``**TBD**` | `null` | `null` | `null` | `ID`,`Information.to-delete*`, `Information.reason-of-deletion` |
+| `GDPR.21.2` | [Stop receiving advertising from organization](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites) | `DELETE` | `CONTACT` | ``**TBD**` | `ADVERTISING` | `null` | `ID`,`Information.reason-of-deletion` |
 | `GDPR.17.1` | [Closing an online account](https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne) | `DELETE` | `null` | `null` | `null` | `null` | `ID`,`Account.name`,`Information.to-delete` (Website name, URL of the pages with my data)|
+| `GDPR.21.1`,`GDPR.17.1.c` | [Delete my data that are published on a webiste](https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet) : Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | `DELETE` | ``**TBD**` | `null` | `null` | `null` | `ID`, `Information.to-delete`, `Information.reason-of-deletion`, (`**TBD** : URL of the pages with my data) |
+| `GDPR.21.1`,`GDPR.17.1.c` | [Removal of my image online](https://www.cnil.fr/fr/demander-le-retrait-de-votre-image-en-ligne) | `DELETE` | `IMAGE` | `null` | `null` | `null` | `ID`, `Information.to-delete`, `Information.reason-of-deletion`, (`**TBD** : URL of the pages with my data) |
 | `` | []() | `X` | `null` | `null` | `null` | `null` | `ID` |
 
 >**Note**
@@ -136,6 +138,7 @@ In the following examples we show how, requests introduced by different regulati
 | LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` |
 | -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
 | `GDPR.16` | Change my address, with new address being 1 blindnet street, 75000 blindcity, France, as of 01.01.2021  | `MODIFY` | `CONTACT.ADDRESS` | `null` | `null` | `null` |
+| `**TBD**` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | `**TBD**` | `**TBD**` | `null` | `null` | `null` | `ID` |
 
 >**Note**
 >
