@@ -97,9 +97,9 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.16` | The data subject shall have the right to obtain from the controller without undue delay the rectification of inaccurate personal data concerning him or her. 2Taking into account the purposes of the processing, the data subject shall have the right to have incomplete personal data completed, including by means of providing a supplementary statement.  | `MODIFY` | `null` | `null` | `null` |
 | `GDPR.17` | The data subject shall have the right to obtain from the controller the erasure of personal data concerning him | `DELETE` | `null` | `null` | `null` |
 | `GDPR.18` | The data subject shall have the right to obtain from the controller restriction of processing | `RESTRICT` | `null` | `null` | `null` |
-| `GDPR.20` | **TBD** | `**TBD**` | `null` | `null` | `null` |
-| `GDPR.21` | **TBD**  (note: 21.2 is not yet supported by the schema)| `**TBD**` | `null` | `null` | `null` |
-| `GDPR.22` | **TBD** | `**TBD**` | `null` | `null` | `null` |
+| `GDPR.20` | The data subject shall have the right to receive the personal data concerning him or her, which he or she has provided to a controller, in a structured, commonly used and machine-readable format and have the right to transmit those data to another controller without hindrance from the controller to which the personal data have been provided | `PORTABILITY` | `null` | `null` | `null` |
+| `GDPR.21` | The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her which is based on point (e) or (f) of Article 6(1), including profiling based on those provisions.  *(note: 21.2 is not yet supported by the schema)*| `**RESTRICT?**` | `null` | `**+all?**` | `null` |
+| `GDPR.22` | The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her | `RESTRICT` | `null` | `AUTOMATED-DECISION-MAKING` | `null` |
 
 
 
