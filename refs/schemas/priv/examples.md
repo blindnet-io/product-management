@@ -127,9 +127,9 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.21.1`,`GDPR.17.1.c` | [Removal of my image online](https://www.cnil.fr/fr/demander-le-retrait-de-votre-image-en-ligne) | `DELETE` | `IMAGE` | `null` | `null` | `null` | `ID`, `Information.to-delete`, `Information.reason-of-deletion`, (**TBD** : URL of the pages with my data) |
 | `GDPR.21.2`,`GDPR.17.1`,`GDPR.19` | [Opposition to commercial prospecting](https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers) : Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | `RESTRICT`, `DELETE`, **+Propagation?**, | `CONTACT` | `null` | `ADVERTISING` | `null` | `ID`,`Account.number` |
 | `GDPR.21.1`,`GDPR.17.1.c`,,`GDPR.19` | [Opposition to treatment of all data an organization has on me](https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees) Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | `RESTRIC`,`DELETE`, **+Propagation?** | `null` | `**all?**` | `null` | `null` | `ID`, `Information.reason-of-deletion` |
-| `GDPR.21` | [Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees) | `RESTRICT` | `**choice?**` | `**choice?**` | `null` | `null` | `ID` |
-| `GDRP.4`,`GDRP.6`,`GDRP.7` | [Revoke consent](https://www.cnil.fr/fr/les-bases-legales/consentement) : Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | `REVOKE-CONSENT` | `**choice?**` | `**choice?**` | `**choice?**` | `null` | `ID` |
-| `**TBD**` | [For how long the data organization has on me will be kept](https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees) | `TRANSPARENCY.RETENTION` | `null` | `null` | `null` | `null` | `ID` |
+| `GDPR.21`, GDPR.18.1 | [Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees) | `RESTRICT` | `**choice?**` | `**choice?**` | `null` | `null` | `ID` |
+| `GDRP.4`,`GDRP.6`,`GDRP.7`, `GDPR.13.2.c`| [Revoke consent](https://www.cnil.fr/fr/les-bases-legales/consentement) : Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | `REVOKE-CONSENT` | `**choice?**` | `**choice?**` | `**choice?**` | `null` | `ID` |
+| `GDPR.13.2.a`, `GDPR.14.2.a` | [For how long the data organization has on me will be kept](https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees) | `TRANSPARENCY.RETENTION` | `null` | `null` | `null` | `null` | `ID` |
 
 >**Note**
 >
@@ -142,18 +142,18 @@ In the following examples we show how, requests introduced by different regulati
 | LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Additional element |
 | -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 | `GDPR.16` | Change my address, with new address being 1 blindnet street, 75000 blindcity, France, as of 01.01.2021  | `MODIFY` | `CONTACT.ADDRESS` | `null` | `null` | `null` | `ID` |
-| `**TBD**` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | `DELETE` | `**TBD**` | `null` | `null` | `null` | `ID` |
-| `**TBD**` | Opt out of automated decision making | `RESTRICT` | `null` | `AUTOMATED-DECISION-MAKING` | `null` | `null` | `ID` |
-| `**TBD**` | Opt out of sale of my data | `RESTRICT` | `null` | `SHARING` | `SALE` | `null` | `ID` |
-| `**TBD**` | Opt out of tracking on my data | `RESTRICT` | `null` | `COLLECTION` | `null` | `null` | `ID` |
+| `**TBD**` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | `DELETE` | `CONTACT` | `null` | `null` | `null` | `ID` |
+| `GDPR.21`,`GDPR.18.1` | Opt out of automated decision making | `RESTRICT` | `null` | `AUTOMATED-DECISION-MAKING` | `null` | `null` | `ID` |
+| `GDPR.21`,`GDPR.18.1` | Opt out of sale of my data | `RESTRICT` | `null` | `SHARING` | `SALE` | `null` | `ID` |
+| `GDPR.21`,`GDPR.18.1` | Opt out of tracking on my data | `RESTRICT` | `null` | `COLLECTION` | `null` | `null` | `ID` |
 | `**TBD**` | Storage information : know where is stored the data organization has on me | `TRANSPARENCY.WHERE` | `null` | `null` | `null` | `null` | `ID` |
 | `**TBD**` | Accessibility information : know who can access the data organization has on me | `TRANSPARENCY.WHO` | `null` | `null` | `null` | `null` | `ID` |
-| `**TBD**` | Provenance information : know the provenance of data organization has on me  | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` | `null` | `ID` |
-| `**TBD**` | Know when my data will be deleted | `**TRANSPARENCY.RETENTION?**` | `null` | `null` | `null` | `null` | `ID` |
+| `GDPR.14.2.f` | Provenance information : know the provenance of data organization has on me  | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` | `null` | `ID` |
+| `GDPR.13.2.a`, `GDPR.14.2.a` | Know when my data will be deleted | `TRANSPARENCY.RETENTION` | `null` | `null` | `null` | `null` | `ID` |
 | `**TBD**` | Know what is the policy of the organization to keep data it has on me | `TRANSPARENCY.POLICY` | `null` | `null` | `null` | `null` | `ID` |
 | `GDPR.15.1.a` | Know the purpose of the processing organization does on the data it has on me | `TRANSPARENCY.PURPOSE` |  | `null` | `null` | `null` | `ID` |
-| `**TBD**` | Know what type(s) of treatment organization does on the data it has on me | `TRANSPARENCY.PROCESSING-CATEGORIES` | `null` | `**+all?**` | `null` | `null` | `ID` |
-| `**TBD**` | Know if a particular type of treatment is done by organisation on the data it has on me | `TRANSPARENCY.PROCESSING-CATEGORIES` | `null` | `**choice?**` | `null` | `null` | `ID` |
+| `GDPR.12.1` | Know what type(s) of treatment organization does on the data it has on me | `TRANSPARENCY.PROCESSING-CATEGORIES` | `null` | `**+all?**` | `null` | `null` | `ID` |
+| `GDPR.12.1` | Know if a particular type of treatment is done by organisation on the data it has on me | `TRANSPARENCY.PROCESSING-CATEGORIES` | `null` | `**choice?**` | `null` | `null` | `ID` |
 
 >**Note**
 >
