@@ -313,8 +313,6 @@ Transced proposes the following [data categories](https://github.com/transcend-i
 | OTHER | A specific type of information not covered by the above categories | |
 | UNSPECIFIED | The type of information is not explicitly stated or unclear| |
 
-
-
 ## Questions and Discussion Topics
 
 
