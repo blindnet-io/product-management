@@ -24,7 +24,7 @@
             "minItems": 1
         },
 
-        "transitivity": {
+        "target": {
          "enum": ["DOWNWARD","UPWARD","BIDIRECTIONAL","INTRANSITIVE"],
          "default": "INTRANSITIVE",
         },

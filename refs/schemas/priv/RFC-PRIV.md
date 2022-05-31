@@ -15,7 +15,7 @@ We propose a simple vocabulary for representing [Privacy Requests](https://githu
 
 The vocabulary introduces a finite set of `concepts`, `properties` and `terms`. `Concepts` define the objects of exchange, `properties` define their characteristics, and `terms` define commonly understood values of properties.
 
-This vocabulary corresponds to the [Data Rights Request Schema](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High- Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
+This vocabulary corresponds to the [Data Privacy Request Schema](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High- Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
 
 ## Motivation
 
@@ -31,7 +31,7 @@ Different Systems, and different components of a single System, including differ
 
 >**TO BE Updated** once Lexicon and High Level Conceptualization are synchronised
 
-- We use the term Privacy Request interchangeably with the (deprecated) terms Rights Request and Data Rights Request as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
+- We use the term Privacy Request interchangeably with the (deprecated) terms Privacy Request and Data Privacy Request as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
 - We use the terms Individual, Person, You, and Data Subject as defined in the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv)
 - We use the term System as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
 - We use MUST, MUST NOT and MAY, as defined in [IETF RFC2119](https://datatracker.ietf.org/doc/html/rfc2119)
@@ -65,11 +65,16 @@ We have made the following choices:
 
 - **Multiple User Identities**. The Privacy Request Interchange Vocabulary  allows for a Data Subject to be identified using more than one user identity. This choice is made to enable the Privacy Request to be easily exchanged across Systems that use different user identifiers.
 
-- **System as a Target**. The Privacy Requests are interpreted at the level of a particular System. If an Organisation operates several systems, and if the Data Subject wants to have the Privacy Request transmitted to all of them, each System may respond differently. The target of a Privacy Request is thus the System exposing an API for Privacy Requests.
+- **Systems resolve Privacy Requests**. The Privacy Requests are interpreted at the level of a particular System. If an Organisation operates several Systems, and if the Data Subject wants to have the Privacy Request transmitted to all of them, each System may respond differently. While a Privacy Request can target a group of Systems, the most atomic target of a Privacy Request is thus the System exposing an API for Privacy Requests, and it is only at this level that a Privacy Request can be resolved.
 
 - **Decentralised IDs**. The Privacy Request Interchange Vocabulary uses decentralised ways to uniquely identify Data Subjects, Systems, Requests and their elements. The exchange of Privacy Requests can happen without a centralised entity to control identity disambiguation.
 
 ## Proposal
+
+The Privacy Request Interchange Vocabulary includes the following:
+- Key Concepts: [Consent](#consent), [Data Capture](#data-capture), [Data Capture Fragment](#data-capture-fragments), [Demand](#demands), [Privacy Request](#privacy-request), [Privacy Scope](#privacy-scope)
+- Properties: **TBD** full list of properties
+- Terms: **TBD** full list of terms
 
 ### Privacy Request
 
@@ -107,6 +112,8 @@ A Demand is a concrete action that the user requests.
 | `action` | 1 | Unique value. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.KNOWN`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER`} |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
 | `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
+| `data` | 0-* | Optionally concrete data (Format **TBD**) |
+
 
 The key element that defines the nature of the Demand is the `action`. A Demand MUST have one and only one `action`.
 
@@ -114,6 +121,8 @@ Actions are hierarchical.
 Their relationships are denoted with a dot "." separating two actions, the more general one being written on the left.
 `TRANSPARENCY` includes `TRANSPARENCY.WHERE`.
 When `TRANSPARENCY` is demanded, Systems MUST interpret the demand as if all the subcategories of `TRANSPARENCY` were demanded.
+
+Certain Demands MAY include data, such as a `MODIFY` Demand where new data MAY be provided by the Data Subject.
 
 ##### Demand Restrictions
 
@@ -139,7 +148,7 @@ Privacy Scope = (Data Categories) x (Categories of Processing) x (Purposes of Pr
 
 ```
 
-**Data Categories**
+*Data Categories*
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
@@ -155,7 +164,7 @@ E.g. the following two `data-category` restrictions are equivalent:
 In the absence of indication of any `data-category` dimension, Systems MUST interpret the Privacy Scope as being related to all categories of data.
 [A list of eligible `data-category` values with corresponding user-facing descriptions is provided](dictionary/data-categories/) for convenience.
 
-**Categories of Processing**
+*Categories of Processing*
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
@@ -167,7 +176,7 @@ In the absence of indication of any `processing-categories` dimension, Systems M
 
 [A list of eligible `processing-categories` values with corresponding user-facing descriptions is provided](dictionary/purposes) for convenience.
 
-**Purposes of Processing**
+*Purposes of Processing*
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
@@ -180,6 +189,8 @@ Purposes are organised as a hierarchy, denoted with a dot ".", the more general 
 - `NECESSARY`
 
 In the absence of indication of any `purpose` restriction, Systems MUST interpret the Demand as being related to all and any purpose of treatment.
+
+//**TODO** Decide if we need the `ANY` and in that case make sure all the dimensions of privacy scope have one. The downside of having it is that it introduces entropy as the same thing can be stated in two ways (by stating `ANY` and by ommitting any statement). We want to avoid this. Is there an upside?
 
 [A list of eligible `purposes` values with corresponding user-facing descriptions is provided](./dictionary/purposes/) for convenience.
 
@@ -213,29 +224,42 @@ A Demand can be restricted to particular Data Range, for example the Data Subjec
 | `to` | 0-* | Date and Time when the Data Range ends in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 
 
-A Data Range defined by only one of the {`from`, `to`} properties indicates a period of time after or before a certain data, unbounded on the other end.
+A Data Range defined by only one of the {`from`, `to`} properties indicates a period of time after or before a certain date, unbounded on the other end.
 
-#### Transitive Privacy Request
+#### Targets
 
-A Privacy Request can be transitive.
-Transitive Privacy Requests are useful in a distributed context where System A gave information about the Data Subject to System B, and System B gave information about the Data Subject to System C.
+It is common for Internet Systems to be distributed (organised in a set of connected websites and applications) and to exchange data among themselves.
 
-When a System receives a transitive Rights Request, it SHOULD not only respond to it, but also transfer it to corresponding Systems with which it exchanged data about the Data Subject.
+It is therefore convenient for a Data Subject to be able to formulate Privacy Requests (but also give Consents) targeting well-defined Systems.
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `transitivity` | 0-1 | Optionally one of {`DOWNWARD`, `UPWARD`, `BIDIRECTIONAL`, `INTRANSITIVE`} |
+| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `PARTNERS.DOWNWARD`, `PARTNERS.UPWARD`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
 
-Transitivity of Rights Requests can be `DOWNWARD` `UPWARD`, `BIDIRECTIONAL` or `INTRANSITIVE`. In the absence of any indication `INTRANSITIVE` SHOULD be assumed.
+`SYSTEM` refers to the particular System with witch the Data Subject is in direct interaction while making the Privacy Request (or giving the Consent).
 
-When System B receives a `DOWNWARD` transitive Rights Request, it MUST also send it to all systems to which it tranfered data about the Data Subject (System C).
-When System B receives a `UPWARD` transitive Rights Request, it MUST also send it to all systems from which it obtained data about the Data Subject (System A).
-When System B receives a `BIDIRECTIONAL` transitive Rights Request, it MUST also send it to all systems from which it obtained data about the Data Subject or to which it gave information about the Data Subject (System A and System C).
-When System B receives an `INTRANSITIVE` Rights Request, it SHOULD NOT transfer it to any other system.
+`ORGANISATION` includes, in addition to the `SYSTEM`, all other Systems belonging to the same Organisation. Those are understood as being a part of the same First-Party Set (**TODO** ref and compatibility check)  
 
-Systems should interpret the transitivity of Rights Request the same way regardless of the Rights Request being received directly from the Data Subject or from a corresponding System.
+`PARTNERS.DOWNWARD` includes, in addition to the `SYSTEM`, all other Systems belonging to Organisations with which the data about the Data Subject has been shared.
 
-Convenient tables of `transitivity` values and corresponding user-facing descriptions, in different languages, are provided [here](dictionary/transitivity).
+`PARTNERS.UPWARD` includes, in addition to the `SYSTEM`, all other Systems belonging to Organisations from which the data about the Data Subject has been obtained.
+
+`PARTNERS` includes, in addition to the `SYSTEM`, all other Systems belonging to Organisations with which any sort of exchange of data concerning the Data Subject has been performed.
+
+Different values of the `target` Property imply different obligations for the System receiving a Privacy Request to transfer that request to other Systems.
+
+Let us imagine the following situation: System A gave information about the Data Subject to System B, and System B gave information about the Data Subject to System C. The same Organisation that operates System B, also operates System D.
+
+When System B receives a Privacy Request having `target` value:
+- `SYSTEM`, it SHOULD NOT transfer it to any other system.
+- `ORGANISATION` for a `target`, it MUST transfer it to all other systems operated by the same Organisation (System D in our example).
+- `PARTNERS.DOWNWARD` it MUST also send it to all systems to which it transferred data about the Data Subject (System C).
+- `PARTNERS.UPWARD` it MUST also send it to all systems from which it obtained data about the Data Subject (System A).
+- `PARTNERS`, it MUST also send it to all systems from which it obtained data about the Data Subject or to which it gave information about the Data Subject (System A and System C).
+
+Systems should interpret the target of Privacy Request the same way regardless of the Privacy Request being received directly from the Data Subject or from a corresponding System.
+
+Convenient tables of `target` values and corresponding user-facing descriptions, in different languages, are provided [here](dictionary/targets).
 
 ### Privacy Request Response
 
@@ -275,10 +299,48 @@ A Consent is given by one Data Subject which can be identified by one or more [D
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
-| `consent-id` | 1 | Optional array of consent ids to indicate that the Demand (e.g. a `REVOKE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `consent-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Consent was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the Consent SHOULD be interpreted as unlimited |
 
+### Data Capture
+
+A Data Capture is given by one Data Subject which can be identified by one or more [Data Subject Identities](#decentralized-identity-of-data-subjects).
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
+| `capture-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
+| `fragments` | 1-* | One or more [Data Capture Fragments](#data-capture-fragments) |
+
+#### Data Capture Fragments
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `fragment-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `selector` | 1 | a string used to uniquely identify a data field (in the System's data model) to which the fragment corresponds |
+| `date` | 1 | Date and Time when data was Captured was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
+| `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the Consent SHOULD be interpreted as unlimited |
+| `legal-base` | 1-* | Legal bases for data processing associated to the particular fragment with regards to its particular Privacy Scope |
+| `retention` | 1-* | one or more Retention Policies |
+
+| `data` | 0-* | Optionally concrete data (Format **TBD**) |
+
+##### Legal bases
+
+**TBD**
+
+##### Retention Policy
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `policy-type` | 1 | one of {NO-LONGER-THAN, "NO-LESS-THAN"} |
+| `duration` | 1 | Duration in JSON Schema [duration](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `after` | 1 | Event to which the retention duration is relative to. One of {`DATA-COLLECTION`,`RELATIONSHIP-END`}
+
+If more than one Retention Policy is specified, then they are interpreted as a union. Data is kept, as long as the conditions of at least one of them are met.
 
 ## Detailed Design
 
@@ -314,7 +376,7 @@ The (`dsid`,`dsid-schema`) pair denotes a globally unique reference to always th
 
 We refer to (`dsid`,`dsid-schema`) pairs as Data Subject Identities.
 
-A Rights Request MAY include several (`dsid`,`dsid-schema`) pairs that refer to the same user, in order to facilitate the interoperability of Rights Requests across systems.
+A Privacy Request MAY include several (`dsid`,`dsid-schema`) pairs that refer to the same user, in order to facilitate the interoperability of Privacy Requests across systems.
 
 #### Data Subject ID Schemas
 
@@ -338,24 +400,24 @@ Additional Data Subject ID Schemes MAY be defined by convention. For example the
 
 #### Data Subject SHOULD be Authenticated
 
-In some cases, valid reasons MAY exist for Systems to respond to Rights Requests even from anonymous Data Subjects. This is the case, for example, with request relative to general data treatment practices practiced by the system.
+In some cases, valid reasons MAY exist for Systems to respond to Privacy Requests even from anonymous Data Subjects. This is the case, for example, with request relative to general data treatment practices practiced by the system.
 
 However, in most cases, Systems MUST require the Data Subject to be authenticated as being indeed the person corresponding to the (`dsid`,`dsid-schema`) pair.
 
-When processing Rights Request, Systems MAY automatically disregard the (`dsid`,`dsid-schema`) paris for which they have not been able to establish Data Subject authentication.
+When processing Privacy Request, Systems MAY automatically disregard the (`dsid`,`dsid-schema`) paris for which they have not been able to establish Data Subject authentication.
 
-However, the authentication does not necessarily have to be performed during the collection of the Rights Request. It can be done separately.
+However, the authentication does not necessarily have to be performed during the collection of the Privacy Request. It can be done separately.
 
 
 #### Matching Multiple Data Subject Identities
 
 Systems MAY keep track of Data Subject Identities that refer to the same Data Subject. In some cases, valid reasons MAY exist for Systems to ignore such information.
 
-When Systems do know that one Data Subject Identity corresponds to the same user as another Data Subject Identity, then Systems SHOULD offer the Data Subject a possibility for their Rights Requests, expressed in relation to one Data Subject Identity to be automatically extended to include other equivalent Data Subject Identities.
+When Systems do know that one Data Subject Identity corresponds to the same user as another Data Subject Identity, then Systems SHOULD offer the Data Subject a possibility for their Privacy Requests, expressed in relation to one Data Subject Identity to be automatically extended to include other equivalent Data Subject Identities.
 
-Systems SHOULD NOT imply Data Subject Identity equivalence from Rights Requests, especially when granting Rights Requests that require authentication.
+Systems SHOULD NOT imply Data Subject Identity equivalence from Privacy Requests, especially when granting Privacy Requests that require authentication.
 
-### Data Capture IDs, Data Capture Fragment IDs, Consent IDs, Rights Request IDs, Demand IDs, Rights Request Response IDs are Globally Unique
+### Data Capture IDs, Data Capture Fragment IDs, Consent IDs, Privacy Request IDs, Demand IDs, Privacy Request Response IDs are Globally Unique
 
 All of the following identifiers `data-capture-id`, `fragment-id`, `consent-id`, `rights-request-id`, `demand-id`, `rights-response-id` MUST be globally unique and be generated according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html) in order for the corresponding objects to be easily identifiable across systems.
 The reason for using UUDIs is to allow Systems to independently generate globally unique identifiers while being autonomous from a central entity that would ensure identifier uniqueness.
@@ -383,7 +445,7 @@ This vocabulary can be extended by defining a new identifier for the new vocabul
 
 ### Remembering Transfers
 
-When data about Data Subjects is transmitted from one system to another, in order to be able to process [Transitive Rights Requests](#transitive-rights-request), and in order to reply to `TRANSPARENCY.WHO` and `TRANSPARENCY.PROVENANCE` demands, Systems MUST keep track of:
+When data about Data Subjects is transmitted from one system to another, in order to be able to process the [Targets property](#targets), and in order to reply to `TRANSPARENCY.WHO` and `TRANSPARENCY.PROVENANCE` demands, Systems MUST keep track of:
 - System of destination/origin and addresses where their APIs can be reached
 - Categories of data being transferred
 - Identifiers (`data-capture-id`s,`fragment-id`s) associated to the data being transferred
@@ -393,9 +455,9 @@ When data about Data Subjects is transmitted from one system to another, in orde
 > **Note**
 >
 > Systems that exchange Data Subject information with other Systems MUST:
-> - expose an API for communicating with other systems about Rights Requests:
->     - receiving Rights Requests from those other Systems,
->     - receiving Rights Request Responses from other Systems in the case of [Nested Responses Scenario](https://github.com/blindnet-io/product-management/tree/devkit-schemas/refs/high-level-architecture#different-rights-request-response-scenrarios).
+> - expose an API for communicating with other systems about Privacy Requests:
+>     - receiving Privacy Requests from those other Systems,
+>     - receiving Privacy Request Responses from other Systems in the case of [Nested Responses Scenario](https://github.com/blindnet-io/product-management/tree/devkit-schemas/refs/high-level-architecture#different-rights-request-response-scenrarios).
 
 ### Storing General Information
 
@@ -451,17 +513,17 @@ Systems SHOULD keep a log of received [Privacy Requests](#privacy-request), gene
 
 ### Use UUID for identifying Data Subjects
 
-We could imagine an alternative design, where we would force systems to use an [UUID]([uuid](https://en.wikipedia.org/wiki/Universally_unique_identifier)) (according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html)), to identify the users. That would require us to provide some way for systems to match UUIDs with their local IDs (usernames, or e-mails), and would potentially limit the ability of 3rd party systems to interpret Rights Request made at another system. This goal of proposed design is to allow for flexibility. However it is a very important aspect of the proposal, that deserves further debate.
+We could imagine an alternative design, where we would force systems to use an [UUID]([uuid](https://en.wikipedia.org/wiki/Universally_unique_identifier)) (according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html)), to identify the users. That would require us to provide some way for systems to match UUIDs with their local IDs (usernames, or e-mails), and would potentially limit the ability of 3rd party systems to interpret Privacy Request made at another system. This goal of proposed design is to allow for flexibility. However it is a very important aspect of the proposal, that deserves further debate.
 
 ### Zero-knowledge proof Data Subject authentication
 
-PRIF MUST be agnostic of the authentication method, and as such MUST be compatible with Zero-knowledge proof authentication, biometric methods, password-based authentication and any other method. We should check whether this is the case with the current design.
+PRIV MUST be agnostic of the authentication method, and as such MUST be compatible with Zero-knowledge proof authentication, biometric methods, password-based authentication and any other method. We should check whether this is the case with the current design.
 
 ### Mandatory properties and value constrains
 
 Should we include rescissions in the schema according to the [JSON-schema-validation vocabulary](https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#page-4) in order to make certain properties mandatory and ensure to limit string values to the values we support?
 
-In the curent proposal, this is the case for Transitivity, but not for request types, data categories, and user identity schemas. We might want to include more forma constraints there, or deliberately leave flexibility. This is a discussion we need to have.
+In the current proposal, this is the case for target, but not for request types, data categories, and user identity schemas. We might want to include more forma constraints there, or deliberately leave flexibility. This is a discussion we need to have.
 
 ### Dot-notation for category hierarchies
 
@@ -534,10 +596,6 @@ Even if a less than superprivate System does not want to dynamically negotiate c
 
 Should we include a way for systems to sign responses and allow to confirm their authenticity. Maybe it can be a set of optional variables for signatures and keys in the [Privacy Request Response](#privacy-request-response)) so that they can be easily nested as they only sign the body of the response? Or is there (certainly is, but should we use it) some standard way to handle this separately from the format of the requests and responses?
 
-### Place of `message`, `lang`, `transitivity`
-
-Should `message`, `lang`, `transitivity` be properties of Privacy Request, Demand or both?
-
 ### Expect Language
 
 Should we implement the Accept-Language logic from HTTP? Or can we assume that the 'lang' of request is the language in which the response is expected?
@@ -545,6 +603,10 @@ Should we implement the Accept-Language logic from HTTP? Or can we assume that t
 ### Extending the vocabulary
 
 Is the mechanism for extending the vocabulary appropriate?
+
+### Format and encryption of the `data` values
+
+We need a way for Systems to encrypt the data (that compatible also with encryption libraries other then our own).
 
 ## References
 
@@ -556,6 +618,12 @@ Is the mechanism for extending the vocabulary appropriate?
 ### Informative References
 
 -
+
+### Initiative with which PRIV seeks to be compatible
+
+- [Privacy Model for the Web](https://github.com/michaelkleber/privacy-model/blob/main/README.md)
+- [First Party Sets](https://github.com/privacycg/first-party-sets)
+
 
 ### Supported Legislation
 
