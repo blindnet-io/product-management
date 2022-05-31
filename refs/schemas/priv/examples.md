@@ -160,46 +160,46 @@ In the following examples we show how, requests introduced by different regulati
 ### CCPA REQUESTS
 | LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Additional element |
 | -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `article` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `CCPA.1798.100.1` | A consumer shall have the right to request that a business that collects a consumer’s personal information disclose to that consumer the categories and specific pieces of personal information the business has collected | `TRANSPARENCY.KNOWN`,`TRANSPARENCY.DATA-CATEGORIES` | `null` | `null` | `null` | `null` | `null` |
+| `CCPA.1798.100.4` | A business that receives a verifiable consumer request from a consumer to access personal information shall promptly take steps to disclose and deliver, free of charge to the consumer, the personal information required by this section.  | `ACCESS` | `null` | `null` | `null` | `null` | `ID` |
+| `1798.105.1` | A consumer shall have the right to request that a business delete any personal information about the consumer which the business has collected from the consumer. | `DELETE` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `article` | X | `X` | `null` | `null` | `null` | `null` | `null` |
 
 ### Requests list (**TO BE TRANSFORMED IN THE ABOVE FORMAT**)
 <!-- prettier-ignore -->
