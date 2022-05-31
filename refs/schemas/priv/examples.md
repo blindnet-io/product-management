@@ -149,9 +149,11 @@ In the following examples we show how, requests introduced by different regulati
 | `**TBD**` | Storage information : know where is stored the data organization has on me | `TRANSPARENCY.WHERE` | `null` | `null` | `null` | `null` | `ID` |
 | `**TBD**` | Accessibility information : know who can access the data organization has on me | `TRANSPARENCY.WHO` | `null` | `null` | `null` | `null` | `ID` |
 | `**TBD**` | Provenance information : know the provenance of data organization has on me  | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` | `null` | `ID` |
-| `**TBD**` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `**TBD**` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-
+| `**TBD**` | Know when my data will be deleted | `**TRANSPARENCY.RETENTION?**` | `null` | `null` | `null` | `null` | `ID` |
+| `**TBD**` | Know what is the policy of the organization to keep data it has on me | `TRANSPARENCY.POLICY` | `null` | `null` | `null` | `null` | `ID` |
+| `GDPR.15.1.a` | Know the purpose of the processing organization does on the data it has on me | `TRANSPARENCY.PURPOSE` |  | `null` | `null` | `null` | `ID` |
+| `**TBD**` | Know what type(s) of treatment organization does on the data it has on me | `TRANSPARENCY.PROCESSING-CATEGORIES` | `null` | `**+all?**` | `null` | `null` | `ID` |
+| `**TBD**` | Know if a particular type of treatment is done by organisation on the data it has on me | `TRANSPARENCY.PROCESSING-CATEGORIES` | `null` | `**choice?**` | `null` | `null` | `ID` |
 
 >**Note**
 >
@@ -195,13 +197,13 @@ In the following examples we show how, requests introduced by different regulati
 | OK | **Accessibility information** | Know who can access the data organization has on me | ---- | ---- | ID | ---- |  |
 | OK | **Provenance information** | Know the provenance of data organization has on me | ---- | ---- | ID | ---- |  |
 | OK | **Retention information** | Know for how long the data organization has on me will be kept | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees |
-| 21 | **Deletion information** | Know when my data will be deleted | ---- | ---- | ID | ---- |  |
-| 22 | **Policy information** | Know what is the policy of the organization to keep data it has on me | ---- | ---- | ID | ---- |  |
-| 23 | **Purpose of treatment information** | Know the purpose of the treatment organization does on the data it has on me | ---- | ---- | ID | ---- |  |
-| 25 | **Treatment information** | Know what type(s) of treatment organization does on the data it has on me | ---- | ---- | ID | ---- |  |
-| 26 | **Particular type(s) of treatment information** | Know if a particular type of treatment is done by organisation on the data it has on me | *Type of treatment (to choose from possible type of treatment list)* | ---- | ID | ---- |  |
+| OK | **Deletion information** | Know when my data will be deleted | ---- | ---- | ID | ---- |  |
+| OK | **Policy information** | Know what is the policy of the organization to keep data it has on me | ---- | ---- | ID | ---- |  |
+| OK | **Purpose of treatment information** | Know the purpose of the treatment organization does on the data it has on me | ---- | ---- | ID | ---- |  |
+| OK | **Treatment information** | Know what type(s) of treatment organization does on the data it has on me | ---- | ---- | ID | ---- |  |
+| OK | **Particular type(s) of treatment information** | Know if a particular type of treatment is done by organisation on the data it has on me | *Type of treatment (to choose from possible type of treatment list)* | ---- | ID | ---- |  |
 | -- | OTHER TYPE | ---- | ---- |---- |
-| 28 | **Propagation of request** (can only be ask in addition of another request) | Send the request to other organizations the organization may have shared the data it has me with | ---- | ---- |  | ---- |  |
+| - | **Propagation of request** (can only be ask in addition of another request) | Send the request to other organizations the organization may have shared the data it has me with | ---- | ---- |  | ---- |  |
 
 ### Types of treatment list
 | Nb | Treatment | Description | CNIL reference
