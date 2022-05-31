@@ -333,7 +333,7 @@ Transced proposes the following [data categories](https://github.com/transcend-i
 
 ### Supported Legislation
 
-- [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj)
+- [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj), [CHAPTER III - Rights of the data subject](https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article13)
 - [CCPA](https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5)
 
 ### Yet to be Supported Legilsation
