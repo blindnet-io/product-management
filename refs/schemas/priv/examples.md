@@ -159,46 +159,47 @@ In the following examples we show how, requests introduced by different regulati
 
 ### CCPA REQUESTS
 | LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Additional element |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` |  | `X` | `null` | `null` | `null` | `null` | `ID` |
+| -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
 
 ### Requests list (**TO BE TRANSFORMED IN THE ABOVE FORMAT**)
 <!-- prettier-ignore -->
