@@ -199,7 +199,7 @@ In the following examples we show how, requests introduced by different regulati
 | `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
 | `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
 | `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
+| `article` | X | `X` | `null` | `null` | `null` | `null` | `ID` |
 
 ### Requests list (**TO BE TRANSFORMED IN THE ABOVE FORMAT**)
 <!-- prettier-ignore -->
