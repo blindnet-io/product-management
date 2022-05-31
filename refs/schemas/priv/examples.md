@@ -58,8 +58,6 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.13.2.f`, `GDPR.14.2.g` | the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject. | `TRANSPARENCY.POLICY` | `null` | `null` | `null` |
 | `GDPR.14.2.f` | from which source the personal data originate, and if applicable, whether it came from publicly accessible sources; | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` |
 
-
-
 #### Article 15.1
 
 *The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed*
@@ -142,15 +140,15 @@ In the following examples we show how, requests introduced by different regulati
 | LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Additional element |
 | -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 | `GDPR.16` | Change my address, with new address being 1 blindnet street, 75000 blindcity, France, as of 01.01.2021  | `MODIFY` | `CONTACT.ADDRESS` | `null` | `null` | `null` | `ID` |
-| `**TBD**` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | `DELETE` | `CONTACT` | `null` | `null` | `null` | `ID` |
+| `GDPR.17` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | `DELETE` | `CONTACT` | `null` | `MARKETING` | `null` | `ID` |
 | `GDPR.21`,`GDPR.18.1` | Opt out of automated decision making | `RESTRICT` | `null` | `AUTOMATED-DECISION-MAKING` | `null` | `null` | `ID` |
 | `GDPR.21`,`GDPR.18.1` | Opt out of sale of my data | `RESTRICT` | `null` | `SHARING` | `SALE` | `null` | `ID` |
 | `GDPR.21`,`GDPR.18.1` | Opt out of tracking on my data | `RESTRICT` | `null` | `COLLECTION` | `null` | `null` | `ID` |
-| `**TBD**` | Storage information : know where is stored the data organization has on me | `TRANSPARENCY.WHERE` | `null` | `null` | `null` | `null` | `ID` |
-| `**TBD**` | Accessibility information : know who can access the data organization has on me | `TRANSPARENCY.WHO` | `null` | `null` | `null` | `null` | `ID` |
+| `GDPR.13.1.f`, `GDPR.14.1.f` | Storage information : know where is stored the data organization has on me | `TRANSPARENCY.WHERE` | `null` | `null` | `null` | `null` | `ID` |
+| `GDPR.14.1.e` | Accessibility information : know who can access the data organization has on me | `TRANSPARENCY.WHO` | `null` | `null` | `null` | `null` | `ID` |
 | `GDPR.14.2.f` | Provenance information : know the provenance of data organization has on me  | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` | `null` | `ID` |
 | `GDPR.13.2.a`, `GDPR.14.2.a` | Know when my data will be deleted | `TRANSPARENCY.RETENTION` | `null` | `null` | `null` | `null` | `ID` |
-| `**TBD**` | Know what is the policy of the organization to keep data it has on me | `TRANSPARENCY.POLICY` | `null` | `null` | `null` | `null` | `ID` |
+| `**GDPR.13?**` | Know what is the policy of the organization to keep data it has on me | `TRANSPARENCY.POLICY` | `null` | `null` | `null` | `null` | `ID` |
 | `GDPR.15.1.a` | Know the purpose of the processing organization does on the data it has on me | `TRANSPARENCY.PURPOSE` |  | `null` | `null` | `null` | `ID` |
 | `GDPR.12.1` | Know what type(s) of treatment organization does on the data it has on me | `TRANSPARENCY.PROCESSING-CATEGORIES` | `null` | `**+all?**` | `null` | `null` | `ID` |
 | `GDPR.12.1` | Know if a particular type of treatment is done by organisation on the data it has on me | `TRANSPARENCY.PROCESSING-CATEGORIES` | `null` | `**choice?**` | `null` | `null` | `ID` |
