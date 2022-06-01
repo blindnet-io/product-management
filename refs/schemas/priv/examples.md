@@ -199,7 +199,7 @@ In the following examples we show how, requests introduced by different regulati
 | `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
 | `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
 | `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `article` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `1798.130.1.1` | Make available to consumers two or more designated methods for submitting requests for information required to be disclosed pursuant to Sections 1798.110 and 1798.115, including, at a minimum, a toll-free telephone number. | `X` | `null` | `null` | `null` | `null` | `null` |
 
 ### Requests list (**TO BE TRANSFORMED IN THE ABOVE FORMAT**)
 <!-- prettier-ignore -->
