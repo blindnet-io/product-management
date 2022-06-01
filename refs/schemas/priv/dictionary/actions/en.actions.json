@@ -7,7 +7,7 @@
   "RESTRICT": "To restrict processing of my data",
   "REVOKE-CONSENT": "To revoke prviousely given consent for data processing",
   "TRANSPARENCY": "To demand information related to data processing practices and know if the system has data on me",
-  "TRANSPARENCY.DATA-CATEGORIES": "To know the categories of processing being done on the data the System has on me",
+  "TRANSPARENCY.DATA-CATEGORIES": "To know the categories of the data the system has on me",
   "TRANSPARENCY.DPO": "To know the contact details of the data protection officer",
   "TRANSPARENCY.KNOWN": "To know if the System has data on me",
   "TRANSPARENCY.LEGAL-BASES": "To know the legal bases for processing my data (including legitimate interests)",
