@@ -608,6 +608,10 @@ Is the mechanism for extending the vocabulary appropriate?
 
 We need a way for Systems to encrypt the data (that compatible also with encryption libraries other then our own).
 
+### Motivation or explanation of Demand
+>**Note**
+>
+> The motivation or explanation of Demand is modeled by a message, and the message is optional. If law regulations state that motivation or explanation of Demand is mandatory, it is not supported. 
 ## References
 
 ### Normative References
