@@ -143,7 +143,7 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.17` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | `DELETE` | `CONTACT` | `null` | `MARKETING` | `null` | `ID` |
 | `GDPR.21`,`GDPR.18.1` | Opt out of automated decision making | `RESTRICT` | `null` | `AUTOMATED-DECISION-MAKING` | `null` | `null` | `ID` |
 | `GDPR.21`,`GDPR.18.1` | Opt out of sale of my data | `RESTRICT` | `null` | `SHARING` | `SALE` | `null` | `ID` |
-| `GDPR.21`,`GDPR.18.1` | Opt out of tracking on my data | `RESTRICT` | `BEHAVIOR,`DEVICE`,`LOCATION` | `COLLECTION` | `null` | `null` | `ID` |
+| `GDPR.21`,`GDPR.18.1` | Opt out of tracking on my data | `RESTRICT` | `BEHAVIOR,`DEVICE`,`LOCATION` | `COLLECTION` | `TRACKING` | `null` | `ID` |
 | `GDPR.13.1.f`, `GDPR.14.1.f` | Storage information : know where is stored the data organization has on me | `TRANSPARENCY.WHERE` | `null` | `null` | `null` | `null` | `ID` |
 | `GDPR.14.1.e` | Accessibility information : know who can access the data organization has on me | `TRANSPARENCY.WHO` | `null` | `null` | `null` | `null` | `ID` |
 | `GDPR.14.2.f` | Provenance information : know the provenance of data organization has on me  | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` | `null` | `ID` |
