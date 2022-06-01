@@ -143,7 +143,7 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.17` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | `DELETE` | `CONTACT` | `null` | `MARKETING` | `null` | `ID` |
 | `GDPR.21`,`GDPR.18.1` | Opt out of automated decision making | `RESTRICT` | `null` | `AUTOMATED-DECISION-MAKING` | `null` | `null` | `ID` |
 | `GDPR.21`,`GDPR.18.1` | Opt out of sale of my data | `RESTRICT` | `null` | `SHARING` | `SALE` | `null` | `ID` |
-| `GDPR.21`,`GDPR.18.1` | Opt out of tracking on my data | `RESTRICT` | `null` | `COLLECTION` | `null` | `null` | `ID` |
+| `GDPR.21`,`GDPR.18.1` | Opt out of tracking on my data | `RESTRICT` | `BEHAVIOR,`DEVICE`,`LOCATION` | `COLLECTION` | `null` | `null` | `ID` |
 | `GDPR.13.1.f`, `GDPR.14.1.f` | Storage information : know where is stored the data organization has on me | `TRANSPARENCY.WHERE` | `null` | `null` | `null` | `null` | `ID` |
 | `GDPR.14.1.e` | Accessibility information : know who can access the data organization has on me | `TRANSPARENCY.WHO` | `null` | `null` | `null` | `null` | `ID` |
 | `GDPR.14.2.f` | Provenance information : know the provenance of data organization has on me  | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` | `null` | `ID` |
@@ -162,16 +162,16 @@ In the following examples we show how, requests introduced by different regulati
 | -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 | `CCPA.1798.100.1` | A consumer shall have the right to request that a business that collects a consumer’s personal information disclose to that consumer the categories and specific pieces of personal information the business has collected | `TRANSPARENCY.KNOWN`,`TRANSPARENCY.DATA-CATEGORIES` | `null` | `null` | `null` | `null` | `null` |
 | `CCPA.1798.100.4` | A business that receives a verifiable consumer request from a consumer to access personal information shall promptly take steps to disclose and deliver, free of charge to the consumer, the personal information required by this section.  | `ACCESS` | `null` | `null` | `null` | `null` | `ID` |
-| `1798.105.1` | A consumer shall have the right to request that a business delete any personal information about the consumer which the business has collected from the consumer. | `DELETE` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
+| `1798.105.1` | A consumer shall have the right to request that a business delete any personal information about the consumer which the business has collected from the consumer | `DELETE` | `null` | `null` | `null` | `null` | `null` |
+| `1798.110.1.1` | A consumer shall have the right to request that a business that collects personal information about the consumer disclose to the consumer the following: The categories of personal information it has collected about that consumer | `TRANSPARENCY.DATA-CATEGORIES` | `null` | `null` | `null` | `null` | `null` |
+| `1798.110.1.2` | ...The categories of sources from which the personal information is collected | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` | `null` | `null` |
+| `1798.110.1.3` | ...The business or commercial purpose for collecting or selling personal information | `TRANSPARENCY.PURPOSE` | `null` | `null` | `null` | `null` | `null` |
+| `1798.110.1.4` | The categories of third parties with whom the business shares personal information | `**to add?**` | `null` | `SHARING` | `null` | `null` | `null` |
+| `1798.110.1.5` | The specific pieces of personal information it has collected about that consumer | `ACCESS` | `null` | `null` | `null` | `null` | `null` |
+| `1798.115.1.1` | A consumer shall have the right to request that a business that sells the consumer’s personal information, or that discloses it for a business purpose, disclose to that consumer: The categories of personal information that the business collected about the consumer | `TRANSPARENCY.DATA-CATEGORIES` | `null` | `SHARING` | `SALE` | `null` | `null` |
+| `1798.115.1.2` | ...The categories of personal information that the business sold about the consumer and the categories of third parties to whom the personal information was sold, by category or categories of personal information for each category of third parties to whom the personal information was sold | `**TBD**` | `null` | `SHARING` | `SALE` | `null` | `null` |
+| `1798.115.1.3` | ...The categories of personal information that the business disclosed about the consumer for a business purpose | `**TBD**` | `null` | `SHARING` | `SALE` | `null` | `null` |
+| `1798.120.1` | A consumer shall have the right, at any time, to direct a business that sells personal information about the consumer to third parties not to sell the consumer’s personal information. This right may be referred to as the right to opt-out | `RESTRICT` | `null` | `SHARING` | `SALE` | `null` | `null` |
 | `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
 | `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
 | `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
