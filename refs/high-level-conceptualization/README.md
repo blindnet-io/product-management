@@ -53,7 +53,7 @@ It may also favor incremental data submission (submit part of the form today, an
 
 Capture Fragments can be subject to validations:
 - **a priori** using automatic validators (like checking the format of an e-mail adress, or extension of a file)
-- **a posteriori** using human input to vlaidate the conformity of submitted data with what is expected
+- **a posteriori** using human input to validate the conformity of submitted data with what is expected
 
 ## DATA CAPTURE – LEGAL GROUND
 
