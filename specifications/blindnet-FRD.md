@@ -257,96 +257,96 @@ Usage: 11b
 
 _**FR-BEXX.** The system must initialize the parameters to upload a file to Azure blob storage._
 
-_Input:_
-* _one_time_JWT or JWT_
+Input:
+* one_time_JWT or JWT
 
-_Output:_
-* _data_id_
+Output:
+* data_id
 
-_The system generates the data_id and stores it in the database._
+The system generates the data_id and stores it in the database.
 
 _**FR-BEXX.** The system must accept and store the encrypted metadata._
 
-_Input:_
-* _one_time_JWT or JWT_
-* _data_id_
-* _metadata_
+Input:
+* one_time_JWT or JWT
+* data_id
+* metadata
 
-_Output:_
-* _ok_
+Output:
+* ok
 
-_The system verifies the data_id was created by the requesting user (uid or tid)._
+The system verifies the data_id was created by the requesting user (uid or tid).
 
 _**FR-BEXX.** The system must be able to generate an upload link for a block for Azure blob storage._
 
-_Input:_
-* _one_time_JWT or JWT_
-* _data_id_
-* _block_size_
+Input:
+* one_time_JWT or JWT
+* data_id
+* block_size
 
-_Output:_
-* _url_
-* _authorization_header_
-* _date_
-* _block_id_
+Output:
+* url
+* authorization_header
+* date
+* block_id
 
-_The system checks if the block/total size is within the limit._
+The system checks if the block/total size is within the limit.
 
-_The system generates and stores the block_id in the database (linked with data_id)._
+The system generates and stores the block_id in the database (linked with data_id).
 
-_The system creates and signs the upload link and returns the parameters in the response._
+The system creates and signs the upload link and returns the parameters in the response.
 
 _**FR-BEXX.** The system must be able to commit the file upload to Azure blob storage._
 
-_Input:_
-* _one_time_JWT or JWT_
-* _data_id_
-* _block_ids_
+Input:
+* one_time_JWT or JWT
+* data_id
+* block_ids
 
-_Output:_ 
-* _ok_
+Output:
+* ok
 
-_The system checks if all the block_ids belong to the data_id, generates, signs and executes the request to the Azure blob storage._
+The system checks if all the block_ids belong to the data_id, generates, signs and executes the request to the Azure blob storage.
 
 _**FR-BEXX.** The system must be able to retrieve the encrypted metadata._
 
 _storage._
 
-_Input:_
-* _JWT_
-* _data_id_
+Input:
+* JWT
+* data_id
 
-_Output:_
-* _encrypted_metadata_
+Output:
+* encrypted_metadata
 
 _**FR-BEXX.$** The system must be able to create and sign the signed download link for GCP storage._
 
-_Input:_
-* _JWT_
-* _data_id_
+Input:
+* JWT
+* data_id
 
-_Output:_ 
-* _url_
-* _authorization_header_
-* _date_
+Output:
+* url
+* authorization_header
+* date
 
-_The system creates and signs the download link and returns the parameters in the response._
+The system creates and signs the download link and returns the parameters in the response.
 
 _**FR-BEXX.** The system must accept and store encrypted symmetric keys for data stored in the azure storage._
 
-_Input:_
-* _one_time_JWT or JWT_
-* _data_id_
-* _a list of:_
-    * _encrypted_symmetric_key_
-    * _user_id_
+Input:
+* one_time_JWT or JWT
+* data_id
+* a list of:
+    * encrypted_symmetric_key
+    * user_id
 
-_Output:_
-* _ok_
+Output:
+* oK
 
-_Similar to BE06, only the document id is provided from the client side._
+Similar to BE06, only the document id is provided from the client side.
 
-_The system checks if the data_id was created by the requesting user (uid or tid)._
+The system checks if the data_id was created by the requesting user (uid or tid).
 
 _**FR-BE17.** The system must retrieve requested symmetric keys of a user._
 
@@ -378,4 +378,375 @@ Output:
 
 The system validates the JWT signature, and deletes the encrypted symmetric key associated with the given doc_id and user_id.
 
+### FE javascript SDK
+
+_**FR-SDK01.** The SDK must be able to generate cryptographic keys._
+
+Generation of cryptographic keys must include both random symmetric keys, random asymmetric key pairs, and symmetric keys based on a passphrase.
+
+This is a functionality that must not be directly exposed to developers that use the SDK.
+
+Usage: 1a, 2b, 4b
+
+Blindnet ref: similar as FR-SDK01, but with the passphrase
+
+_**FR-SDK02.** The SDK must be able to locally store, locally retrieve, or delete cryptographic keys._
+
+This is a functionality that must not be directly exposed to developers that use the SDK.
+
+Usage: 1a, 1e, 4a
+
+Blindnet ref: same as FR-SDK02
+
+_**FR-SDK03.** The SDK must be able to register the user's identity._
+
+This is a functionality that must be directly exposed to developers that use the SDK.
+
+Inputs, provided by developers that use the SDK:
+* JWT
+
+User registration workflow:
+* SDK generates a random encryption key pair (FR-SDK01)
+* SDK generates a random signing key pair (FR-SDK01)
+* SDK generates a symmetric key based on a passphrase (FR-SDK01) (with salt)
+* SDK encrypts the private encryption key with the symmetric key
+* SDK encrypts the private signing key with the symmetric key
+* SDK signs the JWT with the private signing key
+* SDK signs the public encryption key with the private signing key
+* SDK sends a request to blindnet with inputs (FR-BE01)
+    * JWT
+    * generated public encryption key
+    * generated public signing key
+    * key_derivation_salt
+    * encrypted_private_encryption_key
+    * encrypted_private_signing_key
+    * signed_public_encryption_key
+    * Signed JWT
+* SDK receives registration confirmation from blindnet.
+
+Usage: 1b
+
+Blindnet ref: similar as FR-SDK03
+
+_**FR-SDK03-2.** The SDK must be able to retrieve from blindnet the user's encrypted private keys and decrypt them_
+
+This is a functionality that must be directly exposed to developers that use the SDK.
+
+Inputs, provided by developers that use the SDK:
+* JWT
+* passphrase
+
+User registration workflow:
+* SDK generates a symmetric key based on a passphrase and salt (FR-SDK01)
+* SDK fetches the encrypted private keys and the public keys from blindnet (FR-BE02)
+* SDK decrypts the private keys with the symmetric key
+
+Usage: every time employee logs in
+
+Usage: 4a
+
+_**FR-SDK04.** The SDK must be able to retrieve public keys from blindnet backend._
+
+A request is sent to blindnet backend (FR-BE04/05) containing:
+
+Input:
+* JWT / one time JWT
+* a list of user ids (must be inside one time JWT)
+
+Output:
+* A list of
+    * user_id
+    * public_encryption_key
+    * public_signing_key
+    * signed_public_encryption_key
+
+This is a functionality that must not be directly exposed to developers that use the SDK.
+
+Usage: 8c (a single PK)
+
+Blindned ref: similar as FR-SDK04, but with list of user ids
+
+_**FR-SDK04-2.** The SDK must be able to retrieve public keys from blindnet backend._
+
+A request is sent to blindnet backend (FR-BE04) containing:
+
+Input:
+* One time JWT (contains hotel id)
+
+Output:
+* A list of
+    * user_id
+    * public_encryption_key
+    * public_signing_key
+    * signed_public_encryption_key
+
+This is a functionality that must not be directly exposed to developers that use the SDK.
+
+Usage: 2a
+
+_**FR-SDK04-3.** The SDK must be able to retrieve a public key from blindnet backend._
+
+A request is sent to blindnet backend (FR-BE03) containing:
+
+Input:
+* JWT / one time JWT
+* user id
+
+Output:
+* user_id
+* public_encryption_key
+* public_signing_key
+* signed_public_encryption_key
+
+This is a functionality that must not be directly exposed to developers that use the SDK.
+
+_**FR-SDK05.** The SDK must be able to encrypt messages._
+
+This is a functionality that must be directly exposed to developers that use the SDK. 
+
+Inputs given by developers that use the SDK:
+* JWT / one time JWT
+* optional list of user id (gdpr: for encrypting for a user with id other than the one in JWT)
+* message data
+* optional metadata
+
+Functionality workflow:
+* SDK retrieves the public key of the recipients, by sending a request to blindnet backend (2a, FR-SDK04-2; FR-SDK04-3 if optional user id is provided)
+* SDK verifies the public encryption key signature with the public signing key
+* SDK generates a random symmetric encryption key (2b, FR-SDK01)
+* SDK encrypts the generated symmetric key with each recipient public key and uploads all of them to blindnet (2c, 2d, FR-SDK06)
+* SDK encrypts the data with the symmetric key (2b)
+
+Outputs:
+* encrypted data and metadata (one object)
+* document id
+
+Usage: 2
+
+Blindnet ref: similar as FR-SDK07, but with list of user ids and a document id
+
+_**FR-SDK05-02.** The SDK must be able to encrypt and store messages._
+
+This is a functionality that must be directly exposed to developers that use the SDK. 
+
+Inputs given by developers that use the SDK:
+* JWT / one time JWT
+* message data
+* optional metadata
+
+Functionality workflow:
+* SDK retrieves the public key of the recipients, by sending a request to blindnet backend (2a, FR-SDK04-2)
+* SDK verifies the public encryption key signature with the public signing key
+* SDK generates a random symmetric encryption key (2b, FR-SDK01)
+* SDK encrypts the generated symmetric key with each recipient public key and uploads all of them to blindnet (2c, 2d, FR-SDK06)
+* SDK encrypts and transfers the metadata to blindnet server (FR-BEXX)
+* SDK splits the data to fixed size chunks and for each chunk (can be done in parallel)
+    * SDK encrypts the data with the symmetric key (2b)
+    * SDK obtains the signed storage link from blindnet (FR-BEXX)
+    * SDK directly stores the data to the Azure with the signed storage link
+* SDK tells the blindnet to commit the file transfer (FR-BEXX)
+
+Outputs:
+* document id
+
+Usage: /
+
+_**FR-SDK06.** The SDK must be able to encrypt symmetric keys and post them to blindnet backend._
+
+Symmetric encryption keys generated by the SDK must be encrypted with the user’s public keys. All encrypted keys are then sent to blindnet in a request containing (FR-BE06):
+* JWT / one time JWT
+* list of objects each containing
+    * encrypted symmetric key
+    * user_id
+
+Output:
+* document id
+
+This is a functionality that must not be directly exposed to developers that use the SDK
+
+Usage: 2c, 2d
+
+Blindnet ref: similar as FR-SDK05
+
+_**FR-SDK07.** The SDK must be able to retrieve encrypted symmetric keys from blindnet backend, and decrypt them._
+
+Symmetric encryption keys encrypted with the public key must be retrieved from blindnet backend and decrypted with the associated private key.
+
+Workflow:
+* SDK retrieves the encrypted symmetric key from blindet with a request containing:
+    * JWT
+    * document id
+    Response is an encrypted symmetric key
+* SDK decrypts the encrypted symmetric key with the local private key.
+
+This is a functionality that must not be directly exposed to developers that use the SDK
+
+Usage: 3a, 3b, 8a, 8b
+
+Blindnet ref: similar to FR-SDK06
+
+_**FR-SDK08.** The SDK must be able to decrypt messages._
+
+This is a functionality that must be directly exposed to developers that use the SDK. 
+
+Inputs given by developers that use the SDK:
+* JWT
+* encrypted data and metadata (one object)
+
+Functionality workflow:
+* SDK retrieves and decrypts the encrypted symmetric key from blindnet backend (FR-SDK07).
+* SDK decrypts the encrypted data with the decrypted symmetric key
+
+Outputs:
+* message data
+* optional metadata
+
+Usage: 3c
+
+Blindnet ref: similar as FR-SDK09
+
+_**FR-SDK08-02.** The SDK must be able to decrypt multiple messages._
+
+This is a functionality that must be directly exposed to developers that use the SDK. 
+
+Inputs given by developers that use the SDK:
+* JWT
+* list:
+    * encrypted data and metadata (one object)
+
+Functionality workflow:
+* SDK retrieves and decrypts all the encrypted symmetric keys from blindnet backend (FR-SDK08).
+* SDK decrypts all the encrypted data with the decrypted symmetric key
+
+Outputs:
+* list
+    * data id
+    * message data
+    * optional metadata
+
+Usage: /
+
+_**FR-SDK08-03.** The SDK must be able to retrieve and decrypt messages._
+
+This is a functionality that must be directly exposed to developers that use the SDK. 
+
+Inputs given by developers that use the SDK:
+* JWT
+* document id
+
+Functionality workflow:
+* SDK retrieves and decrypts the encrypted symmetric key from blindnet backend (FR-SDK07).
+* SDK retrieves the signed download link (FR-BEXX)
+* SDK downloads the encrypted data directly from the Azure blob storage
+* SDK decrypts the encrypted data with the decrypted symmetric key
+
+Outputs:
+* message data
+* optional metadata
+
+Usage: /
+
+_**FR-SDK09.** The SDK must handle the passphrase update_
+
+This is a functionality that must be directly exposed to developers that use the SDK. 
+
+Inputs given by developers that use the SDK:
+* JWT
+* new_passphrase (assumes that pass change on client’s frontend only requires new pass to be entered).
+
+Functionality workflow:
+* SDK locally retrieves the private key (FR-SDK02)
+* SDK generates a new key based on the new_passphrase and salt (FR-SDK01)
+* SDK encrypts user’s private encryption and signing key (FR-SDK12)
+* SDK uploads the encrypted private keys and salt (FR-SDK12) \
+
+Usage: 4
+
+_**FR-SDK11.** The SDK must be able to decrypt all encrypted symmetric keys._
+
+Input:
+* a list of
+    * document_id
+    * encrypted_symmetric_key
+
+Output:
+* a list of
+    * document_id
+    * decrypted_symmetric_key
+
+This is a functionality that must not be directly exposed to developers that use the SDK.
+
+Usage: 8b
+
+_**FR-SDK12.** The SDK must be able to encrypt the user's private keys and upload it to blindnet._
+
+Inputs:
+* symmetric_key
+* private_key
+* key_derivation_salt
+
+The SDK encrypts the private_key with a symmetric_key, and uploads the encrypted key and salt to blindnet in a request containing (FR-BE09):
+* JWT
+* encrypted_private_encryption_key
+* encrypted_private_signing_key
+* public key
+* key_derivation_salt
+
+This is a functionality that must not be directly exposed to developers that use the SDK.
+
+Usage: 4c
+
+_**FR-SDK13.** The SDK must be able to give access to all documents to a new user._
+
+This is a functionality that must be directly exposed to developers that use the SDK. 
+
+Input:
+* JWT
+* a list of document_id - optional, omit if we want all the documents
+* new_user_id
+
+Functionality workflow:
+* SDK fetches all encrypted symmetric keys of a user (admin, JWT)  for the provided documents (or all documents if not provided) (FR-SDK14) and decrypts them (FR-SDK11)
+* SDK fetches from blindnet a user’s PK (FR-SDK04)
+* SDK verifies the public encryption key signature with the public signing key
+* SDK encrypts all symmetric keys with the user’s PK and uploads them to blindnet (FR-SDK15, FR-BE10)
+
+Usage: 8,9
+
+**_FR-SDK14._** _The SDK must fetch the user's encrypted symmetric keys._
+
+Input:
+* JWT
+* optional list of
+    * document_id
+
+Output:
+* a list of
+    * document_id
+    * encrypted_symmetric_key
+
+A request is sent to blindnet backend to retrieve the keys (FR-BE08).
+
+This is a functionality that must not be directly exposed to developers that use the SDK.
+
+Usage: 8a
+
+**FR-SDK15.** The SDK must be able to encrypt a set of symmetric keys and upload them to blindnet backend for a given user._
+
+Inputs:
+* public_key
+* a list of
+    * document_id
+    * symmetric_key
+
+The SDK encrypts each symmetric_key with a public_key, and uploads them to blindnet in a request containing (FR-BE10):
+* JWT
+* user_id
+* a list of
+    * document_id
+    * encrypted_symmetric_key
+
+This is a functionality that must not be directly exposed to developers that use the SDK.
+
+Usage: 8d, 8e
 
