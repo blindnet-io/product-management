@@ -94,3 +94,161 @@ _**FR-FE05.** The Interface must allow a Doctor to log out._
 _**FR-FE06.** The Interface must allow a Doctor to update her information._
 
 Same workflow as FR-FE03.
+
+### Sending Forms
+
+_**FR-FE07.** The Interface must show the Form links and allow a Doctor to copy the link of any of the Forms_
+* By clicking a copy button
+* By selecting the Form link with a mouse
+
+_**FR-FE08.** The Interface must allow a Doctor to send a Form to a Patient_
+
+A Doctor sends a Form to a Patient in the following workflow:
+* Step 1: A Doctor checks the checkbox of a Form she wishes to send. It is possible to select multiple Forms.
+* Step 2: A Doctor inputs an email of a Patient
+* Step 3: A Doctor clicks the send button and a request for emailing a Patient is sent to the Server (FR-BE05)
+
+_**FR-BE05.** The Server must be able to send emails with Form link to Patients_
+
+Input request contains:
+* doctor id
+* form link
+* patient email
+
+Upon receiving the request the Server sends an email to the Patient. Emails must not be stored nor logged.
+
+_**FR-BE06.** The Server must allow blindet to customize emails through configurable templates._
+
+### Filling and uploading the data
+
+_**FR-FE09.** The Form must allow a Patient to fill out the data and to submit it encrypted to a Doctor._
+
+Forms are sent in the following workflow:
+* Step 1: The Interface uses blindnet to encrypt the Metadata
+* Step 2: The Interface uses blindnet to encrypt Medical data
+* Step 3: The Interface uploads the encrypted Medical data and the encrypted Metadata to the Server (FR-BE07)
+
+The Form page must work on mobile browsers.
+
+_**FR-BE07.** The Server must be able to accept encrypted Medical data._
+
+The Server accepts the Medical data in a request containing:
+* doctor id
+* medical data id
+* encrypted medical data
+* metadata id
+* encrypted metadata
+* hashed patient email
+
+FR-BE07-2. If a form contains files, the Form must send file IDs to a Server for it to store them.
+
+### Resubmitting the data
+
+_**FR-BE08** The Server must be able to accept duplicates of encrypted Medical data._
+
+When a Patient with the same email fills a Form for the second time for the same doctor, new data will be saved in addition to the old data (a Doctor will have two form data for the same patient).
+
+### Reading and managing the data (related to Search)
+
+_**FR-FE10.** The Interface must allow a Doctor to see all Patients and their information (excluding the Medical data)._
+
+The Interface shows a table with patient information in the following workflow:
+* Step 1: The Interface retrieves metadata of the Patients from the Server (FR-BE09)
+* Step 2: The Interface uses blindnet to decrypt retrieved Metadata
+* Step 3: The Interface shows Metadata of retrieved Patients in a table (including possible duplicate entries)
+
+_**FR-BE09.** The Server must be able to retrieve Metadata of Patients for a given Doctor after a given date._
+
+If the date is not provided, all metadate is returned. 
+
+The Server retrieves Metadata in a request containing:
+* doctor id
+* date: optional
+
+Response:
+* an array of
+    * metadata id
+    * encrypted metadata
+    * medical data id
+
+_**FR-FE11.** The Interface must allow a Doctor to retrieve the Medical data for a given Patient, and to display it._
+
+Medical data is retrieved and displayed in the following workflow:
+* Step 1: The Interface sends a request to the Server (FR-BE10)
+* Step 2: The Interface uses blindnet to decrypt the Medical data
+* Step 3: The Interface displays Medical data to a Doctor
+
+_**FR-BE10.** The Server must be able to retrieve the encrypted Medical data._
+
+The Server retrieves the Medical data in a request containing:
+* doctor id
+* medical data id
+
+Response:
+* encrypted medical data
+
+_**FR-BE10-2.** The Server must be able to retrieve all encrypted Medical data for a Doctor._
+
+The Server retrieves the Medical data in a request containing:
+* doctor id
+
+Response:
+* an array of
+    * encrypted medical data
+
+_**FR-BE10-3.** The Server must be able to retrieve all encrypted Medical data for given ids._
+
+The Server retrieves the Medical data in a request containing:
+* doctor id
+* an array of
+    * form id
+
+Response:
+* an array of
+    * encrypted medical data
+
+_**FR-BE10-4.** The Server must be able to return a list of file IDs for a given form._
+
+Input:
+* form id
+
+Output:
+* list of
+    * IDs of files submitted in a given foformmr
+
+### Deleting the data
+
+_**FR-FE12.** The Interface must allow a Doctor to delete the Medical data of a given Patient_
+
+Medical data is deleted in the following workflow:
+* Step 1: The Doctor clicks a button to delete the data
+* Step 2: The Interface sends a request to the Server to delete the data (FR-BE11)
+
+_**FR-BE11.** The Server must be able to delete the encrypted Medical data._
+
+The Server deletes Medical data and metadata in a request containing medical_data_id.
+
+If the data contained files, the server must delete all files from Azure.
+
+
+### Updating the data
+
+_**FR-FE13.** The Interface must allow a Doctor to update the Medical data of a Patient_
+
+After Medical data is shown to a Doctor (FR-FE11), she must be able to make some changes. Medical data is updated in the following workflow:
+* Step 1: The Interface accepts the input from a Doctor for data that needs to be updated
+* Step 2: The Interface uses blindnet to encrypt the Medical data
+* Step 3: The Interface sends an update request to the Server (FR-BE12)
+
+_**FR-BE12.** The Server must be able to update the encrypted Medical data._
+
+The Server updates the Medical data in a request containing:
+* doctor id
+* old medical data id
+* new encrypted medical data
+* new medical data id 
+
+Response:
+* Status (OK/error)
+
+The Server deletes all data related to _old_medical_data_id_, and stores new encrypted medical data. The _new_medical_data_id _must be inserted in the corresponding metadata record, and the metadata record must update the medical data id with the _new_medical_data_id._
