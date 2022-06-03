@@ -750,3 +750,82 @@ This is a functionality that must not be directly exposed to developers that use
 
 Usage: 8d, 8e
 
+### Backend SDK
+
+_**FR-BESDK01.** The backend SDK must be able to generate a JWT._
+
+Used to authenticate a user.
+
+Input:
+* user_id
+* user_role
+* app_id
+* user_group_id
+* client SK
+
+Output:
+* JWT as described in FR-G01
+
+_**FR-BESDK02.** The backend SDK must be able to generate a short term JWT._
+
+Used to authenticate a single operation from unauthenticated users.
+
+Input:
+* app_id
+* user_group_id
+* list of user_id (optional)
+* client SK
+
+The function randomly creates request_id to put into JWT.
+
+Output:
+* JWT as described in FR-G01
+
+Useage: 2
+
+_**FR-BESDK03.** The backend SDK must be able to generate a backend JWT._
+
+Used to authenticate an operation from the HiJiffy backend.
+
+Input:
+* app_id
+* client SK
+
+Output:
+* JWT as described in FR-G01
+
+Useage: 5, 6, 7, 11
+
+_**FR-BESDK04.** The BE SDK must be able to delete a given document reference._
+
+Input:
+* client JWT
+* document_id
+
+Usage: 5a
+
+_**FR-BESDK05.** The backend SDK must be able to revoke access for a given user._
+
+Revokes access to all the documents.
+
+Input:
+* client JWT
+* user_id
+
+Usage: 6a
+
+_**FR-BESDK06.** The backend SDK must be able to delete a given user from blindnet._
+
+Input:
+* client JWT
+* user_id
+
+Usage: 7a
+
+_**FR-BESDK07.** The backend SDK must be able to delete a given hotel from blindnet._
+
+Input:
+* client JWT
+* hotel_id
+
+Usage: 11a
