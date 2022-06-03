@@ -684,18 +684,96 @@ Prerequisite: Add another field in PF db, table User, column "NewPassword"
 Change password workflow:
 1. From the PF front-end, call the backend to change the password. If all validations pass on the backend, insert the new password into the "NewPassword" column, else do nothing. Send a response to the front.
 2. Depending on the response from the backend:
-    a. If it’s 200, call blindnet SDK to change the password. At this point, the new password is in the "NewPassword'' field.
-    b. If other than 200, show the message that the password update failed. Do not continue further steps.
+    - a. If it’s 200, call blindnet SDK to change the password. At this point, the new password is in the "NewPassword'' field.
+    - b. If other than 200, show the message that the password update failed. Do not continue further steps.
 3. When (2a) is executed, depending on the result from blindnet SDK:
-    a. If it’s an exception, show the message that the password update failed. Do not continue further steps. At this point, the correct password is still in the “Password” field.
-    b. If it’s a success, show the message that password change was successful and asynchronously call the PF backend to copy the "NewPassword" value to the "Password" field and set "NewPassword" field to null. At this point, the password has been updated, the new password is either in the “Password” or “NewPassword” field (depending if the 3b backend call was successful).
+    - a. If it’s an exception, show the message that the password update failed. Do not continue further steps. At this point, the correct password is still in the “Password” field.
+    - b. If it’s a success, show the message that password change was successful and asynchronously call the PF backend to copy the "NewPassword" value to the "Password" field and set "NewPassword" field to null. At this point, the password has been updated, the new password is either in the “Password” or “NewPassword” field (depending if the 3b backend call was successful).
 
 User login workflow: call PF backend and try to regularly login a user by looking at the “Password” column (this is instructed by the front-end so that the front knows which pass field is checked; this is needed so that the front is able to distinguish between 1b and 2bii): 
 1. If it’s a success, create a token and connect to blindnet at the front-end 
-    a. If the SDK fails, that means step 3b failed. Show the wrong password message.
-    b. If the SDK successfully connects, this means either step 2a failed or there wasn’t a change of password, or that there was a successful change of password. Log in the user.
+    - a. If the SDK fails, that means step 3b failed. Show the wrong password message.
+    - b. If the SDK successfully connects, this means either step 2a failed or there wasn’t a change of password, or that there was a successful change of password. Log in the user.
 2. If it’s a failure, return an error to the front-end and then call the server to log in the user by looking at the “NewPassword” field.
-    a. If it’s a failure or, it means that the password a user entered is completely wrong. Reject the login.
-    b. If it’s a success, create a token and connect to blindnet at the front-end
-        i. If the SDK throws an error, that means step 2a failed. Show an error about the wrong password and call the server to set the “NewPassword” to NULL. 
-        ii. If SDK successfully connects, that means step 3b failed. Log in the user. Asynchronously call the server to copy the “NewPassword” value into “Password” and set NewPassword to NULL.
+    - a. If it’s a failure or, it means that the password a user entered is completely wrong. Reject the login.
+    - b. If it’s a success, create a token and connect to blindnet at the front-end
+        - i. If the SDK throws an error, that means step 2a failed. Show an error about the wrong password and call the server to set the “NewPassword” to NULL. 
+        - ii. If SDK successfully connects, that means step 3b failed. Log in the user. Asynchronously call the server to copy the “NewPassword” value into “Password” and set NewPassword to NULL.
+
+## Privateform GDPR workflows
+
+1. Patient requests to exercise his GDPR rights
+    - a. A token is created in the server SDK with a random request id ([user JWT](https://docs.google.com/document/d/1p4z2UE6Rk_3IEcz2xjQvqZXZacID-OLutkF17agHUVQ/edit#heading=h.mfn7thdg81vw)) and passed to FE. Request id is stored in a dedicated db table.
+    - b. Patient chooses the GDPR action
+    - c. Patient inserts password and other data on the FE
+    - d. SDK:
+        - i. Connects a user to the blindnet using request id as user id (FR-SDK03)
+    - e. SDK encrypts the request for a Doctor (FR-SDK05, FR-SDK05-2)
+    - f. FE sends the encrypted GDPR request and blindnet req id to the BE
+    - g. User receives an email with a link https://form.blindnet.io/gdpr/request_id
+2. Doctor approves the GDPR request to view or modify the data
+    - a. FE retrieves the encrypted forms based on user’s email address, the encrypted GDPR req, and blindet req id from the BE 
+    - b. SDK decrypts user forms for a Doctor 
+    - c. SDK decrypts the GDPR request for a Doctor (FR-SDK08, FR-SDK08-2)
+    - d. Doctor approves/rejects a req and gives an optional text (FR-SDK08, FR-SDK08-2)
+    - e. If rejected:
+        - i. SDK:
+            - 1. Encrypts the answer for the patient (user id = request id) (FR-SDK05, FR-SDK05-2)
+            - 2. Encrypts the answer for Doctor (FR-SDK05, FR-SDK05-2)
+        - ii. FE stores answer ids, encrypted answers and rejection flag in dedicated db tables
+    - f. If accepted:
+        - i. SDK:
+            - 1. Encrypts the forms for a patient (user id = request id). All forms are bundled and encrypted together. FE form id must be included with every form.
+            - 2. Encrypts Doctor’s answer for a patient (FR-SDK05, FR-SDK05-2)
+            - 3. Encrypts the answer for a Doctor (FR-SDK05, FR-SDK05-2)
+        - ii. FE stores the encrypted form(s) for a Patient and Doctor’s encrypted answers in dedicated db tables
+3. Doctor approves the GDPR request to delete the data
+    - a. FE retrieves the encrypted forms, the encrypted GDPR req, and blindet req id from the BE based on user’s email address
+    - b. SDK decrypts user forms for a Doctor (FR-SDK08, FR-SDK08-2)
+    - c. SDK decrypts the GDPR request for a Doctor (FR-SDK08, FR-SDK08-2)
+    - d. Doctor approves/rejects a req and gives an optional text
+    - e. When accepted/rejected:
+        - i. SDK:
+            - 1. Encrypts the answer for the patient (user id = request id) (FR-SDK05, FR-SDK05-2)
+            - 2. Encrypts the answer for himself (FR-SDK05, FR-SDK05-2)
+        - ii. FE stores answer ids, encrypted answers and rejection flag in dedicated db tables
+    - f. FE stores the encrypted answers in dedicated db tables
+4. Patient receives a rejected/accepted response
+    - a. Patient receives an email and opens https://form.blindnet.io/gdpr/request_id
+    - b. Patient inserts a pass and connects to blindnet SDK (FR-SDK03-2)
+    - c. FE gets encrypted Doctor’s answer
+    - d. SDK decrypts the doctor’s answer (FR-SDK08, FR-SDK08-2)
+    - e. FE shows the doctor’s answer to a Patient
+5. Patient views the data
+    - a. Patient receives an email and opens https://form.blindnet.io/gdpr/request_id
+    - b. Patient inserts a pass and connects to blindnet SDK (FR-SDK03-2)
+    - c. FE gets encrypted forms for a user and Doctor’s text
+    - d. SDK:
+        - i. Decrypts the forms (FR-SDK08, FR-SDK08-2)
+        - ii. Decrypts the doctor’s answer (FR-SDK08, FR-SDK08-2)
+    - e. FE shows the form(s) and doctor’s answer to a Patient
+6. Patient modifies the data
+    - a. Patient views the data (same workflow as view)
+    - b. Patient inserts modifications
+    - c. FE submits a new form (same workflow as currently on PrivateForm for form submissions) for each modified form, but must include the form id so the server can link it to the original form.
+7. Doctor approves modifications
+    - a. FE retrieves the encrypted modified forms, encrypted original forms, the encrypted GDPR req, and blindet req id from the BE based on user’s email address
+    - b. SDK decrypts modified forms for a Doctor (FR-SDK08, FR-SDK08-2)
+    - c. SDK decrypts original forms for a Doctor (FR-SDK08, FR-SDK08-2)
+    - d. SDK decrypts the GDPR request for a Doctor (FR-SDK08, FR-SDK08-2)
+    - e. Doctor is able to verify the modifications on every form
+    - f. When accepted/rejected:
+        - i. SDK:
+            - 1. Encrypts the answer for the patient (user id = request id) (FR-SDK05, FR-SDK05-2)
+            - 2. Encrypts the answer for himself (uses different token, Doctor’s token) (FR-SDK05, FR-SDK05-2)
+    - g. Doctor approves or rejects the modifications
+    - h. If approved, the modified forms will become default in the db
+    - i. User receives an email
+8. Patient receives an email
+    - a. When accepted/rejected:
+        - i. Patient opens [https://form.blindnet.io/gdpr/request_id](https://form.blindnet.io/gdpr/request_id)
+        - ii. Patient inserts a pass and connects to blindnet SDK
+        - iii. FE gets encrypted Doctor’s answer
+    - b. SDK:
+        - i. Decrypts the doctor’s answer (FR-SDK08, FR-SDK08-2)
+    - c. FE shows the doctor’s answer to a Patient
