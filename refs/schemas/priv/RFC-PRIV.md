@@ -152,7 +152,7 @@ Privacy Scope = (Data Categories) x (Categories of Processing) x (Purposes of Pr
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `data-category` |  0-* | `AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER` |
+| `data-categories` |  0-* | `AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER` |
 
 When several values are given, Systems MUST interpret the `data-category` dimension as a union of all the categories indicated.
 
@@ -350,7 +350,7 @@ A separate document gives a list of [examples](examples.md) on how to represent 
 
 ### JSON format
 
-We provide a [JSON Schema document](./PRIV.schema.json) for machine-readable interpretation of Privacy Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
+We provide a [JSON Schema document](./priv.schema.json) for machine-readable interpretation of Privacy Requests compliant with [v4 (or ideally lower) of IETF specification](https://datatracker.ietf.org/doc/html/draft-zyp-json-schema-04#:~:text=JSON%20Schema%20is%20a%20JSON,interaction%20control%20of%20JSON%20data.)
 
 ### Authenticated exchanges
 
@@ -441,6 +441,37 @@ Systems MAY specify the vocabulary used to express data being exchanged. The val
 
 This vocabulary can be extended by defining a new identifier for the new vocabulary. New vocabularies MAY include other vocabularies as long as their sets of concepts, properties and terms are disjoint.  
 
+## Examples
+
+A [JSON schema of the PRIV](./priv.schema.json) is provided for convenience. To illustrate a request, let us take the example of a data subject wanting to know if a an organisation (and any of its partners if applicable) have any data on them, and if so, have their contact data deleted.
+
+This request can be represented with the following json data:
+```
+{
+  "$schema":"https://blindnet.io/schemas/priv.schema.json",
+  "request-id": "8f9066c6-1c6c-42a0-9993-e88c98d0e84d",
+  "date": "2022-06-02T14:40:39+0000",
+  "data-subject":[{
+    "dsid-schema": "email-sha-256",
+    "dsid":"7cac89a56bbf998c996f33e0b2d3bad578e05f3af8d64793c0bcac46b8c260dc"
+  }],
+  "demands":[{
+    "demand-id":"496294eb-5293-47dd-aaf8-494a0cb09134",
+    "action":"TRANSPARENCY.KNOWN"
+  },{
+    "demand-id":"86bbb28a-eee6-45e6-81d6-7101de32374b",
+    "action":"DELETE",
+    "restrictions":[{
+      "data-categories":["CONTACT"]
+    }]
+  }],
+  "target":"PARTNERS"
+
+}
+
+```
+In [here](./examples.md) we provide an overview of various Privacy Requests that a Data Subject might want to formulate according to [supported legislation](#supported-legislation) and we give indications on how each of those can be modelled with the Privacy Request Interchange Vocabulary.
+
 ## Design Implications for Systems Implementing PRIV
 
 ### Remembering Transfers
@@ -521,7 +552,7 @@ PRIV MUST be agnostic of the authentication method, and as such MUST be compatib
 
 ### Mandatory properties and value constrains
 
-Should we include rescissions in the schema according to the [JSON-schema-validation vocabulary](https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#page-4) in order to make certain properties mandatory and ensure to limit string values to the values we support?
+Should we include restrictions in the schema according to the [JSON-schema-validation vocabulary](https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#page-4) in order to make certain properties mandatory and ensure to limit string values to the values we support?
 
 In the current proposal, this is the case for target, but not for request types, data categories, and user identity schemas. We might want to include more forma constraints there, or deliberately leave flexibility. This is a discussion we need to have.
 
@@ -611,7 +642,22 @@ We need a way for Systems to encrypt the data (that compatible also with encrypt
 ### Motivation or explanation of Demand
 >**Note**
 >
-> The motivation or explanation of Demand is modeled by a message, and the message is optional. If law regulations state that motivation or explanation of Demand is mandatory, it is not supported. 
+> The motivation or explanation of Demand is modeled by a message, and the message is optional. If law regulations state that motivation or explanation of Demand is mandatory, it is not supported.
+
+## Alternatives
+
+### Ethyca
+
+Ethyca has their (also open-soruce) [FIDES language](https://ethyca.github.io/fideslang/). Their language is less modular. Data provenance and data category are mixed together, which means that terms are long, and each has quite particular, complicated meaning.
+
+We aim here for a simpler way to express requests and rights, and for a more automated Privacy Request resolution algebra.
+
+Their support for purposes, and per-purpose consents is limited.
+
+Yet, we want to be compatible with them.
+
+Still the question remains, should we fully reuse what they have built (in terms of categories of data) and try to extend it? My view is that that would limit our ability to offer automation in many use-cases.
+
 ## References
 
 ### Normative References

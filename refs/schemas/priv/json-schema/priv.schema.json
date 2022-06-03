@@ -1,0 +1,229 @@
+{
+    "$id": "https://blindnet.io/schemas/priv.schema.json",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "title": "Privacy Request Interchange Vocabulary",
+    "description": "Terms of the Privacy Request Interchange Vocabulary",
+
+    "properties": {
+        "request-id": {
+            "type": "string",
+            "format": "uuid"
+        },
+        "data-subject": {
+            "type": "array",
+            "items": {
+                "$ref": "#/$defs/data-subject-identity"
+            },
+            "minItems": 1
+        },
+
+        "date": {
+            "type": "string",
+            "format": "date-time"
+        },
+
+        "demands": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "demand-id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "action": {
+                        "enum": {
+                            "$ref": "./priv-terms.schema.jso#/defs/actions"
+                        }
+                    },
+                    "data": {
+                        "type": "object"
+                    },
+                    "restrictions": {
+                        "type": "array",
+                        "items": {
+                            "oneOf": [
+                                {
+                                    "$ref": "#/$defs/privacy-scope"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "consent-id": {
+                                            "type": "string",
+                                            "format": "uuid"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "capture-id": {
+                                            "type": "string",
+                                            "format": "uuid"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "from": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        },
+                                        "to": {
+                                            "type": "string",
+                                            "format": "date-time"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "target": {
+                        "enum": {
+                            "oneOf": [
+                                {
+                                    "$ref": "./priv-terms.schema.json#/$defs/targets"
+                                },
+                                {
+                                    "$ref": "./priv-terms.schema.json#/$defs/targets-directional"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "action",
+                    "demand-id"
+                ]
+            },
+            "minItems": 1
+        }
+    },
+
+    "required": [
+            "request-id",
+            "date",
+            "demands"
+    ],
+
+    "$defs": {
+        "data-subject-identity": {
+                "$id": "/schemas/data-subject-identity",
+                "$schema": "https://json-schema.org/draft/2020-12/schema#",
+                "type": "object",
+                "properties": {
+                    "dsid-schema": {
+                        "type": "string"
+                    },
+                    "dsid": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "dsid-schema",
+                    "dsid"
+                ]
+            },
+            "privacy-scope": {
+                "$id": "/schemas/privacy-scope",
+                "$schema": "https://json-schema.org/draft/2020-12/schema#",
+                "type": "object",
+                "properties": {
+                    "oneOf": [
+                        {
+                            "allOf": [
+                                {
+                                    "data-categories": {
+                                        "const": "OTHER"
+                                    }
+                                },
+                                {
+                                    "$ref": "#/$defs/message"
+                                }
+                            ]
+                        },
+                        {
+                            "data-categories": {
+                                "type": "array",
+                                "items": {
+                                    "enum": {
+                                        "$ref": "./priv-terms.schema.json#/defs/data-categories"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+
+                    "oneOf": [
+                        {
+                            "allOf": [
+                                {
+                                    "processing-categories": {
+                                        "const": "OTHER"
+                                    }
+                                },
+                                {
+                                    "$ref": "#/$defs/message"
+                                }
+                            ]
+                        },
+                        {
+                            "processing-categories": {
+                                "type": "array",
+                                "items": {
+                                    "enum": {
+                                        "$ref": "./priv-terms.schema.json#/defs/processing-categories"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+
+                    "oneOf": [
+                        {
+                            "allOf": [
+                                {
+                                    "purposes": {
+                                        "const": "OTHER"
+                                    }
+                                },
+                                {
+                                    "$ref": "#/$defs/message"
+                                }
+                            ]
+                        },
+                        {
+                            "purposes": {
+                                "type": "array",
+                                "items": {
+                                    "enum": {
+                                        "$ref": "./priv-terms.schema.json#/defs/purposes"
+                                    }
+                                }
+                            }
+                        }
+                    ],
+
+                    "message": {
+                        "$id": "/schemas/message",
+                        "$schema": "https://json-schema.org/draft/2020-12/schema#",
+                        "type": "object",
+                        "properties": {
+                            "message": {
+                                "type": "string"
+                            },
+                            "lang": {
+                                "type": "string"
+                            },
+                            "required": [
+                                "message"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+
+}

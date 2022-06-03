@@ -1,0 +1,138 @@
+{"$id": "https://blindnet.io/schemas/priv-terms.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Privacy Request Interchange Vocabulary - Terms",
+    "description": "Terms of the Privacy Request Interchange Vocabulary",
+    "$defs": {
+      "actions": {
+        "enum": [
+          "ACCESS",
+          "DELETE",
+          "MODIFY",
+          "OBJECT",
+          "PORTABILITY",
+          "RESTRICT",
+          "REVOKE-CONSENT",
+          "TRANSPARENCY",
+          "TRANSPARENCY.DATA-CATEGORIES",
+          "TRANSPARENCY.DPO",
+          "TRANSPARENCY.KNOWN",
+          "TRANSPARENCY.LEGAL-BASES",
+          "TRANSPARENCY.ORGANISATION",
+          "TRANSPARENCY.POLICY",
+          "TRANSPARENCY.PROCESSING-CATEGORIES",
+          "TRANSPARENCY.PROVENANCE",
+          "TRANSPARENCY.PURPOSE",
+          "TRANSPARENCY.RETENTION",
+          "TRANSPARENCY.WHERE",
+          "TRANSPARENCY.WHO",
+          "OTHER"
+        ]
+      },
+      "data-categories": {
+        "enum": [
+          "AFFILIATION",
+          "BEHAVIOR",
+          "BEHAVIOR.ACTIVITY",
+          "BEHAVIOR.CONNECTION",
+          "BEHAVIOR.PREFERENCE",
+          "BIOMETRIC",
+          "CONTACT",
+          "CONTACT.EMAIL",
+          "CONTACT.ADDRESS",
+          "CONTACT.PHONE",
+          "DEMOGRAPHIC",
+          "DEMOGRAPHIC.AGE",
+          "DEMOGRAPHIC.BELIEFS",
+          "DEMOGRAPHIC.GENDER",
+          "DEMOGRAPHIC.ORIGIN",
+          "DEMOGRAPHIC.RACE",
+          "DEVICE",
+          "FINANCIAL",
+          "FINANCIAL.BANK-ACCOUNT",
+          "GENETIC",
+          "HEALTH",
+          "IMAGE",
+          "LOCATION",
+          "NAME",
+          "RELATIONSHIPS",
+          "PROFILING",
+          "UID"
+        ]
+      },
+      "processing-categories": {
+        "enum": [
+          "ANONYMIZATION",
+          "AUTOMATED-INFERENCE",
+          "AUTOMATED-DECISION-MAKING",
+          "COLLECTION",
+          "GENERATING",
+          "PUBLISHING",
+          "STORING",
+          "SHARING",
+          "USING"
+        ]
+      },
+      "purposes": {
+        "enum": [
+          "ADVERTISING",
+          "CONTRACT",
+          "CONTRACT.BASIC-SERVICE",
+          "CONTRACT.ADDITIONAL-SERVICES",
+          "NECESSARY",
+          "NECESSARY.JUSTICE",
+          "NECESSARY.LEGAL",
+          "NECESSARY.MEDICAL",
+          "NECESSARY.PUBLIC-INTERESTS",
+          "NECESSARY.VITAL-INTERESTS",
+          "NECESSARY.SOCIAL-PROTECTION",
+          "MARKETING",
+          "PERSONALISATION",
+          "SALE",
+          "SECURITY",
+          "TRACKING",
+          "ANY"
+        ]
+      },
+      "targets": {
+        "enum": [
+          "ORGANISATION",
+          "PARTNERS",
+          "SYSTEM"
+        ]
+      },
+      "targets-directional": {
+        "enum": [
+          "PARTNERS.DOWNWARD",
+          "PARTNERS.UPWARD"
+        ]
+      },
+      "motives": {
+        "enum": [
+          "IDENTITY-UNCONFIRMED",
+          "LANGUAGE-UNSUPPORTED",
+          "LEGAL-BASES",
+          "LEGAL-OBLIGATIONS",
+          "REQUEST-UNSUPPORTED",
+          "USER-UNKNOWN"
+        ]
+      },
+      "retentions": {
+        "enum": [
+          "NO-LONGER-THAN",
+          "NO-LESS-THAN"
+        ]
+      },
+      "events": {
+        "enum": [
+          "DATA-COLLECTION",
+          "RELATIONSHIP-END"
+        ]
+      },
+      "other": {
+        "enum": [
+          "YES",
+          "NO"
+        ]
+      }
+    }
+}
