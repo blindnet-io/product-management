@@ -672,3 +672,30 @@ _**FF-BE13.** The Server must be able to delete Doctor’s account._
 Deleting an account implies deleting all Doctor’s data + all of her Patients’ forms and medical data.
 
 After an account is deleted, a confirmation email is sent to a Doctor.
+
+## Password change workflow
+
+Legend:
+* Point of failure
+* DB status
+
+Prerequisite: Add another field in PF db, table User, column "NewPassword"
+
+Change password workflow:
+1. From the PF front-end, call the backend to change the password. If all validations pass on the backend, insert the new password into the "NewPassword" column, else do nothing. Send a response to the front.
+2. Depending on the response from the backend:
+    a. If it’s 200, call blindnet SDK to change the password. At this point, the new password is in the "NewPassword'' field.
+    b. If other than 200, show the message that the password update failed. Do not continue further steps.
+3. When (2a) is executed, depending on the result from blindnet SDK:
+    a. If it’s an exception, show the message that the password update failed. Do not continue further steps. At this point, the correct password is still in the “Password” field.
+    b. If it’s a success, show the message that password change was successful and asynchronously call the PF backend to copy the "NewPassword" value to the "Password" field and set "NewPassword" field to null. At this point, the password has been updated, the new password is either in the “Password” or “NewPassword” field (depending if the 3b backend call was successful).
+
+User login workflow: call PF backend and try to regularly login a user by looking at the “Password” column (this is instructed by the front-end so that the front knows which pass field is checked; this is needed so that the front is able to distinguish between 1b and 2bii): 
+1. If it’s a success, create a token and connect to blindnet at the front-end 
+    a. If the SDK fails, that means step 3b failed. Show the wrong password message.
+    b. If the SDK successfully connects, this means either step 2a failed or there wasn’t a change of password, or that there was a successful change of password. Log in the user.
+2. If it’s a failure, return an error to the front-end and then call the server to log in the user by looking at the “NewPassword” field.
+    a. If it’s a failure or, it means that the password a user entered is completely wrong. Reject the login.
+    b. If it’s a success, create a token and connect to blindnet at the front-end
+        i. If the SDK throws an error, that means step 2a failed. Show an error about the wrong password and call the server to set the “NewPassword” to NULL. 
+        ii. If SDK successfully connects, that means step 3b failed. Log in the user. Asynchronously call the server to copy the “NewPassword” value into “Password” and set NewPassword to NULL.
