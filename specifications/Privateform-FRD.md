@@ -578,3 +578,97 @@ _**FR-GDPR-FE-21.** The Interface must allow a Doctor to export a PDF with detai
 Details include request submission date, acceptance/rejected date, Patient’s access date (if any), and a Doctor’s response (if any).
 
 Figma ref: [4-2.3](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=242%3A1014)
+
+### Search
+
+_**FR-SEARCH-FE-01.** The Interface must retrieve, decrypt, and store locally the metadata of all forms._
+
+In order to perform the search over all forms, form metadata must first be decrypted and stored locally in the browser. 
+
+_**FR-SEARCH-FE-02.** The interface must update the local copy of forms metadata everytime a forms page is opened by a Doctor._
+
+In order to always have the latest data, every time a Doctor opens the forms page the Interface must check if there is any new metadata submitted after the timestamp of the last-submitted metadata in the local copy (see next FR).
+
+_**FR-SEARCH-BE-01.** The Server must be able to retrieve all form metadata after a given datetime stamp._
+
+_**FR-SEARCH-FE-03.** The Interface must allow a Doctor to filter all her forms._
+
+The Interface must provide a user with a possibility to insert several different types of inputs in order to search for existing forms. These inputs include:
+* Patient full name (derived from the keyword-based search, see next FR)
+* An email
+* Time period (begin date and end date)
+* Form type (a dropdown list of pre-filled values, see [Figma 3.5](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=27%3A562))
+
+Figma ref: [3.1](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=44%3A43)
+
+_**FR-SEARCH-FE-04.** The Interface must be able to search Patient names/surnames based on the input keyword._
+
+When a Doctor inputs a keyword related to name/surname, the Interface must return results in which:
+* The input keyword is present in full or as part of either _nom_ or _prenom_ fields of the form, case insensitive. Example: searching for “Pierre” or “Pier” must return at least all forms that contain “Pierre” or “Jean-Pierre” in the _prenom_ field.
+* The input keyword approximately matches either _nom_ or _prenom_ fields of the form, case insensitive. Example: searching “Clementine” or “Clementine” must return at least all forms that contain “Clémentine” in the _prenom_ field. For this task, a library such as [Fuse](https://github.com/krisk/fuse) can be used.
+
+The results must consist only of Patients’ full names (name + surname), and are presented in a drop down list for a Doctor to choose. Once chosen, the full name becomes an input in the form search.
+
+Figma ref: [3.2](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=44%3A197)
+
+_**FR-SEARCH-FE-05.** The Interface must be able to filter the forms_
+
+Filtering is performed over all forms metadata that has previously been stored locally in the browser’s memory.
+
+Depending on the input type, the results must be returned in the following way:
+* Name: resulting forms must include all forms for which the full name on the form exactly matches the full name given in the query.
+* Email: resulting forms must include all forms for which hashed email provided as input matches hashed email associated with the form.
+* Time period: resulting forms must include all forms for which the submission date is later than _begin date_ (included) and earlier than _end date_ (included)
+* Form type: resulting forms must include all forms for which the form type matches the type given as input. If multiple inputs are provided, the result is a union.
+
+Figma ref: [3.3](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=27%3A136), [3.6](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=29%3A1379), [3.7](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=29%3A1189), [3.8](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=29%3A975)
+
+_**FR-SEARCH-FE-06.** The Interface must allow a Doctor to freely add and remove filtering criteria._
+
+After a filtering criterion is added/removed, the results must be updated.
+
+Figma ref: [3.4](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=27%3A38), [3.5](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=27%3A562)
+
+_**FR-SEARCH-FE-07.** The Interface must show the filtered forms to a Doctor._
+
+The results is a list containing all the forms with:
+* Patient nom + Patient Prenom
+* Form type (e.g., covid, history)
+* Form submission date
+* A button for downloading the form to PDF
+
+_**FR-SEARCH-FE-08.** The Interface must show a Doctor to order the results according to the form submission date._
+
+Forms in the results must be orderable according to submission date, in ascending or descending order.
+
+_**FR-SEARCH-FE-09.** The Interface must clear the form metadata from the browser after a Doctor logs out._
+
+### Other
+
+_**FR-FE19.** The Interface must allow a Doctor to download the Medical data as a PDF file._
+
+_**FR-FE20.** The Interface must be able to show both Doctors and Patients the fingerprint of Doctor’s public key._
+
+_**FF-FE21.** The Interface must support multiple languages._
+
+The supported languages are currently French and English. A user must be able to change the UI language anytime.
+
+Figma ref: [here](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=591%3A271)
+
+_**FF-FE22.** The Interface must allow a Doctor to export all her data (i.e., forms) in a single action._
+
+When a Doctor requests to export the data, all her forms are decrypted and downloaded to her local machine.
+
+Figma ref: [3.1](https://www.figma.com/file/JT5Yq52CilZ7dVYchgGpJq/PF-SEARCH?node-id=44%3A43)
+
+_**FF-FE23.** The Interface must allow a Doctor to delete her account._
+
+Before deleting the count, the Doctor must confirm the deletion.
+
+Figma ref: [1](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=567%3A221), [2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=567%3A221), [3](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=567%3A228)
+
+_**FF-BE13.** The Server must be able to delete Doctor’s account._
+
+Deleting an account implies deleting all Doctor’s data + all of her Patients’ forms and medical data.
+
+After an account is deleted, a confirmation email is sent to a Doctor.
