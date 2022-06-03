@@ -252,3 +252,329 @@ Response:
 * Status (OK/error)
 
 The Server deletes all data related to _old_medical_data_id_, and stores new encrypted medical data. The _new_medical_data_id _must be inserted in the corresponding metadata record, and the metadata record must update the medical data id with the _new_medical_data_id._
+
+### GDPR compliance
+
+-**FR-GDPR-01.** After filling a form and before final submission, the System must inform a Patient about his data and ask for consent for each specific usage._
+
+Figma ref: [4-1.0](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=113%3A38)
+
+_**FR-GDPR-02.** The System must collect the user's email in each filled form._
+
+User’s email is hashed on the client side, and the hash is stored in the backend and is associated with the filled form. Emails must never reach the backend in plaintext, unless they are used for emailing users and are deleted right away.
+
+Figma ref: [4-1.0](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=113%3A38)
+
+_**FR-GDPR-03.** The System must create a unique GDPR rights link for each Doctor._
+
+The link must lead to a GDPR page which is associated with the Doctor, where a Patient can make a GDPR related request to exercise his rights.
+
+Figma ref: [4-1.7](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=227%3A257)
+
+_**FR-GDPR-04.** The System must present a GDPR link to a Doctor on her GDPR page._
+
+Figma ref: [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=163%3A82)
+
+_**FR-GDPR-05.** The confirmation page for submitted forms must include information about the GDPR rights. _
+
+GDPR rights details include: 
+* A unique GDPR rights link that a patient is able to copy. The link will lead to a GDPR demand page specific to the Doctor.
+* Action buttons for creating a GDPR demand.
+
+Figma ref: [4-1.1](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=227%3A196)
+
+_**FR-GDPR-06.** After submitting a form, the System must send an email to a patient, including a unique link to the GDPR rights page for the Doctor._
+
+_**FR-GDPR-07.** The System must keep track of all GDPR requests, and show them to the Doctor in a separate tab on the Interface._
+
+Figma ref: [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=163%3A82)
+
+_**FR-GDPR-08.** The System must allow a Doctor to specify the form min lifetime for each of her individual form types._
+
+The min lifetime means how long a Doctor must keep the data for regulatory compliance.
+
+Figma ref : [GDPR personnalisation 1](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=324%3A186), [GDPR perso 2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=443%3A442), [GDPR perso 3](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=443%3A594), [GDPR perso 4](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=489%3A330)
+
+_**FR-GDPR-09.** The System must allow a Doctor to specify delete duration and automatically delete a submitted form after that duration expires._
+
+If a Doctor sets a duration of X days, every form must be automatically deleted on the Xth day after it has been submitted. 
+
+#### View
+
+_**FR-GDPR-FE-01.** The Interface must allow a Patient to submit a request to view his data._
+
+The request must contain:
+* Patient’s full name
+* Patient’s email
+* Password set by a Patient
+* Patient’s ID Document 
+
+Workflow for sending the _view_ request to the server:
+* The Interface uses blindnet SDK to encrypt Patient’s name and ID document
+* The Interface uses blindnet SDK to hash a Patient's email. 
+* The Interface uses blindnet SDK to derive a public key based on a password of the Patient, and obtains the request id.
+* The Interface sends a request to the Server (FR-GDPR-BE-01)
+    The interface presents a Patient with a GDPR request link (see next FR)
+
+Figma ref: [4-1.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=227%3A313)
+
+_**FR-GDPR-BE-01.** The Server must accept the Patient's request to view the data._
+
+The request contains:
+* Patient’s encrypted name and ID document
+* Patient’s email hash
+* Request id (previously obtained by blindnet SDK)
+
+Each request must be assigned a unique id (not to be confused with blindnet request id) and its status must be maintained (created/treated).
+
+For each request, a link is created for a Patient where he could see the request status (FR-GDPR-BE-02). A confirmation email is sent to a Patient, containing the request status link.
+
+Figma ref: [4-1.3](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=154%3A166), 
+
+_**FR-GDPR-BE-02.** The Server must create a request status link._
+
+When a new request is submitted to the Server, the Server must create a unique link for that request. The link must show a page with the request status (pending/treated)
+
+_**FR-GDPR-BE-03.** The Server must send a notification to a Doctor when a new GDPR request is received._
+
+Notifications include:
+* Email
+* A visual mark on the “GDPR” tab on the PrivateForm. This visual mark must be present as long as there are unanswered GDPR requests.
+
+Figma ref: [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=163%3A82)
+
+_**FR-GDPR-FE-02.** The Interface must list all GDPR requests for a Doctor._
+
+Requests are listed under the “GDPR” tab. 
+
+Requests are divided according to pending/treated status.
+
+Requests are ordered by dates they are created, most recent ones being on top.
+
+Figma ref: [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=163%3A82), [4-2.2(2)](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=329%3A197)
+
+_**FR-GDPR-FE-03** The Interface must allow a Doctor to see each individual GDPR view request that is pending._
+
+A Doctor must be able to click a pending request and observe the details including:
+* Information about the deadline. It will show the days remaining for addressing the request, calculated as the number of days until the 30th day after request submission.
+* Patient’s name
+* Request type (view/modify/delete/other)
+* A button to open Patient’s ID Document
+* List of concerned forms
+* A text field for Doctor’s response
+
+Figma ref: [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=4%3A162), 
+
+_**FR-GDPR-FE-04** The Interface must allow a Doctor to see each individual GDPR view request that has already been responded to._
+
+A Doctor must be able to click a solved request and observe the details including:
+* Date when the request was received
+* Date when the request was responded to
+* Patient’s name
+* Request type (view/modify/delete/other)
+* Doctor’s response (accepted/rejected)
+* A text field for Doctor’s response
+* Optional for view request: date the user accessed the data
+
+Figma ref: [4-2.3](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=242%3A1014)
+
+_**FR-GDPR-FE-05.** The Interface must allow a Doctor to approve the GDPR view request._
+
+Once a Doctor approves the request, the workflow is the following:
+* The Interface uses blindnet SDK to encrypt the Patient’s form(s), using blindnet id obtained when a Patient created the request (FR-GDPR-FE-01). 
+* The Interface uploads the encrypted forms to the Server (FR-GDPR-BE-04). At this point the Interface has access to the user's email locally, and passes it to the Server as well so that the Server can email the Patient.
+
+The Doctor must also be able to add a textual note to the response. If this is the case, the response note is encrypted for a Doctor and sent to a Server.
+
+Figma ref: [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=242%3A1094)
+
+_**FR-GDPR-BE-04.** The Server must accept the encrypted forms for the Patients to view as a part of the accepted GDPR view request._
+
+Once the Server receives the data, it must create a unique link for data access, and email that link to a Patient. The link is valid for one week and a Patient can’t access it after that.
+
+_**FR-GDPR-FE-06.** The Interface must allow a Patient to view his data once his view request has been approved by a Doctor._
+
+To view the data, the Patient visits a GDPR view link that has been created for his request. The workflow is the following:
+* The Patient inserts a password
+* The Interface uses blindnet SDK and the password to decrypt all the forms
+* The Interface shows the forms to a Patient
+* The Interface informs the Server that the Patient has accessed the forms and stores the date.
+
+Viewing data is not possible after the request expires.
+
+Figma ref: [4-1.5](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=227%3A549)
+
+_**FR-GDPR-FE-07.** The Interface must allow a Patient to request data modification or data deletion directly from his view request while he is viewing the data._
+
+Once a Patient is viewing the data, the Interface must allow him also to:
+* Directly modify any form and submit the modification. In this case, a new _modify_ request is created for the Doctor (FR-GDPR-FE-10).
+* Request for his forms to be deleted. In this case, a new _delete_ request is created for the Doctor (FR-GDPR-FE-15). This delete request is marked as approved right away.
+
+Figma ref: [4-1.8](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=258%3A165), [4-1.6](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=338%3A275)
+
+_**FR-GDPR-BE-05.** The Server must keep track of the last date the Patient has viewed his forms after being granted the GDPR view request._
+
+_**FR-GDPR-FE-08.** The Interface must allow a Patient to download a PDF with his data while he is viewing the data in browser after his GDPR view request has been granted._
+
+Figma ref: [4-1.8](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=258%3A165)
+
+_**FR-GDPR-FE-09.** The Interface must allow a Doctor to reject the GDPR view request._
+
+The Doctor must also be able to add a textual message to the response, which must be encrypted for a Patient in the same way with blindnet SDK as the forms when the request is accepted (FR-GDPR-FE-05). This text field is mandatory for a rejection, since the Doctor must provide a reason.
+
+The rejection message is encrypted for a Doctor and sent to the Server for storage and processing (FR-GDPR-BE-06).
+
+Figma ref: [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=4%3A162), [4-2.4](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=290%3A390)
+
+_**FR-GDPR-BE-06.** The Server must accept the rejection of the GDPR view request._
+
+Once the Server receives the data, it must create a unique link for the request response, and email that link to a Patient informing him about the rejection. Patient consumes Doctor’s response in the same way as he would consume the forms if the request was accepted (workflow in FR-GDPR-FE-06)
+
+#### Modify
+
+_The GDPR modify request workflows are the same as those for the view request. The difference is in the possibility for a patient to modify his data, and the option for the doctor to manage modifications, as described in the FRs below._
+
+_**FR-GDPR-FE-10.** The Interface must allow a Patient to submit a modification request for each of his forms._
+
+When a Patient is browsing his form data after submitting a _modify_ request (to allow a Patient to browse the data the same workflow as in view request is applied), he must be able to modify the data and save the modifications. Form modification is treated as a submission of the new form (FR-FE09, FR-BE07) to a Server with the addition of versioning (next FR). 
+
+If an unsolved modification request already exists for the same form, the new request must be rejected and the user informed about it.
+
+With each modification request, a status link is created and emailed to a Patient (FR-GDPR-BE-02)
+
+Figma ref: [4-1.9](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=365%3A579)
+
+_**FR-GDPR-BE-07.** The Server must be able to receive form modifications made by a Patient._
+
+Form modification is in essence a new submitted form that is linked to the previous form. As a result, the Server now has the two different forms, and is able to connect them as one same form with different versions. This is done by using the same id for the two forms, while adding the _default_ flag to one of the forms:
+* A Doctor browsing a modify request compares default version with the latest version
+* If a Doctor accepts a modification, the last version becomes the default version
+* If a Doctor is browsing a list with forms, he sees the default form in the list
+
+With every modified form, add the id of the form parent, and the versioning date.
+
+_**FR-GDPR-FE-11.** The Interface must allow a Doctor to see each individual GDPR modify request._
+
+A doctor must be able to click a pending request and observe the details including:
+* Information about the deadline. It will show the days remaining for addressing the request, calculated as the number of days until the 30th day after request submission.
+* Patient’s name
+* Request type (view/modify/delete/other)
+* A button to open Patient’s ID Document
+* A button to observe the modifications. The Interface shows different versions of the forms to a Doctor so that the Doctor is able to compare the two forms.
+* A text field for Doctor’s response
+
+Figma ref: [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=192%3A450)-1, [4-2.2-2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=192%3A604)
+
+_**FR-GDPR-FE-12.** The Interface must allow a Doctor to accept the GDPR modify request._
+
+Once a Doctor accepts the request, the workflow is the following:
+* The form submitted as a modification is marked as the _default_ version of that form. As such, it is displayed in the Doctor’s forms under covid/history tab.
+* The old version of the form is still stored for future references, but it is not listed under Doctor’s forms. It is available in the GDPR tab under treated requests.
+
+Figma ref: [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=192%3A696), [4-2.3](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=265%3A145)
+
+_**FR-GDPR-FE-13.** The Interface must allow a Doctor to reject the GDPR modify request._
+
+In this case, the old form is marked as the default one. The Patient is informed about the decision, similarly as in the _view_ request (FR-GDPR-BE-06).
+
+The Interface also provides a list of acceptable rejection motives to a Doctor.
+
+Figma ref: [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=192%3A450) 1/4, [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=192%3A604) 2/4, [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=192%3A696) 3/4, [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=192%3A527) 4/4
+
+_**FR-GDPR-FE-14.** The Interface must give a Doctor a note about an existing modification request if a Doctor wants to access a form that was modified but the request was not treated._
+
+If a Doctor clicks on a form while browsing forms in the COVID/History tab, and if that form has been modified by the Patient but the Doctor has not yet approved or rejected the modification, the Interface should show the old form together with a note that there is a new form and that the Doctor should take action.
+
+#### Deletion
+
+_**FR-GDPR-FE-15.** The Interface must allow a patient to submit a GDPR request for deleting his data._
+
+The request must contain:
+* Patient’s full name
+* Patient’s email
+* Patient’s ID Document 
+* Password set by a Patient
+
+The workflow is similar as in the _view_ request.
+
+With each delete request, a status link is created and emailed to a Patient (FR-GDPR-BE-02)
+
+Figma ref: [4-1.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=156%3A384)
+
+_**FR-GDPR-BE-08.** The Server must accept the Patient's request to delete his data._
+
+The request contains:
+* Patient’s encrypted name and document ID
+* Patient’s email hash
+
+Each request must be assigned a unique id and its status must be maintained (created/treated).
+
+At this moment, the request is marked as _not-confirmed_ and the Doctor still can’t see anything.
+
+An email with the confirmation link is sent to a Patient.
+
+_**FR-GDPR-BE-09.** The System must allow a Patient to confirm the GDPR delete request._
+
+Once a Patient clicks the confirmation link in the email, the delete request is marked as _confirmed_. A link is created for a Patient where he could see the request status. 
+
+A confirmation email is sent to a Patient, containing the request link.
+
+Figma ref: [4-1.3](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=154%3A166)
+
+_**FR-GDPR-FE-16.** The Interface must show to a Doctor only those delete requests that have been confirmed by a user (see previous FR, FR-GDPR-BE-09)._
+
+_**FR-GDPR-FE-17.** The Interface must allow a Doctor to accept the GDPR delete request._
+
+When viewing the request, the Doctor must be able to see the list of all Patient’s forms. Each form must be clickable, and each list entry must contain: 
+* Number of days since the form submission (x)
+* Number of days until the date until which the form must be legally kept (y)(as configured by the Doctor, FR-GDPR-08). 
+* A selection checkbox. By default the checkbox is selected if y = 0.
+
+The page must also contain an action link for selecting all checkboxes.
+
+The Doctor must be able to delete only the selected forms.
+
+Figma ref:[ 4-2.2 DELETE](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=287%3A326) 1/6 , [4-2.2 DELETE](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=368%3A247) 2/6, [4-2.2 DELETE](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=460%3A195) 3/6, [4-2.2 DELETE](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=470%3A562) 4/6, [4-2.2 DELETE](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=462%3A217) 5/6, [4-2.2 DELETE](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=470%3A732) 6/6 
+
+_**FR-GDPR-BE-10.** The System must delete selected Patient’s forms once a Doctor approves the GDPR delete request._
+
+When the Doctor accepts the deletion, Doctor’s textual response (if any) is encrypted for the Patient (same as in other requests) and an email with a link is sent to a Patient to inform him about the decision and provide him a way to see the Doctor’s response.
+
+The Server deletes the form data and metadata (FR-BE11)
+
+Figma ref: [4-1.10](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=376%3A516)
+
+_**FR-GDPR-FE-18.** The Interface must allow a Doctor to reject the GDPR delete request._
+
+The Interface must provide a list of acceptable rejection motives to a Doctor for her to be able to select them.
+
+If a request is rejected, the Doctor’s response and relevant request data are sent to the Server for storage (encrypted for the Doctor). Also, the response is encrypted for the Patient and the Patient is informed by email.
+
+Figma ref: [4-2.4](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=290%3A390)
+
+_**FR-GDPR-FE-19.** The Interface must allow a Patient to view Doctor’s response on the GDPR delete request once the request has been treated by the Doctor._
+
+To view the response, the Patient visits a GDPR link that has been created for his delete request. The workflow is the same as in the case of view (FR-GDPR-BE-06)
+
+Figma ref: [4-1.10](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=376%3A516)
+
+#### Other (GDPR)
+
+_**FR-GDPR-FE-20.** The Interface must allow a Doctor to see already treated GDPR requests._**
+
+The Interface will show to a doctor for each individual request:
+* Patient’s name
+* Request type (view/modify/delete/other)
+* Patient’s text (in the case of _other_ request type)
+* Date the request has been made
+* Request status (approved/rejected)
+* Date the request has been responded
+* Doctor’s message given when responding to the request, if any
+
+Figma ref: [4-2.3](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=258%3A301)
+
+_**FR-GDPR-FE-21.** The Interface must allow a Doctor to export a PDF with details of each GDPR request._
+
+Details include request submission date, acceptance/rejected date, Patient’s access date (if any), and a Doctor’s response (if any).
+
+Figma ref: [4-2.3](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=242%3A1014)
