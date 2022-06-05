@@ -131,7 +131,7 @@ A Demand MAY refer to only certain Privacy Scope (categories of data, certain ty
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `restrictions` |  0-* | An optional array of restriction objects, each being either a [Privacy Scope](#privacy-scope), [Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Data Range](#data-range)|
+| `restrictions` |  0-* | An optional array of restriction objects, each being one of [Privacy Scope](#privacy-scope), [Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Data Range](#data-range)|
 
 When more than one restriction is specified, the System MUST interpret the Demand as referring to the intersection of restrictions. For example let us consider a `DELETE` demand having two restrictions: `LOCATION` `data-category` as Privacy Scope, and from 11th to 15th of June 2022 as Data Range. The System SHOULD understand that the Data Subject wants the System to delete only their location data processed in this precise period.
 
@@ -152,7 +152,7 @@ Privacy Scope = (Data Categories) x (Categories of Processing) x (Purposes of Pr
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `data-categories` |  0-* | `AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER` |
+| `data-categories` |  0-* | `AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER` or any [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
 
 When several values are given, Systems MUST interpret the `data-category` dimension as a union of all the categories indicated.
 
@@ -180,17 +180,15 @@ In the absence of indication of any `processing-categories` dimension, Systems M
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `purposes` | 0-* | `ADVERTISING`, `CONTRACT`, `CONTRACT.BASIC-SERVICE`, `CONTRACT.ADDITIONAL-SERVICES`, `NECESSARY`, `NECESSARY.JUSTICE`, `NECESSARY.LEGAL`, `NECESSARY.MEDICAL`, `NECESSARY.PUBLIC-INTERESTS`, `NECESSARY.VITAL-INTERESTS`, `NECESSARY.SOCIAL-PROTECTION`, `MARKETING`, `PERSONALISATION`, `SALE`, `SECURITY`, `TRACKING`, `OTHER`, `ANY` |
+| `purposes` | 0-* | `ADVERTISING`, `COMPLIANCE`, `JUSTICE`, `MARKETING`, `MEDICAL`, `PERSONALISATION`, `PUBLIC-INTERESTS`, `RESEARCH`, `SALE`, `SECURITY`, `SERVICES`, `SERVICES.ADDITIONAL-SERVICES`, `SERVICES.BASIC-SERVICE`, `SOCIAL-PROTECTION`, `TRACKING`, `VITAL-INTERESTS`, `OTHER` |
 
 When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated.
 
 Purposes are organised as a hierarchy, denoted with a dot ".", the more general purpose being written on the left. E.g. the following two `pruposes` restrictions are equivalent:
-- `NECESSARY`,`NECESSARY.LEGAL`
-- `NECESSARY`
+- `SERVICES`,`SERVICES.BASIC-SERVICE`
+- `SERVICES`
 
 In the absence of indication of any `purpose` restriction, Systems MUST interpret the Demand as being related to all and any purpose of treatment.
-
-//**TODO** Decide if we need the `ANY` and in that case make sure all the dimensions of privacy scope have one. The downside of having it is that it introduces entropy as the same thing can be stated in two ways (by stating `ANY` and by ommitting any statement). We want to avoid this. Is there an upside?
 
 [A list of eligible `purposes` values with corresponding user-facing descriptions is provided](./dictionary/purposes/) for convenience.
 
@@ -301,8 +299,11 @@ A Consent is given by one Data Subject which can be identified by one or more [D
 | `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
 | `consent-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Consent was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `expires` | 0-1 | Date and Time when Consent expires in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the Consent SHOULD be interpreted as unlimited |
+| `replaces` |  0-* | Optionally one or more 'consent-id's of previous consents that have became void when this consent was made |
+| `replaced-by` |  0-* | Optionally one or more 'consent-id's of previous consents that have became void when this consent was made |
 
 ### Data Capture
 
@@ -323,15 +324,21 @@ A Data Capture is given by one Data Subject which can be identified by one or mo
 | `selector` | 1 | a string used to uniquely identify a data field (in the System's data model) to which the fragment corresponds |
 | `date` | 1 | Date and Time when data was Captured was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
-| `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the Consent SHOULD be interpreted as unlimited |
-| `legal-base` | 1-* | Legal bases for data processing associated to the particular fragment with regards to its particular Privacy Scope |
 | `retention` | 1-* | one or more Retention Policies |
-
 | `data` | 0-* | Optionally concrete data (Format **TBD**) |
 
-##### Legal bases
+`selector`s MUST include the data category of the data. For example selectors 'CONTACT.ADDRESS.SHIPPING' and 'CONTACT.ADDRESS.BILLING' indicate that the data being captured by a particular fragment belong to the `CONTACT.ADDRESS` data category.
 
-**TBD**
+While the Data Categories are global, the selectors are defined by the Systems.
+
+##### Legal bases
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `type` | 0-* | Optionally an array of values among `CONTRACT`, `CONSENT`, `LEGITIMATE-INTEREST`, `NECESSARY`, `OTHER` |
+
+Processing MAY be legitimate according to several legal bases for treatment. For example, a Data Subject can give explicit `CONSENT` when creating and account with a particular online service, and at the time, the System providing some service to the Data Subject might need to process their data in order to deliver a service or honour a `CONTRACT` (e.g. deliver the purchased goods to the Data Subjects address and issue an invoice).
+
+Certain processing is made legitimate (`LEGITIMATE-INTEREST`) or mandatory (`NECESSARY`) by law, e.g. [Article 6 og GDPR](https://gdpr-info.eu/art-6-gdpr/).
 
 ##### Retention Policy
 | Property | Expected cardinality | Expected values |
@@ -631,6 +638,7 @@ Should we include a way for systems to sign responses and allow to confirm their
 
 Should we implement the Accept-Language logic from HTTP? Or can we assume that the 'lang' of request is the language in which the response is expected?
 
+
 ### Extending the vocabulary
 
 Is the mechanism for extending the vocabulary appropriate?
@@ -642,7 +650,7 @@ We need a way for Systems to encrypt the data (that compatible also with encrypt
 ### Motivation or explanation of Demand
 >**Note**
 >
-> The motivation or explanation of Demand is modeled by a message, and the message is optional. If law regulations state that motivation or explanation of Demand is mandatory, it is not supported.
+> The motivation or explanation of Demand is modelled by a message, and the message is optional. If law regulations state that motivation or explanation of Demand is mandatory, it is not supported.
 
 ## Alternatives
 
@@ -657,6 +665,12 @@ Their support for purposes, and per-purpose consents is limited.
 Yet, we want to be compatible with them.
 
 Still the question remains, should we fully reuse what they have built (in terms of categories of data) and try to extend it? My view is that that would limit our ability to offer automation in many use-cases.
+
+### ISO 19944
+
+There is an ISO standard for data categories and processing categories. They are mostly very broad, many overlap, and they are of almost no use for resolving Privacy Requests in the context of GDPR.
+
+However, we might want to allow developers to use our format (properties and concepts) with ISO 19944 categories instead of our terms.
 
 ## References
 
