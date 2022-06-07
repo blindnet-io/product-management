@@ -205,9 +205,35 @@ In the following examples we show how, requests introduced by different regulati
 
 > [Ethyca data categories reference](https://ethyca.github.io/fideslang/data_categories/)
 
-| Ethyca categories | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | 
-| -------- | ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | 
-| **Account** Data related to an account on the system | **Account** | **Contact**  | Contact data related to a system account | X | `null` | `null` |
+#### Account Data Categories
+> Data related to an account on the system
+
+##### Account Contact Data
+
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | Comment |
+|  ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
+| **account** | **Contact**  | Contact data related to a system account | `CONTACT` | `null` | `null` | `null` |
+| **account.contact** | **email**  | Account's email address | `CONTACT.EMAIL` | `null` | `null` | `null` |
+| **account.contact** | **phone_number**  | Account's phone number | `CONTACT.PHONE` | `null` | `null` | `null` |
+| **account.contact** | **City**  | Account's city level address data | `CONTACT.ADDRESS` | `null` | `null` | Need more detail ? |
+| **account.contact** | **Country**  | Account's country level address data | `CONTACT.ADDRESS` | `null` | `null` | Need more detail ? |
+| **account.contact** | **postal_code**  | Account's postal code  | `CONTACT.ADDRESS` | `null` | `null` | Need more detail ? |
+| **account.contact** | **state**  | Account's state level address data  | `CONTACT.ADDRESS` | `null` | `null` | Need more detail ? |
+| **account.contact** | **street**  | Account's street level address | `CONTACT.ADDRESS` | `null` | `null` | Need more detail ? |
+
+##### Account Payment Data
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | Comment |
+| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
+| **account** | **payment**  | Payment data related to system account | `FINANCIAL` | `null` | `null` | Broader definition ? |
+| **account.payment** | **financial_account_number**  | Payment data related to system account | `FINANCIAL.BANK-ACCOUNT` | `null` | `null` | `null` |
+
+#### System Data Categories
+> Data unique to, and under control of the system.
+
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | Comment |
+| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
+| **system** | **authentication**  | Data used to manage access to the system | `**TBD**` | `null` | `null` | Add AUTHENTICATION ? (as a meta cat of biometric ?) |
+| **system** | **operations**  | Data used for system operations | `**Any/all**` | `**Any/all**` | `null` | Ok ? |
 
 ### Requests list (**TO BE TRANSFORMED IN THE ABOVE FORMAT**)
 <!-- prettier-ignore -->
