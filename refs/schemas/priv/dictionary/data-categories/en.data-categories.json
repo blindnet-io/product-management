@@ -4,6 +4,8 @@
   "BEHAVIOR.CONNECTION": "Times of connection",
   "BEHAVIOR.ACTIVITY": "Activities perfomed online or off-line",
   "BEHAVIOR.PREFERENCE": "Data about the person's preferences",
+  "BEHAVIOR.RELATIONSHIPS": "Social activity and interaction data",
+  "BEHAVIOR.TELEMETRY": "Measurement data from system sensors and monitoring",
   "BIOMETRIC": "Biometric data",
   "CONTACT": "Data allowing to contact the person", 
   "CONTACT.EMAIL": "E-mail address", 
