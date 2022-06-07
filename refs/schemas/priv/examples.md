@@ -260,7 +260,7 @@ In the following examples we show how, requests introduced by different regulati
 | **user.derived.identifable** | **race**  | Racial or ethnic origin data | `DEMOGRAPHIC.RACE` | `null` | `null` | `null` |
 | **user.derived.identifable** | **religious_belief**  | Religion or religious belief | `DEMOGRAPHIC.BELIEFS` | `null` | `null` | `null` |
 | **user.derived.identifable** | **search_history**  | Records of search history and queries of a user | `BEHAVIOR` | `null` | `null` | Ok ? |
-| **user.derived.identifable** | **sexual_orientation**  | Personal sex life or sexual data | `DEMOGRAPHIC` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **sexual_orientation**  | Personal sex life or sexual data | `DEMOGRAPHIC` | `null` | `null` | Ok ?  Need a more detailed cat ? |
 | **user.derived.identifable** | **social**  | Social activity and interaction data | `BEHAVIOR` | `null` | `null` | Ok ? |
 | **user.derived.identifable** | **telemetry**  | User identifiable measurement data from system sensors and monitoring | `BEHAVIOR`,`OTHER` | `null` | `null` | Ok ? |
 | **user.derived.identifable** | **unique_id**  | Unique identifier for a user assigned through system use | `UID` | `null` | `null` | `null` |
@@ -272,6 +272,37 @@ In the following examples we show how, requests introduced by different regulati
 | **user.derived.identifable** | **ip_address**  | Unique identifier related to device connection | `DEVICE` | `null` | `null` | Need a more detailed cat ? |
 | **user.derived** | **nonidentifiable**  | Non-user identifiable data derived related to a user as a result of user actions in the system | `**TBD**` | `null` | `null` | TBD, do we need that ? |
 | **user.derived.nonidentifiable** | **nonsensor**  | Non-user identifiable measurement data derived from sensors and monitoring systems | `**TBD**` | `null` | `null` | TBD, do we need that ? |
+
+##### User Provided Data
+> Data provided or created directly by a user of the system
+
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
+| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
+| **user.provided** | **identifiable**  | Data provided or created directly by a user that is linked to or identifies a user | `**TBD**` | `null` | `null` | TBD, isn't it all the data for us ? |
+| **user.provided.identifiable** | **identifiable**  | Encoded characteristics provided by a user | `BIOMETRIC` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **children**  | Data relating to children | `OTHER`,`RELATIONSHIP` | `null` | `null` | Ok ? Need a more detailed cat ? |
+| **user.provided.identifiable** | **health_and_medical**  | Health records or individual's personal medical information | `HEALTH` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **job_title**  | Professional data | `OTHER` | `null` | `null` | Ok ? |
+| **user.provided.identifiable** | **name**  | User's real name | `NAME` | `null` | `null` | Ok ? Need a more detailed cat ? (our cat includes nicknames and other names) |
+| **user.provided.identifiable** | **non_specific_age**  | Age range data | `DEMOGRAPHIC.AGE` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **political_opinion**  | Data related to the individual's political opinions | `DEMOGRAPHIC.BELIEFS` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **race**  | Racial or ethnic origin data | `DEMOGRAPHIC.RACE` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **religious_belief**  | Religion or religious belief | `DEMOGRAPHIC.BELIEFS` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **sexual_orientation**  | Personal sex life or sexual data | `DEMOGRAPHIC` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+| **user.provided.identifiable** | **workplace**  | Organization of employment | `AFFILIATION` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **date_of_birth**  | User's date of birth | `OTHER` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+| **user.provided.identifiable** | **gender**  | Gender of an individual | `DEMOGRAPHIC.GENDER` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **genetic**  | Data about the genetic makeup provided by a user | `OTHER` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+| **user.provided.identifiable** | **contact**  | User provided contact data for purposes other than account management | `CONTACT` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **city**  | User's city level address data | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+| **user.provided.identifiable** | **country**  | User's country level address data | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+| **user.provided.identifiable** | **email**  | User's provided email address | `CONTACT.EMAIL` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **phone_number**  | User's phone number | `CONTACT.PHONE` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **postal_code**  | User's postal code | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+| **user.provided.identifiable** | **state**  | User's state level address data | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+| **user.provided.identifiable** | **street**  | User's street level address data | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+
+
 
 
 ### Requests list (**TO BE TRANSFORMED IN THE ABOVE FORMAT**)
