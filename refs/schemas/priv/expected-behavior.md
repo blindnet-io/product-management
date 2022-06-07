@@ -2,9 +2,8 @@
 
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
-| **PR #**      | [NNN](https://github.com/blindnet-io/PROJECT/pull/NNN) (update when you have PR #)     |
 | **Author(s)** | milstan (milstan@blindnet.io)         |
-| **Updated**   | 2022-05-25                                                                             |
+| **Updated**   | 2022-06-07                                                                             |
 
 ## Introduction
 

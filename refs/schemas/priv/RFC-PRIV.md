@@ -2,10 +2,9 @@
 
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
-| **PR #**      | [NNN](https://github.com/blindnet-io/PROJECT/pull/NNN) (update when you have PR #)     |
+| **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659)                      |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
-| **Sponsor**   | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
-| **Updated**   | 2022-05-25                                                                             |
+| **Updated**   | 2022-06-07                                                                             |
 
 
 
@@ -16,6 +15,9 @@ We propose a simple vocabulary for representing [Privacy Requests](https://githu
 The vocabulary introduces a finite set of `concepts`, `properties` and `terms`. `Concepts` define the objects of exchange, `properties` define their characteristics, and `terms` define commonly understood values of properties.
 
 This vocabulary corresponds to the [Data Privacy Request Schema](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High- Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
+
+Two additional documents: [Examples of use](./examples.md) and [Expected Behavior of Implementing Systems](./expected-behavior.md), complement this document.
+
 
 ## Motivation
 
@@ -412,7 +414,7 @@ However, in most cases, Systems MUST require the Data Subject to be authenticate
 
 When processing Privacy Request, Systems MAY automatically disregard the (`dsid`,`dsid-schema`) paris for which they have not been able to establish Data Subject authentication.
 
-However, the authentication does not necessarily have to be performed during the collection of the Privacy Request. It can be done separately.
+However, the authentication does not necessarily have to be performed during the collection of the Privacy Request. It can be done separately. The design of PRIV aims to support several authentication workflows, as many as possible authentication methods (i.e. be as much as possible agnostic from the authentication method).
 
 
 #### Matching Multiple Data Subject Identities
