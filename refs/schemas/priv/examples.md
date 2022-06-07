@@ -201,7 +201,13 @@ In the following examples we show how, requests introduced by different regulati
 | `1798.130.1.1` | Make available to consumers two or more designated methods for submitting requests for information, including, at a minimum, a toll-free telephone number. | `X` | `null` | `null` | `null` | `null` | `null` |
 | `1798.130.1.2` | Disclose and deliver the required information to a consumer free of charge within 45 days of receiving a verifiable consumer request from the consumer.  | `X` | `null` | `null` | `null` | `null` | `null` |
 
+### Ethyca data categories
 
+> [Ethyca data categories reference](https://ethyca.github.io/fideslang/data_categories/)
+
+| Ethyca categories | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | 
+| -------- | ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | 
+| **Account** Data related to an account on the system | **Account** | **Contact**  | Contact data related to a system account | X | `null` | `null` |
 
 ### Requests list (**TO BE TRANSFORMED IN THE ABOVE FORMAT**)
 <!-- prettier-ignore -->
