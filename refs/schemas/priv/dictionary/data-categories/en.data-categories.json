@@ -15,6 +15,7 @@
   "DEMOGRAPHIC.GENDER": "Data related to gender and gender identity",
   "DEMOGRAPHIC.ORIGIN": "Data related to ethnic origin and nationality",
   "DEMOGRAPHIC.RACE": "Data related to race",
+  "DEMOGRAPHIC.SEXUAL-ORIENTATION": "Data related to sexual orientation"
   "DEVICE": "Data about the device used by a person",
   "FINANCIAL": "Data about the financial situation of a person",
   "FINANCIAL.BANK-ACCOUNT": "Bank account number and Bank identifier",
