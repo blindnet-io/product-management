@@ -18,7 +18,7 @@
   "DEVICE": "Data about the device used by a person",
   "FINANCIAL": "Data about the financial situation of a person",
   "FINANCIAL.BANK-ACCOUNT": "Bank account number and Bank identifier",
-  "GENIC": "Generic data",
+  "GENETIC": "Genetic data",
   "HEALTH": "Data about the health",
   "IMAGE": "Any graphic representation (e.g., image, video) of the person",
   "LOCATION": "Geographic location",
