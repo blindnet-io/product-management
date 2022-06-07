@@ -301,9 +301,16 @@ In the following examples we show how, requests introduced by different regulati
 | **user.provided.identifiable** | **postal_code**  | User's postal code | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
 | **user.provided.identifiable** | **state**  | User's state level address data | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
 | **user.provided.identifiable** | **street**  | User's street level address data | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
-
-
-
+| **user.provided.identifiable** | **credentials**  | User provided authentication data | `**TBD**` | `null` | `null` | Add AUTHENTICATION ? (as a meta cat of biometric ?) |
+| **user.provided.identifiable** | **biometric_credentials**  | User provided authentication data | `**TBD**`,`BIOMETRIC` | `null` | `null` | Add AUTHENTICATION ? (as a meta cat of biometric ?) |
+| **user.provided.identifiable** | **password**  | Password for system authentication | `**TBD**` | `null` | `null` | Add AUTHENTICATION ? (as a meta cat of biometric ?) |
+| **user.provided.identifiable** | **financial**  | Payment data and financial history | `FINANCIAL` | `null` | `null` | `Broader definition ?`|
+| **user.provided.identifiable** | **account_number**  | User's account number for a payment card, bank account, or other financial system | `FINANCIAL.BANK-ACCOUNT` | `null` | `null` | `Ok ?  Need a more detailed cat ?`|
+| **user.provided.identifiable** | **government_id**  | State provided identification data | `OTHER` | `null` | `null` | `Ok ?`|
+| **user.provided.identifiable** | **drivers_license_number**  | State issued driving identification number | `UID` | `null` | `null` | `Ok ?`|
+| **user.provided.identifiable** | **national_identification_number**  | State issued personal identification number | `UID` | `null` | `null` | `null`|
+| **user.provided.identifiable** | **passport_number**  | State issued passport data | `UID` | `null` | `null` | `null`|
+| **user.provided** | **nonidentifiable**  | Data provided or created directly by a user that is not identifiable | `**TBD**` | `null` | `null` | TBD: Do we need that ?|
 
 ### Requests list (**TO BE TRANSFORMED IN THE ABOVE FORMAT**)
 <!-- prettier-ignore -->
