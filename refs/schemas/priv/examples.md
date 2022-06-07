@@ -210,30 +210,69 @@ In the following examples we show how, requests introduced by different regulati
 
 ##### Account Contact Data
 
-| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | Comment |
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment |
 |  ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
 | **account** | **Contact**  | Contact data related to a system account | `CONTACT` | `null` | `null` | `null` |
 | **account.contact** | **email**  | Account's email address | `CONTACT.EMAIL` | `null` | `null` | `null` |
 | **account.contact** | **phone_number**  | Account's phone number | `CONTACT.PHONE` | `null` | `null` | `null` |
-| **account.contact** | **City**  | Account's city level address data | `CONTACT.ADDRESS` | `null` | `null` | Need more detail ? |
-| **account.contact** | **Country**  | Account's country level address data | `CONTACT.ADDRESS` | `null` | `null` | Need more detail ? |
+| **account.contact** | **City**  | Account's city level address data | `CONTACT.ADDRESS` | `null` | `null` | Need a more detailed cat ? |
+| **account.contact** | **Country**  | Account's country level address data | `CONTACT.ADDRESS` | `null` | `null` | Need a more detailed cat ? |
 | **account.contact** | **postal_code**  | Account's postal code  | `CONTACT.ADDRESS` | `null` | `null` | Need more detail ? |
-| **account.contact** | **state**  | Account's state level address data  | `CONTACT.ADDRESS` | `null` | `null` | Need more detail ? |
-| **account.contact** | **street**  | Account's street level address | `CONTACT.ADDRESS` | `null` | `null` | Need more detail ? |
+| **account.contact** | **state**  | Account's state level address data  | `CONTACT.ADDRESS` | `null` | `null` | Need a more detailed cat ? |
+| **account.contact** | **street**  | Account's street level address | `CONTACT.ADDRESS` | `null` | `null` | Need a more detailed cat ? |
 
 ##### Account Payment Data
-| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | Comment |
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
 | ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
 | **account** | **payment**  | Payment data related to system account | `FINANCIAL` | `null` | `null` | Broader definition ? |
 | **account.payment** | **financial_account_number**  | Payment data related to system account | `FINANCIAL.BANK-ACCOUNT` | `null` | `null` | `null` |
 
 #### System Data Categories
-> Data unique to, and under control of the system.
+> Data unique to, and under control of the system
 
-| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | Comment |
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
 | ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
 | **system** | **authentication**  | Data used to manage access to the system | `**TBD**` | `null` | `null` | Add AUTHENTICATION ? (as a meta cat of biometric ?) |
 | **system** | **operations**  | Data used for system operations | `**Any/all**` | `**Any/all**` | `null` | Ok ? |
+
+#### User Data Categories
+> Data related to the user of the system
+> The "User" data category has two important subcategories for derived and provided data
+> In turn, derived and provided both have subcategories for identifiable and nonidentifiable data, to make it clear what data is considered identifiable in your systems
+
+##### User Derived Data
+> Data derived from user provided data or as a result of user actions in the system
+
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
+| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
+| **user.derived** | **identifiable**  | Derived data that is linked to, or identifies a user | `**TBD**` | `null` | `null` | TBD, isn't it all the data for us ? |
+| **user.derived.identifable** | **biometric_health**  | Encoded characteristic collected about a user | `BIOMETRIC`,`HEALTH` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **browsing_history**  | Content browsing history of a user | `BEHAVIOR` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **contact**  | Contact data collected about a user | `CONTACT` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **demographic**  | Demographic data about a user | `DEMOGRAPHIC` | `null` | `null` | `null` |
+| **user.derived.identifable** | **gender**  | Gender of an individual | `DEMOGRAPHIC.GENDER` | `null` | `null` | `null` |
+| **user.derived.identifable** | **location**  | Records of the location of a user | `LOCATION` | `null` | `null` | `null` |
+| **user.derived.identifable** | **media_consumption**  | Media type consumption data of a user | `BEHAVIOR` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **non_specific_age**  | Age range data | `DEMOGRAPHIC.AGE` | `null` | `null` | `null` |
+| **user.derived.identifable** | **observed**  | Data collected through observation of use of the system | `BEHAVIOR` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **organization**  | Derived data that is linked to, or identifies an organization | `AFFILIATION` | `null` | `null` | OK ? Or here does Ethyca means user = organisation ? |
+| **user.derived.identifable** | **profiling**  | Preference and interest data about a user | `BEHAVIOR.PREFERENCE` | `null` | `null` | /!\ not same meaning for our profiling cat |
+| **user.derived.identifable** | **race**  | Racial or ethnic origin data | `DEMOGRAPHIC.RACE` | `null` | `null` | `null` |
+| **user.derived.identifable** | **religious_belief**  | Religion or religious belief | `DEMOGRAPHIC.BELIEFS` | `null` | `null` | `null` |
+| **user.derived.identifable** | **search_history**  | Records of search history and queries of a user | `BEHAVIOR` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **sexual_orientation**  | Personal sex life or sexual data | `DEMOGRAPHIC` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **social**  | Social activity and interaction data | `BEHAVIOR` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **telemetry**  | User identifiable measurement data from system sensors and monitoring | `BEHAVIOR`,`OTHER` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **unique_id**  | Unique identifier for a user assigned through system use | `UID` | `null` | `null` | `null` |
+| **user.derived.identifable** | **user_sensor**  | Measurement data derived about a user's environment through system use | `BEHAVIOR`,`OTHER` | `null` | `null` | `null` |
+| **user.derived.identifable** | **workplace**  | Organization of employment | `AFFILIATION` | `null` | `null` | `null` |
+| **user.derived.identifable** | **device**  | Data related to a user's device, configuration and setting | `DEVICE` | `null` | `null` | `null` |
+| **user.derived.identifable** | **cookie_id**  | Cookie unique identification number | `BEHAVIOR` | `null` | `null` | Need a more detailed cat ? |
+| **user.derived.identifable** | **device_id**  | Device unique identification number | `DEVICE` | `null` | `null` | Need a more detailed cat ? |
+| **user.derived.identifable** | **ip_address**  | Unique identifier related to device connection | `DEVICE` | `null` | `null` | Need a more detailed cat ? |
+| **user.derived** | **nonidentifiable**  | Non-user identifiable data derived related to a user as a result of user actions in the system | `**TBD**` | `null` | `null` | TBD, do we need that ? |
+| **user.derived.nonidentifiable** | **nonsensor**  | Non-user identifiable measurement data derived from sensors and monitoring systems | `**TBD**` | `null` | `null` | TBD, do we need that ? |
+
 
 ### Requests list (**TO BE TRANSFORMED IN THE ABOVE FORMAT**)
 <!-- prettier-ignore -->
