@@ -20,7 +20,7 @@ This vocabulary corresponds to the [Data Privacy Request Schema](https://github.
 ## Motivation
 
 An individual is in connection with software Systems (and Organisations operating them) that process the individual's data.
-In order to [regulate the relationship](https://github.com/blindnet-io/product-management/blob/10bebeefc14f7db7bf7a491932d62a4a5d18ad70/refs/notion-of-privacy/notion-of-privacy.md) with those Systems (and Organisations), the individual makes requests related to their privacy.
+In order to [regulate the relationship](https://github.com/blindnet-io/product-management/blob/main/refs/notion-of-privacy/notion-of-privacy.md) with those Systems (and Organisations), the individual makes requests related to their privacy.
 
 With a Privacy Request the individual aims to gain a degree of transparency about data processing and a degree of control over the data and over the data processing. Allowing individuals to make Privacy Requests is becoming more and more a legal obligation.
 
@@ -42,6 +42,12 @@ Different Systems, and different components of a single System, including differ
 This document defines the version `1.0` of the Privacy Request Interchange Vocabulary.
 
 ## Design Considerations
+
+### Design Inspiration
+
+- **Smart data structures and dumb code works a lot better than the other way around.** lesson No 9 from Raymond, Eric Steven. "The Cathedral and the Bazaar". We want PRIF to embody a smart way of thinking about privacy, solving common challenges through the data structure itself.
+
+- **Often, the most striking and innovative solutions come from realizing that your concept of the problem was wrong.** lesson No 12 from Raymond, Eric Steven. "The Cathedral and the Bazaar". We indeed now have novel understanding of the [problem of Privacy in Software Systems](https://github.com/blindnet-io/product-management/blob/main/refs/notion-of-privacy/notion-of-privacy.md).
 
 ### Design Goals
 
@@ -134,6 +140,8 @@ A Demand MAY refer to only certain Privacy Scope (categories of data, certain ty
 | `restrictions` |  0-* | An optional array of restriction objects, each being one of [Privacy Scope](#privacy-scope), [Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Data Range](#data-range)|
 
 When more than one restriction is specified, the System MUST interpret the Demand as referring to the intersection of restrictions. For example let us consider a `DELETE` demand having two restrictions: `LOCATION` `data-category` as Privacy Scope, and from 11th to 15th of June 2022 as Data Range. The System SHOULD understand that the Data Subject wants the System to delete only their location data processed in this precise period.
+
+A demand with multiple restrictions MUST NOT have more than one restriction of the same type.
 
 ###### Privacy Scope
 
@@ -273,7 +281,7 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 | `requested-action` | 0-1 | Optional information about the action that was demanded, and to which the response is made. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.KNOWN`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER`} |
 | `data-subject` |  0-* | Optional indication of the [Data Subject Identities](#decentralized-identity-of-data-subjects) to which the response refers to |
 | `status` | 1 | One of {`GRANTED`, `DENIED`, `PARTIALLY-GRANTED`, `UNDER-REVIEW`} |
-| `motive` | 0-* | Optionally one of {`IDENTITY-UNCONFIRMED`, `LANGUAGE-UNSUPPORTED`, `LEGAL-BASES`, `LEGAL-OBLIGATIONS`, `REQUEST-UNSUPPORTED`, `USER-UNKNOWN`} |
+| `motive` | 0-* | Optionally one of {`IDENTITY-UNCONFIRMED`, `LANGUAGE-UNSUPPORTED`, `LEGAL-BASES`, `LEGAL-OBLIGATIONS`, `NO-SUCH-DATA`, `REQUEST-UNSUPPORTED`, `USER-UNKNOWN`} |
 | `answers` | 0-* | Any of the terms the meaning of which is defined by the present format and its dictionaries or an object representing a Legal Base, a Retention Policy |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
 | `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
@@ -339,15 +347,6 @@ While the Data Categories are global, the selectors are defined by the Systems.
 Processing MAY be legitimate according to several legal bases for treatment. For example, a Data Subject can give explicit `CONSENT` when creating and account with a particular online service, and at the time, the System providing some service to the Data Subject might need to process their data in order to deliver a service or honour a `CONTRACT` (e.g. deliver the purchased goods to the Data Subjects address and issue an invoice).
 
 Certain processing is made legitimate (`LEGITIMATE-INTEREST`) or mandatory (`NECESSARY`) by law, e.g. [Article 6 og GDPR](https://gdpr-info.eu/art-6-gdpr/).
-
-##### Retention Policy
-| Property | Expected cardinality | Expected values |
-| --------------- | ------ | -------------------- |
-| `policy-type` | 1 | one of {NO-LONGER-THAN, "NO-LESS-THAN"} |
-| `duration` | 1 | Duration in JSON Schema [duration](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `after` | 1 | Event to which the retention duration is relative to. One of {`DATA-COLLECTION`,`RELATIONSHIP-END`}
-
-If more than one Retention Policy is specified, then they are interpreted as a union. Data is kept, as long as the conditions of at least one of them are met.
 
 ## Detailed Design
 
@@ -447,6 +446,8 @@ Systems MAY specify the vocabulary used to express data being exchanged. The val
 | `vocab` | 0-1 | The name of the vocabulary used to describe data. In absence of indication `priv.1.0` is assumed. |
 
 This vocabulary can be extended by defining a new identifier for the new vocabulary. New vocabularies MAY include other vocabularies as long as their sets of concepts, properties and terms are disjoint.  
+
+In addition, the Systems implementing PRIV can simply define their own subcategories of terms (not properties not concepts) defined by PRIV. This might be useful for their own internal operation, however the interoperability with other system can only be expected at the level of the particular, shared, version of the vocabulary.
 
 ## Examples
 
@@ -672,6 +673,12 @@ There is an ISO standard for data categories and processing categories. They are
 
 However, we might want to allow developers to use our format (properties and concepts) with ISO 19944 categories instead of our terms.
 
+## See also
+
+This document comes with the following support documents:
+- [Examples of use](./examples.md)
+- [Expected Behavior of Implementing Systems](./expected-behavior.md)
+
 ## References
 
 ### Normative References
@@ -679,9 +686,6 @@ However, we might want to allow developers to use our format (properties and con
 - **[RFC8259]**  Bray, T., ["The JavaScript Object Notation (JSON) Data Interchange Format"](https://datatracker.ietf.org/doc/html/rfc8259), STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017.
 - **[RFC2119]**  Bradner, S., ["Key words for use in RFCs to Indicate Requirement Levels"](https://datatracker.ietf.org/doc/html/rfc2119), BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997,
 
-### Informative References
-
--
 
 ### Initiative with which PRIV seeks to be compatible
 
@@ -696,5 +700,5 @@ However, we might want to allow developers to use our format (properties and con
 
 ### Yet to be Supported Legislation
 
-- [CPRA]([https://eur-lex.europa.eu/eli/reg/2016/679/oj](https://vig.cdn.sos.ca.gov/2020/general/pdf/topl-prop24.pdf))
-- [HIPPA]([https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5](https://www.govinfo.gov/content/pkg/PLAW-104publ191/pdf/PLAW-104publ191.pdf))
+- CPRA
+- HIPPA
