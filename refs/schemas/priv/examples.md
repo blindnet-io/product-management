@@ -260,12 +260,12 @@ In the following examples we show how, requests introduced by different regulati
 | **user.derived.identifable** | **race**  | Racial or ethnic origin data | `DEMOGRAPHIC.RACE` | `null` | `null` | `null` |
 | **user.derived.identifable** | **religious_belief**  | Religion or religious belief | `DEMOGRAPHIC.BELIEFS` | `null` | `null` | `null` |
 | **user.derived.identifable** | **search_history**  | Records of search history and queries of a user | `BEHAVIOR` | `null` | `null` | Ok ? |
-| **user.derived.identifable** | **sexual_orientation**  | Personal sex life or sexual data | `DEMOGRAPHIC` | `null` | `null` | Ok ?  Need a more detailed cat ? |
-| **user.derived.identifable** | **social**  | Social activity and interaction data | `BEHAVIOR` | `null` | `null` | Ok ? |
-| **user.derived.identifable** | **telemetry**  | User identifiable measurement data from system sensors and monitoring | `BEHAVIOR`,`OTHER` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **sexual_orientation**  | Personal sex life or sexual data | `DEMOGRAPHIC.SEXUAL-ORIENTATION` | `null` | `null` | `null`  |
+| **user.derived.identifable** | **social**  | Social activity and interaction data | `BEHAVIOR.RELATIONSHIPS` | `null` | `null` | Ok ? |
+| **user.derived.identifable** | **telemetry**  | User identifiable measurement data from system sensors and monitoring | `BEHAVIOR.TELEMETRY` | `null` | `null` | `null` |
 | **user.derived.identifable** | **unique_id**  | Unique identifier for a user assigned through system use | `UID` | `null` | `null` | `null` |
-| **user.derived.identifable** | **user_sensor**  | Measurement data derived about a user's environment through system use | `BEHAVIOR`,`OTHER` | `null` | `null` | `null` |
-| **user.derived.identifable** | **workplace**  | Organization of employment | `AFFILIATION` | `null` | `null` | `null` |
+| **user.derived.identifable** | **user_sensor**  | Measurement data derived about a user's environment through system use | `BEHAVIOR`,`OTHER` | `null` | `null` |  Ok ?  |
+| **user.derived.identifable** | **workplace**  | Organization of employment | `AFFILIATION.WORK` | `null` | `null` | `null` |
 | **user.derived.identifable** | **device**  | Data related to a user's device, configuration and setting | `DEVICE` | `null` | `null` | `null` |
 | **user.derived.identifable** | **cookie_id**  | Cookie unique identification number | `BEHAVIOR` | `null` | `null` | Need a more detailed cat ? |
 | **user.derived.identifable** | **device_id**  | Device unique identification number | `DEVICE` | `null` | `null` | Need a more detailed cat ? |
@@ -279,31 +279,31 @@ In the following examples we show how, requests introduced by different regulati
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
 | ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
 | **user.provided** | **identifiable**  | Data provided or created directly by a user that is linked to or identifies a user | `**TBD**` | `null` | `null` | TBD, isn't it all the data for us ? |
-| **user.provided.identifiable** | **identifiable**  | Encoded characteristics provided by a user | `BIOMETRIC` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **identifiable**  | Encoded characteristics provided by a user | `**TBD**` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **children**  | Data relating to children | `OTHER`,`RELATIONSHIP` | `null` | `null` | Ok ? Need a more detailed cat ? |
 | **user.provided.identifiable** | **health_and_medical**  | Health records or individual's personal medical information | `HEALTH` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **job_title**  | Professional data | `OTHER` | `null` | `null` | Ok ? |
-| **user.provided.identifiable** | **name**  | User's real name | `NAME` | `null` | `null` | Ok ? Need a more detailed cat ? (our cat includes nicknames and other names) |
+| **user.provided.identifiable** | **name**  | User's real name | `NAME` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **non_specific_age**  | Age range data | `DEMOGRAPHIC.AGE` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **political_opinion**  | Data related to the individual's political opinions | `DEMOGRAPHIC.BELIEFS` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **race**  | Racial or ethnic origin data | `DEMOGRAPHIC.RACE` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **religious_belief**  | Religion or religious belief | `DEMOGRAPHIC.BELIEFS` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **sexual_orientation**  | Personal sex life or sexual data | `DEMOGRAPHIC` | `null` | `null` | Ok ?  Need a more detailed cat ? |
-| **user.provided.identifiable** | **workplace**  | Organization of employment | `AFFILIATION` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **date_of_birth**  | User's date of birth | `OTHER` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+| **user.provided.identifiable** | **sexual_orientation**  | Personal sex life or sexual data | `DEMOGRAPHIC.SEXUAL-ORIENTATION` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+| **user.provided.identifiable** | **workplace**  | Organization of employment | `AFFILIATION.WORK` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **date_of_birth**  | User's date of birth | `DEMOGRAPHIC.AGE` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **gender**  | Gender of an individual | `DEMOGRAPHIC.GENDER` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **genetic**  | Data about the genetic makeup provided by a user | `OTHER` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+| **user.provided.identifiable** | **genetic**  | Data about the genetic makeup provided by a user | `GENETIC` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **contact**  | User provided contact data for purposes other than account management | `CONTACT` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **city**  | User's city level address data | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
-| **user.provided.identifiable** | **country**  | User's country level address data | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
+| **user.provided.identifiable** | **city**  | User's city level address data | `CONTACT.ADDRESS` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **country**  | User's country level address data | `CONTACT.ADDRESS` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **email**  | User's provided email address | `CONTACT.EMAIL` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **phone_number**  | User's phone number | `CONTACT.PHONE` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **postal_code**  | User's postal code | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
-| **user.provided.identifiable** | **state**  | User's state level address data | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
-| **user.provided.identifiable** | **street**  | User's street level address data | `CONTACT.ADDRESS` | `null` | `null` | Ok ?  Need a more detailed cat ? |
-| **user.provided.identifiable** | **credentials**  | User provided authentication data | `**TBD**` | `null` | `null` | Add AUTHENTICATION ? (as a meta cat of biometric ?) |
-| **user.provided.identifiable** | **biometric_credentials**  | User provided authentication data | `**TBD**`,`BIOMETRIC` | `null` | `null` | Add AUTHENTICATION ? (as a meta cat of biometric ?) |
-| **user.provided.identifiable** | **password**  | Password for system authentication | `**TBD**` | `null` | `null` | Add AUTHENTICATION ? (as a meta cat of biometric ?) |
+| **user.provided.identifiable** | **postal_code**  | User's postal code | `CONTACT.ADDRESS` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **state**  | User's state level address data | `CONTACT.ADDRESS` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **street**  | User's street level address data | `CONTACT.ADDRESS` | `null` | `null` | `null` |
+| **user.provided.identifiable** | **credentials**  | User provided authentication data | `OTHER` | `null` | `null` | Ok ? |
+| **user.provided.identifiable** | **biometric_credentials**  | User provided authentication data | `OTHER`,`BIOMETRIC` | `null` | `null` | Ok ? |
+| **user.provided.identifiable** | **password**  | Password for system authentication | `OTHER` | `null` | `null` | Ok ? |
 | **user.provided.identifiable** | **financial**  | Payment data and financial history | `FINANCIAL` | `null` | `null` | `Broader definition ?`|
 | **user.provided.identifiable** | **account_number**  | User's account number for a payment card, bank account, or other financial system | `FINANCIAL.BANK-ACCOUNT` | `null` | `null` | `Ok ?  Need a more detailed cat ?`|
 | **user.provided.identifiable** | **government_id**  | State provided identification data | `OTHER` | `null` | `null` | `Ok ?`|
@@ -311,104 +311,6 @@ In the following examples we show how, requests introduced by different regulati
 | **user.provided.identifiable** | **national_identification_number**  | State issued personal identification number | `UID` | `null` | `null` | `null`|
 | **user.provided.identifiable** | **passport_number**  | State issued passport data | `UID` | `null` | `null` | `null`|
 | **user.provided** | **nonidentifiable**  | Data provided or created directly by a user that is not identifiable | `**TBD**` | `null` | `null` | TBD: Do we need that ?|
-
-### Requests list (**TO BE TRANSFORMED IN THE ABOVE FORMAT**)
-<!-- prettier-ignore -->
-| Nb | Request | Description | Associated treatment | Associated data category | Advised elements to provide | Legal ground | CNIL reference
-| ---------- | ---- | ---- | ---- | ---- | ---- | ---- |---- |
-| -- | ACCESS TYPE | ---- | ---- | ---- | ---- | ---- | ---- |
-| OK | **Access** | Access to all data the organization has on me  | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces |
-| OK | **Access to my medical record** | Acces to my medical record | ---- | ---- | ID | art. L. 1111-7 du code de la santé publique |  https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical |
-| OK | **Access to data "Preventel" has on me** | Access to data "Preventel" has on me | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel |
-| OK | **Access to data a financial organization has on me** *-> to delete and let user make access request + provenance request to the financial organization* | Access to all data the (financial)organization has on me, Provide with any available information on the origin of this data concerning me *(access+provenance info request)* | ---- | ---- | ID, Account number | ---- | https://www.cnil.fr/fr/modele/courrier/connaitre-les-informations-detenues-par-un-etablissement-financier |
-| OK | **Access to data "Fichier central des Chèques (FCC)" has on me** *-> to delete and let user make access request to the "Fichier central des Chèques (FCC)" ?*| Access to all data Fichier central des Chèques (FCC) has on me | ---- | ---- | ID, Birthdate | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc |
-| OK | **Access to data "Fichier national des Incidents de remboursement de Crédit (FICP)" has on me** *-> to delete and let user make access request to the "Fichier national des Incidents de remboursement de Crédit (FICP)" ?*| Access to all data "Fichier national des Incidents de remboursement de Crédit (FICP)" has on me | ---- | ---- | ID, Birthdate | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-aux-donnees-du-fichier-national-des-incidents-de-remboursement-de-credit |
-| OK | **Access to geolocation data or an access control device an organization has on me** | Access to data organization has on me on a device on a specific period of time *access request to geolocation data and device data* | ---- | ---- | ID, Device type, Date and time | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces |
-| OK | **Access to video surveillance data** | Access to video data organization has on me on a specific period of time *access request to video surveillance data* | ---- | ---- | ID, Date and time | ---- | https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant |
-| OK | **Exerce my right to portability** | Receive the data that concerns me and reuse them, transmit them to another data controller *access request + donwnload?* | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite |
-| -- | MODIFICATION TYPE | ---- | ---- |---- |
-| OK | **Modification** | Rectify incorrect data organization has on me  | ---- | ---- | ID, Information to modify, Information rectified | ---- | https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes |
-| OK | **Rectification** *to merge in one modification?* | Rectify incomplete data organization has on me | ---- | ---- | ID, Information to modify, Information rectified | ---- | https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes |
-| -- | DELETION TYPE | ---- | ---- |---- |
-| OK | **Deletion** | Delete the data the organization has on me  | ---- | ---- | ID, Information to delete*, Reason of deletion | ---- | https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles |
-| OK | **Stop receiving advertising from organization** | Deletion of my contact details from organization avdertising contact list | ---- | ---- | ID, Reason of deletion | ---- | https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites |
-| OK | **Closing an online account** | Closing online account, Deletion of all data the organization has on me | ---- | ---- | ID, Account name, Website name, URL of the pages with my data, Data to delete | ---- | https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne |
-| OK | **Delete my data that are published on a webiste** | Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | ---- | ---- | ID, URL of the pages with my data, Data to delete, Reason of deletion | ---- | https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet, https://www.cnil.fr/fr/webmaster-ou-responsables-de-sites-comment-repondre-aux-demandes-de-suppression-de-donnees |
-| OK | **Opt out of contact lists** | Delete my contact details from all contact lists an ornaginzation has with my contact details| ---- | ---- | ID | ---- |  |
-| OK | **Removal of my image online** | Remove photo or video of me that has been published without my consent| ---- | ---- | ID | ---- | https://www.cnil.fr/fr/demander-le-retrait-de-votre-image-en-ligne |
-| -- | OPPOSITION TO TREATMENT TYPE | ---- | ---- |---- |
-| OK | **Opposition to commercial prospecting** | Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | ---- | ---- |ID, Account number | ---- | https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers |
-| OK | **Opposition to treatment of all data an organization has on me** | Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | ---- | ---- | ID, Reason of deletion | ---- | https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees |
-| OK | **Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me** | I refuse the use of my data or of certain data but I don't want to delete my account or all my data | *Type of treatment (to choose from possible type of treatment list)* | ---- |  | ---- | https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees |
-| OK | **Opt out of automated decision making** *-> to delete to include in 24. Limit treatment* | Opposition to automated decision making on the data organizatio has on me | ---- | ---- | ID | ---- |  |
-| OK | **Opt out of sale of my data** *-> to delete to include in 24. Limit treatment* | Opposition to sale of the data an organization has on me| ---- | ---- | ID | ---- |  |
-| OK | **Opt out of tracking on my data** *-> to delete to include in 24. Limit treatment* | Opposition to the tracking of my data from an organization | ---- | ---- | ID | ---- |  |
-| OK | **Revoke consent** | Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | *Type of treatment (to choose from possible type of treatment list)* | ---- | ID | ---- | https://www.cnil.fr/fr/les-bases-legales/consentement "Droit au retrait : la personne doit avoir la possibilité de retirer son consentement à tout moment, par le biais d’une modalité simple et équivalente à celle utilisée pour recueillir le consentement (par exemple, si le recueil s’est fait en ligne, il doit pouvoir être retiré en ligne également)." |
-| -- | INFORMATIONNAL TYPE | ---- | ---- |---- |
-| OK | **Storage information** | Know where is stored the data organization has on me | ---- | ---- | ID | ---- |  |
-| OK | **Accessibility information** | Know who can access the data organization has on me | ---- | ---- | ID | ---- |  |
-| OK | **Provenance information** | Know the provenance of data organization has on me | ---- | ---- | ID | ---- |  |
-| OK | **Retention information** | Know for how long the data organization has on me will be kept | ---- | ---- | ID | ---- | https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees |
-| OK | **Deletion information** | Know when my data will be deleted | ---- | ---- | ID | ---- |  |
-| OK | **Policy information** | Know what is the policy of the organization to keep data it has on me | ---- | ---- | ID | ---- |  |
-| OK | **Purpose of treatment information** | Know the purpose of the treatment organization does on the data it has on me | ---- | ---- | ID | ---- |  |
-| OK | **Treatment information** | Know what type(s) of treatment organization does on the data it has on me | ---- | ---- | ID | ---- |  |
-| OK | **Particular type(s) of treatment information** | Know if a particular type of treatment is done by organisation on the data it has on me | *Type of treatment (to choose from possible type of treatment list)* | ---- | ID | ---- |  |
-| -- | OTHER TYPE | ---- | ---- |---- |
-| - | **Propagation of request** (can only be ask in addition of another request) | Send the request to other organizations the organization may have shared the data it has me with | ---- | ---- |  | ---- |  |
-
-### Types of treatment list
-| Nb | Treatment | Description | CNIL reference
-| ---------- | ---- | ---- | ---- |
-| 01 | **Collection** | Data collection | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 02 | **Recording** | Data recording | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 03 | **Organisation** | Data organisation | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 04 | **Retention** | Data retention | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 05 | **Adapation** | Data adaptation | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 07 | **Modification** | Data modification | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 08 | **Extraction** | Data extraction | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 09 | **Consultation** | Data consultation| https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 10 | **Usage** | Data usage | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 11 | **Communication** | Data communication by transmission or broadcast or any other form of data communication | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 12| *FR: "Rapprochement" -> EN: "Matching" or "Reconciliation" ?* |  | https://www.cnil.fr/fr/definition/traitement-de-donnees-personnelles#:~:text=Exemples%20de%20traitements%20%3A%20tenue%20du,information%20(selon%20le%20cas |
-| 13 | **Automatic Inference and Descisionmaking** | Any automatic inference made on the data | [GDPR chap3 art. 13 section 2. c)](https://www.cnil.fr/fr/reglement-europeen-protection-donnees/chapitre3#Article13)|
-| 14 | **Basic service** | Provide a service that the user explicitly requests and that is part of the product's basic service or functionality |  |
-| 15 | **Additonal service** | Provide a service that the user explicitly requests but that is not a necessary part of the product's basic service |  |
-| 16 | **Tracking** | Tracking information about user behavior and activity online |  |
-| 17 | **Advertising** | To show ads that are either targeted to the specific user or not targeted |  |
-| 18 | **Marketing** |  To contact the user to offer products, services, or other promotions |  |
-| 19 | **Analytics** | For understanding the product’s audience, improving the product, inform company strategy, or general research |  |
-| 20 | **Personnalisation** | For providing user with a personalized experience |  |
-| 21 | **Operation security** | For product operation and security, enforcement of terms of service, fraud prevention, protecting users and property, etc. |  |
-| 22 | **Legal** | For compliance with legal obligations |  |
-| 23 | **Ongoing contract** | For ongoing contract purpose |  |
-| 24 | **Data transfer** | For data that was transferred as part of a change in circumstance (e.g. a merger or acquisition) |  |
-| 25 | **Sale** | Selling data to third parties |  |
-| 26 | **OTHER** | Other specific purpose not covered above |  |
-| 27 | **UNSPECIFIED** | The purpose is not explicitly stated or is unclear |  |
-| 28 | **ALL** |  |  |
-
-### Data categories list
-| Nb | Data category | Description | CNIL reference
-| ---------- | ---- | ---- | ---- |
-| 01 | **Name** | Firstname, Surname |  |
-| 02 | **Postal address** | *contact information* |  |
-| 03 | **Email address** | *contact information* |  |
-| 04 | **Phone number** | *contact information* |  |
-| 04 | **ID data** | Identifiers that uniquely identify a person |  |
-| 05 | **Financial data** | Financial information |  |
-| 06 | **Connection data** | Information associated to connection |  |
-| 07 | **Geoocation data** | Location information |  |
-| 08 | **Health data** | Health information |  |
-| 09 | **Tracking data** | Cookies and tracking information about user behavior and activity online|  |
-| 10 | **User profile** | User’s profile on the first-party website/app and its contents |  |
-| 11 | **Device data** | Device (desktop, tablet, mobile...) information |  |
-| 12 | **Form data** | Information collected through forms  |  |
-| 13 | **Image data** | Photo or video |  |
-| 14 | **Video surveillance data** | Video from video surveillance |  |
-| 15 | **OTHER** | A specific type of information not covered by the above categories | |
-| 16 | **UNSPECIFIED** | The type of information is not explicitly stated or unclear|
-| 17 | **ALL** |  |  |
 
 ### Alternatives Considered
 
