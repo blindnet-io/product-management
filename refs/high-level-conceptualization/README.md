@@ -169,5 +169,5 @@ Privacy, in a psychological sense, equals the freedom of an individual to engage
 Confidentiality is enforced by policy and by encryption. Control is enforced by law. blindnet allows software systems to handle both.
 
 However, there must be a separation between the two allowing a developer to use blindnet only for one of these two purposes, and use an alternative solution for the other. E.g., a developer can use a non-encrypted web form to capture data, manage his own access to it, and still use blindnet for managing consent, and submitter rights requests.
-
+Composition of the components of the system is inspired by the bridge design pattern.
 See [Bridge Pattern, Gang of Four](https://refactoring.guru/design-patterns/bridge).
