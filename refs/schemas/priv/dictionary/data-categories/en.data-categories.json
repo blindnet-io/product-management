@@ -1,8 +1,8 @@
 {
   "AFFILIATION": "Groups and Organisations the person is linked to through work, studies, or membership",
-  "AFFILIATION.WORKPLACE": "Work organisation",
-  "AFFILIATION.SCHOOL": "Studies organisation",
   "AFFILIATION.MEMBERSHIP": "Groups and organisations memberships",
+  "AFFILIATION.SCHOOL": "Studies organisation",
+  "AFFILIATION.WORKPLACE": "Work organisation",
   "BEHAVIOR": "Data about the person's behavior",
   "BEHAVIOR.CONNECTION": "Times of connection",
   "BEHAVIOR.ACTIVITY": "Activities perfomed online or off-line",
