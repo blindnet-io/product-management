@@ -69,7 +69,7 @@ In the following examples we show how, requests introduced by different regulati
 *and, where that is the case, access to the personal data and the following information:*
 
 | LAW | Demande (as introduced by regulation) | Representation |
-| -------- | ----------------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
+| -------- | ----------------------------------------------------- | ------------ |
 | `GDPR.15.1.a` | the purposes of the processing  | action:`TRANSPARENCY.PURPOSE` | 
 | `GDPR.15.1.b` | the categories of personal data concerned | action:`TRANSPARENCY.DATA-CATEGORIES` |
 | `GDPR.15.1.c` | the recipients or categories of recipient to whom the personal data have been or will be disclosed, in particular recipients in third countries or international organisations;  | action:`TRANSPARENCY.WHO` |
