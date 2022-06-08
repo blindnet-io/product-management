@@ -331,22 +331,22 @@ Transcend proposes the following [action (demand) types](https://github.com/tran
 
 All of those can be modeled using our Demand Types.
 
-Transced proposes the following [treatment types](https://github.com/transcend-io/privacy-types/blob/main/src/objects.ts):
-| Treatment Type | Description | Observation |
+Transcend proposes the following [treatment types](https://github.com/transcend-io/privacy-types/blob/main/src/objects.ts):
+| Transcend Treatment Type | Transcend Description | Representation |
 | -------------- | ----------------------------------------- | ------------------------ |
-| ESSENTIAL | Provide a service that the user explicitly requests and that is part of the product's basic service or functionality| |
-| ADDITIONAL_FUNCTIONALITY | Provide a service that the user explicitly requests but that is not a necessary part of the product's basic service | |
-| ADVERTISING | To show ads that are either targeted to the specific user or not targeted | |
-| MARKETING | To contact the user to offer products, services, or other promotions | |
-| ANALYTICS | For understanding the product’s audience, improving the product, inform company strategy, or general research | |
-| PERSONALIZATION | For providing user with a personalized experience | |
-| OPERATION_SECURITY | For product operation and security, enforcement of terms of service, fraud prevention, protecting users and property, etc. | |
-| LEGAL | For compliance with legal obligations | |
-| TRANSFER | For data that was transferred as part of a change in circumstance (e.g. a merger or acquisition) | |
-| SALE | For selling the data to third parties | |
-| HR | For personnel training, recruitment, payroll, management, etc. | corresponds to ongoing contract in our terminology|
-| OTHER | Other specific purpose not covered above | |
-| UNSPECIFIED | The purpose is not explicitly stated or is unclear | |
+| ESSENTIAL | Provide a service that the user explicitly requests and that is part of the product's basic service or functionality| processing-category:`**any/all**`, purpose:`SERVICES.BASIC-SERVICE` |
+| ADDITIONAL_FUNCTIONALITY | Provide a service that the user explicitly requests but that is not a necessary part of the product's basic service | processing-category:`**any/all**`, purpose:`SERVICES.ADDITIONAL-SERVICE` |
+| ADVERTISING | To show ads that are either targeted to the specific user or not targeted | processing-category:`**any/all**`, purpose:`ADVERTISING` |
+| MARKETING | To contact the user to offer products, services, or other promotions | processing-category:`**any/all**`, purpose:`MARKETING` |
+| ANALYTICS | For understanding the product’s audience, improving the product, inform company strategy, or general research | processing-category:`**any/all**`, purpose:`RESEARCH` |
+| PERSONALIZATION | For providing user with a personalized experience | processing-category:`**any/all**`, purpose:`PERSONALISATION` |
+| OPERATION_SECURITY | For product operation and security, enforcement of terms of service, fraud prevention, protecting users and property, etc. | processing-category:`**any/all**`, purpose:`SECURITY` |
+| LEGAL | For compliance with legal obligations | processing-category:`**any/all**`, purpose:`COMPLIANCE` |
+| TRANSFER | For data that was transferred as part of a change in circumstance (e.g. a merger or acquisition) | processing-category:`**any/all**`, purpose:`OTHER` |
+| SALE | For selling the data to third parties | processing-category:`**any/all**`, purpose:`SALE` |
+| HR | For personnel training, recruitment, payroll, management, etc. | processing-category:`**any/all**`, purpose:`COMPLIANCE` |
+| OTHER | Other specific purpose not covered above | processing-category:`**any/all**`, purpose:`OTHER` |
+| UNSPECIFIED | The purpose is not explicitly stated or is unclear | processing-category:`**any/all**`, purpose:`OTHER` |
 
 All of those SHOULD be modeled using our Treatment Types.
 
