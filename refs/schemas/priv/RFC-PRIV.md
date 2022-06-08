@@ -190,7 +190,7 @@ In the absence of indication of any `processing-categories` dimension, Systems M
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `purposes` | 0-* | `ADVERTISING`, `COMPLIANCE`, `JUSTICE`, `MARKETING`, `MEDICAL`, `PERSONALISATION`, `PUBLIC-INTERESTS`, `RESEARCH`, `SALE`, `SECURITY`, `SERVICES`, `SERVICES.ADDITIONAL-SERVICES`, `SERVICES.BASIC-SERVICE`, `SOCIAL-PROTECTION`, `TRACKING`, `VITAL-INTERESTS`, `OTHER` |
+| `purposes` | 0-* | `ADVERTISING`, `COMPLIANCE`, `EMPLOYMENT`, `JUSTICE`, `MARKETING`, `MEDICAL`, `PERSONALISATION`, `PUBLIC-INTERESTS`, `RESEARCH`, `SALE`, `SECURITY`, `SERVICES`, `SERVICES.ADDITIONAL-SERVICES`, `SERVICES.BASIC-SERVICE`, `SOCIAL-PROTECTION`, `TRACKING`, `VITAL-INTERESTS`, `OTHER` |
 
 When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated.
 
