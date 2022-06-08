@@ -350,24 +350,24 @@ Transcend proposes the following [treatment types](https://github.com/transcend-
 
 All of those SHOULD be modeled using our Treatment Types.
 
-Transced proposes the following [data categories](https://github.com/transcend-io/privacy-types/blob/main/src/objects.ts):
-| Data Category | Description | Observation |
+Transcend proposes the following [data categories](https://github.com/transcend-io/privacy-types/blob/main/src/objects.ts):
+| Transcend Data Category | Transcend Description | Representation |
 | -------------- | ----------------------------------------- | ------------------------ |
-| FINANCIAL | Financial information | |
-| HEALTH | Health information | |
-| CONTACT | Contact information | |
-| LOCATION |  Geo-location information | |
-| DEMOGRAPHIC | Demographic Information | |
-| ID | Identifiers that uniquely identify a person | |
-| ONLINE_ACTIVITY | The user's online activities on the first party website/app or other websites/apps | |
-| USER_PROFILE | he user’s profile on the first-party website/app and its contents | |
-| SOCIAL_MEDIA | User profile and data from a social media website/app or other third party service | |
-| CONNECTION | Connection information for the current browsing session, e.g. device IDs, MAC addresses, IP addresses, etc. | |
-| TRACKING | Cookies and tracking elements | |
-| DEVICE | Computer or device information | |
-| SURVEY | Any data that is collected through surveys | |
-| OTHER | A specific type of information not covered by the above categories | |
-| UNSPECIFIED | The type of information is not explicitly stated or unclear| |
+| FINANCIAL | Financial information | data-category:`FINANCIAL` |
+| HEALTH | Health information | data-category:`HEALTH` |
+| CONTACT | Contact information | data-category:`CONTACT` |
+| LOCATION |  Geo-location information | data-category:`LOCATION` |
+| DEMOGRAPHIC | Demographic Information | data-category:`DEMOGRAPHIC` |
+| ID | Identifiers that uniquely identify a person | data-category:`UID` |
+| ONLINE_ACTIVITY | The user's online activities on the first party website/app or other websites/apps | data-category:`BEHAVIOR.ACTIVITY` |
+| USER_PROFILE | he user’s profile on the first-party website/app and its contents | data-category:`OTHER` |
+| SOCIAL_MEDIA | User profile and data from a social media website/app or other third party service | data-category:`OTHER`,`BEHAVIOR.RELATIONSHIPS` |
+| CONNECTION | Connection information for the current browsing session, e.g. device IDs, MAC addresses, IP addresses, etc. | data-category:`DEVICE`,`BEHAVIOR.CONNECTION` |
+| TRACKING | Cookies and tracking elements | data-category:`BEHAVIOR` |
+| DEVICE | Computer or device information | data-category:`DEVICE` |
+| SURVEY | Any data that is collected through surveys | data-category:`OTHER` |
+| OTHER | A specific type of information not covered by the above categories | data-category:`OTHER` |
+| UNSPECIFIED | The type of information is not explicitly stated or unclear| data-category:`OTHER` |
 
 
 
