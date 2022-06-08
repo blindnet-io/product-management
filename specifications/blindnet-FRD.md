@@ -378,6 +378,8 @@ Output:
 
 The system validates the JWT signature, and deletes the encrypted symmetric key associated with the given doc_id and user_id.
 
+-------------------------------------------------------------------------------------------------
+
 ### FE javascript SDK
 
 _**FR-SDK01.** The SDK must be able to generate cryptographic keys._
@@ -749,6 +751,8 @@ The SDK encrypts each symmetric_key with a public_key, and uploads them to blind
 This is a functionality that must not be directly exposed to developers that use the SDK.
 
 Usage: 8d, 8e
+
+-------------------------------------------------------------------------------------------------
 
 ### Backend SDK
 
