@@ -201,14 +201,16 @@ In the following examples we show how, requests introduced by different regulati
 | `1798.130.1.1` | Make available to consumers two or more designated methods for submitting requests for information, including, at a minimum, a toll-free telephone number. | `X` | `null` | `null` | `null` | `null` | `null` |
 | `1798.130.1.2` | Disclose and deliver the required information to a consumer free of charge within 45 days of receiving a verifiable consumer request from the consumer.  | `X` | `null` | `null` | `null` | `null` | `null` |
 
-### Ethyca data categories
+### Alternatives Considered
+
+#### Ethyca data categories
 
 > [Ethyca data categories reference](https://ethyca.github.io/fideslang/data_categories/)
 
-#### Account Data Categories
+##### Account Data Categories
 > Data related to an account on the system
 
-##### Account Contact Data
+###### Account Contact Data
 
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment |
 |  ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
@@ -221,13 +223,13 @@ In the following examples we show how, requests introduced by different regulati
 | **account.contact** | **state**  | Account's state level address data  | `CONTACT.ADDRESS` | `null` | `null` | Need a more detailed cat ? |
 | **account.contact** | **street**  | Account's street level address | `CONTACT.ADDRESS` | `null` | `null` | Need a more detailed cat ? |
 
-##### Account Payment Data
+###### Account Payment Data
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
 | ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
 | **account** | **payment**  | Payment data related to system account | `FINANCIAL` | `null` | `null` | Broader definition ? |
 | **account.payment** | **financial_account_number**  | Payment data related to system account | `FINANCIAL.BANK-ACCOUNT` | `null` | `null` | `null` |
 
-#### System Data Categories
+##### System Data Categories
 > Data unique to, and under control of the system
 
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
@@ -235,12 +237,12 @@ In the following examples we show how, requests introduced by different regulati
 | **system** | **authentication**  | Data used to manage access to the system | `**TBD**` | `null` | `null` | Add AUTHENTICATION ? (as a meta cat of biometric ?) |
 | **system** | **operations**  | Data used for system operations | `**Any/all**` | `**Any/all**` | `null` | Ok ? |
 
-#### User Data Categories
+##### User Data Categories
 > Data related to the user of the system
 > The "User" data category has two important subcategories for derived and provided data
 > In turn, derived and provided both have subcategories for identifiable and nonidentifiable data, to make it clear what data is considered identifiable in your systems
 
-##### User Derived Data
+###### User Derived Data
 > Data derived from user provided data or as a result of user actions in the system
 
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
@@ -273,7 +275,7 @@ In the following examples we show how, requests introduced by different regulati
 | **user.derived** | **nonidentifiable**  | Non-user identifiable data derived related to a user as a result of user actions in the system | `**TBD**` | `null` | `null` | TBD, do we need that ? |
 | **user.derived.nonidentifiable** | **nonsensor**  | Non-user identifiable measurement data derived from sensors and monitoring systems | `**TBD**` | `null` | `null` | TBD, do we need that ? |
 
-##### User Provided Data
+###### User Provided Data
 > Data provided or created directly by a user of the system
 
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
@@ -312,22 +314,20 @@ In the following examples we show how, requests introduced by different regulati
 | **user.provided.identifiable** | **passport_number**  | State issued passport data | `UID` | `null` | `null` | `null`|
 | **user.provided** | **nonidentifiable**  | Data provided or created directly by a user that is not identifiable | `**TBD**` | `null` | `null` | TBD: Do we need that ?|
 
-### Alternatives Considered
-
 #### Transcend
 
 Transcend proposes the following [action (demand) types](https://github.com/transcend-io/privacy-types/blob/main/src/actions.ts):
-| Demand Type | Description | Observation |
+| Transcend Demand Type | Transcend Description | Representation |
 | -------------- | ----------------------------------------- | ------------------------ |
-| ACCESS | Data Download request | |
-| ERASURE | Erase the file completely | |
-| ACCOUNT_DELETION | Run an account deletion instead of a fully compliant deletion | |
-| AUTOMATED_DECISION_MAKING_OPT_OUT | Opt out of automated decision making | |
-| CONTACT_OPT_OUT | A contact opt out request | |
-| SALE_OPT_OUT | Opt-out of the sale of personal data | |
-| TRACKING_OPT_OUT | A tracking opt out request | |
-| RECTIFICATION | Make an update to an inaccurate record | |
-| RESTRICTION | A restriction of processing request | |
+| ACCESS | Data Download request | action:`ACCESS` |
+| ERASURE | Erase the file completely | action:`DELETE`, other properties:`Data-identifier` |
+| ACCOUNT_DELETION | Run an account deletion instead of a fully compliant deletion | action:`DELETE`, other properties: `Data-identifier` |
+| AUTOMATED_DECISION_MAKING_OPT_OUT | Opt out of automated decision making | action:`RESTRICT`, processing-categories:`AUTOMATED-DECISION-MAKING`|
+| CONTACT_OPT_OUT | A contact opt out request | action:`RESTRICT`, data-category:`CONTACT`, processing-category:`USING`, purpose:`MARKETING`|
+| SALE_OPT_OUT | Opt-out of the sale of personal data | action:`RESTRICT`, processing-category:`SHARE`, purpose:`SALE` |
+| TRACKING_OPT_OUT | A tracking opt out request | action:`RESTRICT`, processing-category:`COLLECTION`, purpose:`TRACKING` |
+| RECTIFICATION | Make an update to an inaccurate record | action:`MODIFY`, other properties: `Selector.to-modify`,`Data.rectified` |
+| RESTRICTION | A restriction of processing request | action:`RESTRICT` |
 
 All of those can be modeled using our Demand Types.
 
