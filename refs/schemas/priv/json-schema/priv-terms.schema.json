@@ -35,6 +35,8 @@
           "BEHAVIOR.ACTIVITY",
           "BEHAVIOR.CONNECTION",
           "BEHAVIOR.PREFERENCE",
+          "BEHAVIOR.RELATIONSHIPS", 
+          "BEHAVIOR.TELEMETRY",
           "BIOMETRIC",
           "CONTACT",
           "CONTACT.EMAIL",
