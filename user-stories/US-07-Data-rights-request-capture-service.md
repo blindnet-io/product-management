@@ -1,4 +1,4 @@
-# Data rights request capture service
+# Privacy request capture service
 
 <!-- prettier-ignore -->
 | User Stories | 07 |
@@ -14,7 +14,7 @@
 
 **As an** internet user (a submitter or a data subejct)
 
-**I want to** send Data rights request to the organization I gave my data to
+**I want to** send Privacy request to the organization I gave my data to
 
 **because** I want to exercise my rights 
 
@@ -22,29 +22,29 @@
 
 **As an** internet user (a submitter or a data subejct)
 
-**I want to** understand how to make a Data rights request
+**I want to** understand how to make a Privacy request
 
 **because** it is unclear to me and it seems complicated
 
 ### US-07-1-03
 
-**As an** internet user (a submitter or a data subejct) (Global data rights request capture service)
+**As an** internet user (a submitter or a data subejct) (Global Privacy request capture service)
 
-**I want to** easily find the address (email or postal) I need to send my Data rights request to 
+**I want to** easily find the address (email or postal) I need to send my Privacy request to 
 
 **because** it takes time and it is annoying to look for the right address 
 
 ### US-07-1-04
 
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request (Global data rights request capture service)
+**As an** internet user (a submitter or a data subejct), when creating a Privacy request (Global Privacy request capture service)
 
-**I want to** have a proposition of addresses related to the organization I want to address my Data rights request to, if the address is known
+**I want to** have a proposition of addresses related to the organization I want to address my Privacy request to, if the address is known
 
 **because** it saves me time and it is convenient
 
 ### US-07-1-05
 
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request (Global data rights request capture service)
+**As an** internet user (a submitter or a data subejct), when creating a Privacy request (Global Privacy request capture service)
 
 **I want to** add the address of the organization I am sending my request to, that doesn't use blindnet devkit/Privaform, and be able to easily access it next time
 
@@ -52,7 +52,7 @@
 
 ### US-07-1-06
 
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
+**As an** internet user (a submitter or a data subejct), when creating a Privacy request
 
 **I want** be able to make any of the requests mentionned in the [requests list of this document](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md)
 
@@ -60,7 +60,7 @@
 
 ### US-07-1-07
 
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
+**As an** internet user (a submitter or a data subejct), when creating a Privacy request
 
 **I want to** send several demands per request
 
@@ -68,17 +68,17 @@
 
 ### US-07-1-08
 
-**As an** internet user (a submitter or a data subejct), when creating a Data rights request
+**As an** internet user (a submitter or a data subejct), when creating a Privacy request
 
 **I want to** modify my address and to modify a field from an allergy record 
 
 **because** because I just moved and also dicovered I have a new allergy
 
-## 07-2 Organization receiving Data rights request (Global data rights request capture service)
+## 07-2 Organization receiving Privacy request (Global Privacy request capture service)
 
 ### US-07-2-01
 
-**As an** organization (not using blindnet devkit) receiving Data rights request 
+**As an** organization (not using blindnet devkit) receiving Privacy request 
 
 **I want to** know the request I received has been sent by blindnet Data rights request capture service and be informed about Privateform
 
@@ -86,7 +86,7 @@
 
 ### US-07-2-02
 
-**As an** organization (not using blindnet devkit) receiving Data rights request 
+**As an** organization (not using blindnet devkit) receiving Privacy request 
 
 **I want to** be able to recognize the user who made the request in my system
 
@@ -94,37 +94,37 @@
 
 ### US-07-2-03
 
-**As an** organization, using blindnet devkit, receiving Data rights request 
+**As an** organization, using blindnet devkit, receiving Privacy request 
 
-**I want to** receive the request in the Data rights request section of my system/my Privatefrom account
+**I want to** receive the request in the Privacy request section of my system/my Privatefrom account
 
-**because** it is more convenient for me to have all my Data rights requests centralised
+**because** it is more convenient for me to have all my Privacy requests centralised
 
 ### US-07-2-04
 
-**As an** organization (using or not using blindnet devkit) receiving Data rights request
+**As an** organization (using or not using blindnet devkit) receiving Privacy request
 
 **I want to** transfer the request to another organization if the request concerns data I transfered to another organization
 
 **because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transfered the user's data to to also delete the data
 
-## 07-3 Organization using Local data rights request capture service
+## 07-3 Organization using Local Privacy request capture service
 
 ### US-07-3-01
 
-**As an** organization, using blindnet devkit, receiving Data rights request
+**As an** organization, using blindnet devkit, receiving Privacy request
 
-**I want to** have an entry point for the Data rights request service embedded on the GDPR section of my website
+**I want to** have an entry point for the Privacy request service embedded on the GDPR section of my website
 
-**because** my customers might direclty go to my website to make their Data rights request, and it is easier for my cutomers and for me to use this service
+**because** my customers might direclty go to my website to make their Privacy request, and it is easier for my cutomers and for me to use this service
 
 ### US-07-3-02
 
-**As an** organization, using blindnet devkit, receiving Data rights request
+**As an** organization, using blindnet devkit, receiving Privacy request
 
-**I want to** receive the Data rights requests in a format that is compatible with my system
+**I want to** receive the Privacy requests in a format that is compatible with my system
 
-**because** otherwise I cannot use blindnet devkit to for data rights request capture 
+**because** otherwise I cannot use blindnet devkit to for Privacy request capture 
 
 
 ### US-07-3-03
