@@ -128,6 +128,7 @@
 
 
 ### US-07-3-03
+
 **As an** organization, using blindnet devkit
 
 **I want to** only use some of the components, a subset of the scope of blindnet devkit for things I don't have yet
@@ -135,6 +136,7 @@
 **because** I want to continue using my existing interface that already covers some of my compliance needs
 
 ### US-07-3-04
+
 **As an** organization, using blindnet devkit
 
 **I want to** only use some of the components, a subset of the scope of blindnet devkit for things I don't have yet
@@ -142,6 +144,7 @@
 **because** I want to continue using my existing system that already covers some of my compliance needs (e.g my system already allows users to log in and modify data adresses, preferences etc - on Amazon, Facebook, etc)
 
 ### US-07-3-05
+
 **As an** organization, using blindnet devkit
 
 **I want to** use the whole blindnet devkit to automate the processing of requests
@@ -149,6 +152,7 @@
 **because** I don't have any system that covers my compliance needs, I do everything manually
 
 ### US-07-3-06
+
 **As an** organization, using blindnet devkit
 
 **I want to** use blindnet devkit to automate the processing of requests except for "other" type of request
@@ -156,14 +160,15 @@
 **because** I need to process "other" type of request manually 
 
 ### US-07-3-07
+
 **As a** developper from an organization, using blindnet devkit
 
 **I want to** use only the capture interface component (from the HLA) to generate a json file for a request
 
-**because** this all I need, as I want to handle the file and import it to some other system 
-
+**because** this is all I need, as I want to handle the file and import it to some other system 
 
 ### US-07-3-08
+
 **As a** developper from an organization, using blindnet devkit
 
 **I want to** use the capture interface component and the data consumer interace component (from the HLA)
@@ -171,6 +176,7 @@
 **because** I need to generate a JSON file for the requests and also to view the requests. From there I will treat the requests manually
 
 ### US-07-3-09
+
 **As a** developper from an organization, using blindnet devkit
 
 **I want to** configure the data rights computation engine component (from the HLA) in my system with information about server locations, privacy policy, data types, organisation identity etc (cf. list of TRANSPARENCY actions from the [PRIV examples](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md))
