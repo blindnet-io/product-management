@@ -162,7 +162,7 @@ Privacy Scope = (Data Categories) x (Categories of Processing) x (Purposes of Pr
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `data-categories` |  0-* | `AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER` or any [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
+| `data-categories` |  0-* | `AFFILIATION`, `AFFILIATION.MEMBERSHIP`, `AFFILIATION.SCHOOL`, `AFFILIATION.WORKPLACE`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BEHAVIOR.RELATIONSHIPS`, `BEHAVIOR.TELEMETRY`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEMOGRAPHIC.SEXUAL-ORIENTATION`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`, `PROFILING`, `RELATIONSHIPS`, `UID`,  `OTHER` or any [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
 
 When several values are given, Systems MUST interpret the `data-category` dimension as a union of all the categories indicated.
 
