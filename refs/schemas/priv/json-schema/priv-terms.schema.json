@@ -48,6 +48,7 @@
           "DEMOGRAPHIC.GENDER",
           "DEMOGRAPHIC.ORIGIN",
           "DEMOGRAPHIC.RACE",
+          "DEMOGRAPHIC.SEXUAL-ORIENTATION",
           "DEVICE",
           "FINANCIAL",
           "FINANCIAL.BANK-ACCOUNT",
