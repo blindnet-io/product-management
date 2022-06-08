@@ -38,68 +38,68 @@ In the following examples we show how, requests introduced by different regulati
 
 *...the controller shall, ..., provide the data subject with all of the following information:*
 
-| CODENAME | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` |
-| -------- | ----------------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| `GDPR.13.1.a`, `GDPR.14.1.a` | the identity and the contact details of the controller and, where applicable, of the controller’s representative | `TRANSPARENCY.ORGANISATION` | `null` | `null` | `null` |
-| `GDPR.13.1.b`, `GDPR.14.1.b` | the contact details of the data protection officer, where applicable; | `TRANSPARENCY.DPO` | `null` | `null` | `null` |
-| `GDPR.13.1.c`, `GDPR.14.1.c` | the purposes of the processing for which the personal data are intended  | `TRANSPARENCY.PURPOSE` | `null` | `null` | `null` |
-| `GDPR.13.1.c`, `GDPR.14.1.c` | ... legal basis for the processing |  `TRANSPARENCY.LEGAL-BASES` | `null` | `null` | `null` |
-| `GDPR.13.1.d`, `GDPR.14.1.d` | where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party | `TRANSPARENCY.LEGAL-BASES` | `null` | `null` | `null` |
-| `GDPR.13.1.e`, `GDPR.14.1.e` | the recipients or categories of recipients of the personal data, if any; | `TRANSPARENCY.WHO` | `null` | `null` | `null` |
-| `GDPR.13.1.f`, `GDPR.14.1.f` | where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation | `TRANSPARENCY.WHERE` | `null` | `null` | `null` |
-| `GDPR.13.1.f`, `GDPR.14.1.f` | the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available. | `OTHER` | `null` | `null` | `null` |
-| `GDPR.13.2.a`, `GDPR.14.2.a` | the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period | `TRANSPARENCY.RETENTION` | `null` | `null` | `null` |
-| `GDPR.13.2.b`, `GDPR.14.2.b` | the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or to object to processing as well as the right to data portability | `TRANSPARENCY.POLICY` | `null` | `null` | `null` |
-| `GDPR.13.2.c`, `GDPR.14.2.c` | where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal | `TRANSPARENCY.POLICY` | `null` | `null` | `null` |
-| `GDPR.13.2.d`, `GDPR.14.2.d` | the right to lodge a complaint with a supervisory authority | `TRANSPARENCY.POLICY` | `null` | `null` | `null` |
-| `GDPR.13.2.e`, `GDPR.14.2.e` | whether the provision of personal data is a statutory or contractual requirement, or a requirement necessary to enter into a contract, as well as whether the data subject is obliged to provide the personal data  |  `TRANSPARENCY.PURPOSE` | `null` | `null` | `null` |
-| `GDPR.13.2.e`, `GDPR.14.2.e` | ... and of the possible consequences of failure to provide such data | `TRANSPARENCY.POLICY` | `null` | `null` | `null` |
-| `GDPR.13.2.f`, `GDPR.14.2.f` | the existence of automated decision-making, including profiling | `TRANSPARENCY.PROCESSING` | `null` | `null` | `null` |
-| `GDPR.13.2.f`, `GDPR.14.2.g` | the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject. | `TRANSPARENCY.POLICY` | `null` | `null` | `null` |
-| `GDPR.14.2.f` | from which source the personal data originate, and if applicable, whether it came from publicly accessible sources; | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` |
+| Law | Demande (as introduced by regulation) | Representation |
+| -------- | ----------------------------------------------------- | ------------ | 
+| `GDPR.13.1.a`, `GDPR.14.1.a` | the identity and the contact details of the controller and, where applicable, of the controller’s representative | action:`TRANSPARENCY.ORGANISATION` |
+| `GDPR.13.1.b`, `GDPR.14.1.b` | the contact details of the data protection officer, where applicable; | action:`TRANSPARENCY.DPO` |
+| `GDPR.13.1.c`, `GDPR.14.1.c` | the purposes of the processing for which the personal data are intended  | action:`TRANSPARENCY.PURPOSE` |
+| `GDPR.13.1.c`, `GDPR.14.1.c` | ... legal basis for the processing | action:`TRANSPARENCY.LEGAL-BASES` |
+| `GDPR.13.1.d`, `GDPR.14.1.d` | where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party | action:`TRANSPARENCY.LEGAL-BASES` |
+| `GDPR.13.1.e`, `GDPR.14.1.e` | the recipients or categories of recipients of the personal data, if any; | action:`TRANSPARENCY.WHO` |
+| `GDPR.13.1.f`, `GDPR.14.1.f` | where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation | action:`TRANSPARENCY.WHERE` |
+| `GDPR.13.1.f`, `GDPR.14.1.f` | the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available. | action:`OTHER` |
+| `GDPR.13.2.a`, `GDPR.14.2.a` | the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period | action:`TRANSPARENCY.RETENTION` |
+| `GDPR.13.2.b`, `GDPR.14.2.b` | the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or to object to processing as well as the right to data portability | action:`TRANSPARENCY.POLICY` |
+| `GDPR.13.2.c`, `GDPR.14.2.c` | where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal | action:`TRANSPARENCY.POLICY` |
+| `GDPR.13.2.d`, `GDPR.14.2.d` | the right to lodge a complaint with a supervisory authority | action:`TRANSPARENCY.POLICY` |
+| `GDPR.13.2.e`, `GDPR.14.2.e` | whether the provision of personal data is a statutory or contractual requirement, or a requirement necessary to enter into a contract, as well as whether the data subject is obliged to provide the personal data  | action:`TRANSPARENCY.PURPOSE` |
+| `GDPR.13.2.e`, `GDPR.14.2.e` | ... and of the possible consequences of failure to provide such data | action:`TRANSPARENCY.POLICY` |
+| `GDPR.13.2.f`, `GDPR.14.2.f` | the existence of automated decision-making, including profiling | action:`TRANSPARENCY.PROCESSING` |
+| `GDPR.13.2.f`, `GDPR.14.2.g` | the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject. | action:`TRANSPARENCY.POLICY` |
+| `GDPR.14.2.f` | from which source the personal data originate, and if applicable, whether it came from publicly accessible sources; | action:`TRANSPARENCY.PROVENANCE` |
 
 #### Article 15.1
 
 *The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed*
 
-| LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` |
-| -------- | ----------------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| `GDPR.15.1` | confirmation as to whether or not personal data concerning him or her are being processed  | `TRANSPARENCY.KNOW` | `null` | `null` | `null` |
+| LAW | Demande (as introduced by regulation) | Representation |
+| -------- | ----------------------------------------------------- | ------------ |
+| `GDPR.15.1` | confirmation as to whether or not personal data concerning him or her are being processed  | action:`TRANSPARENCY.KNOW` |
 
 *and, where that is the case, access to the personal data and the following information:*
 
-| LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` |
+| LAW | Demande (as introduced by regulation) | Representation |
 | -------- | ----------------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| `GDPR.15.1.a` | the purposes of the processing  | `TRANSPARENCY.PURPOSE` | `null` | `null` | `null` |
-| `GDPR.15.1.b` | the categories of personal data concerned | `TRANSPARENCY.DATA-CATEGORIES` | `null` | `null` | `null` |
-| `GDPR.15.1.c` | the recipients or categories of recipient to whom the personal data have been or will be disclosed, in particular recipients in third countries or international organisations;  | `TRANSPARENCY.WHO` | `null` | `null` | `null` |
-| `GDPR.15.1.d` | where possible, the envisaged period for which the personal data will be stored, or, if not possible, the criteria used to determine that period;  | `TRANSPARENCY.RETENTION` | `null` | `null` | `null` |
-| `GDPR.15.1.e` | the existence of the right to request from the controller rectification or erasure of personal data or restriction of processing of personal data concerning the data subject or to object to such processing;  | `TRANSPARENCY.POLICY` | `null` | `null` | `null` |
-| `GDPR.15.1.f` | the right to lodge a complaint with a supervisory authority  | `TRANSPARENCY.POLICY` | `null` | `null` | `null` |
-| `GDPR.15.1.g` | where the personal data are not collected from the data subject, any available information as to their source  | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` |
-| `GDPR.15.1.h` | the existence of automated decision-making, including profiling  | `TRANSPARENCY.PROCESSING` | `null` | `null` | `null` |
-| `GDPR.15.1.h` | the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject  | `TRANSPARENCY.POLICY` | `null` | `null` | `null` |
+| `GDPR.15.1.a` | the purposes of the processing  | action:`TRANSPARENCY.PURPOSE` | 
+| `GDPR.15.1.b` | the categories of personal data concerned | action:`TRANSPARENCY.DATA-CATEGORIES` |
+| `GDPR.15.1.c` | the recipients or categories of recipient to whom the personal data have been or will be disclosed, in particular recipients in third countries or international organisations;  | action:`TRANSPARENCY.WHO` |
+| `GDPR.15.1.d` | where possible, the envisaged period for which the personal data will be stored, or, if not possible, the criteria used to determine that period;  | action:`TRANSPARENCY.RETENTION` |
+| `GDPR.15.1.e` | the existence of the right to request from the controller rectification or erasure of personal data or restriction of processing of personal data concerning the data subject or to object to such processing;  | action:`TRANSPARENCY.POLICY` |
+| `GDPR.15.1.f` | the right to lodge a complaint with a supervisory authority  | action:`TRANSPARENCY.POLICY` |
+| `GDPR.15.1.g` | where the personal data are not collected from the data subject, any available information as to their source  | action:`TRANSPARENCY.PROVENANCE` |
+| `GDPR.15.1.h` | the existence of automated decision-making, including profiling  | action:`TRANSPARENCY.PROCESSING` |
+| `GDPR.15.1.h` | the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject  | action:`TRANSPARENCY.POLICY` |
 
 >**Note**
 >
 > To make a request to know if the System has data on them (`GDPR.15.1`) and know about the purposes of processing of that data, the Data Subject MUST make a request with two demands, one `TRANSPARENCY.KNOW` and one `TRANSPARENCY.PURPOSE`
 #### Article 15.2 and 15.3
 
-| LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` |
-| -------- | ----------------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| `GDPR.15.2` | Where personal data are transferred to a third country or to an international organisation, the data subject shall have the right to be informed of the appropriate safeguards pursuant to Article 46 relating to the transfer  | `TRANSPARENCY.POLICY` | `null` | `null` | `null` |
-| `GDPR.15.3` | The controller shall provide a copy of the personal data undergoing processing.  | `ACCESS` | `null` | `null` | `null` |
+| LAW | Demande (as introduced by regulation) | Representation |
+| -------- | ----------------------------------------------------- | ------------ |
+| `GDPR.15.2` | Where personal data are transferred to a third country or to an international organisation, the data subject shall have the right to be informed of the appropriate safeguards pursuant to Article 46 relating to the transfer | action:`TRANSPARENCY.POLICY` | 
+| `GDPR.15.3` | The controller shall provide a copy of the personal data undergoing processing | action:`ACCESS` |
 
 #### Article 16-22
 
-| LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` |
-| -------- | ----------------------------------------------------- | ------------ | ------------ | ------------ | ------------ |
-| `GDPR.16` | The data subject shall have the right to obtain from the controller without undue delay the rectification of inaccurate personal data concerning him or her. 2Taking into account the purposes of the processing, the data subject shall have the right to have incomplete personal data completed, including by means of providing a supplementary statement.  | `MODIFY` | `null` | `null` | `null` |
-| `GDPR.17` | The data subject shall have the right to obtain from the controller the erasure of personal data concerning him | `DELETE` | `null` | `null` | `null` |
-| `GDPR.18` | The data subject shall have the right to obtain from the controller restriction of processing | `RESTRICT` | `null` | `null` | `null` |
-| `GDPR.20` | The data subject shall have the right to receive the personal data concerning him or her, which he or she has provided to a controller, in a structured, commonly used and machine-readable format and have the right to transmit those data to another controller without hindrance from the controller to which the personal data have been provided | `PORTABILITY` | `null` | `null` | `null` |
-| `GDPR.21` | The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her which is based on point (e) or (f) of Article 6(1), including profiling based on those provisions.  *(note: 21.2 is not yet supported by the schema)*| `**RESTRICT?**` | `null` | `**+all?**` | `null` |
-| `GDPR.22` | The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her | `RESTRICT` | `null` | `AUTOMATED-DECISION-MAKING` | `null` |
+| LAW | Demande (as introduced by regulation) | Representation |
+| -------- | ----------------------------------------------------- | ------------ |
+| `GDPR.16` | The data subject shall have the right to obtain from the controller without undue delay the rectification of inaccurate personal data concerning him or her. 2Taking into account the purposes of the processing, the data subject shall have the right to have incomplete personal data completed, including by means of providing a supplementary statement.  | action:`MODIFY` |
+| `GDPR.17` | The data subject shall have the right to obtain from the controller the erasure of personal data concerning him | action:`DELETE` |
+| `GDPR.18` | The data subject shall have the right to obtain from the controller restriction of processing | action:`RESTRICT` |
+| `GDPR.20` | The data subject shall have the right to receive the personal data concerning him or her, which he or she has provided to a controller, in a structured, commonly used and machine-readable format and have the right to transmit those data to another controller without hindrance from the controller to which the personal data have been provided | action:`PORTABILITY` |
+| `GDPR.21` | The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her which is based on point (e) or (f) of Article 6(1), including profiling based on those provisions.  *(note: 21.2 is not yet supported by the schema)*| action:`RESTRICT` |
+| `GDPR.22` | The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her | action:`RESTRICT`, processing-category:`AUTOMATED-DECISION-MAKING` | 
 
 
 
