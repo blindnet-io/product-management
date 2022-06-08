@@ -104,9 +104,9 @@
 
 **As an** organization (using or not using blindnet devkit) receiving Privacy request
 
-**I want to** transfer the request to another organization if the request concerns data I transfered to another organization
+**I want to** transfer the request to another organization if the request concerns data I transfered to another organization or data I got from another organization
 
-**because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transfered the user's data to to also delete the data
+**because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transfered the user's data or I got the user's data from to to also delete the data
 
 ## 07-3 Organization using Local Privacy request capture service
 
