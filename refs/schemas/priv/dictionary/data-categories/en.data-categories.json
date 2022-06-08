@@ -23,7 +23,7 @@
   "DEMOGRAPHIC.SEXUAL-ORIENTATION": "Data related to sexual orientation"
   "DEVICE": "Data about the device used by a person",
   "FINANCIAL": "Payment data, financial history and data about the financial situation of a person",
-  "FINANCIAL.BANK-ACCOUNT": "Bank account number and Bank identifier",
+  "FINANCIAL.BANK-ACCOUNT": "Account number for a payment card, bank account, or other financial system",
   "GENETIC": "Genetic data",
   "HEALTH": "Data about the health",
   "IMAGE": "Any graphic representation (e.g., image, video) of the person",
