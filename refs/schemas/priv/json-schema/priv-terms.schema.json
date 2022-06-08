@@ -62,7 +62,10 @@
           "NAME",
           "PROFILING",
           "RELATIONSHIPS",
-          "UID"
+          "UID",
+          "UID.USER-ACCOUNT",
+          "UID.SOCIAL-MEDIA",
+          "OTHER",
         ]
       },
       "processing-categories": {
