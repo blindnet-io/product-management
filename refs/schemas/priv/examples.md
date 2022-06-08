@@ -342,9 +342,9 @@ Transcend proposes the following [treatment types](https://github.com/transcend-
 | PERSONALIZATION | For providing user with a personalized experience | processing-category:`**any/all**`, purpose:`PERSONALISATION` |
 | OPERATION_SECURITY | For product operation and security, enforcement of terms of service, fraud prevention, protecting users and property, etc. | processing-category:`**any/all**`, purpose:`SECURITY` |
 | LEGAL | For compliance with legal obligations | processing-category:`**any/all**`, purpose:`COMPLIANCE` |
-| TRANSFER | For data that was transferred as part of a change in circumstance (e.g. a merger or acquisition) | processing-category:`**any/all**`, purpose:`OTHER` |
+| TRANSFER | For data that was transferred as part of a change in circumstance (e.g. a merger or acquisition) | processing-category:`COLLECTION`, provenance:`TRANSFERRED` |
 | SALE | For selling the data to third parties | processing-category:`**any/all**`, purpose:`SALE` |
-| HR | For personnel training, recruitment, payroll, management, etc. | processing-category:`**any/all**`, purpose:`COMPLIANCE` |
+| HR | For personnel training, recruitment, payroll, management, etc. | processing-category:`**any/all**`, purpose:`EMPLOYMENT` |
 | OTHER | Other specific purpose not covered above | processing-category:`**any/all**`, purpose:`OTHER` |
 | UNSPECIFIED | The purpose is not explicitly stated or is unclear | processing-category:`**any/all**`, purpose:`OTHER` |
 
