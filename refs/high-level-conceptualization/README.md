@@ -133,7 +133,7 @@ Also, rights have states, meaning that in a particular state, a particular type 
 Data Capture Fragments are subject to versioning. A particuler data fragment can evolve as a result of:
 - **Changes** by Data Subject during submission
 - **Rights Requests** by Data Subject asking to modify the data
-- **Modifications** by Data Consumers (e.g., within modificaiton requests, or through common featues for user profile modification, or any other way) and DPOs (when the new data is collected offline from the Data Subject)
+- **Modifications** by Data Consumers (e.g., within modification requests, or through common features for user profile modification, or any other way) and DPOs (when the new data is collected offline from the Data Subject)
 
 Rights Request to modify data must be compatible with the versioning of Data Capture Fragments and allow for automatic update upon Rights Request acceptance.
 
