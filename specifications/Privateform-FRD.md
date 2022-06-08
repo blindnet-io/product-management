@@ -12,15 +12,15 @@ Doctors have accounts on PrivateForm Light, where they can login, see and update
 
 _Server_ - PrivateForm Light backend server.
 
-_Doctor_ - Registered user of the Server.
+_Data Consumer_ - Registered user of the Server.
 
-_Patient_ - Unregistered user who fills and submits the forms sent by a Doctor.
+_Submitter_ - Unregistered user who fills and submits the forms sent by a Doctor.
 
 _Interface_ - PrivateForm Light frontend (UI).
 
 _Form_ - A form on the web page on PrivateForm Light where Patients fill their Medical data and Metadata.
 
-Medical data - Healthcare related data about Patients, filled by Patients on the Form
+_Data_ - Data about data subject, filled by Submitter on the Form 
 
 Metadata - Data related to Patients and Medical data
 * id
