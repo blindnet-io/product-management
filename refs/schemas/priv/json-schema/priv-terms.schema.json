@@ -31,6 +31,9 @@
       "data-categories": {
         "enum": [
           "AFFILIATION",
+          "AFFILIATION.WORKPLACE",
+          "AFFILIATION.SCHOOL",
+          "AFFILIATION.MEMBERSHIP",
           "BEHAVIOR",
           "BEHAVIOR.ACTIVITY",
           "BEHAVIOR.CONNECTION",
