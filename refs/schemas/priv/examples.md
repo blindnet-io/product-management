@@ -363,7 +363,7 @@ Transcend proposes the following [data categories](https://github.com/transcend-
 | USER_PROFILE | he user’s profile on the first-party website/app and its contents | data-category:`UID.USER-ACCOUNT` |
 | SOCIAL_MEDIA | User profile and data from a social media website/app or other third party service | data-category:`UID.SOCIAL-MEDIA` |
 | CONNECTION | Connection information for the current browsing session, e.g. device IDs, MAC addresses, IP addresses, etc. | data-category:`DEVICE`,`BEHAVIOR.CONNECTION` |
-| TRACKING | Cookies and tracking elements | data-category:`BEHAVIOR` |
+| TRACKING | Cookies and tracking elements | data-category:`BEHAVIOR`, purpose:`TRACKING` |
 | DEVICE | Computer or device information | data-category:`DEVICE` |
 | SURVEY | Any data that is collected through surveys | data-category:`OTHER` |
 | OTHER | A specific type of information not covered by the above categories | data-category:`OTHER` |
