@@ -360,8 +360,8 @@ Transcend proposes the following [data categories](https://github.com/transcend-
 | DEMOGRAPHIC | Demographic Information | data-category:`DEMOGRAPHIC` |
 | ID | Identifiers that uniquely identify a person | data-category:`UID` |
 | ONLINE_ACTIVITY | The user's online activities on the first party website/app or other websites/apps | data-category:`BEHAVIOR.ACTIVITY` |
-| USER_PROFILE | he user’s profile on the first-party website/app and its contents | data-category:`OTHER` |
-| SOCIAL_MEDIA | User profile and data from a social media website/app or other third party service | data-category:`OTHER`,`BEHAVIOR.RELATIONSHIPS` |
+| USER_PROFILE | he user’s profile on the first-party website/app and its contents | data-category:`UID.USER-ACCOUNT` |
+| SOCIAL_MEDIA | User profile and data from a social media website/app or other third party service | data-category:`UID.SOCIAL-MEDIA` |
 | CONNECTION | Connection information for the current browsing session, e.g. device IDs, MAC addresses, IP addresses, etc. | data-category:`DEVICE`,`BEHAVIOR.CONNECTION` |
 | TRACKING | Cookies and tracking elements | data-category:`BEHAVIOR` |
 | DEVICE | Computer or device information | data-category:`DEVICE` |
