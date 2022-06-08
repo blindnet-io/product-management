@@ -2,11 +2,15 @@
 
 This document describes functional requirements for the [PrivateForm](https://form.blindnet.io/).
 
+-------------------------------------------------------------------------------------------------
+
 ## Background
 
 PrivateForm is a web application for doctors. It allows doctors to securely collect data from their patients in an end-to-end encrypted workflow. Patients access online forms where they answer a set of questions, after which the form is encrypted and sent to PrivateForm. There are two possible forms for patients to fill (COVID-19 and general medical form). 
 
 Doctors have accounts on PrivateForm Light, where they can login, see and update all their patient’s data. For more details see interaction and design documents.
+
+-------------------------------------------------------------------------------------------------
 
 ## Glossary
 
@@ -29,12 +33,15 @@ Metadata - Data related to Patients and Medical data
 * datetime when a form is filled
 * type of the filled form
 
+-------------------------------------------------------------------------------------------------
+
 ## Functional Requirements
 
 This section describes functional requirements for the backend (FR-BExx) and frontend (FR-FExx).
 
 _**FR-FE01.** The System must allow users to set up 2FA._
 
+-------------------------------------------------------------------------------------------------
 
 ### Account creation and logging in
 
@@ -95,6 +102,8 @@ _**FR-FE06.** The Interface must allow a Doctor to update her information._
 
 Same workflow as FR-FE03.
 
+-------------------------------------------------------------------------------------------------
+
 ### Sending Forms
 
 _**FR-FE07.** The Interface must show the Form links and allow a Doctor to copy the link of any of the Forms_
@@ -119,6 +128,8 @@ Upon receiving the request the Server sends an email to the Patient. Emails must
 
 _**FR-BE06.** The Server must allow blindet to customize emails through configurable templates._
 
+-------------------------------------------------------------------------------------------------
+
 ### Filling and uploading the data
 
 _**FR-FE09.** The Form must allow a Patient to fill out the data and to submit it encrypted to a Doctor._
@@ -142,11 +153,15 @@ The Server accepts the Medical data in a request containing:
 
 FR-BE07-2. If a form contains files, the Form must send file IDs to a Server for it to store them.
 
+-------------------------------------------------------------------------------------------------
+
 ### Resubmitting the data
 
 _**FR-BE08** The Server must be able to accept duplicates of encrypted Medical data._
 
 When a Patient with the same email fills a Form for the second time for the same doctor, new data will be saved in addition to the old data (a Doctor will have two form data for the same patient).
+
+-------------------------------------------------------------------------------------------------
 
 ### Reading and managing the data (related to Search)
 
@@ -214,7 +229,9 @@ Input:
 
 Output:
 * list of
-    * IDs of files submitted in a given foformmr
+    * IDs of files submitted in a given form
+
+-------------------------------------------------------------------------------------------------
 
 ### Deleting the data
 
@@ -230,6 +247,7 @@ The Server deletes Medical data and metadata in a request containing medical_dat
 
 If the data contained files, the server must delete all files from Azure.
 
+-------------------------------------------------------------------------------------------------
 
 ### Updating the data
 
@@ -252,6 +270,8 @@ Response:
 * Status (OK/error)
 
 The Server deletes all data related to _old_medical_data_id_, and stores new encrypted medical data. The _new_medical_data_id _must be inserted in the corresponding metadata record, and the metadata record must update the medical data id with the _new_medical_data_id._
+
+-------------------------------------------------------------------------------------------------
 
 ### GDPR compliance
 
@@ -298,6 +318,8 @@ Figma ref : [GDPR personnalisation 1](https://www.figma.com/file/dkfknQnwNhCTGOM
 _**FR-GDPR-09.** The System must allow a Doctor to specify delete duration and automatically delete a submitted form after that duration expires._
 
 If a Doctor sets a duration of X days, every form must be automatically deleted on the Xth day after it has been submitted. 
+
+-------------------------------------------------------------------------------------------------
 
 #### View
 
@@ -430,6 +452,8 @@ _**FR-GDPR-BE-06.** The Server must accept the rejection of the GDPR view reques
 
 Once the Server receives the data, it must create a unique link for the request response, and email that link to a Patient informing him about the rejection. Patient consumes Doctor’s response in the same way as he would consume the forms if the request was accepted (workflow in FR-GDPR-FE-06)
 
+-------------------------------------------------------------------------------------------------
+
 #### Modify
 
 _The GDPR modify request workflows are the same as those for the view request. The difference is in the possibility for a patient to modify his data, and the option for the doctor to manage modifications, as described in the FRs below._
@@ -484,6 +508,8 @@ Figma ref: [4-2.2](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Ske
 _**FR-GDPR-FE-14.** The Interface must give a Doctor a note about an existing modification request if a Doctor wants to access a form that was modified but the request was not treated._
 
 If a Doctor clicks on a form while browsing forms in the COVID/History tab, and if that form has been modified by the Patient but the Doctor has not yet approved or rejected the modification, the Interface should show the old form together with a note that there is a new form and that the Doctor should take action.
+
+-------------------------------------------------------------------------------------------------
 
 #### Deletion
 
@@ -558,6 +584,8 @@ To view the response, the Patient visits a GDPR link that has been created for h
 
 Figma ref: [4-1.10](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=376%3A516)
 
+-------------------------------------------------------------------------------------------------
+
 #### Other (GDPR)
 
 _**FR-GDPR-FE-20.** The Interface must allow a Doctor to see already treated GDPR requests._**
@@ -578,6 +606,8 @@ _**FR-GDPR-FE-21.** The Interface must allow a Doctor to export a PDF with detai
 Details include request submission date, acceptance/rejected date, Patient’s access date (if any), and a Doctor’s response (if any).
 
 Figma ref: [4-2.3](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketches?node-id=242%3A1014)
+
+-------------------------------------------------------------------------------------------------
 
 ### Search
 
@@ -643,6 +673,8 @@ Forms in the results must be orderable according to submission date, in ascendin
 
 _**FR-SEARCH-FE-09.** The Interface must clear the form metadata from the browser after a Doctor logs out._
 
+-------------------------------------------------------------------------------------------------
+
 ### Other
 
 _**FR-FE19.** The Interface must allow a Doctor to download the Medical data as a PDF file._
@@ -673,6 +705,8 @@ Deleting an account implies deleting all Doctor’s data + all of her Patients�
 
 After an account is deleted, a confirmation email is sent to a Doctor.
 
+-------------------------------------------------------------------------------------------------
+
 ## Password change workflow
 
 Legend:
@@ -699,6 +733,8 @@ User login workflow: call PF backend and try to regularly login a user by lookin
     - b. If it’s a success, create a token and connect to blindnet at the front-end
         - i. If the SDK throws an error, that means step 2a failed. Show an error about the wrong password and call the server to set the “NewPassword” to NULL. 
         - ii. If SDK successfully connects, that means step 3b failed. Log in the user. Asynchronously call the server to copy the “NewPassword” value into “Password” and set NewPassword to NULL.
+
+-------------------------------------------------------------------------------------------------
 
 ## Privateform GDPR workflows
 
