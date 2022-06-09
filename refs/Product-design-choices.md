@@ -30,6 +30,6 @@ In all other situations, no overlapping interface elements should be used.
 A security system is only as secure as its secret. Yet, password strength can be achieved in many different ways. When blindnet’s software is used by other software systems, it can operate regardless of the particular password strength policies in place in those systems.
 
 User-facing components of blindnet’s system prefer:
--	objective measures of Password Strength (such as entropy) over arbitrary constrains
+-	objective measures of Password Strength (such as Shannon entropy) over arbitrary constrains
 -	length of passwords over complexity of passwords
 -	to educate, inform and support various ways to reach password strength rather than impose a rigid set of constrains
