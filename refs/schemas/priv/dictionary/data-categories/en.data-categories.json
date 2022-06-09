@@ -1,9 +1,14 @@
 {
-  "AFFILIATION": "Goups and Organisations the person is linked to through work, studies, or membership",
+  "AFFILIATION": "Groups and Organisations the person is linked to through work, studies, or membership",
+  "AFFILIATION.MEMBERSHIP": "Groups and organisations memberships",
+  "AFFILIATION.SCHOOL": "Studies organisation",
+  "AFFILIATION.WORKPLACE": "Work organisation",
   "BEHAVIOR": "Data about the person's behavior",
-  "BEHAVIOR.CONNECTION": "Times of connection",
   "BEHAVIOR.ACTIVITY": "Activities perfomed online or off-line",
+  "BEHAVIOR.CONNECTION": "Times of connection",
   "BEHAVIOR.PREFERENCE": "Data about the person's preferences",
+  "BEHAVIOR.RELATIONSHIPS": "Social activity and interaction data",
+  "BEHAVIOR.TELEMETRY": "Measurement data from system sensors and monitoring",
   "BIOMETRIC": "Biometric data",
   "CONTACT": "Data allowing to contact the person", 
   "CONTACT.EMAIL": "E-mail address", 
@@ -17,8 +22,8 @@
   "DEMOGRAPHIC.RACE": "Data related to race",
   "DEMOGRAPHIC.SEXUAL-ORIENTATION": "Data related to sexual orientation"
   "DEVICE": "Data about the device used by a person",
-  "FINANCIAL": "Data about the financial situation of a person",
-  "FINANCIAL.BANK-ACCOUNT": "Bank account number and Bank identifier",
+  "FINANCIAL": "Payment data, financial history and data about the financial situation of a person",
+  "FINANCIAL.BANK-ACCOUNT": "Account number for a payment card, bank account, or other financial system",
   "GENETIC": "Genetic data",
   "HEALTH": "Data about the health",
   "IMAGE": "Any graphic representation (e.g., image, video) of the person",
@@ -26,6 +31,8 @@
   "NAME": "First names, last names, nicknames, and other names",  
   "PROFILING": "Any data establishing a degree of similarity of the person with others (e.g., clusters, user-profiles)",
   "RELATIONSHIPS": "Data about relationships of the person with others",
-  "UID": "Any data allowing to uniquely idnetify a person",
+  "UID": "Any data allowing to uniquely identify a person",
+  "UID.USER-ACCOUNT": "Data about a person's account or profile on the first-party website/app and its contents",
+  "UID.SOCIAL-MEDIA": "Data about a person's account or profile from a social media website/app or other third party service",
   "OTHER": "Other data"
 }

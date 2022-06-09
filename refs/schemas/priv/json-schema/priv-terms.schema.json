@@ -31,10 +31,15 @@
       "data-categories": {
         "enum": [
           "AFFILIATION",
+          "AFFILIATION.WORKPLACE",
+          "AFFILIATION.SCHOOL",
+          "AFFILIATION.MEMBERSHIP",
           "BEHAVIOR",
           "BEHAVIOR.ACTIVITY",
           "BEHAVIOR.CONNECTION",
           "BEHAVIOR.PREFERENCE",
+          "BEHAVIOR.RELATIONSHIPS",
+          "BEHAVIOR.TELEMETRY",
           "BIOMETRIC",
           "CONTACT",
           "CONTACT.EMAIL",
@@ -46,6 +51,7 @@
           "DEMOGRAPHIC.GENDER",
           "DEMOGRAPHIC.ORIGIN",
           "DEMOGRAPHIC.RACE",
+          "DEMOGRAPHIC.SEXUAL-ORIENTATION",
           "DEVICE",
           "FINANCIAL",
           "FINANCIAL.BANK-ACCOUNT",
@@ -54,9 +60,12 @@
           "IMAGE",
           "LOCATION",
           "NAME",
-          "RELATIONSHIPS",
           "PROFILING",
-          "UID"
+          "RELATIONSHIPS",
+          "UID",
+          "UID.USER-ACCOUNT",
+          "UID.SOCIAL-MEDIA",
+          "OTHER",
         ]
       },
       "processing-categories": {
@@ -74,23 +83,24 @@
       },
       "purposes": {
         "enum": [
-          "ADVERTISING",
-          "CONTRACT",
-          "CONTRACT.BASIC-SERVICE",
-          "CONTRACT.ADDITIONAL-SERVICES",
-          "NECESSARY",
-          "NECESSARY.JUSTICE",
-          "NECESSARY.LEGAL",
-          "NECESSARY.MEDICAL",
-          "NECESSARY.PUBLIC-INTERESTS",
-          "NECESSARY.VITAL-INTERESTS",
-          "NECESSARY.SOCIAL-PROTECTION",
-          "MARKETING",
-          "PERSONALISATION",
-          "SALE",
-          "SECURITY",
-          "TRACKING",
-          "ANY"
+         "ADVERTISING",
+         "COMPLIANCE",
+         "EMPLOYMENT",
+         "JUSTICE",
+         "MARKETING",
+         "MEDICAL",
+         "PERSONALISATION",
+         "PUBLIC-INTERESTS",
+         "RESEARCH",
+         "SALE",
+         "SECURITY",
+         "SERVICES",
+         "SERVICES.ADDITIONAL-SERVICES",
+         "SERVICES.BASIC-SERVICE",
+         "SOCIAL-PROTECTION",
+         "TRACKING",
+         "VITAL-INTERESTS",
+         "OTHER",
         ]
       },
       "targets": {
@@ -132,6 +142,14 @@
         "enum": [
           "YES",
           "NO"
+        ]
+      },
+      "provenance": {
+        "enum": [
+          "DERIVED",
+          "TRANSFERRED",
+          "USER",
+          "USER.DATA-SUBJECT"
         ]
       }
     }

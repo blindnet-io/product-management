@@ -2,10 +2,9 @@
 
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
-| **PR #**      | [NNN](https://github.com/blindnet-io/PROJECT/pull/NNN) (update when you have PR #)     |
+| **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659)                      |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
-| **Sponsor**   | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
-| **Updated**   | 2022-05-25                                                                             |
+| **Updated**   | 2022-06-07                                                                             |
 
 
 
@@ -15,7 +14,10 @@ We propose a simple vocabulary for representing [Privacy Requests](https://githu
 
 The vocabulary introduces a finite set of `concepts`, `properties` and `terms`. `Concepts` define the objects of exchange, `properties` define their characteristics, and `terms` define commonly understood values of properties.
 
-This vocabulary corresponds to the [Data Privacy Request Schema](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High- Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
+This vocabulary corresponds to the [Schemas](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High-Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
+
+Two additional documents: [Examples of use](./examples.md) and [Expected Behavior of Implementing Systems](./expected-behavior.md), complement this document.
+
 
 ## Motivation
 
@@ -90,6 +92,8 @@ Data Subject is the author of a Privacy Request.
 | --------------- | ------ | -------------------- |
 | `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
 
+A Privacy Request is made by one and only one Data Subject.
+
 A System MAY have multiple ways to identify the Data Subject, especially when data about them came from some other System that uses different identifiers.
 
 The System capturing the Privacy Request MAY associate multiple Data Subject Identities to the Privacy Request, especially if the Privacy Request is likely to be transmitted to other systems.
@@ -126,7 +130,7 @@ The key element that defines the nature of the Demand is the `action`. A Demand 
 Actions are hierarchical.
 Their relationships are denoted with a dot "." separating two actions, the more general one being written on the left.
 `TRANSPARENCY` includes `TRANSPARENCY.WHERE`.
-When `TRANSPARENCY` is demanded, Systems MUST interpret the demand as if all the subcategories of `TRANSPARENCY` were demanded.
+When `TRANSPARENCY` is Demandd, Systems MUST interpret the demand as if all the subcategories of `TRANSPARENCY` were Demandd.
 
 Certain Demands MAY include data, such as a `MODIFY` Demand where new data MAY be provided by the Data Subject.
 
@@ -160,7 +164,7 @@ Privacy Scope = (Data Categories) x (Categories of Processing) x (Purposes of Pr
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `data-categories` |  0-* | `AFFILIATION`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`,`RELATIONSHIPS`,  `PROFILING`, `UID`,  `OTHER` or any [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
+| `data-categories` |  0-* | `AFFILIATION`, `AFFILIATION.MEMBERSHIP`, `AFFILIATION.SCHOOL`, `AFFILIATION.WORKPLACE`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`,   `BEHAVIOR.PREFERENCE`, `BEHAVIOR.RELATIONSHIPS`, `BEHAVIOR.TELEMETRY`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEMOGRAPHIC.SEXUAL-ORIENTATION`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`, `PROFILING`, `RELATIONSHIPS`, `UID`, UID.USER-ACCOUNT , UID.SOCIAL-MEDIA , `OTHER` or any [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
 
 When several values are given, Systems MUST interpret the `data-category` dimension as a union of all the categories indicated.
 
@@ -188,7 +192,7 @@ In the absence of indication of any `processing-categories` dimension, Systems M
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `purposes` | 0-* | `ADVERTISING`, `COMPLIANCE`, `JUSTICE`, `MARKETING`, `MEDICAL`, `PERSONALISATION`, `PUBLIC-INTERESTS`, `RESEARCH`, `SALE`, `SECURITY`, `SERVICES`, `SERVICES.ADDITIONAL-SERVICES`, `SERVICES.BASIC-SERVICE`, `SOCIAL-PROTECTION`, `TRACKING`, `VITAL-INTERESTS`, `OTHER` |
+| `purposes` | 0-* | `ADVERTISING`, `COMPLIANCE`, `EMPLOYMENT`, `JUSTICE`, `MARKETING`, `MEDICAL`, `PERSONALISATION`, `PUBLIC-INTERESTS`, `RESEARCH`, `SALE`, `SECURITY`, `SERVICES`, `SERVICES.ADDITIONAL-SERVICES`, `SERVICES.BASIC-SERVICE`, `SOCIAL-PROTECTION`, `TRACKING`, `VITAL-INTERESTS`, `OTHER` |
 
 When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated.
 
@@ -231,6 +235,17 @@ A Demand can be restricted to particular Data Range, for example the Data Subjec
 
 
 A Data Range defined by only one of the {`from`, `to`} properties indicates a period of time after or before a certain date, unbounded on the other end.
+
+###### Provenance Restriction
+
+A Demand can be restricted to particular `provenance-category`, for example the Data Subject may `OBJECT` to data that is `DERIVED` about them being shared (`processing-category`:`SHARING`), or they may want to `RESTRICT` the `SHARING` of their data only to the data that came from themselves `USER`.
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `provenance-category` | 1 | one of {`DERIVED`, `TRANSFERRED`, `USER`, `USER.DATA-SUBJECT`} |
+| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
+
+Optionally the Provenance Restriction may also include a particular [Target](#targets). E.g. the Data Subject might demand to have `ACCESS` to data that was `TRANSFERRED` by partner Systems (`target`:`PARTNERS`).
 
 #### Targets
 
@@ -278,11 +293,11 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 | `in-response-to` | 1 | `request-id` of the Privacy Request to which response is made or `demand-id` of the particular Demand to which response is made, in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Privacy Request was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `by` | 1 | **TBD ID of the System having generated the response** |
-| `requested-action` | 0-1 | Optional information about the action that was demanded, and to which the response is made. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.KNOWN`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER`} |
+| `requested-action` | 0-1 | Optional information about the action that was Demandd, and to which the response is made. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.KNOWN`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER`} |
 | `data-subject` |  0-* | Optional indication of the [Data Subject Identities](#decentralized-identity-of-data-subjects) to which the response refers to |
 | `status` | 1 | One of {`GRANTED`, `DENIED`, `PARTIALLY-GRANTED`, `UNDER-REVIEW`} |
 | `motive` | 0-* | Optionally one of {`IDENTITY-UNCONFIRMED`, `LANGUAGE-UNSUPPORTED`, `LEGAL-BASES`, `LEGAL-OBLIGATIONS`, `NO-SUCH-DATA`, `REQUEST-UNSUPPORTED`, `USER-UNKNOWN`} |
-| `answers` | 0-* | Any of the terms the meaning of which is defined by the present format and its dictionaries or an object representing a Legal Base, a Retention Policy |
+| `answers` | 0-* | Any of the terms the meaning of which is defined by the present format and its dictionaries or an object representing a Legal Base, a [Retention Policy](#retention-policy) |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
 | `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 | `includes` | 0-* | Optionally an array of one or more [Privacy Request Response](#privacy-request-response)s |
@@ -308,7 +323,7 @@ A Consent is given by one Data Subject which can be identified by one or more [D
 | `consent-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Consent was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `expires` | 0-1 | Date and Time when Consent expires in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
+| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`} to indicate the category of Systems to which consent for processing is given. In absence of indication `SYSTEM` is assumed. |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the Consent SHOULD be interpreted as unlimited |
 | `replaces` |  0-* | Optionally one or more 'consent-id's of previous consents that have became void when this consent was made |
 | `replaced-by` |  0-* | Optionally one or more 'consent-id's of previous consents that have became void when this consent was made |
@@ -324,6 +339,8 @@ A Data Capture is given by one Data Subject which can be identified by one or mo
 | `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
 | `fragments` | 1-* | One or more [Data Capture Fragments](#data-capture-fragments) |
 
+A Data Capture concerns one and only one Data Subject who MAY be identified by multiple Data Subject Identities.
+
 #### Data Capture Fragments
 
 | Property | Expected cardinality | Expected values |
@@ -331,22 +348,41 @@ A Data Capture is given by one Data Subject which can be identified by one or mo
 | `fragment-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `selector` | 1 | a string used to uniquely identify a data field (in the System's data model) to which the fragment corresponds |
 | `date` | 1 | Date and Time when data was Captured was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the fragment SHOULD be interpreted as unlimited |
 | `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
-| `retention` | 1-* | one or more Retention Policies |
+| `retention` | 1-* | one or more [Retention Policies](#retention-policy) |
+| `provenance` | 1-* | one or more [Provenance](#provenance) |
 | `data` | 0-* | Optionally concrete data (Format **TBD**) |
+| `legal-base` | 0-* | Optionally an array of values among `CONTRACT`, `CONSENT`, `LEGITIMATE-INTEREST`, `NECESSARY`, `OTHER` |
 
 `selector`s MUST include the data category of the data. For example selectors 'CONTACT.ADDRESS.SHIPPING' and 'CONTACT.ADDRESS.BILLING' indicate that the data being captured by a particular fragment belong to the `CONTACT.ADDRESS` data category.
 
-While the Data Categories are global, the selectors are defined by the Systems.
+While the Data Categories are global, the selectors are defined by the Systems. A `selector` uniquely identifies a particular data field that the Systems works with. When several Systems exchange data among them, they SHOULD align on using the same `selectors` in the same way, in order to be able to correctly interoperate.
 
-##### Legal bases
-| Property | Expected cardinality | Expected values |
-| --------------- | ------ | -------------------- |
-| `type` | 0-* | Optionally an array of values among `CONTRACT`, `CONSENT`, `LEGITIMATE-INTEREST`, `NECESSARY`, `OTHER` |
-
-Processing MAY be legitimate according to several legal bases for treatment. For example, a Data Subject can give explicit `CONSENT` when creating and account with a particular online service, and at the time, the System providing some service to the Data Subject might need to process their data in order to deliver a service or honour a `CONTRACT` (e.g. deliver the purchased goods to the Data Subjects address and issue an invoice).
+Processing MAY be legitimate according to several legal bases for processing. For example, a Data Subject can give explicit `CONSENT` when creating and account with a particular online service, and at the time, the System providing some service to the Data Subject might need to process their data in order to deliver a service or honour a `CONTRACT` (e.g. deliver the purchased goods to the Data Subjects address and issue an invoice).
 
 Certain processing is made legitimate (`LEGITIMATE-INTEREST`) or mandatory (`NECESSARY`) by law, e.g. [Article 6 og GDPR](https://gdpr-info.eu/art-6-gdpr/).
+
+##### Provenance
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `provenance-category` | 1 | one of {`DERIVED`, `TRANSFERRED`, `USER`, `USER.DATA-SUBJECT`} |
+| `system` | 1 | System ID (**Format TBD**) |
+
+Data provenance is interpreted in relation to a particular System.
+The same Data Capture Fragment might be data collected from the `USER` for one System that is in direct interaction with the Data Subject, and be data `TRANSFERRED` in the eyes of another System that obtained in through transfer from the user-facing System.
+
+##### Retention Policy
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `data-category` | 1-* | Any of the any Data Category terms or concrete Data Capture Fragment `selector`s within those categories |
+| `policy-type` | 1 | one of {NO-LONGER-THAN, "NO-LESS-THAN"} |
+| `duration` | 1 | Duration in JSON Schema [duration](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `after` | 1 | Event to which the retention duration is relative to. One of {`DATA-COLLECTION`,`RELATIONSHIP-END`}
+
+When several `data-category` values are given, they are interpreted as a union.
 
 ## Detailed Design
 
@@ -412,7 +448,7 @@ However, in most cases, Systems MUST require the Data Subject to be authenticate
 
 When processing Privacy Request, Systems MAY automatically disregard the (`dsid`,`dsid-schema`) paris for which they have not been able to establish Data Subject authentication.
 
-However, the authentication does not necessarily have to be performed during the collection of the Privacy Request. It can be done separately.
+However, the authentication does not necessarily have to be performed during the collection of the Privacy Request. It can be done separately. The design of PRIV aims to support several authentication workflows, as many as possible authentication methods (i.e. be as much as possible agnostic from the authentication method).
 
 
 #### Matching Multiple Data Subject Identities
