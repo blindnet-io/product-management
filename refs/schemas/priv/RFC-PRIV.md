@@ -14,7 +14,7 @@ We propose a simple vocabulary for representing [Privacy Requests](https://githu
 
 The vocabulary introduces a finite set of `concepts`, `properties` and `terms`. `Concepts` define the objects of exchange, `properties` define their characteristics, and `terms` define commonly understood values of properties.
 
-This vocabulary corresponds to the [Data Privacy Request Schema](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High- Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
+This vocabulary corresponds to the [Schemas](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High-Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
 
 Two additional documents: [Examples of use](./examples.md) and [Expected Behavior of Implementing Systems](./expected-behavior.md), complement this document.
 
@@ -91,6 +91,8 @@ Data Subject is the author of a Privacy Request.
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
+
+A Privacy Request is made by one and only one Data Subject.
 
 A System MAY have multiple ways to identify the Data Subject, especially when data about them came from some other System that uses different identifiers.
 
@@ -234,6 +236,17 @@ A Demand can be restricted to particular Data Range, for example the Data Subjec
 
 A Data Range defined by only one of the {`from`, `to`} properties indicates a period of time after or before a certain date, unbounded on the other end.
 
+###### Provenance Restriction
+
+A Demand can be restricted to particular `provenance-category`, for example the Data Subject may `OBJECT` to data that is `DERIVED` about them being shared (`processing-category`:`SHARING`), or they may want to `RESTRICT` the `SHARING` of their data only to the data that came from themselves `USER`.
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `provenance-category` | 1 | one of {`DERIVED`, `TRANSFERRED`, `USER`, `USER.DATA-SUBJECT`} |
+| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
+
+Optionally the Provenance Restriction may also include a particular [Target](#targets). E.g. the Data Subject might demand to have `ACCESS` to data that was `TRANSFERRED` by partner Systems (`target`:`PARTNERS`).
+
 #### Targets
 
 It is common for Internet Systems to be distributed (organised in a set of connected websites and applications) and to exchange data among themselves.
@@ -310,7 +323,7 @@ A Consent is given by one Data Subject which can be identified by one or more [D
 | `consent-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Consent was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `expires` | 0-1 | Date and Time when Consent expires in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
+| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`} to indicate the category of Systems to which consent for processing is given. In absence of indication `SYSTEM` is assumed. |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the Consent SHOULD be interpreted as unlimited |
 | `replaces` |  0-* | Optionally one or more 'consent-id's of previous consents that have became void when this consent was made |
 | `replaced-by` |  0-* | Optionally one or more 'consent-id's of previous consents that have became void when this consent was made |
@@ -326,6 +339,8 @@ A Data Capture is given by one Data Subject which can be identified by one or mo
 | `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
 | `fragments` | 1-* | One or more [Data Capture Fragments](#data-capture-fragments) |
 
+A Data Capture concerns one and only one Data Subject who MAY be identified by multiple Data Subject Identities.
+
 #### Data Capture Fragments
 
 | Property | Expected cardinality | Expected values |
@@ -333,22 +348,30 @@ A Data Capture is given by one Data Subject which can be identified by one or mo
 | `fragment-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `selector` | 1 | a string used to uniquely identify a data field (in the System's data model) to which the fragment corresponds |
 | `date` | 1 | Date and Time when data was Captured was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the fragment SHOULD be interpreted as unlimited |
 | `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
 | `retention` | 1-* | one or more Retention Policies |
+| `provenance` | 1-* | one or more [Provenance](#provenance) |
 | `data` | 0-* | Optionally concrete data (Format **TBD**) |
+| `legal-base` | 0-* | Optionally an array of values among `CONTRACT`, `CONSENT`, `LEGITIMATE-INTEREST`, `NECESSARY`, `OTHER` |
 
 `selector`s MUST include the data category of the data. For example selectors 'CONTACT.ADDRESS.SHIPPING' and 'CONTACT.ADDRESS.BILLING' indicate that the data being captured by a particular fragment belong to the `CONTACT.ADDRESS` data category.
 
-While the Data Categories are global, the selectors are defined by the Systems.
+While the Data Categories are global, the selectors are defined by the Systems. A `selector` uniquely identifies a particular data field that the Systems works with. When several Systems exchange data among them, they SHOULD align on using the same `selectors` in the same way, in order to be able to correctly interoperate.
 
-##### Legal bases
-| Property | Expected cardinality | Expected values |
-| --------------- | ------ | -------------------- |
-| `type` | 0-* | Optionally an array of values among `CONTRACT`, `CONSENT`, `LEGITIMATE-INTEREST`, `NECESSARY`, `OTHER` |
-
-Processing MAY be legitimate according to several legal bases for treatment. For example, a Data Subject can give explicit `CONSENT` when creating and account with a particular online service, and at the time, the System providing some service to the Data Subject might need to process their data in order to deliver a service or honour a `CONTRACT` (e.g. deliver the purchased goods to the Data Subjects address and issue an invoice).
+Processing MAY be legitimate according to several legal bases for processing. For example, a Data Subject can give explicit `CONSENT` when creating and account with a particular online service, and at the time, the System providing some service to the Data Subject might need to process their data in order to deliver a service or honour a `CONTRACT` (e.g. deliver the purchased goods to the Data Subjects address and issue an invoice).
 
 Certain processing is made legitimate (`LEGITIMATE-INTEREST`) or mandatory (`NECESSARY`) by law, e.g. [Article 6 og GDPR](https://gdpr-info.eu/art-6-gdpr/).
+
+##### Provenance
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `provenance-category` | 1 | one of {`DERIVED`, `TRANSFERRED`, `USER`, `USER.DATA-SUBJECT`} |
+| `system` | 1 | System ID (**Format TBD**) |
+
+Data provenance is interpreted in relation to a particular System.
+The same Data Capture Fragment might be data collected from the `USER` for one System that is in direct interaction with the Data Subject, and be data `TRANSFERRED` in the eyes of another System that obtained in through transfer from the user-facing System.
 
 ## Detailed Design
 

@@ -37,10 +37,10 @@ Those that include the term "OTHER" or a textual message with more details about
 
 Systems MAY be configured to treat Privacy Requests eligible for automation with or without human validation. In any case, the role of the [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) is to calculate the appropriate action, given particular Privacy Request in a particular situation.
 
-## Configuration & Prerequisites
+## Configuration and Prerequisites
 
 A [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) serving a particular system MUST have the knowledge of:
-- The exhaustive list of [Data Capture Fragment](./RFC-PRIV.md#data-capture-fragments) `selector`s that the System works with,
+- The exhaustive list of **Known Selectors**: For every data field that the System is likely to store (either a field of a data collection form, or simply a field in its database) the [Data Capture Fragment](./RFC-PRIV.md#data-capture-fragments) `selector` corresponding to the ,
 - For each `selector` (or Data Category implying every `selector` used within that Data Category) a data [Retention Policy](./RFC-PRIV.md#retention-policy),
 - **Intended Privacy Scope**: A set of **Privacy Scope Triple**s that describe the usage the System is likely to make with data. Each triple consists of:
     - a `selector` (or Data Category implying every `selector` used within that Data Category)
@@ -411,7 +411,7 @@ The [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/ma
 Here is how the Privacy Request Response recommendations are calculated:
 
 When no Data Subject ID is provided in the Privacy Request:
-- `TRANSPARENCY` Demands: recommend status = `GRANTED`. Provide requested information: Data Categories, Processing Categories, Purposes, and Legal Bases from Intended Privacy Scope, as well as other ifnromation from general settings as defined under [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV).
+- `TRANSPARENCY` Demands: recommend status = `GRANTED`. Provide requested information: Data Categories, Processing Categories, Purposes, and Legal Bases from Intended Privacy Scope, as well as other information from general settings as defined under [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV) and under [Configuration and Prerequisites](#configuration-and-prerequisites).
 - `OTHER` Demands: recommend human review and status = `UNDER-REVIEW`
 - For any other action : recommend status = `DENIED`, motive=`IDENTITY-UNCONFIRMED`
 
@@ -419,7 +419,7 @@ When Data Subject ID is provided, Data Subject is authenticated but is unknown b
 - `OTHER` Demands: recommend human review and status = `UNDER-REVIEW`
 - For any other action : recommend status = `DENIED`, motive=`USER-UNKNOWN`
 
-When Data Subject ID is provided, the Data Subject is known by the System but filed to authenticate:
+When Data Subject ID is provided, the Data Subject is known by the System but failed to authenticate:
 - `OTHER` Demands: recommend human review and status = `UNDER-REVIEW`
 - `TRANSPARENCY.KNOWN` Demands: recommend status = `GRANTED`, and data = `NO`.
 - For any other action : recommend status = `DENIED`, motive=`IDENTITY-UNCONFIRMED`
@@ -429,45 +429,77 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
     - `OTHER` Demands: recommend human review and status = `UNDER-REVIEW`
     - `TRANSPARENCY.KNOWN` Demands: recommend status = `GRANTED`, and data = `YES`.
     - `TRANSPARENCY.DATA-CATEGORIES` Demands: recommend status = `GRANTED`, and data = list of Data Categories that are included in any of the Privacy Scope Triples included in the Eligible Privacy Scope.
-    - `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.DPO`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO` Demands: recommend status = `GRANTED`, and data = information corresponding to the request taken from configuration settings as defined under [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV).
+    - `TRANSPARENCY.PROVENANCE`, see [Resolving provenance in requests](#resolving-provenance-in-requests)
+    - `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.DPO`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, Demands: recommend status = `GRANTED`, and data = information corresponding to the request taken from configuration settings as defined under [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV) and under [Configuration and Prerequisites](#configuration-and-prerequisites).
 
-- With regards to Demand restrictions (if any) limiting the scope of the Demand
-    - `TRANSPARENCY.LEGAL-BASES` Demands: recommend status = `GRANTED`, and data = list of Legal Bases under which any of the Privacy Scope Triples are included in the Eligible Privacy Scope (or its intersection with the Privacy Scope of the Demand if restricted).
-    - `TRANSPARENCY.PROCESSING-CATEGORIES` Demands: recommend status = `GRANTED`, and data = list of Processing Categories that are included in any of the Privacy Scope Triples included in the Eligible Privacy Scope (or its intersection with the Privacy Scope of the Demand if restricted).
-    - `TRANSPARENCY.PURPOSE` Demands: recommend status = `GRANTED`, and data = list of Purposes that are included in any of the Privacy Scope Triples included in the Eligible Privacy Scope (or its intersection with the Privacy Scope of the Demand if restricted).
-    - `REVOKE-CONSENT` Demands:
-        - If restricted to concrete consent IDs, recommend status = `GRANTED` and recalculate Eligible Privacy Scope to drop any Privacy Scope Triples that have been included as a result of Consents being revoked.
-        - If Demand is restricted by a Privacy Scope, recommend status = `GRANTED` and [update consents](#updateConsent)
-        - If no Restriction is given in the Demand, revoke all consents given by this Data Subject
-        - If only a Data Range restriction is present, recommend status = `GRANTED` and revoke all consents that have been collected in the given Data Range
-        - If only a Data Capture Restriction is present, recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED`
-        - If several restrictions of the same type are present, recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED`
-        - If more restrictions (other than Data Capture Restriction) are present, interpret them as an intersection i.e. take only the consents collected within the from-to dates of the Data Range Restriction, then do an intersection of their Privacy Scopes with the scope of the Privacy Scope restriction. The resulting Privacy Scope can be used as if there were only one Privacy Scope demand. Recommend status = `GRANTED` and [update consents](#updateConsent)
-    - `OBJECT`, `RESTRICT` Demands:
-        - Recommend status = `GRANTED`, and then, upon granting [update consents](#updateConsent), [recalculate Eligible Privacy Scope](#updateScope)
-        - Recommend deletion of Data Capture Fragments the categories of which are not longer included in the Eligible Privacy Scope.
-    - `DELETE` Demands:
-        - If restricted to concrete consent IDs, , recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED`
-        - If restricted to a privacy scope having a `processing-category` or a `purpose`, recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED` (A Delete request can only be relative to a category of data, not to a category of processing or a particular purpose.)
-        - If restricted to a clearly identifiable data scope (such a Privacy Scope with a `processing-category`, or a concrete Data Capture Fragment `selector`, or to a Data Capture Fragment ID (or set of IDs), potentially limited to a Data Range):
-            - if data corresponding to that scope does not exist, recommend status = `DENIED`, motive = `NO-SUCH-DATA`
-            - if data corresponding to that scope does exist, AND:
-                - the data is associated with Privacy Scope Triples that are introduced in the Eligible Privacy Scope under at least one Legal Base other than {`LEGITIMATE-INTEREST`, `CONSENT`}, recommend status = `ACCEPT`
-                - the data is associated with Privacy Scope Triples that are introduced in the Eligible Privacy Scope under Legal Bases all of which belong to {`LEGITIMATE-INTEREST`, `CONSENT`}, recommend status = `DENIED`, and one or more motive = `LEGAL-BASES` when data is included in the Eligible Privacy Scope under `CONTRACT`, and `LEGAL-OBLIGATIONS` when data is included in the Eligible Privacy Scope under `NECESSARY`
+- With regards to Demand restrictions (if any) limiting the scope of the Demand:
+    - first, check for presence of incompatible restrictions (and if incompatible recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED`):
+        - [Consent Restriction](./RFC-PRIV.md#consent-restriction) with any other type of Restriction,
+        - [Consent Restriction](./RFC-PRIV.md#consent-restriction) within a Demand other than `REVOKE-CONSENT`,
+        - More than one [Capture Restriction](./RFC-PRIV.md#capture-restriction),
+        - A Capture Restriction and any other restriction that is not a Privacy Scope Restriction,
+        - More than one [Data Range](./RFC-PRIV.md#data-range) Restriction.
 
-    - `MODIFY` Demands:
-        - If restricted to concrete consent IDs, , recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED`
-        - If restricted to a privacy scope having a `processing-category` or a `purpose`, recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED` (A Delete request can only be relative to a category of data, not to a category of processing or a particular purpose.)
-        - If restricted to a clearly identifiable data scope (such a Privacy Scope with a `processing-category`, or a concrete Data Capture Fragment `selector`, or to a Data Capture Fragment ID (or set of IDs), potentially limited to a Data Range):
-            - if data corresponding to that scope is not being collected by the System as is not part of the Intended Privacy Scope, status = `DENIED`, motive = `NO-SUCH-DATA`
-            - if data corresponding to that scope is not being collected by the System (regardless of data being already collected or empty):
-                - Recommend status = `ACCEPT` (potentially upon human validation)
+    - second, Calculate **Restriction Scope** and **Concerned Fragments**. This is done by processing every Restriction according to the following approach:
+        - at the beginning set **Restriction Scope** to be equal to the Eligible Privacy Scope of the Data Subject
+        **Concerned Fragments** is set to all Data Capture Fragments the `scope`s of which are included in the **Restriction Scope**.
 
-    - `ACCESS` Demands:
-        - Recommend status = `ACCEPT`, and data = data corresponding to the Privacy Scope of the Demand (NB. contrary to MODIFY and DELETE, the Data Subject SHOULD be able to request access to data being used for particular `purpose` or being subject to particular `processing-category`)
+        - when processing a [Privacy Scope](./RFC-PRIV.md#privacy-scope) Restriction, set the new **Restriction Scope** to be the intersection of the previous **Restriction Scope** with the Privacy Scope of the Restriction.
+        **Concerned Fragments** is set to all Data Capture Fragments the `scope`s of which are included in the **Restriction Scope**.
 
-    - `PORTABILITY` Demands:
-        - Recommend status = `ACCEPT`, and data = data corresponding to the Privacy Scope of the Demand
+        - when processing a [Capture Restriction](./RFC-PRIV.md#capture-restriction) set the new **Restriction Scope** to be the intersection of the previous **Restriction Scope** with union of the [Privacy Scope](./RFC-PRIV.md#privacy-scope)s of each Data Capture Fragment of each Data Capture the `capture-id` of which is listed under `capture-ids` of that Capture Restriction
+        **Concerned Fragments** is set to all Data Capture Fragments that satisfy both of the criteria:
+            - their `scope` is included in the **Restriction Scope**, AND
+            - they are part of one of the Data Captures the `capture-id` of which is listed under `capture-ids` of that Capture Restriction
+
+        - when processing a [Data Range](./RFC-PRIV.md#data-range), look for all the Data Capture Fragments the dates of which are within the given Data Range, and set the new **Restriction Scope** to be the intersection of the previous **Restriction Scope** with union of the [Privacy Scope](./RFC-PRIV.md#privacy-scope)s of each of those Data Capture fragments
+        **Concerned Fragments** is set to all Data Capture Fragments that satisfy both of the criteria:
+            - their `scope` is included in the **Restriction Scope**, AND
+            - their `date` falls within the Data Range of the Restriction
+
+        - when processing a [Provenance Restriction](./RFC-PRIV.md#provenance-restriction) look for all the Data Capture Fragments that match the Provenance Restriction criteria (as seen in [Resolving provenance in requests](#resolving-provenance-in-requests)) and set the new **Restriction Scope** to be the intersection of the previous **Restriction Scope** with union of the [Privacy Scope](./RFC-PRIV.md#privacy-scope)s of each of those Data Capture fragments
+        **Concerned Fragments** is set to all Data Capture Fragments that satisfy both of the criteria:
+            - their `scope` is included in the **Restriction Scope**, AND
+            - they match the Provenance Restriction criteria (as seen in [Resolving provenance in requests](#resolving-provenance-in-requests))
+
+    - third, with regards to the `action` of the Demand:     
+     - `TRANSPARENCY.LEGAL-BASES` Demands, recommend status = `GRANTED`, and data = list of Legal Bases under which any of the Privacy Scope Triples are included in the **Restriction Scope**
+     - `TRANSPARENCY.PROCESSING-CATEGORIES` Demands: recommend status = `GRANTED`, and data = list of Processing Categories that are included in any of the Privacy Scope Triples included in the **Restriction Scope**.
+     - `TRANSPARENCY.PURPOSE` Demands: recommend status = `GRANTED`, and data = list of Purposes that are included in any of the Privacy Scope Triples included in the **Restriction Scope**
+     - `REVOKE-CONSENT` Demands:
+         - If restricted to concrete consent IDs with a [Consent Restriction](./RFC-PRIV.md#consent-restriction), recommend status = `GRANTED` and recalculate Eligible Privacy Scope to drop any Privacy Scope Triples that have been included as a result of Consents being revoked.
+         - If Demand is restricted by a Privacy Scope, recommend status = `GRANTED` and [update consents](#updateConsent)
+         - If no Restriction is given in the Demand, revoke all consents given by this Data Subject
+         - If only a Data Range restriction is present, recommend status = `GRANTED` and revoke all consents that have been collected in the given Data Range
+         - In other combinations of Restrictions, take the resulting **Restriction Scope**, recommend status = `GRANTED` and [update consents](#updateConsent) as if an `OBJECT` Demand has been made with the **Restriction Scope**
+
+     - `OBJECT`, `RESTRICT` Demands:
+         - Recommend status = `GRANTED`, and then, upon granting [update consents](#updateConsent), [recalculate Eligible Privacy Scope](#updateScope) by excluding **Restriction Scope** or limiting to the **Restriction Scope**
+         - Recommend deletion of the **Concerned Fragments**.
+
+     - `DELETE` Demands:
+         - If the **Concerned Fragments** set is empty, recommend status = `DENIED`, motive = `NO-SUCH-DATA`
+         - If it is non-empty:
+             - recommend for deletion the Data Capture Fragments from that set, the `scope` of which only includes Privacy Scope Triples that are introduced in the Eligible Privacy Scope under Legal Bases belonging to {`LEGITIMATE-INTEREST`, `CONSENT`}
+             - if the set of Data Capture Fragments recommended for deletion is *the same as* the **Concerned Fragments** set, recommend status = `ACCEPT`,
+             - else, if the set of Data Capture Fragments recommended for deletion is *included in* the **Concerned Fragments** set, recommend status = `PARTIALLY-GRANTED`,
+             - else, recommend status = `DENIED`,
+             - when status is one of {`PARTIALLY-GRANTED`, `DENIED`} add one or more motives = `LEGAL-BASES` or `LEGAL-OBLIGATIONS` when **Concerned Fragments** that are not recommended for deletion, have in their `scope` Privacy Scope Triples included in the Eligible Privacy Scope under `CONTRACT` or `NECESSARY` Legal Bases, resepctively.
+
+     - `MODIFY` Demands:
+         - If restricted to a Privacy Scope Restriction having a `processing-category` or a `purpose`, recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED` (A Delete request can only be relative to a category of data, not to a category of processing or a particular purpose.)
+         - If the **Concerned Fragments** set is empty, recommend status = `DENIED`, motive = `NO-SUCH-DATA`
+         - If it is non-empty, recommend status = `ACCEPT` (potentially upon human validation)
+
+     - `ACCESS` Demands:
+         - If the **Concerned Fragments** set is empty, recommend status = `DENIED`, motive = `NO-SUCH-DATA`
+         - If it is non-empty, recommend status = `ACCEPT`, and data = data corresponding to the Privacy Scope of the Demand
+
+         (NB. contrary to MODIFY and DELETE, the Data Subject SHOULD be able to request access to data being used for particular `purpose` or being subject to particular `processing-category`)
+
+     - `PORTABILITY` Demands:
+     - If the **Concerned Fragments** set is empty, recommend status = `DENIED`, motive = `NO-SUCH-DATA`
+     - If it is non-empty, recommend status = `ACCEPT` and data = data corresponding to the Privacy Scope of the Demand
 
 
 ## Resolving Retention Policies
@@ -494,7 +526,38 @@ Privacy Compilers SHOULD be able to:
 - resolve policies and generate `EXPIRED` alerts, upon which the Systems MAY chose to implement automatic data deletion, or other protocols for data archiving or similar
 - resolve policies for Systems configured not to automatically delete data, but to automatically grant `DELETE` requests only when data is `EXPIRED`
 
-Optionally, for systems wanting to automatically deni `DELETE` requests when data MUST be kept, Privacy Compilers MAY be able deliver resolve policies giving `HOLD` status, when there is at least one Retention Policy the `data-category` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular data, that is of type `NO-LESS-THAN`, such that the event defined under `after` is yet to happen or has happened before a period of time inferior to `duration`.
+Optionally, for systems wanting to automatically deny `DELETE` requests when data MUST be kept, Privacy Compilers MAY be able deliver resolve policies giving `HOLD` status, when there is at least one Retention Policy the `data-category` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular data, that is of type `NO-LESS-THAN`, such that the event defined under `after` is yet to happen or has happened before a period of time inferior to `duration`.
+
+## Working with Provenance
+
+### Remembering provenance
+In order to correctly process `TRANSPARENCY.PROVENANCE` requests as well as requests that are intended to be transferred (`target` = `ORGANISATION`, `PARTNERS`), the Privacy Compiler MUST:
+- Keep track of transfers, as described in [Implications for Systems](./RFC-PRIV.md#remembering-transfers)
+- Keep track of System IDs that correspond to particular targets values, i.e. know which Systems are in `ORGANISATION`, and which are in `PARTNERS`
+- For every data field that the System is likely to store (either a field of a data collection form, or simply a field in its database) given the `selector` corresponding to that data field, keep track of one or more [Provenance](./RFC-PRIV.md#provenance) objects.
+
+> When a System generates data about the Data Subject, it creates a Data Capture and associates its Fragments with a [Provenance](./RFC-PRIV.md#provenance) object having `provenance-category`: `DERIVED`
+>
+> When a System receives a Data Capture from another System, they associate to all of its Fragments an additional [Provenance](./RFC-PRIV.md#provenance) object having `provenance-category`: `TRANSFERRED`
+>
+> A Data Capture Fragment may end up having multiple [Provenance](./RFC-PRIV.md#provenance) objects to indicate that it has been given by a human user to one System, then transferred to another system.
+
+### Resolving provenance in requests
+
+In response to `TRANSPARENCY.PROVENANCE` Demands, the Privacy Compiler can:
+- look for Data Capture Fragments related to particular Data Subject,
+- specifically, when the `TRANSPARENCY.PROVENANCE` Demand is constrained to a particular Privacy Scope, look for only Data Capture Fragments corresponding to this particular Privacy Scope, and
+- retrieve the [Provenance](./RFC-PRIV.md#provenance) objects provided in `provenance` of such Data Capture Fragments
+
+When a Demand is restricted by a [Provenance Restriction](./RFC-PRIV.md#provenance-restriction), the Privacy Compiler is tasked with a more complex interpretation:
+- The [Provenance Restriction](./RFC-PRIV.md#provenance-restriction) either includes an explicit `target`, one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}, or `SYSTEM` is assumed.
+- The Privacy Compiler MUST resolve this information in the context of the particular System that it serves.
+    - `SYSTEM` is understood as the System that the Privacy Compiler serves.
+    - To resolve `ORGANISATION` and `PARTNERS` The Privacy Compiler looks into the correspondence table it keeps, to know which System IDs are `ORGANISATION` and `PARTNERS` Systems to the System it serves.
+
+After having resolved the `target` value to concrete Systems IDs, the Privacy Compiler looks for Data Capture Fragments, the `provenance` of which matches both:
+- the `provenance-category` of the Demand's [Provenance Restriction](./RFC-PRIV.md#provenance-restriction), AND
+- the one of the System IDs to which the `target` value has been resolved.
 
 ## References
 

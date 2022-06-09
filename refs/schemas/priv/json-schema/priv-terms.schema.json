@@ -38,7 +38,7 @@
           "BEHAVIOR.ACTIVITY",
           "BEHAVIOR.CONNECTION",
           "BEHAVIOR.PREFERENCE",
-          "BEHAVIOR.RELATIONSHIPS", 
+          "BEHAVIOR.RELATIONSHIPS",
           "BEHAVIOR.TELEMETRY",
           "BIOMETRIC",
           "CONTACT",
@@ -138,6 +138,14 @@
         "enum": [
           "YES",
           "NO"
+        ]
+      },
+      "provenance": {
+        "enum": [
+          "DERIVED",
+          "TRANSFERRED",
+          "USER",
+          "USER.DATA-SUBJECT"
         ]
       }
     }
