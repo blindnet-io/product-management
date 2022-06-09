@@ -47,7 +47,7 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.13.1.d`, `GDPR.14.1.d` | where the processing is based on point (f) of Article 6(1), the legitimate interests pursued by the controller or by a third party | action:`TRANSPARENCY.LEGAL-BASES` |
 | `GDPR.13.1.e`, `GDPR.14.1.e` | the recipients or categories of recipients of the personal data, if any; | action:`TRANSPARENCY.WHO` |
 | `GDPR.13.1.f`, `GDPR.14.1.f` | where applicable, the fact that the controller intends to transfer personal data to a third country or international organisation | action:`TRANSPARENCY.WHERE` |
-| `GDPR.13.1.f`, `GDPR.14.1.f` | the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available. | action:`OTHER` |
+| `GDPR.13.1.f`, `GDPR.14.1.f` | the existence or absence of an adequacy decision by the Commission, or in the case of transfers referred to in Article 46 or 47, or the second subparagraph of Article 49(1), reference to the appropriate or suitable safeguards and the means by which to obtain a copy of them or where they have been made available. | action:`OTHER-DEMAND` |
 | `GDPR.13.2.a`, `GDPR.14.2.a` | the period for which the personal data will be stored, or if that is not possible, the criteria used to determine that period | action:`TRANSPARENCY.RETENTION` |
 | `GDPR.13.2.b`, `GDPR.14.2.b` | the existence of the right to request from the controller access to and rectification or erasure of personal data or restriction of processing concerning the data subject or to object to processing as well as the right to data portability | action:`TRANSPARENCY.POLICY` |
 | `GDPR.13.2.c`, `GDPR.14.2.c` | where the processing is based on point (a) of Article 6(1) or point (a) of Article 9(2), the existence of the right to withdraw consent at any time, without affecting the lawfulness of processing based on consent before its withdrawal | action:`TRANSPARENCY.POLICY` |
@@ -120,7 +120,7 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.16` | [Rectify incomplete data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes) | `MODIFY` | `**TBD**` | `null` | `null` | `null` | `Selector.to-modify`,`data.rectified` |
 | `GDPR.17.1` | [Deletion](https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles) | `DELETE` | `null` | `null` | `null` | `Reason of deletion` | `Data.identifier'=Information to delete* (can be one or several data capture, or limited to a field , Data cat., Process cat. , Purpose, URL, ...)  |
 | `GDPR.21.2` | [Stop receiving advertising from organization](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites) | `DELETE` | `CONTACT` | `null` | `MARKETING` | `null` | `Data.identifier'=data cat.+purpose |
-| `GDPR.17.1` | [Closing an online account](https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne) | `OTHER` | `null` | `null` | `null` | `null` | `null` |
+| `GDPR.17.1` | [Closing an online account](https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne) | `OTHER-DATA` | `null` | `null` | `null` | `null` | `null` |
 | `GDPR.21.1`,`GDPR.17.1.c` | [Delete my data that are published on a webiste](https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet) : Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | `DELETE` | `**TBD**` | `null` | `null` | `Reason of deletion` | `Data.identifier`=URL |
 | `GDPR.21.1`,`GDPR.17.1.c` | [Removal of my image online](https://www.cnil.fr/fr/Demandr-le-retrait-de-votre-image-en-ligne) | `DELETE` | `IMAGE` | `null` | `null` | `Reason of deletion` | `Data.identifier`=data cat.+URL|
 | `GDPR.21.2`,`GDPR.17.1`,`GDPR.19` | [Opposition to commercial prospecting](https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers) : Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | `RESTRICT`, `DELETE` | `CONTACT` | `null` | `MARKETING` | `null` | `target`= `ORGANISATION`, `PARTNERS`(propagation) |
@@ -266,7 +266,7 @@ In the following examples we show how, requests introduced by different regulati
 | **user.derived.identifable** | **social**  | Social activity and interaction data | `BEHAVIOR.RELATIONSHIPS` | `null` | `null` | Ok ? |
 | **user.derived.identifable** | **telemetry**  | User identifiable measurement data from system sensors and monitoring | `BEHAVIOR.TELEMETRY` | `null` | `null` | `null` |
 | **user.derived.identifable** | **unique_id**  | Unique identifier for a user assigned through system use | `UID` | `null` | `null` | `null` |
-| **user.derived.identifable** | **user_sensor**  | Measurement data derived about a user's environment through system use | `BEHAVIOR`,`OTHER` | `null` | `null` |  Ok ?  |
+| **user.derived.identifable** | **user_sensor**  | Measurement data derived about a user's environment through system use | `BEHAVIOR`,`COLLECTION` | `null` | `null` |   |
 | **user.derived.identifable** | **workplace**  | Organization of employment | `AFFILIATION.WORK` | `null` | `null` | `null` |
 | **user.derived.identifable** | **device**  | Data related to a user's device, configuration and setting | `DEVICE` | `null` | `null` | `null` |
 | **user.derived.identifable** | **cookie_id**  | Cookie unique identification number | `BEHAVIOR` | `null` | `null` | Need a more detailed cat ? |
@@ -282,9 +282,9 @@ In the following examples we show how, requests introduced by different regulati
 | ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
 | **user.provided** | **identifiable**  | Data provided or created directly by a user that is linked to or identifies a user | `**TBD**` | `null` | `null` | TBD, isn't it all the data for us ? |
 | **user.provided.identifiable** | **identifiable**  | Encoded characteristics provided by a user | `**TBD**` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **children**  | Data relating to children | `OTHER`,`RELATIONSHIP` | `null` | `null` | Ok ? Need a more detailed cat ? |
+| **user.provided.identifiable** | **children**  | Data relating to children | - | `null` | `null` | @milstan: I don't think the fact someone is a child makes it a separate Data Category. The same person can turn 18 and no longer be a child - and data category can't change due to that. So this should be the responsibility of the System to use AGE to determine if special child-related policies must apply. |
 | **user.provided.identifiable** | **health_and_medical**  | Health records or individual's personal medical information | `HEALTH` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **job_title**  | Professional data | `OTHER` | `null` | `null` | Ok ? |
+| **user.provided.identifiable** | **job_title**  | Professional data | `CONTACT` | `null` | `null` |  |
 | **user.provided.identifiable** | **name**  | User's real name | `NAME` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **non_specific_age**  | Age range data | `DEMOGRAPHIC.AGE` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **political_opinion**  | Data related to the individual's political opinions | `DEMOGRAPHIC.BELIEFS` | `null` | `null` | `null` |
@@ -303,16 +303,16 @@ In the following examples we show how, requests introduced by different regulati
 | **user.provided.identifiable** | **postal_code**  | User's postal code | `CONTACT.ADDRESS` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **state**  | User's state level address data | `CONTACT.ADDRESS` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **street**  | User's street level address data | `CONTACT.ADDRESS` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **credentials**  | User provided authentication data | `OTHER` | `null` | `null` | Ok ? |
-| **user.provided.identifiable** | **biometric_credentials**  | User provided authentication data | `OTHER`,`BIOMETRIC` | `null` | `null` | Ok ? |
-| **user.provided.identifiable** | **password**  | Password for system authentication | `OTHER` | `null` | `null` | Ok ? |
+| **user.provided.identifiable** | **credentials**  | User provided authentication data | `UID.USER-ACCOUNT` | `null` | `null` |  |
+| **user.provided.identifiable** | **biometric_credentials**  | User provided authentication data | `UID.USER-ACCOUNT`,`BIOMETRIC` | `null` | `null` |  |
+| **user.provided.identifiable** | **password**  | Password for system authentication | `UID.USER-ACCOUNT` | `null` | `null` |  |
 | **user.provided.identifiable** | **financial**  | Payment data and financial history | `FINANCIAL` | `null` | `null` | `Broader definition ?`|
 | **user.provided.identifiable** | **account_number**  | User's account number for a payment card, bank account, or other financial system | `FINANCIAL.BANK-ACCOUNT` | `null` | `null` | `Ok ?  Need a more detailed cat ?`|
-| **user.provided.identifiable** | **government_id**  | State provided identification data | `OTHER` | `null` | `null` | `Ok ?`|
-| **user.provided.identifiable** | **drivers_license_number**  | State issued driving identification number | `UID` | `null` | `null` | `Ok ?`|
-| **user.provided.identifiable** | **national_identification_number**  | State issued personal identification number | `UID` | `null` | `null` | `null`|
-| **user.provided.identifiable** | **passport_number**  | State issued passport data | `UID` | `null` | `null` | `null`|
-| **user.provided** | **nonidentifiable**  | Data provided or created directly by a user that is not identifiable | `**TBD**` | `null` | `null` | TBD: Do we need that ?|
+| **user.provided.identifiable** | **government_id**  | State provided identification data | `UID.ID` | `null` | `null` | |
+| **user.provided.identifiable** | **drivers_license_number**  | State issued driving identification number | `UID.ID` | `null` | `null` | `Ok ?`|
+| **user.provided.identifiable** | **national_identification_number**  | State issued personal identification number | `UID.ID` | `null` | `null` | `null`|
+| **user.provided.identifiable** | **passport_number**  | State issued passport data | `UID.ID` | `null` | `null` | `null`|
+| **user.provided** | **nonidentifiable**  | Data provided or created directly by a user that is not identifiable | `OTHER-DATA` | `null` | `null` | TBD: Do we need that ?|
 
 #### Transcend
 
@@ -345,8 +345,8 @@ Transcend proposes the following [treatment types](https://github.com/transcend-
 | TRANSFER | For data that was transferred as part of a change in circumstance (e.g. a merger or acquisition) | processing-category:`COLLECTION`, provenance:`TRANSFERRED` |
 | SALE | For selling the data to third parties | processing-category:`**any/all**`, purpose:`SALE` |
 | HR | For personnel training, recruitment, payroll, management, etc. | processing-category:`**any/all**`, purpose:`EMPLOYMENT` |
-| OTHER | Other specific purpose not covered above | processing-category:`**any/all**`, purpose:`OTHER` |
-| UNSPECIFIED | The purpose is not explicitly stated or is unclear | processing-category:`**any/all**`, purpose:`OTHER` |
+| OTHER | Other specific purpose not covered above | processing-category:`**any/all**`, purpose:`OTHER-PURPOSE` |
+| UNSPECIFIED | The purpose is not explicitly stated or is unclear | processing-category:`**any/all**`, purpose:`OTHER-PURPOSE` |
 
 All of those SHOULD be modeled using our Treatment Types.
 
@@ -365,9 +365,9 @@ Transcend proposes the following [data categories](https://github.com/transcend-
 | CONNECTION | Connection information for the current browsing session, e.g. device IDs, MAC addresses, IP addresses, etc. | data-category:`DEVICE`,`BEHAVIOR.CONNECTION` |
 | TRACKING | Cookies and tracking elements | data-category:`BEHAVIOR`, purpose:`TRACKING` |
 | DEVICE | Computer or device information | data-category:`DEVICE` |
-| SURVEY | Any data that is collected through surveys | data-category:`OTHER` |
-| OTHER | A specific type of information not covered by the above categories | data-category:`OTHER` |
-| UNSPECIFIED | The type of information is not explicitly stated or unclear| data-category:`OTHER` |
+| SURVEY | Any data that is collected through surveys | data-category:`OTHER-DATA` |
+| OTHER | A specific type of information not covered by the above categories | data-category:`OTHER-DATA` |
+| UNSPECIFIED | The type of information is not explicitly stated or unclear| data-category:`OTHER-DATA` |
 
 
 
