@@ -68,6 +68,7 @@
           "PROFILING",
           "RELATIONSHIPS",
           "UID",
+          "UID.ID",
           "UID.USER-ACCOUNT",
           "UID.SOCIAL-MEDIA",
           "OTHER-DATA",
