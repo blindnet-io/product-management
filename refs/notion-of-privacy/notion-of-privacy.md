@@ -10,7 +10,7 @@
 
 Among the many definitions proposed in scientific literature, we use the following one:
 
-> « **Privacy is the selective control of access to the self** » &msdash; _Irwin Altman[^1]_
+> « **Privacy is the selective control of access to the self** » &mdash; _Irwin Altman[^1]_
 
 This definition captures the essential features of the concept, in particular:
 
@@ -65,8 +65,8 @@ Humans are social species, hardwired for connection.
 
 > « **Connection is the energy that exists between people when they feel seen, heard and valued; when they can give and receive without judgement; and when they derive sustenance and strength from the relationship.** » &mdash; _Brené Brown_
 
-Connection is crucial to development; without it, social animals experience distress and face severe developmental consequences[^10]. 
-Yet, connection can also expose the individual to existential vulnerabilities. 
+Connection is crucial to development; without it, social animals experience distress and face severe developmental consequences[^10].
+Yet, connection can also expose the individual to existential vulnerabilities.
 
 The risk associated with connection has to be managed.
 Without privacy, the need for connection conflicts with the goal of protecting vital interests.
@@ -74,11 +74,11 @@ Connection is **not** possible without privacy.
 
 <img width="900" alt="connectedness" src="./img/connectedness.png">
 
-Privacy is not the opposite of connectedness. 
+Privacy is not the opposite of connectedness.
 
 Connectedness exists on the continuum between fusion and isolation.
-Fusion is the state of total absence of boundaries and separateness. 
-Isolation is the psychological equivalent of death. 
+Fusion is the state of total absence of boundaries and separateness.
+Isolation is the psychological equivalent of death.
 It leads to loneliness - correlated with negative effects on health[^11].
 
 Humans need connectedness to avoid isolation. Privacy regulates connectedness to avoid fusion (where there is not enough separateness for anything to need connecting).
@@ -141,7 +141,7 @@ Repetetive exposure to technological limitations[^19], as well as the privacy pa
 The privacy paradox is a phenomenon in which online users state that they are concerned about their privacy but behave as if they were not.[^12]
 Anecdotal and empirical evidence indicates that individuals are willing to trade their personal information for relatively small rewards[^14].
 
-However, as we have seen, privacy regulates the conflict of the need for connection with the need for competition, survival and overcoming the power diferential.Habits, and other needs, indeniably play a role in the persons choice of privacy related behavior and may yeald behavior inconsistent with the persons beliefs and interests (as outlined by the _privacy paradox_)[^18].
+However, as we have seen, privacy regulates the conflict of the need for connection with the need for competition, survival and overcoming the power diferential. Habits, and other needs, indeniably play a role in the persons choice of privacy related behavior and may yield behavior inconsistent with the persons beliefs and interests (as outlined by the _privacy paradox_)[^18].
 
 The existence of the privacy paradox is not indicative of a false concern for privacy, but rather of the context not favoring behavior aligned with this concern, as is common with attitude-behavior gap[^13].
 Researchers consider privacy-oblivious behavior to be a result of technological limitations as much as a consequence of users' deficiencies[^19].
@@ -176,9 +176,9 @@ In essence, the available knowledge teaches us the following:
 - **Privacy is the selective control of access to the self**
 - **Properly designed computer systems put the user in control**
 - **Privacy enables sustainable connection and trust (choosing to make something important to you vulnerable to the actions of someone else)**
-- **Connectedness is dysfunctional without privacy** 
+- **Connectedness is dysfunctional without privacy**
 
-Therefore, we believe that a properly designed Internet System is designed for Privacy-enabled Connectedness. 
+Therefore, we believe that a properly designed Internet System is designed for Privacy-enabled Connectedness.
 
 The Privacy-enabled Connectedness is achieved through the following design principles:
 

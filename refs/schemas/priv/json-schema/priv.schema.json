@@ -2,7 +2,7 @@
     "$id": "https://blindnet.io/schemas/priv.schema.json",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "title": "Privacy Request Interchange Vocabulary",
-    "description": "Terms of the Privacy Request Interchange Vocabulary",
+    "description": "A JSON Schema for the Privacy Request Interchange Vocabulary",
 
     "properties": {
         "request-id": {
