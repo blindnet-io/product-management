@@ -58,7 +58,7 @@ A [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/mast
 
     - *Legal Bases*: For each **Privacy Scope Triple** from the **Intended Privacy Scope**, one or more [Legal Bases](./RFC-PRIV.md#legal-bases)
 
-    - *Corresponding Systems**: A map of Other Systems with which data is being exchanged. For each System The Privacy Compiler MUST know if they are an `ORGANISATION` or `PARTNERS` System, and have a way to uniquely identify and address them (see [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV), [Working with Provenance](#working-with-provenance))
+    - *Corresponding Systems*: A map of Other Systems with which data is being exchanged. For each System The Privacy Compiler MUST know if they are an `ORGANISATION` or `PARTNERS` System, and have a way to uniquely identify and address them (see [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV), [Working with Provenance](#working-with-provenance))
 
 - **Privacy Metadata Store**, updated at runtime:
    - *All Captures*: a list of all the [Data Capture](./RFC-PRIV.md#data-capture) objects that the Privacy Compiler is aware of
@@ -75,8 +75,10 @@ A [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/mast
         - *Active Consents*: a list of `consent-id`s that is modified when Consent is collected and within [Operations over consents](#operations-over-consents)
         - *Active Contracts*: a list of `contract-id`s of all active contracts that have not been subject to a `RELATIONSHIP-END` event
         - *Active Legitimate Interests*: a subset of *All Legitimate Interests*
-    - Events:
-        - `RELATIONSHIP-END` events for contracts that end (e.g. user closes the account, or stops a service agreement), that directly impact *Active Contracts* the **Privacy Scope Triple**s of which have not been in the scope of any `DELETE`, `OBJECT`, or `RESTRICT` Privacy Request by the data Subject concerned
+    - Events, for [Resolving Retention Policies](#resolving-retention-policies):
+        - `SERVICE-END` events for contracts that end (e.g. user closes the account, or stops a service agreement), that directly impact *Active Contracts* the **Privacy Scope Triple**s of which have not been in the scope of any `DELETE`, `OBJECT`, or `RESTRICT` Privacy Request by the data Subject concerned
+        - `RELATIONSHIP-END` events the Data Subject ended all contracts and ended the relationship with the System/Organization
+        - `CAPTURE-DATE` when a Data Capture is made or updated
     - Transfers:
         - All the data exchanges with other Systems, as described in [Remembering Transfers](./RFC-PRIV.md#remembering-transfers).
     - Privacy Scope:
@@ -481,11 +483,12 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
             - their `scope` is included in the **Restriction Scope**, AND
             - they match the Provenance Restriction criteria (as seen in [Resolving provenance in requests](#resolving-provenance-in-requests))
 
-> **Note**
->
-> Data Capture Fragments the scopes of which fall under the **Restriction Scope** are not the same as (but are a superset of) the Data Capture Fragments included in the **Concerned Fragments** scope.
->
-> This is due to [Data Range](./RFC-PRIV.md#data-range), [Capture Restriction](./RFC-PRIV.md#capture-restriction) and [Provenance Restriction](./RFC-PRIV.md#provenance-restriction), all of which might be used to select particular Data Capture Fragments out of many thay may be captured with the same Data Capture Fragment `selector`.
+        > **Note**
+        >
+        > Data Capture Fragments the scopes of which fall under the **Restriction Scope** are not the same as (but are a superset of) the Data Capture Fragments included in the **Concerned Fragments** scope.
+        >
+        > This is due to [Data Range](./RFC-PRIV.md#data-range), [Capture Restriction](./RFC-PRIV.md#capture-restriction) and [Provenance Restriction](./RFC-PRIV.md#provenance-restriction), all of which might be used to select particular Data Capture Fragments out of many thay may be captured with the same Data Capture Fragment `selector`.
+        >
 
     - third, with regards to the `action` of the Demand:     
      - `TRANSPARENCY.LEGAL-BASES` Demands, recommend status = `GRANTED`, and data = list of Legal Bases under which any of the Privacy Scope Triples are included in the **Restriction Scope**
@@ -529,20 +532,20 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
 
 ## Resolving Retention Policies
 
-[Privacy Compilers](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) SHOULD store and resolve [Retention Policies](./RFC-PRIV.md#retention-policy).
+[Privacy Compilers](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) SHOULD store and resolve [Retention Policies](./RFC-PRIV.md#retention-policy), as well as to them associated *Events* in **Runtime Maps**.
 
 Systems SHOULD define Retention Policies at the time of configuration, and SHOULD cover all Data Categories and Data Capture Fragment `selector`s from the Intended Privacy Scope with at least one Retention Policy.
 
-Retention Policies are resolved upon concrete instances of data. A particular instance of data, given the Data Capture Fragment `selector` to which it corresponds, is considered `EXPIRED` if all of the following is true:
-- There is a Retention Policy the `data-category` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular data, that is of type `NO-LONGER-THAN`, such that the date of the event defined under `after` has passed for a more then the time defined under `duration`
-- AND There is no Retention Policy the `data-category` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular data, that is of type `NO-LESS-THAN`, such that the event defined under `after` is yet to happen or has happened before a period of time inferior to `duration`
+Retention Policies are resolved upon concrete instances of Data Capture Fragments. A particular instance of data, given the Data Capture Fragment `selector` to which it corresponds, is considered `EXPIRED` if all of the following is true:
+- There is a Retention Policy the `data-category` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular Data Capture Fragment, that is of type `NO-LONGER-THAN`, such that the date of the event defined under `after` has passed for a more then the time defined under `duration`
+- AND There is no Retention Policy the `data-category` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular Data Capture Fragment, that is of type `NO-LESS-THAN`, such that the event defined under `after` is yet to happen or has happened before a period of time inferior to `duration`
 
 Privacy Compilers SHOULD be able to:
 - provide lists of active policies, in the context of answering to the `TRANSPARENCY.RETENTION` requests
 - resolve policies and generate `EXPIRED` alerts, upon which the Systems MAY chose to implement automatic data deletion, or other protocols for data archiving or similar
 - resolve policies for Systems configured not to automatically delete data, but to automatically grant `DELETE` requests only when data is `EXPIRED`
 
-Optionally, for systems wanting to automatically deny `DELETE` requests when data MUST be kept, Privacy Compilers MAY be able deliver resolve policies giving `HOLD` status, when there is at least one Retention Policy the `data-category` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular data, that is of type `NO-LESS-THAN`, such that the event defined under `after` is yet to happen or has happened before a period of time inferior to `duration`.
+Optionally, for systems wanting to automatically deny `DELETE` requests when data MUST be kept, Privacy Compilers MAY be able resolve policies giving `HOLD` status, when there is at least one Retention Policy the `data-category` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular data, that is of type `NO-LESS-THAN`, such that the event defined under `after` is yet to happen or has happened before a period of time inferior to `duration`.
 
 ## Working with Provenance
 

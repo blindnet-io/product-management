@@ -1,7 +1,7 @@
 {
   "CONSENT": "The Data Subject gave Consent for processing",
-  "CONTRACT": "Processing is necessary for providing services to the Data Subject or withing a for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract",
+  "CONTRACT": "Processing is necessary for providing services to the Data Subject or for the fulfilment of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract",
   "LEGITIMATE-INTEREST": "Processing is necessary for the purposes of the legitimate interests",
   "NECESSARY": "Processing is necessary for security reasons, legal reasons or protection of rights",
-  "OTHER": "Other legal base",
+  "OTHER-LEGAL-BASE": "Other legal base",
 }

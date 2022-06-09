@@ -25,7 +25,13 @@
           "TRANSPARENCY.RETENTION",
           "TRANSPARENCY.WHERE",
           "TRANSPARENCY.WHO",
-          "OTHER"
+          "OTHER-DEMAND"
+        ]
+      },
+      "boolean": {
+        "enum": [
+          "YES",
+          "NO"
         ]
       },
       "data-categories": {
@@ -38,7 +44,6 @@
           "BEHAVIOR.ACTIVITY",
           "BEHAVIOR.CONNECTION",
           "BEHAVIOR.PREFERENCE",
-          "BEHAVIOR.RELATIONSHIPS",
           "BEHAVIOR.TELEMETRY",
           "BIOMETRIC",
           "CONTACT",
@@ -65,7 +70,32 @@
           "UID",
           "UID.USER-ACCOUNT",
           "UID.SOCIAL-MEDIA",
-          "OTHER",
+          "OTHER-DATA",
+        ]
+      },
+      "events": {
+        "enum": [
+          "CAPTURE-DATE",
+          "RELATIONSHIP-END"
+        ]
+      },
+      "legal-bases": {
+        "enum": [
+          "CONSENT",
+          "CONTRACT",
+          "LEGITIMATE-INTEREST",
+          "NECESSARY",
+          "OTHER-LEGAL-BASE"
+        ]
+      },
+      "motives": {
+        "enum": [
+          "IDENTITY-UNCONFIRMED",
+          "LANGUAGE-UNSUPPORTED",
+          "VALID-REASONS",
+          "IMPOSSIBLE",
+          "REQUEST-UNSUPPORTED",
+          "USER-UNKNOWN"
         ]
       },
       "processing-categories": {
@@ -78,9 +108,19 @@
           "PUBLISHING",
           "STORING",
           "SHARING",
-          "USING"
+          "USING",
+          "OTHER-PROCESSING"
         ]
       },
+      "provenance": {
+        "enum": [
+          "DERIVED",
+          "TRANSFERRED",
+          "USER",
+          "USER.DATA-SUBJECT"
+        ]
+      }
+    },
       "purposes": {
         "enum": [
          "ADVERTISING",
@@ -100,7 +140,22 @@
          "SOCIAL-PROTECTION",
          "TRACKING",
          "VITAL-INTERESTS",
-         "OTHER",
+         "OTHER-PURPOSE",
+        ]
+      },
+      "retentions": {
+        "enum": [
+          "NO-LONGER-THAN",
+          "NO-LESS-THAN"
+        ]
+      },
+      "statuses": {
+        "enum": [
+          "GRANTED",
+          "DENIED",
+          "PARTIALLY-GRANTED",
+          "UNDER-REVIEW",
+          "OTHER-RESPONSE"
         ]
       },
       "targets": {
@@ -115,42 +170,5 @@
           "PARTNERS.DOWNWARD",
           "PARTNERS.UPWARD"
         ]
-      },
-      "motives": {
-        "enum": [
-          "IDENTITY-UNCONFIRMED",
-          "LANGUAGE-UNSUPPORTED",
-          "LEGAL-BASES",
-          "LEGAL-OBLIGATIONS",
-          "REQUEST-UNSUPPORTED",
-          "USER-UNKNOWN"
-        ]
-      },
-      "retentions": {
-        "enum": [
-          "NO-LONGER-THAN",
-          "NO-LESS-THAN"
-        ]
-      },
-      "events": {
-        "enum": [
-          "DATA-COLLECTION",
-          "RELATIONSHIP-END"
-        ]
-      },
-      "other": {
-        "enum": [
-          "YES",
-          "NO"
-        ]
-      },
-      "provenance": {
-        "enum": [
-          "DERIVED",
-          "TRANSFERRED",
-          "USER",
-          "USER.DATA-SUBJECT"
-        ]
       }
-    }
 }

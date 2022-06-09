@@ -12,9 +12,9 @@ Among the many definitions proposed in scientific literature, we use the followi
 
 > « **Privacy is the selective control of access to the self** » &mdash; _Irwin Altman[^1]_
 
-This definition captures the essential features of the concept, in particular:
+This definition captures the essential features of the concept, in particular the following.
 
-- Privacy is about the **self**.
+### Privacy is about the **self**.
 
 The _self_ is a very important element of human experience playing _"an integral part in human motivation, cognition, affect, and social identity"_[^2].
 
@@ -29,11 +29,11 @@ Also, undoubtedly, in part _"the self emerges through interaction with others"_[
 Due to the relational provenance of the knowledge of the self, privacy is one of the key features of the relationship of oneself with the surrounding world (other humans and artefacts) through which the knowledge of the self is formed.
 Privacy is a "factor of connection to oneself and to others"[^6].
 
-- Privacy is about **control of access**.
+### Privacy is about **control of access**.
 
 As relationships play a key role in shaping the view on the self, it is of crucial importance for the individual to control the access to self, and thus maintain control over their own view of the self.
 
-- Privacy is **selective**.
+### Privacy is **selective**.
 
 It is not an absolute binary "come in" vs. "go away".
 It is a nuanced choice to control access to parts of the _self_.
@@ -151,7 +151,7 @@ Researchers consider privacy-oblivious behavior to be a result of technological 
 
 ### Internet Systems are Tools For Connection
 
-The rise of Internet Systems and of the Web[^29] is inspired by the concept of Memex, proposed by Vannevar Bush in 1945 in his article *As We May Think*[^25]. Memex is imagined as a tehorethical machine that humans can use to augment their cognitive powers. Memex can store information and provide access to it at later times. Also Memex is collaborative, as it can facilitate access to information provided by others - a *collective memory-extension tool*.
+The rise of Internet Systems and of the Web[^29] is inspired by the concept of Memex, proposed by Vannevar Bush in 1945 in his article *As We May Think*[^25]. Memex is imagined as a theoretical machine that humans can use to augment their cognitive powers. Memex can store information and provide access to it at later times. Also Memex is collaborative, as it can facilitate access to information provided by others - a *collective memory-extension tool*.
 
 Memex was the inspiration for:
 - NLS[^26], a system that used the early internet infrastructure to demonstrate the pioneering use of videoconferencing, collaborative document editing, hypermedia, document version control and many other concepts prevalent in modern Internet Systems. Developed in 1968, by Doug Engelbart, it was the first system to implement practical use of hypertext links[^27] for connecting information
