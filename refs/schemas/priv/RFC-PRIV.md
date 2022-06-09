@@ -297,7 +297,7 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 | `data-subject` |  0-* | Optional indication of the [Data Subject Identities](#decentralized-identity-of-data-subjects) to which the response refers to |
 | `status` | 1 | One of {`GRANTED`, `DENIED`, `PARTIALLY-GRANTED`, `UNDER-REVIEW`} |
 | `motive` | 0-* | Optionally one of {`IDENTITY-UNCONFIRMED`, `LANGUAGE-UNSUPPORTED`, `LEGAL-BASES`, `LEGAL-OBLIGATIONS`, `NO-SUCH-DATA`, `REQUEST-UNSUPPORTED`, `USER-UNKNOWN`} |
-| `answers` | 0-* | Any of the terms the meaning of which is defined by the present format and its dictionaries or an object representing a Legal Base, a Retention Policy |
+| `answers` | 0-* | Any of the terms the meaning of which is defined by the present format and its dictionaries or an object representing a Legal Base, a [Retention Policy](#retention-policy) |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
 | `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 | `includes` | 0-* | Optionally an array of one or more [Privacy Request Response](#privacy-request-response)s |
@@ -350,7 +350,7 @@ A Data Capture concerns one and only one Data Subject who MAY be identified by m
 | `date` | 1 | Date and Time when data was Captured was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the fragment SHOULD be interpreted as unlimited |
 | `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
-| `retention` | 1-* | one or more Retention Policies |
+| `retention` | 1-* | one or more [Retention Policies](#retention-policy) |
 | `provenance` | 1-* | one or more [Provenance](#provenance) |
 | `data` | 0-* | Optionally concrete data (Format **TBD**) |
 | `legal-base` | 0-* | Optionally an array of values among `CONTRACT`, `CONSENT`, `LEGITIMATE-INTEREST`, `NECESSARY`, `OTHER` |
@@ -372,6 +372,17 @@ Certain processing is made legitimate (`LEGITIMATE-INTEREST`) or mandatory (`NEC
 
 Data provenance is interpreted in relation to a particular System.
 The same Data Capture Fragment might be data collected from the `USER` for one System that is in direct interaction with the Data Subject, and be data `TRANSFERRED` in the eyes of another System that obtained in through transfer from the user-facing System.
+
+##### Retention Policy
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `data-category` | 1-* | Any of the any Data Category terms or concrete Data Capture Fragment `selector`s within those categories |
+| `policy-type` | 1 | one of {NO-LONGER-THAN, "NO-LESS-THAN"} |
+| `duration` | 1 | Duration in JSON Schema [duration](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `after` | 1 | Event to which the retention duration is relative to. One of {`DATA-COLLECTION`,`RELATIONSHIP-END`}
+
+When several `data-category` values are given, they are interpreted as a union.
 
 ## Detailed Design
 
