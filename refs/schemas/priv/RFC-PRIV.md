@@ -459,17 +459,34 @@ When Systems do know that one Data Subject Identity corresponds to the same user
 
 Systems SHOULD NOT imply Data Subject Identity equivalence from Privacy Requests, especially when granting Privacy Requests that require authentication.
 
-### Data Capture IDs, Data Capture Fragment IDs, Consent IDs, Privacy Request IDs, Demand IDs, Privacy Request Response IDs are Globally Unique
+### IDs are Globally Unique
 
-All of the following identifiers `data-capture-id`, `fragment-id`, `consent-id`, `rights-request-id`, `demand-id`, `rights-response-id` MUST be globally unique and be generated according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html) in order for the corresponding objects to be easily identifiable across systems.
+All of the following identifiers `capture-id`, `fragment-id`, `consent-id`, `request-id`, `demand-id`, `response-id` MUST be globally unique and be generated according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html) in order for the corresponding objects to be easily identifiable across systems.
 The reason for using UUDIs is to allow Systems to independently generate globally unique identifiers while being autonomous from a central entity that would ensure identifier uniqueness.
 
 Having a public ledger for UUDIs MAY be considered for Consents and Data Captures, but serious implications to Data Subject exposure MUST also be considered.
 However, the design MUST be compatible with building a public decentralised ledger.
 
-### Data Categories, Treatment Types, Actions, and Purposes SHOULD be Unambiguous and Complete
+### Term Syntax
 
-The lists of Data Categories, Treatment Types, Actions, and Purposes SHOULD be designed in such a way to be:
+The vocabulary defines TERMS to express different aspects of Pravacy Reqeust, Data Captures, Consents etc.
+
+TERMS follow Term Dot Notation (TDN), defined using the following ABNF (cf. [FRC5234](https://www.rfc-editor.org/info/rfc5234)):
+```
+term = category *subcategory
+
+subcategory =  "." category
+
+category = *(%x41–5A) *((%x2D) 1*(%x41–5A))
+
+```
+A category is equivalent to the union of all of its subcategories.
+Terms can be specified at different levels of granularity.
+E.g. the following statements are equivalent:
+- `A.B`, `A`
+- `A`
+
+The lists of TERMS SHOULD be designed in such a way to be:
 - **Unambiguous** : The developer using the schema knows without ambiguity which one (of which ones) to use in any given situation, AND
 - **Complete** : They allow to express the totality of possible needs in the context of a user wanting to [regulate their privacy/connectedness](https://github.com/blindnet-io/product-management/blob/dogma/refs/notion-of-privacy/notion-of-privacy.md), as well as the totality of requests defined by the [supported legilsation](#supported-legilsation).
 
@@ -583,7 +600,6 @@ Systems SHOULD keep a log of received [Privacy Requests](#privacy-request), gene
 
 
 
-
 ## Questions and Discussion Topics
 
 ### Use UUID for identifying Data Subjects
@@ -600,7 +616,7 @@ Should we include restrictions in the schema according to the [JSON-schema-valid
 
 In the current proposal, this is the case for target, but not for request types, data categories, and user identity schemas. We might want to include more forma constraints there, or deliberately leave flexibility. This is a discussion we need to have.
 
-### Dot-notation for category hierarchies
+### Dot-notation for TERMS
 
 Hierarchies of categories are represented using the "supercategory.subcategory" notation. The idea behind this is to allow developers to use the level of granularity that is adapted to them, yet be able to easily situate the subcategory in supercategory when dealing with more generic requests.
 
@@ -721,6 +737,8 @@ This document comes with the following support documents:
 
 - **[RFC8259]**  Bray, T., ["The JavaScript Object Notation (JSON) Data Interchange Format"](https://datatracker.ietf.org/doc/html/rfc8259), STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017.
 - **[RFC2119]**  Bradner, S., ["Key words for use in RFCs to Indicate Requirement Levels"](https://datatracker.ietf.org/doc/html/rfc2119), BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997,
+- **[RFC5234]**  Crocker, D., Ed. and P. Overell, ["Augmented BNF for Syntax Specifications: ABNF"](https://www.rfc-editor.org/info/rfc5234), STD 68, RFC 5234, DOI 10.17487/RFC5234, January 2008,
+
 
 
 ### Initiative with which PRIV seeks to be compatible

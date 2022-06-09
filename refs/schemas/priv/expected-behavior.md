@@ -512,7 +512,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
              - if the set of Data Capture Fragments recommended for deletion is *the same as* the **Concerned Fragments** set, recommend status = `ACCEPT`,
              - else, if the set of Data Capture Fragments recommended for deletion is *included in* the **Concerned Fragments** set, recommend status = `PARTIALLY-GRANTED`,
              - else, recommend status = `DENIED`,
-             - when status is one of {`PARTIALLY-GRANTED`, `DENIED`} add one or more motives = `LEGAL-BASES` or `LEGAL-OBLIGATIONS` when **Concerned Fragments** that are not recommended for deletion, have in their `scope` Privacy Scope Triples included in the Eligible Privacy Scope under `CONTRACT` or `NECESSARY` Legal Bases, respectively.
+             - when status is one of {`PARTIALLY-GRANTED`, `DENIED`} add one or more motives = `VALID-REASONS` or `IMPOSSIBLE` when **Concerned Fragments** that are not recommended for deletion, have in their `scope` Privacy Scope Triples included in the Eligible Privacy Scope under `CONTRACT` or `NECESSARY` Legal Bases, respectively.
 
      - `MODIFY` Demands:
          - If restricted to a Privacy Scope Restriction having a `processing-category` or a `purpose`, recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED` (A Delete request can only be relative to a category of data, not to a category of processing or a particular purpose.)
