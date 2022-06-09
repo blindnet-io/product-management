@@ -38,8 +38,8 @@ In the following examples we show how, requests introduced by different regulati
 
 *...the controller shall, ..., provide the data subject with all of the following information:*
 
-| Law | Demande (as introduced by regulation) | Representation |
-| -------- | ----------------------------------------------------- | ------------ | 
+| Law | Demand (as introduced by regulation) | Representation |
+| -------- | ----------------------------------------------------- | ------------ |
 | `GDPR.13.1.a`, `GDPR.14.1.a` | the identity and the contact details of the controller and, where applicable, of the controller’s representative | action:`TRANSPARENCY.ORGANISATION` |
 | `GDPR.13.1.b`, `GDPR.14.1.b` | the contact details of the data protection officer, where applicable; | action:`TRANSPARENCY.DPO` |
 | `GDPR.13.1.c`, `GDPR.14.1.c` | the purposes of the processing for which the personal data are intended  | action:`TRANSPARENCY.PURPOSE` |
@@ -62,15 +62,15 @@ In the following examples we show how, requests introduced by different regulati
 
 *The data subject shall have the right to obtain from the controller confirmation as to whether or not personal data concerning him or her are being processed*
 
-| LAW | Demande (as introduced by regulation) | Representation |
+| LAW | Demand (as introduced by regulation) | Representation |
 | -------- | ----------------------------------------------------- | ------------ |
 | `GDPR.15.1` | confirmation as to whether or not personal data concerning him or her are being processed  | action:`TRANSPARENCY.KNOW` |
 
 *and, where that is the case, access to the personal data and the following information:*
 
-| LAW | Demande (as introduced by regulation) | Representation |
+| LAW | Demand (as introduced by regulation) | Representation |
 | -------- | ----------------------------------------------------- | ------------ |
-| `GDPR.15.1.a` | the purposes of the processing  | action:`TRANSPARENCY.PURPOSE` | 
+| `GDPR.15.1.a` | the purposes of the processing  | action:`TRANSPARENCY.PURPOSE` |
 | `GDPR.15.1.b` | the categories of personal data concerned | action:`TRANSPARENCY.DATA-CATEGORIES` |
 | `GDPR.15.1.c` | the recipients or categories of recipient to whom the personal data have been or will be disclosed, in particular recipients in third countries or international organisations;  | action:`TRANSPARENCY.WHO` |
 | `GDPR.15.1.d` | where possible, the envisaged period for which the personal data will be stored, or, if not possible, the criteria used to determine that period;  | action:`TRANSPARENCY.RETENTION` |
@@ -85,27 +85,27 @@ In the following examples we show how, requests introduced by different regulati
 > To make a request to know if the System has data on them (`GDPR.15.1`) and know about the purposes of processing of that data, the Data Subject MUST make a request with two demands, one `TRANSPARENCY.KNOW` and one `TRANSPARENCY.PURPOSE`
 #### Article 15.2 and 15.3
 
-| LAW | Demande (as introduced by regulation) | Representation |
+| LAW | Demand (as introduced by regulation) | Representation |
 | -------- | ----------------------------------------------------- | ------------ |
-| `GDPR.15.2` | Where personal data are transferred to a third country or to an international organisation, the data subject shall have the right to be informed of the appropriate safeguards pursuant to Article 46 relating to the transfer | action:`TRANSPARENCY.POLICY` | 
+| `GDPR.15.2` | Where personal data are transferred to a third country or to an international organisation, the data subject shall have the right to be informed of the appropriate safeguards pursuant to Article 46 relating to the transfer | action:`TRANSPARENCY.POLICY` |
 | `GDPR.15.3` | The controller shall provide a copy of the personal data undergoing processing | action:`ACCESS` |
 
 #### Article 16-22
 
-| LAW | Demande (as introduced by regulation) | Representation |
+| LAW | Demand (as introduced by regulation) | Representation |
 | -------- | ----------------------------------------------------- | ------------ |
 | `GDPR.16` | The data subject shall have the right to obtain from the controller without undue delay the rectification of inaccurate personal data concerning him or her. 2Taking into account the purposes of the processing, the data subject shall have the right to have incomplete personal data completed, including by means of providing a supplementary statement.  | action:`MODIFY` |
 | `GDPR.17` | The data subject shall have the right to obtain from the controller the erasure of personal data concerning him | action:`DELETE` |
 | `GDPR.18` | The data subject shall have the right to obtain from the controller restriction of processing | action:`RESTRICT` |
 | `GDPR.20` | The data subject shall have the right to receive the personal data concerning him or her, which he or she has provided to a controller, in a structured, commonly used and machine-readable format and have the right to transmit those data to another controller without hindrance from the controller to which the personal data have been provided | action:`PORTABILITY` |
 | `GDPR.21` | The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her which is based on point (e) or (f) of Article 6(1), including profiling based on those provisions.  *(note: 21.2 is not yet supported by the schema)*| action:`RESTRICT` |
-| `GDPR.22` | The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her | action:`RESTRICT`, processing-category:`AUTOMATED-DECISION-MAKING` | 
+| `GDPR.22` | The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her | action:`RESTRICT`, processing-category:`AUTOMATED-DECISION-MAKING` |
 
 
 
 ### GDPR REQUEST TEMPLATES FROM CNIL
 
-| LAW | Demande | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | `Other properties` |
+| LAW | Demand | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | `Other properties` |
 | -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 | `GDPR.15` | [Acces](https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces) | `ACCESS` | `null` | `null` | `null` | `null` |  |
 | `GDPR.15` | [Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant) from 01 Feb 2021 to 03 Feb 2021 | `ACCESS` | `IMAGE` | `null` | `SECURITY` | ~~video surveillance data from 01 Feb 2021 to 03 Feb 2021~~ | `from-to` |
@@ -115,14 +115,14 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.15` | [Access to data "Fichier central des Chèques (FCC)" has on me](https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc) | `ACCESS` | `null` | `null` | `null` | `null` | `null` |
 | `GDPR.15` | [Access to data "Fichier national des Incidents de remboursement de Crédit (FICP)](https://www.cnil.fr/fr/modele/courrier/acceder-aux-donnees-du-fichier-national-des-incidents-de-remboursement-de-credit) | `ACCESS` | `null` | `null` | `null` | `null` | `null` |
 | `GDPR.15` | [Access to geolocation data or an access control device an organization has on me](https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces) on a specific period of time | `ACCESS` | `null` | `null` | `null` | `null` | `from-to` |
-| `GDPR.20` | [Exerce my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-demande-de-droit-la-portabilite) : Receive the data that concerns me to reuse them and transmit them to another data controller| `ACCESS`,`PORTABILITY`| `null` | `null` | `null` | `null` | `null` |
+| `GDPR.20` | [Exerce my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-Demand-de-droit-la-portabilite) : Receive the data that concerns me to reuse them and transmit them to another data controller| `ACCESS`,`PORTABILITY`| `null` | `null` | `null` | `null` | `null` |
 | `GDPR.16` | [Rectify incorrect data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes)| `MODIFY` | `**TBD**` | `null` | `null` | `null` | `Selector.to-modify`,`data.rectified` |
 | `GDPR.16` | [Rectify incomplete data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes) | `MODIFY` | `**TBD**` | `null` | `null` | `null` | `Selector.to-modify`,`data.rectified` |
 | `GDPR.17.1` | [Deletion](https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles) | `DELETE` | `null` | `null` | `null` | `Reason of deletion` | `Data.identifier'=Information to delete* (can be one or several data capture, or limited to a field , Data cat., Process cat. , Purpose, URL, ...)  |
 | `GDPR.21.2` | [Stop receiving advertising from organization](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites) | `DELETE` | `CONTACT` | `null` | `MARKETING` | `null` | `Data.identifier'=data cat.+purpose |
 | `GDPR.17.1` | [Closing an online account](https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne) | `OTHER` | `null` | `null` | `null` | `null` | `null` |
 | `GDPR.21.1`,`GDPR.17.1.c` | [Delete my data that are published on a webiste](https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet) : Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | `DELETE` | `**TBD**` | `null` | `null` | `Reason of deletion` | `Data.identifier`=URL |
-| `GDPR.21.1`,`GDPR.17.1.c` | [Removal of my image online](https://www.cnil.fr/fr/demander-le-retrait-de-votre-image-en-ligne) | `DELETE` | `IMAGE` | `null` | `null` | `Reason of deletion` | `Data.identifier`=data cat.+URL|
+| `GDPR.21.1`,`GDPR.17.1.c` | [Removal of my image online](https://www.cnil.fr/fr/Demandr-le-retrait-de-votre-image-en-ligne) | `DELETE` | `IMAGE` | `null` | `null` | `Reason of deletion` | `Data.identifier`=data cat.+URL|
 | `GDPR.21.2`,`GDPR.17.1`,`GDPR.19` | [Opposition to commercial prospecting](https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers) : Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | `RESTRICT`, `DELETE` | `CONTACT` | `null` | `MARKETING` | `null` | `target`= `ORGANISATION`, `PARTNERS`(propagation) |
 | `GDPR.21.1`,`GDPR.17.1.c`,,`GDPR.19` | [Opposition to treatment of all data an organization has on me](https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees) Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | `RESTRICT`,`DELETE` | `null` | `null` | `null` | `Reason of deletion` | `Data.identifier`=all,`target`= `ORGANISATION`+`PARTNERS`(propagation) |
 | `GDPR.21`, GDPR.18.1 | [Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees) | `RESTRICT` | `**choice?**` | `**choice?**` | `**choice?**` | `null` | `null` |
@@ -137,7 +137,7 @@ In the following examples we show how, requests introduced by different regulati
 
 *Change my address*
 
-| LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Other properties |
+| LAW | Demand (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Other properties |
 | -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 | `GDPR.16` | Change my address, with new address being 1 blindnet street, 75000 blindcity, France, as of 01.01.2021  | `MODIFY` | `CONTACT.ADDRESS` | `null` | `null` | `null` | `null` |
 | `GDPR.17` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | `DELETE` | `CONTACT` | `null` | `MARKETING` | `null` | `null` |
@@ -158,7 +158,7 @@ In the following examples we show how, requests introduced by different regulati
 >we need to add a schema field for providing new data, and date of validity of new data (not necessairly the date of trnasmission)
 
 ### CCPA REQUESTS
-| LAW | Demande (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Other properties |
+| LAW | Demand (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Other properties |
 | -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
 | `CCPA.1798.100.1` | A consumer shall have the right to request that a business that collects a consumer’s personal information disclose to that consumer the categories and specific pieces of personal information the business has collected | `TRANSPARENCY.KNOWN`,`TRANSPARENCY.DATA-CATEGORIES` | `null` | `null` | `null` | `null` | `null` |
 | `CCPA.1798.100.4` | A business that receives a verifiable consumer request from a consumer to access personal information shall promptly take steps to disclose and deliver, free of charge to the consumer, the personal information required by this section.  | `ACCESS` | `null` | `null` | `null` | `null` | `null` |
@@ -213,7 +213,7 @@ In the following examples we show how, requests introduced by different regulati
 ###### Account Contact Data
 
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment |
-|  ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
+|  ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
 | **account** | **Contact**  | Contact data related to a system account | `CONTACT` | `null` | `null` | `null` |
 | **account.contact** | **email**  | Account's email address | `CONTACT.EMAIL` | `null` | `null` | `null` |
 | **account.contact** | **phone_number**  | Account's phone number | `CONTACT.PHONE` | `null` | `null` | `null` |
@@ -225,7 +225,7 @@ In the following examples we show how, requests introduced by different regulati
 
 ###### Account Payment Data
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
-| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
+| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
 | **account** | **payment**  | Payment data related to system account | `FINANCIAL` | `null` | `null` | Broader definition ? |
 | **account.payment** | **financial_account_number**  | Payment data related to system account | `FINANCIAL.BANK-ACCOUNT` | `null` | `null` | `null` |
 
@@ -233,7 +233,7 @@ In the following examples we show how, requests introduced by different regulati
 > Data unique to, and under control of the system
 
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
-| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
+| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
 | **system** | **authentication**  | Data used to manage access to the system | `**TBD**` | `null` | `null` | Add AUTHENTICATION ? (as a meta cat of biometric ?) |
 | **system** | **operations**  | Data used for system operations | `**Any/all**` | `**Any/all**` | `null` | Ok ? |
 
@@ -246,7 +246,7 @@ In the following examples we show how, requests introduced by different regulati
 > Data derived from user provided data or as a result of user actions in the system
 
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
-| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
+| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
 | **user.derived** | **identifiable**  | Derived data that is linked to, or identifies a user | `**TBD**` | `null` | `null` | TBD, isn't it all the data for us ? |
 | **user.derived.identifable** | **biometric_health**  | Encoded characteristic collected about a user | `BIOMETRIC`,`HEALTH` | `null` | `null` | Ok ? |
 | **user.derived.identifable** | **browsing_history**  | Content browsing history of a user | `BEHAVIOR` | `null` | `null` | Ok ? |
@@ -279,7 +279,7 @@ In the following examples we show how, requests introduced by different regulati
 > Data provided or created directly by a user of the system
 
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
-| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | 
+| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
 | **user.provided** | **identifiable**  | Data provided or created directly by a user that is linked to or identifies a user | `**TBD**` | `null` | `null` | TBD, isn't it all the data for us ? |
 | **user.provided.identifiable** | **identifiable**  | Encoded characteristics provided by a user | `**TBD**` | `null` | `null` | `null` |
 | **user.provided.identifiable** | **children**  | Data relating to children | `OTHER`,`RELATIONSHIP` | `null` | `null` | Ok ? Need a more detailed cat ? |
