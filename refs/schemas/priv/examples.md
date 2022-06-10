@@ -124,7 +124,7 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.21.1`,`GDPR.17.1.c` | [Delete my data that are published on a webiste](https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet) : Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | action:`DELETE`, message:`Reason of deletion`, other-property:`Data.identifier`(data + URL) |
 | `GDPR.21.1`,`GDPR.17.1.c` | [Removal of my image online](https://www.cnil.fr/fr/Demandr-le-retrait-de-votre-image-en-ligne) | action: `DELETE`, data-category:`IMAGE`, message:`Reason of deletion`, other-property:`Data.identifier`(data + URL) |
 | `GDPR.21.2`,`GDPR.17.1`,`GDPR.19` | [Opposition to commercial prospecting](https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers) : Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | action:`RESTRICT`,`DELETE`, data-category:`CONTACT`, purpose:`MARKETING`, target: `ORGANISATION`,`PARTNERS`(propagation) |
-| `GDPR.21.1`,`GDPR.17.1.c`,,`GDPR.19` | [Opposition to treatment of all data an organization has on me](https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees) Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | action:`RESTRICT`,`DELETE`, message:`Reason of deletion`, other-property:`Data.identifier`,target:`ORGANISATION`,`PARTNERS`(propagation) |
+| `GDPR.21.1`,`GDPR.17.1.c`,`GDPR.19` | [Opposition to treatment of all data an organization has on me](https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees) Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | action:`RESTRICT`,`DELETE`, message:`Reason of deletion`, other-property:`Data.identifier`,target:`ORGANISATION`,`PARTNERS`(propagation) |
 | `GDPR.21`, GDPR.18.1 | [Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees) | action:`RESTRICT`, processing-category:`**any/all**` |
 | `GDRP.4`,`GDRP.6`,`GDRP.7`, `GDPR.13.2.c`| [Revoke consent](https://www.cnil.fr/fr/les-bases-legales/consentement) : Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | action:`REVOKE-CONSENT`, processing-category:`**any/all**` |
 | `GDPR.13.2.a`, `GDPR.14.2.a` | [For how long the data organization has on me will be kept](https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees) | action:`TRANSPARENCY.RETENTION` |
@@ -156,48 +156,20 @@ In the following examples we show how, requests introduced by different regulati
 >we need to add a schema field for providing new data, and date of validity of new data (not necessairly the date of trnasmission)
 
 ### CCPA REQUESTS
-| LAW | Demand (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Other properties |
-| -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
-| `CCPA.1798.100.1` | A consumer shall have the right to request that a business that collects a consumer’s personal information disclose to that consumer the categories and specific pieces of personal information the business has collected | `TRANSPARENCY.KNOWN`,`TRANSPARENCY.DATA-CATEGORIES` | `null` | `null` | `null` | `null` | `null` |
-| `CCPA.1798.100.4` | A business that receives a verifiable consumer request from a consumer to access personal information shall promptly take steps to disclose and deliver, free of charge to the consumer, the personal information required by this section.  | `ACCESS` | `null` | `null` | `null` | `null` | `null` |
-| `1798.105.1` | A consumer shall have the right to request that a business delete any personal information about the consumer which the business has collected from the consumer | `DELETE` | `null` | `null` | `null` | `null` | `null` |
-| `1798.110.1.1` | A consumer shall have the right to request that a business that collects personal information about the consumer disclose to the consumer the following: The categories of personal information it has collected about that consumer | `TRANSPARENCY.DATA-CATEGORIES` | `null` | `null` | `null` | `null` | `null` |
-| `1798.110.1.2` | ...The categories of sources from which the personal information is collected | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` | `null` | `null` |
-| `1798.110.1.3` | ...The business or commercial purpose for collecting or selling personal information | `TRANSPARENCY.PURPOSE` | `null` | `null` | `null` | `null` | `null` |
-| `1798.110.1.4` | ...The categories of third parties with whom the business shares personal information | `TRANSPARENCY.WHO` | `null` | `SHARING` | `null` | `null` | `target`=`PARTNERS` |
-| `1798.110.1.5` | ...The specific pieces of personal information it has collected about that consumer | `ACCESS` | `null` | `null` | `null` | `null` | `null` |
-| `1798.115.1.1` | A consumer shall have the right to request that a business that sells the consumer’s personal information, or that discloses it for a business purpose, disclose to that consumer: The categories of personal information that the business collected about the consumer | `TRANSPARENCY.DATA-CATEGORIES` | `null` | `SHARING` | `SALE` | `null` | `null` |
-| `1798.115.1.2` | ...The categories of personal information that the business sold about the consumer and the categories of third parties to whom the personal information was sold, by category or categories of personal information for each category of third parties to whom the personal information was sold | `TRANSPARENCY.DATA-CATEGORIES`,`TRANSPARENCY.WHO` | `null` | `SHARING` | `SALE` | `null` | `null` |
-| `1798.115.1.3` | ...The categories of personal information that the business disclosed about the consumer for a business purpose | `TRANSPARENCY.DATA-CATEGORIES` | `null` | `SHARING` | `SALE` | `null` | `null` |
-| `1798.120.1` | A consumer shall have the right, at any time, to direct a business that sells personal information about the consumer to third parties not to sell the consumer’s personal information. This right may be referred to as the right to opt-out | `RESTRICT` | `null` | `SHARING` | `SALE` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `X` | X | `X` | `null` | `null` | `null` | `null` | `null` |
-| `1798.125.1.1` | A business shall not discriminate against a consumer because the consumer exercised any of the consumer’s rights | `X` | `null` | `null` | `null` | `null` | `null` |
-| `1798.130.1.1` | Make available to consumers two or more designated methods for submitting requests for information, including, at a minimum, a toll-free telephone number. | `X` | `null` | `null` | `null` | `null` | `null` |
-| `1798.130.1.2` | Disclose and deliver the required information to a consumer free of charge within 45 days of receiving a verifiable consumer request from the consumer.  | `X` | `null` | `null` | `null` | `null` | `null` |
+| LAW | Demand (as introduced by regulation) | Representation |
+| -------- | ----------------------------------------------------- | ------------ |
+| `CCPA.1798.100.1` | A consumer shall have the right to request that a business that collects a consumer’s personal information disclose to that consumer the categories and specific pieces of personal information the business has collected | action:`TRANSPARENCY.KNOWN`,`TRANSPARENCY.DATA-CATEGORIES` |
+| `CCPA.1798.100.4` | A business that receives a verifiable consumer request from a consumer to access personal information shall promptly take steps to disclose and deliver, free of charge to the consumer, the personal information required by this section.  | action:`ACCESS` |
+| `1798.105.1` | A consumer shall have the right to request that a business delete any personal information about the consumer which the business has collected from the consumer | action:`DELETE` |
+| `1798.110.1.1` | A consumer shall have the right to request that a business that collects personal information about the consumer disclose to the consumer the following: The categories of personal information it has collected about that consumer | action:`TRANSPARENCY.DATA-CATEGORIES` | 
+| `1798.110.1.2` | ...The categories of sources from which the personal information is collected | action:`TRANSPARENCY.PROVENANCE` |
+| `1798.110.1.3` | ...The business or commercial purpose for collecting or selling personal information | action:`TRANSPARENCY.PURPOSE` |
+| `1798.110.1.4` | ...The categories of third parties with whom the business shares personal information | action:`TRANSPARENCY.WHO` | `null` | processing-category:`SHARING`, `target`:`PARTNERS` |
+| `1798.110.1.5` | ...The specific pieces of personal information it has collected about that consumer | action:`ACCESS` |
+| `1798.115.1.1` | A consumer shall have the right to request that a business that sells the consumer’s personal information, or that discloses it for a business purpose, disclose to that consumer: The categories of personal information that the business collected about the consumer | action:`TRANSPARENCY.DATA-CATEGORIES`, processing-category:`SHARING`, purpose:`SALE` |
+| `1798.115.1.2` | ...The categories of personal information that the business sold about the consumer and the categories of third parties to whom the personal information was sold, by category or categories of personal information for each category of third parties to whom the personal information was sold | action:`TRANSPARENCY.DATA-CATEGORIES`,`TRANSPARENCY.WHO`, processing-category:`SHARING`, purpose:`SALE` |
+| `1798.115.1.3` | ...The categories of personal information that the business disclosed about the consumer for a business purpose | action:`TRANSPARENCY.DATA-CATEGORIES`, processing-category:`SHARING`, purpose:`SALE` |
+| `1798.120.1` | A consumer shall have the right, at any time, to direct a business that sells personal information about the consumer to third parties not to sell the consumer’s personal information. This right may be referred to as the right to opt-out | action:`RESTRICT`, processing-category:`SHARING`, purpose:`SALE` |
 
 ### Alternatives Considered
 
@@ -210,30 +182,29 @@ In the following examples we show how, requests introduced by different regulati
 
 ###### Account Contact Data
 
-| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment |
-|  ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
-| **account** | **Contact**  | Contact data related to a system account | `CONTACT` | `null` | `null` | `null` |
-| **account.contact** | **email**  | Account's email address | `CONTACT.EMAIL` | `null` | `null` | `null` |
-| **account.contact** | **phone_number**  | Account's phone number | `CONTACT.PHONE` | `null` | `null` | `null` |
-| **account.contact** | **City**  | Account's city level address data | `CONTACT.ADDRESS` | `null` | `null` | Need a more detailed cat ? |
-| **account.contact** | **Country**  | Account's country level address data | `CONTACT.ADDRESS` | `null` | `null` | Need a more detailed cat ? |
-| **account.contact** | **postal_code**  | Account's postal code  | `CONTACT.ADDRESS` | `null` | `null` | Need more detail ? |
-| **account.contact** | **state**  | Account's state level address data  | `CONTACT.ADDRESS` | `null` | `null` | Need a more detailed cat ? |
-| **account.contact** | **street**  | Account's street level address | `CONTACT.ADDRESS` | `null` | `null` | Need a more detailed cat ? |
-
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description |Representation |
+|  ------------ | -------------------------------------- | ------------ | ------------ | 
+| **account** | **Contact**  | Contact data related to a system account | data-category:`CONTACT` |
+| **account.contact** | **email**  | Account's email address | data-category:`CONTACT.EMAIL` |
+| **account.contact** | **phone_number**  | Account's phone number | data-category:`CONTACT.PHONE` |
+| **account.contact** | **City**  | Account's city level address data | data-category:`CONTACT.ADDRESS` |
+| **account.contact** | **Country**  | Account's country level address data | data-category:`CONTACT.ADDRESS` |
+| **account.contact** | **postal_code**  | Account's postal code  | data-category:`CONTACT.ADDRESS` |
+| **account.contact** | **state**  | Account's state level address data  | data-category:`CONTACT.ADDRESS` |
+| **account.contact** | **street**  | Account's street level address | data-category:`CONTACT.ADDRESS` |
 ###### Account Payment Data
-| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
-| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
-| **account** | **payment**  | Payment data related to system account | `FINANCIAL` | `null` | `null` | Broader definition ? |
-| **account.payment** | **financial_account_number**  | Payment data related to system account | `FINANCIAL.BANK-ACCOUNT` | `null` | `null` | `null` |
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | Representation |
+| ------------ | -------------------------------------- | ------------ | ------------ | 
+| **account** | **payment**  | Payment data related to system account | data-category:`FINANCIAL` | 
+| **account.payment** | **financial_account_number**  | Payment data related to system account | data-category:`FINANCIAL.BANK-ACCOUNT` |
 
 ##### System Data Categories
 > Data unique to, and under control of the system
 
-| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
-| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
-| **system** | **authentication**  | Data used to manage access to the system | `**TBD**` | `null` | `null` | Add AUTHENTICATION ? (as a meta cat of biometric ?) |
-| **system** | **operations**  | Data used for system operations | `**Any/all**` | `**Any/all**` | `null` | Ok ? |
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | Representation |
+| ------------ | -------------------------------------- | ------------ | ------------ |
+| **system** | **authentication**  | Data used to manage access to the system | data-category:`OTHER-DATA` |
+| **system** | **operations**  | Data used for system operations | data-category:`**Any/all**`, processing-category:`**Any/all**` |
 
 ##### User Data Categories
 > Data related to the user of the system
@@ -243,74 +214,74 @@ In the following examples we show how, requests introduced by different regulati
 ###### User Derived Data
 > Data derived from user provided data or as a result of user actions in the system
 
-| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
-| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
-| **user.derived** | **identifiable**  | Derived data that is linked to, or identifies a user | `**TBD**` | `null` | `null` | TBD, isn't it all the data for us ? |
-| **user.derived.identifable** | **biometric_health**  | Encoded characteristic collected about a user | `BIOMETRIC`,`HEALTH` | `null` | `null` | Ok ? |
-| **user.derived.identifable** | **browsing_history**  | Content browsing history of a user | `BEHAVIOR` | `null` | `null` | Ok ? |
-| **user.derived.identifable** | **contact**  | Contact data collected about a user | `CONTACT` | `null` | `null` | Ok ? |
-| **user.derived.identifable** | **demographic**  | Demographic data about a user | `DEMOGRAPHIC` | `null` | `null` | `null` |
-| **user.derived.identifable** | **gender**  | Gender of an individual | `DEMOGRAPHIC.GENDER` | `null` | `null` | `null` |
-| **user.derived.identifable** | **location**  | Records of the location of a user | `LOCATION` | `null` | `null` | `null` |
-| **user.derived.identifable** | **media_consumption**  | Media type consumption data of a user | `BEHAVIOR` | `null` | `null` | Ok ? |
-| **user.derived.identifable** | **non_specific_age**  | Age range data | `DEMOGRAPHIC.AGE` | `null` | `null` | `null` |
-| **user.derived.identifable** | **observed**  | Data collected through observation of use of the system | `BEHAVIOR` | `null` | `null` | Ok ? |
-| **user.derived.identifable** | **organization**  | Derived data that is linked to, or identifies an organization | `AFFILIATION` | `null` | `null` | OK ? Or here does Ethyca means user = organisation ? |
-| **user.derived.identifable** | **profiling**  | Preference and interest data about a user | `BEHAVIOR.PREFERENCE` | `null` | `null` | /!\ not same meaning for our profiling cat |
-| **user.derived.identifable** | **race**  | Racial or ethnic origin data | `DEMOGRAPHIC.RACE` | `null` | `null` | `null` |
-| **user.derived.identifable** | **religious_belief**  | Religion or religious belief | `DEMOGRAPHIC.BELIEFS` | `null` | `null` | `null` |
-| **user.derived.identifable** | **search_history**  | Records of search history and queries of a user | `BEHAVIOR` | `null` | `null` | Ok ? |
-| **user.derived.identifable** | **sexual_orientation**  | Personal sex life or sexual data | `DEMOGRAPHIC.SEXUAL-ORIENTATION` | `null` | `null` | `null`  |
-| **user.derived.identifable** | **social**  | Social activity and interaction data | `BEHAVIOR.RELATIONSHIPS` | `null` | `null` | Ok ? |
-| **user.derived.identifable** | **telemetry**  | User identifiable measurement data from system sensors and monitoring | `BEHAVIOR.TELEMETRY` | `null` | `null` | `null` |
-| **user.derived.identifable** | **unique_id**  | Unique identifier for a user assigned through system use | `UID` | `null` | `null` | `null` |
-| **user.derived.identifable** | **user_sensor**  | Measurement data derived about a user's environment through system use | `BEHAVIOR`,`COLLECTION` | `null` | `null` |   |
-| **user.derived.identifable** | **workplace**  | Organization of employment | `AFFILIATION.WORK` | `null` | `null` | `null` |
-| **user.derived.identifable** | **device**  | Data related to a user's device, configuration and setting | `DEVICE` | `null` | `null` | `null` |
-| **user.derived.identifable** | **cookie_id**  | Cookie unique identification number | `BEHAVIOR` | `null` | `null` | Need a more detailed cat ? |
-| **user.derived.identifable** | **device_id**  | Device unique identification number | `DEVICE` | `null` | `null` | Need a more detailed cat ? |
-| **user.derived.identifable** | **ip_address**  | Unique identifier related to device connection | `DEVICE` | `null` | `null` | Need a more detailed cat ? |
-| **user.derived** | **nonidentifiable**  | Non-user identifiable data derived related to a user as a result of user actions in the system | `**TBD**` | `null` | `null` | TBD, do we need that ? |
-| **user.derived.nonidentifiable** | **nonsensor**  | Non-user identifiable measurement data derived from sensors and monitoring systems | `**TBD**` | `null` | `null` | TBD, do we need that ? |
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | Representation |
+| ------------ | -------------------------------------- | ------------ | ------------ | 
+| **user.derived** | **identifiable**  | Derived data that is linked to, or identifies a user | data-category:`**Any/all**`, provenance:`DERIVED` |
+| **user.derived.identifable** | **biometric_health**  | Encoded characteristic collected about a user | data-category:`BIOMETRIC`,`HEALTH`, provenance:`DERIVED` |
+| **user.derived.identifable** | **browsing_history**  | Content browsing history of a user | data-category:`BEHAVIOR`, provenance:`DERIVED` | 
+| **user.derived.identifable** | **contact**  | Contact data collected about a user | data-category:`CONTACT`,provenance:`DERIVED` |
+| **user.derived.identifable** | **demographic**  | Demographic data about a user | data-category:`DEMOGRAPHIC`, provenance:`DERIVED` |
+| **user.derived.identifable** | **gender**  | Gender of an individual | data-category:`DEMOGRAPHIC.GENDER`, provenance:`DERIVED` |
+| **user.derived.identifable** | **location**  | Records of the location of a user | data-category:`LOCATION`, provenance:`DERIVED` |
+| **user.derived.identifable** | **media_consumption**  | Media type consumption data of a user | data-category:`BEHAVIOR`, provenance:`DERIVED` |
+| **user.derived.identifable** | **non_specific_age**  | Age range data | data-category:`DEMOGRAPHIC.AGE`, provenance:`DERIVED` |
+| **user.derived.identifable** | **observed**  | Data collected through observation of use of the system | data-category:`BEHAVIOR`, provenance:`DERIVED` |
+| **user.derived.identifable** | **organization**  | Derived data that is linked to, or identifies an organization | data-category:`AFFILIATION`, provenance:`DERIVED` |
+| **user.derived.identifable** | **profiling**  | Preference and interest data about a user | data-category:`BEHAVIOR.PREFERENCE` (/!\ not same meaning for our PROFILING cat), provenance:`DERIVED`  |
+| **user.derived.identifable** | **race**  | Racial or ethnic origin data | data-category:`DEMOGRAPHIC.RACE`, provenance:`DERIVED` |
+| **user.derived.identifable** | **religious_belief**  | Religion or religious belief | data-category:`DEMOGRAPHIC.BELIEFS`, provenance:`DERIVED` |
+| **user.derived.identifable** | **search_history**  | Records of search history and queries of a user | data-category:`BEHAVIOR`, provenance:`DERIVED` |
+| **user.derived.identifable** | **sexual_orientation**  | Personal sex life or sexual data | data-category:`DEMOGRAPHIC.SEXUAL-ORIENTATION`, provenance:`DERIVED` |
+| **user.derived.identifable** | **social**  | Social activity and interaction data | data-category:`BEHAVIOR.RELATIONSHIPS`, provenance:`DERIVED` |
+| **user.derived.identifable** | **telemetry**  | User identifiable measurement data from system sensors and monitoring | data-category:`BEHAVIOR.TELEMETRY`, provenance:`DERIVED` |
+| **user.derived.identifable** | **unique_id**  | Unique identifier for a user assigned through system use | data-category:`UID`, provenance:`DERIVED` |
+| **user.derived.identifable** | **user_sensor**  | Measurement data derived about a user's environment through system use | data-category:`BEHAVIOR`,`COLLECTION`, provenance:`DERIVED` | 
+| **user.derived.identifable** | **workplace**  | Organization of employment | data-category:`AFFILIATION.WORK`, provenance:`DERIVED` |
+| **user.derived.identifable** | **device**  | Data related to a user's device, configuration and setting | data-category:`DEVICE`, provenance:`DERIVED` |
+| **user.derived.identifable** | **cookie_id**  | Cookie unique identification number | data-category:`BEHAVIOR`, provenance:`DERIVED` |
+| **user.derived.identifable** | **device_id**  | Device unique identification number | data-category:`DEVICE`, provenance:`DERIVED` |
+| **user.derived.identifable** | **ip_address**  | Unique identifier related to device connection | data-category:`DEVICE`, provenance:`DERIVED` |
+| **user.derived** | **nonidentifiable**  | Non-user identifiable data derived related to a user as a result of user actions in the system | `OTHER-DATA`, provenance:`DERIVED` |
+| **user.derived.nonidentifiable** | **nonsensor**  | Non-user identifiable measurement data derived from sensors and monitoring systems | `OTHER-DATA`, provenance:`DERIVED` |
 
 ###### User Provided Data
 > Data provided or created directly by a user of the system
 
-| Ethyca Parent key | **Ethyca Label** | Ethyca Description | `data-categories` | `processing-categories` | `purposes` | `Comment` |
-| ------------ | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ |
-| **user.provided** | **identifiable**  | Data provided or created directly by a user that is linked to or identifies a user | `**TBD**` | `null` | `null` | TBD, isn't it all the data for us ? |
-| **user.provided.identifiable** | **identifiable**  | Encoded characteristics provided by a user | `**TBD**` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **children**  | Data relating to children | - | `null` | `null` | @milstan: I don't think the fact someone is a child makes it a separate Data Category. The same person can turn 18 and no longer be a child - and data category can't change due to that. So this should be the responsibility of the System to use AGE to determine if special child-related policies must apply. |
-| **user.provided.identifiable** | **health_and_medical**  | Health records or individual's personal medical information | `HEALTH` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **job_title**  | Professional data | `CONTACT` | `null` | `null` |  |
-| **user.provided.identifiable** | **name**  | User's real name | `NAME` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **non_specific_age**  | Age range data | `DEMOGRAPHIC.AGE` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **political_opinion**  | Data related to the individual's political opinions | `DEMOGRAPHIC.BELIEFS` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **race**  | Racial or ethnic origin data | `DEMOGRAPHIC.RACE` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **religious_belief**  | Religion or religious belief | `DEMOGRAPHIC.BELIEFS` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **sexual_orientation**  | Personal sex life or sexual data | `DEMOGRAPHIC.SEXUAL-ORIENTATION` | `null` | `null` | Ok ?  Need a more detailed cat ? |
-| **user.provided.identifiable** | **workplace**  | Organization of employment | `AFFILIATION.WORK` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **date_of_birth**  | User's date of birth | `DEMOGRAPHIC.AGE` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **gender**  | Gender of an individual | `DEMOGRAPHIC.GENDER` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **genetic**  | Data about the genetic makeup provided by a user | `GENETIC` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **contact**  | User provided contact data for purposes other than account management | `CONTACT` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **city**  | User's city level address data | `CONTACT.ADDRESS` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **country**  | User's country level address data | `CONTACT.ADDRESS` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **email**  | User's provided email address | `CONTACT.EMAIL` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **phone_number**  | User's phone number | `CONTACT.PHONE` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **postal_code**  | User's postal code | `CONTACT.ADDRESS` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **state**  | User's state level address data | `CONTACT.ADDRESS` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **street**  | User's street level address data | `CONTACT.ADDRESS` | `null` | `null` | `null` |
-| **user.provided.identifiable** | **credentials**  | User provided authentication data | `UID.USER-ACCOUNT` | `null` | `null` |  |
-| **user.provided.identifiable** | **biometric_credentials**  | User provided authentication data | `UID.USER-ACCOUNT`,`BIOMETRIC` | `null` | `null` |  |
-| **user.provided.identifiable** | **password**  | Password for system authentication | `UID.USER-ACCOUNT` | `null` | `null` |  |
-| **user.provided.identifiable** | **financial**  | Payment data and financial history | `FINANCIAL` | `null` | `null` | `Broader definition ?`|
-| **user.provided.identifiable** | **account_number**  | User's account number for a payment card, bank account, or other financial system | `FINANCIAL.BANK-ACCOUNT` | `null` | `null` | `Ok ?  Need a more detailed cat ?`|
-| **user.provided.identifiable** | **government_id**  | State provided identification data | `UID.ID` | `null` | `null` | |
-| **user.provided.identifiable** | **drivers_license_number**  | State issued driving identification number | `UID.ID` | `null` | `null` | `Ok ?`|
-| **user.provided.identifiable** | **national_identification_number**  | State issued personal identification number | `UID.ID` | `null` | `null` | `null`|
-| **user.provided.identifiable** | **passport_number**  | State issued passport data | `UID.ID` | `null` | `null` | `null`|
-| **user.provided** | **nonidentifiable**  | Data provided or created directly by a user that is not identifiable | `OTHER-DATA` | `null` | `null` | TBD: Do we need that ?|
+| Ethyca Parent key | **Ethyca Label** | Ethyca Description | Representation |
+| ------------ | -------------------------------------- | ------------ | ------------ |
+| **user.provided** | **identifiable**  | Data provided or created directly by a user that is linked to or identifies a user | data-category :`**any/all**`, provenance:`USER` |
+| **user.provided.identifiable** | **identifiable**  | Encoded characteristics provided by a user | data-category :`**any/all**`, provenance:`USER`|
+| **user.provided.identifiable** | **children**  | Data relating to children | data-category :`**any/all**`, provenance:`USER` @milstan: I don't think the fact someone is a child makes it a separate Data Category. The same person can turn 18 and no longer be a child - and data category can't change due to that. So this should be the responsibility of the System to use AGE to determine if special child-related policies must apply. |
+| **user.provided.identifiable** | **health_and_medical**  | Health records or individual's personal medical information | data-category :`HEALTH` provenance:`USER` |
+| **user.provided.identifiable** | **job_title**  | Professional data | data-category :`CONTACT`, provenance:`USER` |
+| **user.provided.identifiable** | **name**  | User's real name | data-category :`NAME`, provenance:`USER` | 
+| **user.provided.identifiable** | **non_specific_age**  | Age range data | data-category :`DEMOGRAPHIC.AGE`, provenance:`USER` |
+| **user.provided.identifiable** | **political_opinion**  | Data related to the individual's political opinions | data-category :`DEMOGRAPHIC.BELIEFS`, provenance:`USER` |
+| **user.provided.identifiable** | **race**  | Racial or ethnic origin data | data-category :`DEMOGRAPHIC.RACE`, provenance:`USER` |
+| **user.provided.identifiable** | **religious_belief**  | Religion or religious belief | data-category :`DEMOGRAPHIC.BELIEFS`, provenance:`USER` |
+| **user.provided.identifiable** | **sexual_orientation**  | Personal sex life or sexual data | data-category :`DEMOGRAPHIC.SEXUAL-ORIENTATION`, provenance:`USER` | 
+| **user.provided.identifiable** | **workplace**  | Organization of employment | data-category :`AFFILIATION.WORK`, provenance:`USER` |
+| **user.provided.identifiable** | **date_of_birth**  | User's date of birth | data-category :`DEMOGRAPHIC.AGE`, provenance:`USER` | 
+| **user.provided.identifiable** | **gender**  | Gender of an individual | data-category :`DEMOGRAPHIC.GENDER`, provenance:`USER` |
+| **user.provided.identifiable** | **genetic**  | Data about the genetic makeup provided by a user | data-category :`GENETIC`, provenance:`USER` |
+| **user.provided.identifiable** | **contact**  | User provided contact data for purposes other than account management | data-category :`CONTACT`, provenance:`USER` |
+| **user.provided.identifiable** | **city**  | User's city level address data | data-category :`CONTACT.ADDRESS`, provenance:`USER` |
+| **user.provided.identifiable** | **country**  | User's country level address data | data-category :`CONTACT.ADDRESS`, provenance:`USER` |
+| **user.provided.identifiable** | **email**  | User's provided email address | data-category :`CONTACT.EMAIL`, provenance:`USER` |
+| **user.provided.identifiable** | **phone_number**  | User's phone number | data-category :`CONTACT.PHONE`, provenance:`USER` |
+| **user.provided.identifiable** | **postal_code**  | User's postal code | data-category :`CONTACT.ADDRESS`, provenance:`USER` | 
+| **user.provided.identifiable** | **state**  | User's state level address data | data-category :`CONTACT.ADDRESS`, provenance:`USER` |
+| **user.provided.identifiable** | **street**  | User's street level address data | data-category :`CONTACT.ADDRESS`, provenance:`USER` |
+| **user.provided.identifiable** | **credentials**  | User provided authentication data | data-category :`UID.USER-ACCOUNT`, provenance:`USER` | 
+| **user.provided.identifiable** | **biometric_credentials**  | User provided authentication data | data-category :`UID.USER-ACCOUNT`,`BIOMETRIC`, provenance:`USER` |
+| **user.provided.identifiable** | **password**  | Password for system authentication | data-category :`UID.USER-ACCOUNT`, provenance:`USER` |
+| **user.provided.identifiable** | **financial**  | Payment data and financial history | data-category :`FINANCIAL`, provenance:`USER` |
+| **user.provided.identifiable** | **account_number**  | User's account number for a payment card, bank account, or other financial system | data-category :`FINANCIAL.BANK-ACCOUNT`, provenance:`USER` |
+| **user.provided.identifiable** | **government_id**  | State provided identification data | data-category :`UID.ID`, provenance:`USER` |
+| **user.provided.identifiable** | **drivers_license_number**  | State issued driving identification number | data-category :`UID.ID`, provenance:`USER` |
+| **user.provided.identifiable** | **national_identification_number**  | State issued personal identification number |data-category :`UID.ID`, provenance:`USER` |
+| **user.provided.identifiable** | **passport_number**  | State issued passport data | data-category :`UID.ID`, provenance:`USER` |
+| **user.provided** | **nonidentifiable**  | Data provided or created directly by a user that is not identifiable | data-category :`OTHER-DATA`, provenance:`USER` |
 
 #### Transcend
 
