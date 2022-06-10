@@ -106,7 +106,7 @@ In the following examples we show how, requests introduced by different regulati
 ### GDPR REQUEST TEMPLATES FROM CNIL
 
 | LAW | Demand | Representation |
-| -------- | -------------------------------------- | ------------ |
+| -------- | ----------------------------------------------------- | ------------ |
 | `GDPR.15` | [Acces](https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces) | action:`ACCESS` |
 | `GDPR.15` | [Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant) from 01 Feb 2021 to 03 Feb 2021 | action:`ACCESS`, data-category:`IMAGE`, purpose:`SECURITY`, other-property:`from-to` |
 | `Code de la santé publique art. L. 1111-7` | [Acces to my medical record](https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical) | action:`ACCESS`, data-category:`HEALTH` |
@@ -136,7 +136,7 @@ In the following examples we show how, requests introduced by different regulati
 ### OTHER EXAMPLES FROM DAILY LIFE
 
 | LAW | Demand  | Representation |
-| -------- | -------------------------------------- | ------------ |
+| -------- | ----------------------------------------------------- | ------------ |
 | `GDPR.16` | Change my address, with new address being 1 blindnet street, 75000 blindcity, France, as of 01.01.2021  | action:`MODIFY`, data-category:`CONTACT.ADDRESS` |
 | `GDPR.17` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | action:`DELETE`, data-category:`CONTACT`, purpose:`MARKETING` |
 | `GDPR.21`,`GDPR.18.1` | Opt out of automated decision making | action:`RESTRICT`, processing-category:`AUTOMATED-DECISION-MAKING` |
