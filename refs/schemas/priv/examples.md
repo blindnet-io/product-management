@@ -241,8 +241,8 @@ In the following examples we show how, requests introduced by different regulati
 | **user.derived.identifable** | **cookie_id**  | Cookie unique identification number | data-category:`BEHAVIOR`, provenance:`DERIVED` |
 | **user.derived.identifable** | **device_id**  | Device unique identification number | data-category:`DEVICE`, provenance:`DERIVED` |
 | **user.derived.identifable** | **ip_address**  | Unique identifier related to device connection | data-category:`DEVICE`, provenance:`DERIVED` |
-| **user.derived** | **nonidentifiable**  | Non-user identifiable data derived related to a user as a result of user actions in the system | `OTHER-DATA`, provenance:`DERIVED` |
-| **user.derived.nonidentifiable** | **nonsensor**  | Non-user identifiable measurement data derived from sensors and monitoring systems | `OTHER-DATA`, provenance:`DERIVED` |
+| **user.derived** | **nonidentifiable**  | Non-user identifiable data derived related to a user as a result of user actions in the system | data-category:`OTHER-DATA`, provenance:`DERIVED` |
+| **user.derived.nonidentifiable** | **nonsensor**  | Non-user identifiable measurement data derived from sensors and monitoring systems | data-category:`OTHER-DATA`, provenance:`DERIVED` |
 
 ###### User Provided Data
 > Data provided or created directly by a user of the system
