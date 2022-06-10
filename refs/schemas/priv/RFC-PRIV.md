@@ -357,7 +357,7 @@ A Data Capture concerns one and only one Data Subject who MAY be identified by m
 | `data` | 0-* | Optionally concrete data (Format **TBD**) |
 | `legal-base` | 0-* | Optionally an array of values among `CONTRACT`, `CONSENT`, `LEGITIMATE-INTEREST`, `NECESSARY`, `OTHER-LEGAL-BASE` |
 
-`selector`s MUST include the data category of the data. For example selectors 'CONTACT.ADDRESS.SHIPPING' and 'CONTACT.ADDRESS.BILLING' indicate that the data being captured by a particular fragment belong to the `CONTACT.ADDRESS` data category.
+`selector`s MUST include the data category of the data. For example selectors 'CONTACT.ADDRESS.SHIPPING' and 'CONTACT.ADDRESS.BILLING' indicate that the data being captured by a particular fragment belonging to the `CONTACT.ADDRESS` data category.
 
 While the Data Categories are global, the selectors are defined by the Systems. A `selector` uniquely identifies a particular data field that the Systems works with. When several Systems exchange data among them, they SHOULD align on using the same `selectors` in the same way, in order to be able to correctly interoperate.
 

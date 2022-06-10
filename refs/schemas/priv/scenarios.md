@@ -1,0 +1,348 @@
+# Privacy Request Interchange Vocabulary : Scenarios of Use
+
+| Status        | draft                                                                                  |
+| :------------ | :------------------------------------------------------------------------------------- |
+| **Author(s)** | milstan (milstan@blindnet.io)         |
+| **Updated**   | 2022-06-10                                                                             |
+
+## Introduction
+
+This document illustrates different scenarios in which [Privacy Request Interchange Vocabulary](./RFC-PRIV.md) MAY be used.
+
+The goal of this document is to explore the design implications for implementing systems, that might arise from different situations.
+
+## Terminology
+
+
+- We use all the terms of the  [Privacy Request Interchange Vocabulary](./RFC-PRIV.md) as defined there
+- We use the term Privacy Request interchangeably with the (deprecated) terms Rights Request and Data Rights Request as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
+- We use the terms Individual, Person, You, and Data Subject as defined in the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv)
+- We use the term System as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
+- We use MUST, MUST NOT and MAY, as defined in [IETF RFC2119](https://datatracker.ietf.org/doc/html/rfc2119)
+- We use the terms Organization, Submitter, Data Consumer as defined in the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv) as defined there.
+
+
+## Authentication
+### Anonymous
+
+Systems MAY process certain requests without asking the user for their identity. This is especially the case with some of the `TRANSPARENCY` requests, in response to which general information is given.
+
+```mermaid
+sequenceDiagram
+    actor subject as Data Subject
+    participant system as System
+    participant compiler as Privacy Compiler
+    subject->>system: Privacy Request TRANSPARENCY.WHERE
+    system->>compiler: Privacy Request
+    compiler->>system: recommend GRANTED
+    note right of compiler: data: "France"
+    system->>subject: Privacy Request GRANTED
+    note left of system: Our servers are in France
+```
+
+In certain cases, such as with GDPR ([articles 13 and 14](./examples.md#articles-13-and-14)), Systems MAY find themselves in obligation to provide information prior to capturing any data. However, in such cases, Systems are expected to [respond differently to the same requests](./expected-behavior.md#resolving-requests), with regards to the Data Subject being authenticated or not. For example a `TRANSPARENCY.DATA-CATEGORIES` request for an anonymous Data Subject MAY trigger a response listing all the possible data categories that the System is configured to collect. The same request for the authenticated Data Subject MAY trigger a response listing only the categories of data that the System has on this particular Data Subject.
+
+### A Priori Authentication
+
+The Data Subject formulates a Privacy Request when their identity is already confirmed.
+
+```mermaid
+sequenceDiagram
+    actor subject as Data Subject
+    participant system as System
+    participant compiler as Privacy Compiler
+    subject->>system: authenticates
+    subject->>system: Privacy Request DELETE CONTACT.PHONE
+    system->>compiler: Privacy Request
+    compiler->>system: recommend GRANTED
+    system->>subject: Privacy Request GRANTED
+    note left of system: Phone number deleted
+```
+
+
+### A Posteriori Authentication
+
+The Data Subject formulates a Privacy Request before their identity is confirmed.
+
+```mermaid
+sequenceDiagram
+    actor subject as Data Subject
+    participant system as System
+    participant compiler as Privacy Compiler
+    subject->>system: Privacy Request DELETE CONTACT.PHONE
+    system->>subject: please authenticate
+    note left of system: We must verify your identity in order to process this kind of request
+    subject->>system: authenticates
+    system->>compiler: Privacy Request
+    compiler->>system: recommend GRANTED
+    system->>subject: Privacy Request GRANTED
+    note left of system: Phone number deleted
+```
+
+### Signle Point Authentication for Corresponding Systems
+
+In a context of multiple corresponding Systems, only one System confirms the identity of the user, and other Systems only process the Privacy Request.
+
+```mermaid
+sequenceDiagram
+    actor subject as Data Subject
+    participant systemA as System A
+    participant compilerA as Privacy Compiler A
+    participant systemB as System B
+    participant compilerB as Privacy Compiler B
+
+    alt a priori authentication
+    subject->>systemA: authenticates
+    subject->>systemA: Privacy Request DELETE CONTACT.EMAIL target:PARTNERS
+
+    else a posteriori authentication
+    subject->>systemA: Privacy Request DELETE CONTACT.EMAIL target:PARTNERS
+    systemA->>subject: please authenticate
+    subject->>systemA: authenticates
+    end
+
+    systemA->>compilerA: Privacy Request
+
+    systemA->>systemB: Privacy Request
+    systemA->>systemB: Data Subject Identity Confirmed
+    systemB->>compilerB: Privacy Request
+
+    compilerA->>systemA: recommend GRANTED
+    compilerB->>systemB: recommend GRANTED
+
+    alt coordinated response
+    systemB->>systemA: Privacy Request GRANTED
+    systemA->>subject: Privacy Request GRANTED
+
+    else direct response
+    systemA->>subject: Privacy Request GRANTED
+    systemB->>subject: Privacy Request GRANTED
+    end
+
+    note left of systemA: E-mail deleted
+```
+
+### Independent Authentication for Corresponding Systems
+
+In a context of multiple corresponding Systems, every System confirms the identity of the Data Subject in their own way.
+
+```mermaid
+sequenceDiagram
+    actor subject as Data Subject
+    participant systemA as System A
+    participant compilerA as Privacy Compiler A
+    participant systemB as System B
+    participant compilerB as Privacy Compiler B
+
+    alt a priori authentication
+    subject->>systemA: authenticates
+    subject->>systemA: Privacy Request DELETE CONTACT.EMAIL target:PARTNERS
+
+    else a posteriori authentication
+    subject->>systemA: Privacy Request DELETE CONTACT.EMAIL target:PARTNERS
+    systemA->>subject: please authenticate
+    subject->>systemA: authenticates
+    end
+
+    systemA->>compilerA: Privacy Request
+
+    systemA->>systemB: Privacy Request
+    systemB->>subject: please authenticate
+    subject->>systemB: authenticates
+    systemB->>compilerB: Privacy Request
+
+    compilerA->>systemA: recommend GRANTED
+    compilerB->>systemB: recommend GRANTED
+
+    alt coordinated response
+    systemB->>systemA: Privacy Request GRANTED
+    systemA->>subject: Privacy Request GRANTED
+
+    else direct response
+    systemA->>subject: Privacy Request GRANTED
+    systemB->>subject: Privacy Request GRANTED
+    end
+
+    note left of systemA: E-mail deleted
+```
+
+## Automation
+
+### Automatic Processing
+
+Systems MAY be configured to process certain Privacy Requests automatically.
+
+```mermaid
+sequenceDiagram
+    actor subject as Data Subject
+    participant system as System
+    participant compiler as Privacy Compiler
+    actor DPO
+
+    note left of subject: New e-mail example@gmail.com
+
+    alt a priori authentication
+    subject->>system: authenticates
+    subject->>system: Privacy Request MODIFY CONTACT.EMAIL
+
+    else a posteriori authentication
+    subject->>system: Privacy Request MODIFY CONTACT.EMAIL
+    system->>subject: please authenticate
+    subject->>system: authenticates
+
+    end
+
+    system->>compiler: Privacy Request
+    compiler->>system: recommend GRANTED
+    system->>subject: Privacy Request GRANTED
+    note left of system: E-mail modified
+
+    system->>DPO: Privacy Request GRANTED
+
+```
+
+### Semi-Automatic Processing
+
+Systems MAY be configured to process certain Privacy Requests with human validation.
+
+```mermaid
+sequenceDiagram
+    actor subject as Data Subject
+    participant system as System
+    participant compiler as Privacy Compiler
+    actor DPO
+
+    note left of subject: New e-mail example@gmail.com
+
+    alt a priori authentication
+    subject->>system: authenticates
+    subject->>system: Privacy Request MODIFY CONTACT.EMAIL
+
+    else a posteriori authentication
+    subject->>system: Privacy Request MODIFY CONTACT.EMAIL
+    system->>subject: please authenticate
+    subject->>system: authenticates
+
+    end
+
+    system->>subject: Privacy Request UNDER-REVIEW
+
+    system->>compiler: Privacy Request
+    compiler->>system: recommend GRANTED
+
+    system->>DPO: Privacy Request, recommend GRANTED
+
+    DPO->>system: Privacy Request DENIED
+    note right of DPO: We require a professional e-mail address
+
+    system->>subject: Privacy Request DENIED
+
+```
+
+### Manual Processing
+
+Certain Privacy Request can't be interpreted automatically and MUST be processed by a human.
+
+```mermaid
+sequenceDiagram
+    actor subject as Data Subject
+    participant system as System
+    participant compiler as Privacy Compiler
+    actor DPO
+
+    note left of subject: How much CO2 is spent on processing my data
+
+    alt a priori authentication
+    subject->>system: authenticates
+    subject->>system: Privacy Request OTHER-DEMAND
+
+    else a posteriori authentication
+    subject->>system: Privacy Request OTHER-DEMAND
+    system->>subject: please authenticate
+    subject->>system: authenticates
+
+    end
+
+    system->>subject: Privacy Request UNDER-REVIEW
+
+    system->>DPO: Privacy Request
+
+    DPO->>system: Privacy Request GRANTED
+    note right of DPO: 30g
+
+    system->>subject: Privacy Request GRANTED, msg=30g
+
+```
+## Response
+
+## Coordinated Response
+
+When a Privacy Requests concerns corresponding Systems, they MAY be configured to respond to it in a coordinated way. The System having received the Privacy Requests gathers responses from corresponding Systems, and creates one single response to present to the user.
+
+```mermaid
+sequenceDiagram
+    actor subject as Data Subject
+    participant systemA as System A
+    participant compilerA as Privacy Compiler A
+    participant systemB as System B
+    participant compilerB as Privacy Compiler B
+
+
+    subject->>systemA: Privacy Request TRANSPARENCY.WHERE
+
+    systemA->>compilerA: Privacy Request
+
+    systemA->>systemB: Privacy Request
+    systemB->>compilerB: Privacy Request
+
+    compilerA->>systemA: recommend GRANTED, France
+    compilerB->>systemB: recommend GRANTED, USA
+
+    systemB->>systemA: Privacy Request GRANTED, USA
+    systemA->>subject: Privacy Request GRANTED, France and USA
+
+```
+## Direct Response
+
+When a Privacy Requests concerns corresponding Systems, they MAY be configured to have each System reply to the Data Subject independently.
+
+```mermaid
+sequenceDiagram
+    actor subject as Data Subject
+    participant systemA as System A
+    participant compilerA as Privacy Compiler A
+    participant systemB as System B
+    participant compilerB as Privacy Compiler B
+
+
+    subject->>systemA: Privacy Request TRANSPARENCY.WHERE, target:PARTNERS
+
+    systemA->>systemB: Privacy Request
+
+    systemA->>compilerA: Privacy Request
+    compilerA->>systemA: recommend GRANTED, France
+    systemA->>subject: Privacy Request GRANTED, France
+
+
+    systemB->>compilerB: Privacy Request
+    compilerB->>systemB: recommend GRANTED, USA
+    systemB->>subject: Privacy Request GRANTED, USA
+
+```
+
+## References
+
+### Normative References
+
+- **[RFC8259]**  Bray, T., ["The JavaScript Object Notation (JSON) Data Interchange Format"](https://datatracker.ietf.org/doc/html/rfc8259), STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017.
+
+
+### Supported Legislation
+
+- [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj)
+- [CCPA](https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5)
+
+### Yet to be Supported Legilsation
+
+- CPRA
+- HIPPA

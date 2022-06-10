@@ -33,9 +33,14 @@ The purpose of the document is primarily illustrate a possible behaviour Systems
 
 Privacy Requests can be resolved more or less automatically.
 Privacy Requests that are expressed in unambiguous terms, may be fully processed automatically.
-Those that include the term "OTHER" or a textual message with more details about the request likely require human intervention.
+Those that include the keyword "OTHER" or a textual message with more details about the request likely require human intervention.
+Cf. [different automation scenarios](./scenarios.md#automation)
 
 Systems MAY be configured to treat Privacy Requests eligible for automation with or without human validation. In any case, the role of the [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) is to calculate the appropriate action, given particular Privacy Request in a particular situation.
+
+Systems MAY also want to direct certain requests (such as `MODIFY`) to dedicated interfaces that they may already have for Data Subjects to provide and modify their data.
+
+Because of this Systems MUST be able to configure their particular ways of automating the processing of Privacy Requests.
 
 ## Configuration and Prerequisites
 
@@ -427,7 +432,9 @@ For example, the System can inquire whether a particular data fragment, correspo
 
 ## Resolving requests
 
-The [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) evaluates Privacy Request Demands and issues recommendations to the System. The Systems can then be configured to respond to Privacy Requests automatically, blindly following those recommendations (whenever possible), or to await human input just in case.
+The [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) evaluates Privacy Request Demands and issues recommendations to the System. The Systems can then be configured to respond to Privacy Requests automatically, blindly following those recommendations (whenever possible), or to await human input just in case. Cf. [different automation scenarios](./scenarios.md#automation)
+
+Privacy Requests MAY need to be processed in the context of different [authentication scenarios](./scenarios.md#authentication) and different [response scenarios](./scenarios.md#response).
 
 Here is how the Privacy Request Response recommendations are calculated:
 
