@@ -16,7 +16,7 @@ The vocabulary introduces a finite set of `concepts`, `properties` and `terms`. 
 
 This vocabulary corresponds to the [Schemas](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High-Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
 
-Two additional documents: [Examples of use](./examples.md) and [Expected Behavior of Implementing Systems](./expected-behavior.md), complement this document.
+Additional documents: [Examples of use](./examples.md), [Scenarios](./scenarios.md) and [Expected Behavior of Implementing Systems](./expected-behavior.md), complement this document.
 
 
 ## Motivation
@@ -285,7 +285,7 @@ Convenient tables of `target` values and corresponding user-facing descriptions,
 ### Privacy Request Response
 
 Systems SHOULD respond to [Privacy Requests](#privacy-request).
-Regardless of the [scenario (Responding to the Data Subject directly or to the System)](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#different-rights-request-response-scenrarios) that should be defined by a protocol (**TO BE WRITTEN** - the System SHOULD know when to wait for a response from another system), Systems SHOULD generate a response using the Privacy Request Interchange Vocabulary.
+Regardless of the [scenario (Responding to the Data Subject directly or to the System)](./scenarios.md#response) Systems SHOULD generate a response using the Privacy Request Interchange Vocabulary.
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
@@ -309,7 +309,7 @@ A Privacy Request Response MUST have:
 - a date,
 - a status.
 
-Privacy Request Responses can be nested. One can imagine a Privacy Request Response to a particular Privacy Request, that `includes` Privacy Request Responses to the particular Demands made in that Privacy Request. Several Systems MAY respond to the same Privacy Request or Demand, and one System MAY nest them in order to gather them and send them back to the Data Subject.
+Privacy Request Responses can be nested. One can imagine a Privacy Request Response to a particular Privacy Request, that `includes` Privacy Request Responses to the particular Demands made in that Privacy Request. Several Systems MAY respond to the same Privacy Request or Demand, and one System MAY nest them in order to gather them and send them back to the Data Subject (in the [Coordinated Response secenario](./scenarios.md#coordinated-response)).
 
 When a Demand is being denied, the Privacy Request Response MUST provide a `motive`.
 
@@ -730,6 +730,7 @@ However, we might want to allow developers to use our format (properties and con
 This document comes with the following support documents:
 - [Examples of use](./examples.md)
 - [Expected Behavior of Implementing Systems](./expected-behavior.md)
+- [Scenarios](./scenarios.md)
 
 ## References
 

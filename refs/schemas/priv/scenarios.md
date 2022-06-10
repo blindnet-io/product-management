@@ -330,6 +330,77 @@ sequenceDiagram
 
 ```
 
+## Capture
+
+## A Complex Journey of a Data Capture
+
+A Data Capture MAY end up being shared among several Systems. We illustrate this on an example. System A and System B are a part of the same Organisation, while System C is a part of a Partner Organisation.
+
+This complex scenario may take place under different [authentication](#authentication), [automation](#automation), and [response](#response) scenarios. For the sake of clarity of the diagram, we don't include all the possible options. We also abstract Privacy Compilers and interactions with them, as well as Data Consumers and DPOs.
+
+```mermaid
+sequenceDiagram
+    actor subject as Data Subject
+    participant systemA as System A
+    participant systemB as System B
+    participant systemC as System C
+
+    subject->>systemA: name, e-mail
+    subject->>systemA: phone number
+
+    systemA->>systemA: Data Capture CONTACT, provenance:USER
+
+    systemA->>systemA: Data Capture DEVICE (iPhone 13), provenance:DERIVED
+
+    subject->>systemA: consent1 purpose: ADVERTISING, PERSONALISATION, target: ORGANISATION
+    subject->>systemA: consent2 purpose: ADVERTISING, PERSONALISATION, target: PARTNERS
+
+    systemA->>systemB: Data Capture, Consent
+    systemB->>systemC: Data Capture, Consent
+
+    systemC->>subject: Advertising e-mail
+
+    subject->>systemB: Privacy Request REVOKE-CONSENT consent2 target: PARTNERS.DOWNWARD
+    systemB->>systemC: Privacy Request REVOKE-CONSENT consent2
+
+    systemC->>systemB: Privacy Request GRANTED
+    systemC->>systemC: Delete Data Subject's data, Delete consent2
+
+    systemB->>subject: Privacy Request GRANTED
+
+    systemA->>subject: Advertising e-mail
+
+    subject->>systemA: Privacy Request OBJECT purpose:ADVERTISING, target: ORGANISATION
+    systemA->>systemB: Privacy Request OBJECT purpose:ADVERTISING
+
+    systemA->>systemA: consent1->consent1.1 purpose: PERSONALISATION, target: ORGANISATION
+    systemB->>systemB: consent1->consent1.1 purpose: PERSONALISATION, target: ORGANISATION
+
+    systemB->>systemA: Privacy Request GRANTED
+    systemA->>subject: Privacy Request GRANTED
+
+    subject->>systemA: Privacy Request ACCESS provenance:TRANSFERRED,DERIVED target: ORGANISATION
+
+    systemA->>subject: Privacy Request GRANTED
+    note left of systemA: DEVICE (iPhone 13)
+
+    systemB->>subject: Privacy Request GRANTED
+    note left of systemB: CONTACT (name, e-mail, phone) DEVICE (iPhone 13)
+
+    subject->>systemA: Privacy Request RESTRICT provenance:USER target: ORGANISATION
+    systemA->>systemB: Privacy Request RESTRICT provenance:USER target: ORGANISATION
+
+    systemA->>systemA: Delete DEVICE (iPhone 13)
+    systemB->>systemB: Delete DEVICE (iPhone 13)
+    systemB->>systemA: Privacy Request PARTIALLY-GRANTED
+    note right of systemB: VALID-REASONS not to delete CONTACT (name, e-mail, phone)
+
+    systemA->>subject: Privacy Request PARTIALLY-GRANTED
+    note right of systemA: DEVICE (iPhone 13) deleted from all Systems. Contact data kept.
+
+```
+
+
 ## References
 
 ### Normative References
