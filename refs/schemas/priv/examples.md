@@ -232,7 +232,7 @@ In the following examples we show how, requests introduced by different regulati
 | **user.derived.identifable** | **religious_belief**  | Religion or religious belief | data-category:`DEMOGRAPHIC.BELIEFS`, provenance:`DERIVED` |
 | **user.derived.identifable** | **search_history**  | Records of search history and queries of a user | data-category:`BEHAVIOR`, provenance:`DERIVED` |
 | **user.derived.identifable** | **sexual_orientation**  | Personal sex life or sexual data | data-category:`DEMOGRAPHIC.SEXUAL-ORIENTATION`, provenance:`DERIVED` |
-| **user.derived.identifable** | **social**  | Social activity and interaction data | data-category:`BEHAVIOR.RELATIONSHIPS`, provenance:`DERIVED` |
+| **user.derived.identifable** | **social**  | Social activity and interaction data | data-category:`RELATIONSHIPS`, provenance:`DERIVED` |
 | **user.derived.identifable** | **telemetry**  | User identifiable measurement data from system sensors and monitoring | data-category:`BEHAVIOR.TELEMETRY`, provenance:`DERIVED` |
 | **user.derived.identifable** | **unique_id**  | Unique identifier for a user assigned through system use | data-category:`UID`, provenance:`DERIVED` |
 | **user.derived.identifable** | **user_sensor**  | Measurement data derived about a user's environment through system use | data-category:`BEHAVIOR`,`COLLECTION`, provenance:`DERIVED` | 
