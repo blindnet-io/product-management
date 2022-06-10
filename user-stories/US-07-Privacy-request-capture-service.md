@@ -90,6 +90,12 @@
 
 **because** otherwise I might get frustrated not understanding why me request has been rejected
 
+### US-07-1-11
+
+**As an** internet user (a submitter or a data subejct), when creating a Privacy request
+
+**I want to** know the provenance of the data a system has on me
+
 ## 07-2 Organization receiving Privacy request (Global Privacy request capture service)
 
 ### US-07-2-01
