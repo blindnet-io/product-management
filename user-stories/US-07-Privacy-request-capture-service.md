@@ -74,6 +74,22 @@
 
 **because** because I just moved and also dicovered I have a new allergy
 
+### US-07-1-09
+
+**As an** internet user (a submitter or a data subejct), when creating a Privacy request
+
+**I want to** access the data that are derived from me and my behavior  
+
+**because** I want to know what data a system has one me that I did not input myself
+
+### US-07-1-10
+
+**As an** internet user (a submitter or a data subejct), when the request I made is rejected
+
+**I want to** know the motive of the rejection
+
+**because** otherwise I might get frustrated not understanding why me request has been rejected
+
 ## 07-2 Organization receiving Privacy request (Global Privacy request capture service)
 
 ### US-07-2-01
@@ -106,7 +122,7 @@
 
 **I want to** transfer the request to another organization if the request concerns data I transfered to another organization or data I got from another organization
 
-**because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transfered the user's data to or I got the user's data from to also delete the data
+**because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transfered the user's data to or I got the user's data from, to also delete the data
 
 ## 07-3 Organization using Local Privacy request capture service
 
@@ -182,3 +198,11 @@
 **I want to** configure the data rights computation engine component (from the HLA) in my system with information about server locations, privacy policy, data types, organisation identity etc (cf. list of TRANSPARENCY actions from the [PRIV examples](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md))
 
 **because** I want it to automatically compute the responses to (at least some) requests
+
+### US-07-3-10
+
+**As an** organization, using blindnet devkit
+
+**I want to** be able to keep track of Data Subject's data transfers between one system and another
+
+**because** I need to know the provenance and/or where has been transfered Data Subject's data to, in order to complete some Privacy Requests
