@@ -14,11 +14,11 @@ _Submitter_ - Unregistered user who fills and submits the forms sent by a Data C
 
 _Interface_ - PrivateForm Light frontend (UI).
 
-_Form_ - A form on the web page on PrivateForm Light where Submitters fill their Medical data and Metadata.
+_Form_ - A form on the web page on PrivateForm Light where Submitters fill their data and Metadata.
 
 _Data_ - Data about data subject, filled by Submitter on the Form 
 
-Metadata - Data related to Submitters and Medical data
+Metadata - Data related to Submitters and data
 * id
 * names
 * email
@@ -136,14 +136,14 @@ _**FR-FE09.** The Form must allow a Submitter to fill out the data and to submit
 
 Forms are sent in the following workflow:
 * Step 1: The Interface uses blindnet to encrypt the Metadata
-* Step 2: The Interface uses blindnet to encrypt Medical data
-* Step 3: The Interface uploads the encrypted Medical data and the encrypted Metadata to the Server (FR-BE07)
+* Step 2: The Interface uses blindnet to encrypt data
+* Step 3: The Interface uploads the encrypted data and the encrypted Metadata to the Server (FR-BE07)
 
 The Form page must work on mobile browsers.
 
-_**FR-BE07.** The Server must be able to accept encrypted Medical data._
+_**FR-BE07.** The Server must be able to accept encrypted data._
 
-The Server accepts the Medical data in a request containing:
+The Server accepts the data in a request containing:
 * Data Consumer id
 * medical data id
 * encrypted medical data
@@ -157,7 +157,7 @@ FR-BE07-2. If a form contains files, the Form must send file IDs to a Server for
 
 ### Resubmitting the data
 
-_**FR-BE08** The Server must be able to accept duplicates of encrypted Medical data._
+_**FR-BE08** The Server must be able to accept duplicates of encrypted data._
 
 When a Submitter with the same email fills a Form for the second time for the same Data Consumer, new data will be saved in addition to the old data (a Data Consumer will have two form data for the same Submitter).
 
@@ -165,7 +165,7 @@ When a Submitter with the same email fills a Form for the second time for the sa
 
 ### Reading and managing the data (related to Search)
 
-_**FR-FE10.** The Interface must allow a Data Consumer to see all Submitters and their information (excluding the Medical data)._
+_**FR-FE10.** The Interface must allow a Data Consumer to see all Submitters and their information (excluding the data)._
 
 The Interface shows a table with Submitter information in the following workflow:
 * Step 1: The Interface retrieves metadata of the Submitters from the Server (FR-BE09)
@@ -186,34 +186,34 @@ Response:
     * encrypted metadata
     * medical data id
 
-_**FR-FE11.** The Interface must allow a Data Consumer to retrieve the Medical data for a given Submitter, and to display it._
+_**FR-FE11.** The Interface must allow a Data Consumer to retrieve the data for a given Submitter, and to display it._
 
-Medical data is retrieved and displayed in the following workflow:
+Data is retrieved and displayed in the following workflow:
 * Step 1: The Interface sends a request to the Server (FR-BE10)
-* Step 2: The Interface uses blindnet to decrypt the Medical data
-* Step 3: The Interface displays Medical data to a Data Consumer
+* Step 2: The Interface uses blindnet to decrypt the data
+* Step 3: The Interface displays data to a Data Consumer
 
-_**FR-BE10.** The Server must be able to retrieve the encrypted Medical data._
+_**FR-BE10.** The Server must be able to retrieve the encrypted data._
 
-The Server retrieves the Medical data in a request containing:
+The Server retrieves the data in a request containing:
 * Data Consumer id
 * medical data id
 
 Response:
 * encrypted medical data
 
-_**FR-BE10-2.** The Server must be able to retrieve all encrypted Medical data for a Data Consumer._
+_**FR-BE10-2.** The Server must be able to retrieve all encrypted data for a Data Consumer._
 
-The Server retrieves the Medical data in a request containing:
+The Server retrieves the data in a request containing:
 * Data Consumer id
 
 Response:
 * an array of
     * encrypted medical data
 
-_**FR-BE10-3.** The Server must be able to retrieve all encrypted Medical data for given ids._
+_**FR-BE10-3.** The Server must be able to retrieve all encrypted data for given ids._
 
-The Server retrieves the Medical data in a request containing:
+The Server retrieves the data in a request containing:
 * Data Consumer id
 * an array of
     * form id
@@ -235,15 +235,15 @@ Output:
 
 ### Deleting the data
 
-_**FR-FE12.** The Interface must allow a Data Consumer to delete the Medical data of a given Submitter_
+_**FR-FE12.** The Interface must allow a Data Consumer to delete the data of a given Submitter_
 
-Medical data is deleted in the following workflow:
+Data is deleted in the following workflow:
 * Step 1: The Data Consumer clicks a button to delete the data
 * Step 2: The Interface sends a request to the Server to delete the data (FR-BE11)
 
-_**FR-BE11.** The Server must be able to delete the encrypted Medical data._
+_**FR-BE11.** The Server must be able to delete the encrypted data._
 
-The Server deletes Medical data and metadata in a request containing medical_data_id.
+The Server deletes data and metadata in a request containing medical_data_id.
 
 If the data contained files, the server must delete all files from Azure.
 
@@ -251,16 +251,16 @@ If the data contained files, the server must delete all files from Azure.
 
 ### Updating the data
 
-_**FR-FE13.** The Interface must allow a Data Consumer to update the Medical data of a Submitter_
+_**FR-FE13.** The Interface must allow a Data Consumer to update the data of a Submitter_
 
-After Medical data is shown to a Data Consumer (FR-FE11), she must be able to make some changes. Medical data is updated in the following workflow:
+After data is shown to a Data Consumer (FR-FE11), she must be able to make some changes. Data is updated in the following workflow:
 * Step 1: The Interface accepts the input from a Data Consumer for data that needs to be updated
-* Step 2: The Interface uses blindnet to encrypt the Medical data
+* Step 2: The Interface uses blindnet to encrypt the data
 * Step 3: The Interface sends an update request to the Server (FR-BE12)
 
-_**FR-BE12.** The Server must be able to update the encrypted Medical data._
+_**FR-BE12.** The Server must be able to update the encrypted data._
 
-The Server updates the Medical data in a request containing:
+The Server updates the data in a request containing:
 * Data Consumer id
 * old medical data id
 * new encrypted medical data
@@ -677,7 +677,7 @@ _**FR-SEARCH-FE-09.** The Interface must clear the form metadata from the browse
 
 ### Other
 
-_**FR-FE19.** The Interface must allow a Data Consumer to download the Medical data as a PDF file._
+_**FR-FE19.** The Interface must allow a Data Consumer to download the data as a PDF file._
 
 _**FR-FE20.** The Interface must be able to show both Data Consumer and Submitters the fingerprint of Data Consumer’s public key._
 
