@@ -105,29 +105,29 @@ In the following examples we show how, requests introduced by different regulati
 
 ### GDPR REQUEST TEMPLATES FROM CNIL
 
-| LAW | Demand | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | `Other properties` |
-| -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
-| `GDPR.15` | [Acces](https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces) | `ACCESS` | `null` | `null` | `null` | `null` |  |
-| `GDPR.15` | [Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant) from 01 Feb 2021 to 03 Feb 2021 | `ACCESS` | `IMAGE` | `null` | `SECURITY` | ~~video surveillance data from 01 Feb 2021 to 03 Feb 2021~~ | `from-to` |
-| `Code de la santé publique art. L. 1111-7` | [Acces to my medical record](https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical) | `ACCESS` | `HEALTH` | `null` | `null` | `null` |  |
-| `GDPR.15` | [Access to data "Preventel" has on me](https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel) | `ACCESS` | `null` | `null` | `null` | `null` |  |
-| `GDPR.15` | [Access to data a financial organization has on me](https://www.cnil.fr/fr/modele/courrier/connaitre-les-informations-detenues-par-un-etablissement-financier): Access to all data the (financial)organization has on me, Provide with any available information on the origin of this data concerning me | `ACCESS`, `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` | `null` | `null` |
-| `GDPR.15` | [Access to data "Fichier central des Chèques (FCC)" has on me](https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc) | `ACCESS` | `null` | `null` | `null` | `null` | `null` |
-| `GDPR.15` | [Access to data "Fichier national des Incidents de remboursement de Crédit (FICP)](https://www.cnil.fr/fr/modele/courrier/acceder-aux-donnees-du-fichier-national-des-incidents-de-remboursement-de-credit) | `ACCESS` | `null` | `null` | `null` | `null` | `null` |
-| `GDPR.15` | [Access to geolocation data or an access control device an organization has on me](https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces) on a specific period of time | `ACCESS` | `null` | `null` | `null` | `null` | `from-to` |
-| `GDPR.20` | [Exerce my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-Demand-de-droit-la-portabilite) : Receive the data that concerns me to reuse them and transmit them to another data controller| `ACCESS`,`PORTABILITY`| `null` | `null` | `null` | `null` | `null` |
-| `GDPR.16` | [Rectify incorrect data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes)| `MODIFY` | `**TBD**` | `null` | `null` | `null` | `Selector.to-modify`,`data.rectified` |
-| `GDPR.16` | [Rectify incomplete data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes) | `MODIFY` | `**TBD**` | `null` | `null` | `null` | `Selector.to-modify`,`data.rectified` |
-| `GDPR.17.1` | [Deletion](https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles) | `DELETE` | `null` | `null` | `null` | `Reason of deletion` | `Data.identifier'=Information to delete* (can be one or several data capture, or limited to a field , Data cat., Process cat. , Purpose, URL, ...)  |
-| `GDPR.21.2` | [Stop receiving advertising from organization](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites) | `DELETE` | `CONTACT` | `null` | `MARKETING` | `null` | `Data.identifier'=data cat.+purpose |
-| `GDPR.17.1` | [Closing an online account](https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne) | `OTHER-DATA` | `null` | `null` | `null` | `null` | `null` |
-| `GDPR.21.1`,`GDPR.17.1.c` | [Delete my data that are published on a webiste](https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet) : Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | `DELETE` | `**TBD**` | `null` | `null` | `Reason of deletion` | `Data.identifier`=URL |
-| `GDPR.21.1`,`GDPR.17.1.c` | [Removal of my image online](https://www.cnil.fr/fr/Demandr-le-retrait-de-votre-image-en-ligne) | `DELETE` | `IMAGE` | `null` | `null` | `Reason of deletion` | `Data.identifier`=data cat.+URL|
-| `GDPR.21.2`,`GDPR.17.1`,`GDPR.19` | [Opposition to commercial prospecting](https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers) : Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | `RESTRICT`, `DELETE` | `CONTACT` | `null` | `MARKETING` | `null` | `target`= `ORGANISATION`, `PARTNERS`(propagation) |
-| `GDPR.21.1`,`GDPR.17.1.c`,,`GDPR.19` | [Opposition to treatment of all data an organization has on me](https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees) Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | `RESTRICT`,`DELETE` | `null` | `null` | `null` | `Reason of deletion` | `Data.identifier`=all,`target`= `ORGANISATION`+`PARTNERS`(propagation) |
-| `GDPR.21`, GDPR.18.1 | [Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees) | `RESTRICT` | `**choice?**` | `**choice?**` | `**choice?**` | `null` | `null` |
-| `GDRP.4`,`GDRP.6`,`GDRP.7`, `GDPR.13.2.c`| [Revoke consent](https://www.cnil.fr/fr/les-bases-legales/consentement) : Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | `REVOKE-CONSENT` | `null` | `**choice?**` | `**choice?**` | `null` | `null` |
-| `GDPR.13.2.a`, `GDPR.14.2.a` | [For how long the data organization has on me will be kept](https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees) | `TRANSPARENCY.RETENTION` | `null` | `null` | `null` | `null` | `null` |
+| LAW | Demand | Representation |
+| -------- | -------------------------------------- | ------------ |
+| `GDPR.15` | [Acces](https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces) | action:`ACCESS` |
+| `GDPR.15` | [Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant) from 01 Feb 2021 to 03 Feb 2021 | action:`ACCESS`, data-category:`IMAGE`, purpose:`SECURITY`, other-property:`from-to` |
+| `Code de la santé publique art. L. 1111-7` | [Acces to my medical record](https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical) | action:`ACCESS`, data-category:`HEALTH` |
+| `GDPR.15` | [Access to data "Preventel" has on me](https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel) | action:`ACCESS` |
+| `GDPR.15` | [Access to data a financial organization has on me](https://www.cnil.fr/fr/modele/courrier/connaitre-les-informations-detenues-par-un-etablissement-financier): Access to all data the (financial)organization has on me, Provide with any available information on the origin of this data concerning me | action:`ACCESS`,`TRANSPARENCY.PROVENANCE` |
+| `GDPR.15` | [Access to data "Fichier central des Chèques (FCC)" has on me](https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc) | action:`ACCESS` |
+| `GDPR.15` | [Access to data "Fichier national des Incidents de remboursement de Crédit (FICP)](https://www.cnil.fr/fr/modele/courrier/acceder-aux-donnees-du-fichier-national-des-incidents-de-remboursement-de-credit) | action:`ACCESS` |
+| `GDPR.15` | [Access to geolocation data or an access control device an organization has on me](https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces) on a specific period of time | action:`ACCESS`, other-property:`from-to` |
+| `GDPR.20` | [Exerce my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-Demand-de-droit-la-portabilite) : Receive the data that concerns me to reuse them and transmit them to another data controller| action:`ACCESS`,`PORTABILITY` |
+| `GDPR.16` | [Rectify incorrect data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes)| action:`MODIFY`, other-property:`Selector.to-modify`,`data.rectified` |
+| `GDPR.16` | [Rectify incomplete data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes) | action:`MODIFY`, other-property:`Selector.to-modify`,`data.rectified` |
+| `GDPR.17.1` | [Deletion](https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles) | action:`DELETE`, message:`Reason of deletion`, other-property:`Data.identifier'=Information to delete* (can be one or several data capture, or limited to a field , Data cat., Process cat. , Purpose, URL, ...)  |
+| `GDPR.21.2` | [Stop receiving advertising from organization](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites) | action:`DELETE`, data-category:`CONTACT`, purpose:`MARKETING` |
+| `GDPR.17.1` | [Closing an online account](https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne) | action:`OTHER-DATA` |
+| `GDPR.21.1`,`GDPR.17.1.c` | [Delete my data that are published on a webiste](https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet) : Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | action:`DELETE`, message:`Reason of deletion`, other-property:`Data.identifier`=data + URL |
+| `GDPR.21.1`,`GDPR.17.1.c` | [Removal of my image online](https://www.cnil.fr/fr/Demandr-le-retrait-de-votre-image-en-ligne) | action: `DELETE`, data-category:`IMAGE`, message:`Reason of deletion`, other-property:`Data.identifier`=data + URL |
+| `GDPR.21.2`,`GDPR.17.1`,`GDPR.19` | [Opposition to commercial prospecting](https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers) : Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | action:`RESTRICT`,`DELETE`, data-category:`CONTACT`, purpose:`MARKETING`, target: `ORGANISATION`,`PARTNERS`(propagation) |
+| `GDPR.21.1`,`GDPR.17.1.c`,,`GDPR.19` | [Opposition to treatment of all data an organization has on me](https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees) Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | action:`RESTRICT`,`DELETE`, message:`Reason of deletion`, other-property:`Data.identifier`,`target`= `ORGANISATION`,`PARTNERS`(propagation) |
+| `GDPR.21`, GDPR.18.1 | [Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees) | action:`RESTRICT`, processing-category:**any/all** |
+| `GDRP.4`,`GDRP.6`,`GDRP.7`, `GDPR.13.2.c`| [Revoke consent](https://www.cnil.fr/fr/les-bases-legales/consentement) : Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | `REVOKE-CONSENT`, processing-category:**any/all** |
+| `GDPR.13.2.a`, `GDPR.14.2.a` | [For how long the data organization has on me will be kept](https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees) | action:`TRANSPARENCY.RETENTION` |
 
 >**Note**
 >
@@ -135,23 +135,21 @@ In the following examples we show how, requests introduced by different regulati
 
 ### OTHER EXAMPLES FROM DAILY LIFE
 
-*Change my address*
-
-| LAW | Demand (as introduced by regulation) | `action`(s) | `data-categories` | `processing-categories` | `purposes` | `message` | Other properties |
-| -------- | -------------------------------------- | ------------ | ------------ | ------------ | ------------ | ------------ | ------------ |
-| `GDPR.16` | Change my address, with new address being 1 blindnet street, 75000 blindcity, France, as of 01.01.2021  | `MODIFY` | `CONTACT.ADDRESS` | `null` | `null` | `null` | `null` |
-| `GDPR.17` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | `DELETE` | `CONTACT` | `null` | `MARKETING` | `null` | `null` |
-| `GDPR.21`,`GDPR.18.1` | Opt out of automated decision making | `RESTRICT` | `null` | `AUTOMATED-DECISION-MAKING` | `null` | `null` | `null` |
-| `GDPR.21`,`GDPR.18.1` | Opt out of sale of my data | `RESTRICT` | `null` | `SHARING` | `SALE` | `null` | `null` |
-| `GDPR.21`,`GDPR.18.1` | Opt out of tracking on my data | `RESTRICT` | `BEHAVIOR,`DEVICE`,`LOCATION` | `COLLECTION` | `TRACKING` | `null` | `null` |
-| `GDPR.13.1.f`, `GDPR.14.1.f` | Storage information : know where is stored the data organization has on me | `TRANSPARENCY.WHERE` | `null` | `null` | `null` | `null` | `null` |
-| `GDPR.14.1.e` | Accessibility information : know who can access the data organization has on me | `TRANSPARENCY.WHO` | `null` | `null` | `null` | `null` | `null` |
-| `GDPR.14.2.f` | Provenance information : know the provenance of data organization has on me  | `TRANSPARENCY.PROVENANCE` | `null` | `null` | `null` | `null` | `null` |
-| `GDPR.13.2.a`, `GDPR.14.2.a` | Know when my data will be deleted | `TRANSPARENCY.RETENTION` | `null` | `null` | `null` | `null` | `ID` |
-| `**GDPR.13?**` | Know what is the policy of the organization to keep data it has on me | `TRANSPARENCY.POLICY` | `null` | `null` | `null` | `null` | `null` |
-| `GDPR.15.1.a` | Know the purpose of the processing organization does on the data it has on me | `TRANSPARENCY.PURPOSE` |  | `null` | `null` | `null` | `null` |
-| `GDPR.12.1` | Know what type(s) of treatment organization does on the data it has on me | `TRANSPARENCY.PROCESSING-CATEGORIES` | `null` | `null` | `null` | `null` | `null` |
-| `GDPR.12.1` | Know if a particular type of treatment is done by organisation on the data it has on me | `TRANSPARENCY.PROCESSING-CATEGORIES` | `null` | `**choice?**` | `null` | `null` | `null` |
+| LAW | Demand  | Representation |
+| -------- | -------------------------------------- | ------------ |
+| `GDPR.16` | Change my address, with new address being 1 blindnet street, 75000 blindcity, France, as of 01.01.2021  | action:`MODIFY`, data-category:`CONTACT.ADDRESS` |
+| `GDPR.17` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | action:`DELETE`, data-category:`CONTACT`, purpose:`MARKETING` |
+| `GDPR.21`,`GDPR.18.1` | Opt out of automated decision making | action:`RESTRICT`, processing-category:`AUTOMATED-DECISION-MAKING` |
+| `GDPR.21`,`GDPR.18.1` | Opt out of sale of my data | action:`RESTRICT`, processing-category:`SHARING`, purpose`SALE` |
+| `GDPR.21`,`GDPR.18.1` | Opt out of tracking on my data | action:`RESTRICT`, data-category:`BEHAVIOR,`DEVICE`,`LOCATION`, processing-category:`COLLECTION`, purpose:`TRACKING` |
+| `GDPR.13.1.f`, `GDPR.14.1.f` | Storage information : know where is stored the data organization has on me | action:`TRANSPARENCY.WHERE` |
+| `GDPR.14.1.e` | Accessibility information : know who can access the data organization has on me | action:`TRANSPARENCY.WHO` |
+| `GDPR.14.2.f` | Provenance information : know the provenance of data organization has on me  | action:`TRANSPARENCY.PROVENANCE` | 
+| `GDPR.13.2.a`, `GDPR.14.2.a` | Know when my data will be deleted | action:`TRANSPARENCY.RETENTION` |
+| `**GDPR.13?**` | Know what is the policy of the organization to keep data it has on me | action:`TRANSPARENCY.POLICY` |
+| `GDPR.15.1.a` | Know the purpose of the processing organization does on the data it has on me | action:`TRANSPARENCY.PURPOSE` |
+| `GDPR.12.1` | Know what type(s) of treatment organization does on the data it has on me | action:`TRANSPARENCY.PROCESSING-CATEGORIES` |
+| `GDPR.12.1` | Know if a particular type of treatment is done by organisation on the data it has on me | action:`TRANSPARENCY.PROCESSING-CATEGORIES`, `processing-category:**any/all**` |
 
 >**Note**
 >
