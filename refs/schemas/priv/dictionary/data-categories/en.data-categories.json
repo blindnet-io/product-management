@@ -29,7 +29,7 @@
   "LOCATION": "Geographic location",
   "NAME": "First names, last names, nicknames, and other names",
   "PROFILING": "Any data establishing a degree of similarity of the person with others (e.g., clusters, user-profiles)",
-  "RELATIONSHIPS": "Data about relationships of the person with others",
+  "RELATIONSHIPS": "Data about relationships of the person with others, social activity and interaction",
   "UID": "Any data allowing to uniquely identify a person",
   "UID.ID": "Official identification number of proof of identity",
   "UID.USER-ACCOUNT": "Data about a person's account or profile on the first-party website/app and its contents",
