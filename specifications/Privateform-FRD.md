@@ -269,7 +269,7 @@ The Server updates the data in a request containing:
 Response:
 * Status (OK/error)
 
-The Server deletes all data related to _old_data_id_, and stores new encrypted medical data. The _new_data_id _must be inserted in the corresponding metadata record, and the metadata record must update the medical data id with the _new_data_id._
+The Server deletes all data related to _old_data_id_, and stores new encrypted data. The _new_data_id _must be inserted in the corresponding metadata record, and the metadata record must update the data id with the _new_data_id._
 
 -------------------------------------------------------------------------------------------------
 
