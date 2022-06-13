@@ -110,13 +110,9 @@ What *not* to do:
 - Do not specify milestones. Milestones serve for managing versions and project boards, and are specified by the technical team.
 - Do not specify assignees.
 
-### Writing Specification
+## Specification
 
-:construction: TBD by Filip
-
-### Writing User Stories
-
-:arrow_right: [User Stories Readme](https://github.com/blindnet-io/product-management/tree/master/user-stories#readme)
+Specifications are important part of blindnet product development. To learn more about our product specification process, see the [specification section](./specifications/) of this repository.
 
 ---
 
