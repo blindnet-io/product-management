@@ -186,7 +186,7 @@ When several values are given, Systems MUST interpret the `processing-categories
 
 In the absence of indication of any `processing-categories` dimension, Systems MUST interpret the Demand as being related to all and any `processing-categories` of treatment.
 
-[A list of eligible `processing-categories` values with corresponding user-facing descriptions is provided](dictionary/purposes) for convenience.
+[A list of eligible `processing-categories` values with corresponding user-facing descriptions is provided](dictionary/processing-categories/) for convenience.
 
 *Purposes of Processing*
 
