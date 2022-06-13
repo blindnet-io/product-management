@@ -146,7 +146,7 @@ _**FR-BE07.** The Server must be able to accept encrypted data._
 The Server accepts the data in a request containing:
 * Data Consumer id
 *data id
-* encrypted medical data
+* encrypted data
 * metadata id
 * encrypted metadata
 * hashed Submitter email
