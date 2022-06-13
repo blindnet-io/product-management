@@ -184,7 +184,7 @@ Response:
 * an array of
     * metadata id
     * encrypted metadata
-    * medical data id
+    *data id
 
 _**FR-FE11.** The Interface must allow a Data Consumer to retrieve the data for a given Submitter, and to display it._
 
