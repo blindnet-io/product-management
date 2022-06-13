@@ -12,10 +12,7 @@ This document examines how the [Privacy Request Interchange Vocabulary](./RFC-PR
 - illustrated by tutorials and request templates from regulatory bodies (e.g. [CNIL](https://www.cnil.fr/)),
 - or made possible by existing software solutions with which interoperability SHOULD be achieved (e.g. Transcend, Alias.dev)  
 
-
-## Motivation
-
-Elaborating the examples in detail should allow us to test the Privacy Request Interchange Vocabulary for exhaustivity.
+The document is not normative, and often uses inconsistent language and format. It serves in the design process in order to test the Privacy Request Interchange Vocabulary for exhaustivity. It can be archived once design is finished and tutorials made.
 
 ## Terminology
 
@@ -121,12 +118,12 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.17.1` | [Deletion](https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles) | action:`DELETE`,`data-category`: category or particular `selector` of the data to be deleted, or any Capture Restriction or Data Range Restriction, (optional) `message`:Reason of deletion   |
 | `GDPR.21.2` | [Stop receiving advertising from organization](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites) | action:`OBJECT`, data-category:`CONTACT`, purpose:`ADVERTISING` |
 | `GDPR.17.1` | [Closing an online account](https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne) | `action`:`DELETE`,`data-category`: `UID.USER-ACCOUNT` |
-| `GDPR.21.1`,`GDPR.17.1.c` | [Delete my data that are published on a webiste](https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet) : Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | action:`DELETE`, message:`Reason of deletion`, other-property:`Data.identifier`(data + URL) |
-| `GDPR.21.1`,`GDPR.17.1.c` | [Removal of my image online](https://www.cnil.fr/fr/Demandr-le-retrait-de-votre-image-en-ligne) | action: `DELETE`, data-category:`IMAGE`, message:`Reason of deletion`, other-property:`Data.identifier`(data + URL) |
-| `GDPR.21.2`,`GDPR.17.1`,`GDPR.19` | [Opposition to commercial prospecting](https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers) : Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | action:`RESTRICT`,`DELETE`, data-category:`CONTACT`, purpose:`MARKETING`, target: `ORGANISATION`,`PARTNERS`(propagation) |
-| `GDPR.21.1`,`GDPR.17.1.c`,`GDPR.19` | [Opposition to treatment of all data an organization has on me](https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees) Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | action:`RESTRICT`,`DELETE`, message:`Reason of deletion`, other-property:`Data.identifier`,target:`ORGANISATION`,`PARTNERS`(propagation) |
-| `GDPR.21`, GDPR.18.1 | [Limit the treatment (oppose to particular type of treatment) organization does on the data it has on me](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees) | action:`RESTRICT`, processing-category:`**any/all**` |
-| `GDRP.4`,`GDRP.6`,`GDRP.7`, `GDPR.13.2.c`| [Revoke consent](https://www.cnil.fr/fr/les-bases-legales/consentement) : Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | action:`REVOKE-CONSENT`, processing-category:`**any/all**` |
+| `GDPR.21.1`,`GDPR.17.1.c` | [Delete my data that are published on a webiste](https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet) : Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | action:`DELETE`, Data Reference Restriction (`data-reference`: concrete URLs), optional `message`:Reason of deletion, |
+| `GDPR.21.1`,`GDPR.17.1.c` | [Removal of my image online](https://www.cnil.fr/fr/Demandr-le-retrait-de-votre-image-en-ligne) | action: `DELETE`, data-category:`IMAGE`, Data Reference Restriction (`data-reference`: concrete URLs), (optional) message:`Reason of deletion` |
+| `GDPR.21.2`,`GDPR.17.1`,`GDPR.19` | [Opposition to commercial prospecting](https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers) : Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | action:`OBJECT`(purpose:`MARKETING`), action:`DELETE`(data-category:`CONTACT`), , target: `ORGANISATION`,`PARTNERS`(propagation) |
+| `GDPR.21.1`,`GDPR.17.1.c`,`GDPR.19` | [Opposition to treatment of all data an organization has on me](https://www.cnil.fr/fr/modele/courrier/sopposer-au-traitement-de-donnees) Opposition to treatment of all data the organization has on me, Deletion of all data the organization has on me, Propagation of request, Information on how long data will be kept on archive database if it is an organisation's legal obligation | action:`TRANSPARENCY.RETENTION`; action:`DELETE`, target:`ORGANISATION`,`PARTNERS`(propagation); action:`OBJECT` |
+| `GDPR.21`, GDPR.18.1 | [Limit the processing (oppose to particular type of processing) organization does on the data it has on me](https://www.cnil.fr/fr/le-droit-dopposition-refuser-lutilisation-de-vos-donnees) | action:`OBJECT` |
+| `GDRP.4`,`GDRP.6`,`GDRP.7`, `GDPR.13.2.c`| [Revoke consent](https://www.cnil.fr/fr/les-bases-legales/consentement) : Revoke specific consent that I previously gave for a type of treatment on the data the organization has on me | action:`REVOKE-CONSENT`, Consent Restriction |
 | `GDPR.13.2.a`, `GDPR.14.2.a` | [For how long the data organization has on me will be kept](https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees) | action:`TRANSPARENCY.RETENTION` |
 
 >**Note**
@@ -137,11 +134,11 @@ In the following examples we show how, requests introduced by different regulati
 
 | LAW | Demand  | Representation |
 | -------- | ----------------------------------------------------- | ------------ |
-| `GDPR.16` | Change my address, with new address being 1 blindnet street, 75000 blindcity, France, as of 01.01.2021  | action:`MODIFY`, data-category:`CONTACT.ADDRESS` |
-| `GDPR.17` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | action:`DELETE`, data-category:`CONTACT`, purpose:`MARKETING` |
-| `GDPR.21`,`GDPR.18.1` | Opt out of automated decision making | action:`RESTRICT`, processing-category:`AUTOMATED-DECISION-MAKING` |
-| `GDPR.21`,`GDPR.18.1` | Opt out of sale of my data | action:`RESTRICT`, processing-category:`SHARING`, purpose`SALE` |
-| `GDPR.21`,`GDPR.18.1` | Opt out of tracking on my data | action:`RESTRICT`, data-category:`BEHAVIOR`,`DEVICE`,`LOCATION`, processing-category:`COLLECTION`, purpose:`TRACKING` |
+| `GDPR.16` | Change my address, with new address being 1 blindnet street, 75000 blindcity, France, as of 01.01.2021  | action:`MODIFY`, data-category:`CONTACT.ADDRESS`, Data Range restriction `from`:2021-01-01; `data`:1 blindnet street, 75000 blindcity, France |
+| `GDPR.17` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | action:`DELETE`, data-category:`CONTACT`; action:`OBJECT` (`purpose`:`MARKETING`, `ADVERTISING`) |
+| `GDPR.21`,`GDPR.18.1` | Opt out of automated decision making | action:`OBJECT`, processing-category:`AUTOMATED-DECISION-MAKING` |
+| `GDPR.21`,`GDPR.18.1` | Opt out of sale of my data | action:`OBJECT`, purpose`SALE` |
+| `GDPR.21`,`GDPR.18.1` | Opt out of tracking on my data | action:`OBJECT`, data-category:`BEHAVIOR`,`DEVICE`,`LOCATION`, processing-category:`COLLECTION`, purpose:`TRACKING` |
 | `GDPR.13.1.f`, `GDPR.14.1.f` | Storage information : know where is stored the data organization has on me | action:`TRANSPARENCY.WHERE` |
 | `GDPR.14.1.e` | Accessibility information : know who can access the data organization has on me | action:`TRANSPARENCY.WHO` |
 | `GDPR.14.2.f` | Provenance information : know the provenance of data organization has on me  | action:`TRANSPARENCY.PROVENANCE` |
@@ -164,7 +161,7 @@ In the following examples we show how, requests introduced by different regulati
 | `1798.110.1.1` | A consumer shall have the right to request that a business that collects personal information about the consumer disclose to the consumer the following: The categories of personal information it has collected about that consumer | action:`TRANSPARENCY.DATA-CATEGORIES` |
 | `1798.110.1.2` | ...The categories of sources from which the personal information is collected | action:`TRANSPARENCY.PROVENANCE` |
 | `1798.110.1.3` | ...The business or commercial purpose for collecting or selling personal information | action:`TRANSPARENCY.PURPOSE` |
-| `1798.110.1.4` | ...The categories of third parties with whom the business shares personal information | action:`TRANSPARENCY.WHO` | `null` | processing-category:`SHARING`, `target`:`PARTNERS` |
+| `1798.110.1.4` | ...The categories of third parties with whom the business shares personal information | action:`TRANSPARENCY.WHO` processing-category:`SHARING`|
 | `1798.110.1.5` | ...The specific pieces of personal information it has collected about that consumer | action:`ACCESS` |
 | `1798.115.1.1` | A consumer shall have the right to request that a business that sells the consumer’s personal information, or that discloses it for a business purpose, disclose to that consumer: The categories of personal information that the business collected about the consumer | action:`TRANSPARENCY.DATA-CATEGORIES`, processing-category:`SHARING`, purpose:`SALE` |
 | `1798.115.1.2` | ...The categories of personal information that the business sold about the consumer and the categories of third parties to whom the personal information was sold, by category or categories of personal information for each category of third parties to whom the personal information was sold | action:`TRANSPARENCY.DATA-CATEGORIES`,`TRANSPARENCY.WHO`, processing-category:`SHARING`, purpose:`SALE` |
@@ -314,8 +311,8 @@ Transcend proposes the following [treatment types](https://github.com/transcend-
 | TRANSFER | For data that was transferred as part of a change in circumstance (e.g. a merger or acquisition) | processing-category:`COLLECTION`, provenance:`TRANSFERRED` |
 | SALE | For selling the data to third parties | processing-category:`**any/all**`, purpose:`SALE` |
 | HR | For personnel training, recruitment, payroll, management, etc. | processing-category:`**any/all**`, purpose:`EMPLOYMENT` |
-| OTHER | Other specific purpose not covered above | processing-category:`**any/all**`, purpose:`OTHER-PURPOSE` |
-| UNSPECIFIED | The purpose is not explicitly stated or is unclear | processing-category:`**any/all**`, purpose:`OTHER-PURPOSE` |
+| OTHER | Other specific purpose not covered above | processing-category:`**any/all**`, purpose:`OTHER-PURPOSE` use `message` to specify|
+| UNSPECIFIED | The purpose is not explicitly stated or is unclear | processing-category:`**any/all**`, purpose:`OTHER-PURPOSE` use `message` to specify|
 
 All of those SHOULD be modeled using our Treatment Types.
 
@@ -335,8 +332,8 @@ Transcend proposes the following [data categories](https://github.com/transcend-
 | TRACKING | Cookies and tracking elements | data-category:`BEHAVIOR`, purpose:`TRACKING` |
 | DEVICE | Computer or device information | data-category:`DEVICE` |
 | SURVEY | Any data that is collected through surveys | data-category:`OTHER-DATA` |
-| OTHER | A specific type of information not covered by the above categories | data-category:`OTHER-DATA` |
-| UNSPECIFIED | The type of information is not explicitly stated or unclear| data-category:`OTHER-DATA` |
+| OTHER | A specific type of information not covered by the above categories | data-category:`OTHER-DATA` use `message` to specify|
+| UNSPECIFIED | The type of information is not explicitly stated or unclear| data-category:`OTHER-DATA` use `message` to specify|
 
 
 
@@ -350,9 +347,6 @@ Transcend proposes the following [data categories](https://github.com/transcend-
 
 - **[RFC8259]**  Bray, T., ["The JavaScript Object Notation (JSON) Data Interchange Format"](https://datatracker.ietf.org/doc/html/rfc8259), STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017.
 
-### Informative References
-
--
 
 ### Supported Legislation
 
@@ -361,5 +355,5 @@ Transcend proposes the following [data categories](https://github.com/transcend-
 
 ### Yet to be Supported Legilsation
 
-- [CPRA]([https://eur-lex.europa.eu/eli/reg/2016/679/oj](https://vig.cdn.sos.ca.gov/2020/general/pdf/topl-prop24.pdf))
-- [HIPPA]([https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5](https://www.govinfo.gov/content/pkg/PLAW-104publ191/pdf/PLAW-104publ191.pdf))
+- CPRA
+- HIPPA
