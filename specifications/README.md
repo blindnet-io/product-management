@@ -37,6 +37,6 @@ Product architecture defines different components of the product structure and h
 
 ### Design
 
-Product design defines in detail the technical aspects of each architectural component of the product. It includes, for example, database models, or expected inputs/outputs of SDK functions and REST API routes. In some cases, like for example for REST API routes, the design is described together with the corresponding functional requirement. 
+Product design defines in detail the technical aspects of each architectural component of the product. It includes, for example, database models, or expected inputs/outputs of SDK functions and REST API endpoints. In some cases, like for example for REST API endpoints, the design is described together with the corresponding functional requirement. 
 
 
