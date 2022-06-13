@@ -1,6 +1,6 @@
 # Specification
 
-The first step of building products at blindnet always includes specification writing. It helps not only us to faster build better products, but we hope it also helps you to better and faster understand how our products work.
+The first step of building products at blindnet always includes specification writing. It helps not only us to rapidly build better products, but we hope it also helps others better understand how our products work.
 
 <br />
 
