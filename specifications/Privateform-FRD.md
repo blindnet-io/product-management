@@ -262,7 +262,7 @@ _**FR-BE12.** The Server must be able to update the encrypted data._
 
 The Server updates the data in a request containing:
 * Data Consumer id
-* old medical data id
+* old data id
 * new encrypted medical data
 * new medical data id 
 
