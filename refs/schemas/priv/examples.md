@@ -3,7 +3,7 @@
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **Author(s)** | milstan (milstan@blindnet.io), Clémentine VINCENT (clementine@blindnet.io)             |
-| **Updated**   | 2022-05-25                                                                             |
+| **Updated**   | 2022-06-13                                                                             |
 
 ## Introduction
 
@@ -98,8 +98,8 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.17` | The data subject shall have the right to obtain from the controller the erasure of personal data concerning him | action:`DELETE` |
 | `GDPR.18` | The data subject shall have the right to obtain from the controller restriction of processing | action:`RESTRICT` |
 | `GDPR.20` | The data subject shall have the right to receive the personal data concerning him or her, which he or she has provided to a controller, in a structured, commonly used and machine-readable format and have the right to transmit those data to another controller without hindrance from the controller to which the personal data have been provided | action:`PORTABILITY` |
-| `GDPR.21` | The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her which is based on point (e) or (f) of Article 6(1), including profiling based on those provisions.  *(note: 21.2 is not yet supported by the schema)*| action:`RESTRICT` |
-| `GDPR.22` | The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her | action:`RESTRICT`, processing-category:`AUTOMATED-DECISION-MAKING` |
+| `GDPR.21` | The data subject shall have the right to object, on grounds relating to his or her particular situation, at any time to processing of personal data concerning him or her which is based on point (e) or (f) of Article 6(1), including profiling based on those provisions.  *(note: 21.2 is not yet supported by the schema)*| action:`OBJECT` |
+| `GDPR.22` | The data subject shall have the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her | action:`OBJECT`, processing-category:`AUTOMATED-DECISION-MAKING` |
 
 
 
@@ -108,19 +108,19 @@ In the following examples we show how, requests introduced by different regulati
 | LAW | Demand | Representation |
 | -------- | ----------------------------------------------------- | ------------ |
 | `GDPR.15` | [Acces](https://www.cnil.fr/fr/modele/courrier/exercer-son-droit-dacces) | action:`ACCESS` |
-| `GDPR.15` | [Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant) from 01 Feb 2021 to 03 Feb 2021 | action:`ACCESS`, data-category:`IMAGE`, purpose:`SECURITY`, other-property:`from-to` |
+| `GDPR.15` | [Access to video surveillance data](https://www.cnil.fr/fr/modele/courrier/acceder-des-images-video-vous-concernant) from 01 Feb 2021 to 03 Feb 2021 | action:`ACCESS`, data-category:`IMAGE`, purpose:`SECURITY`, Data Range restriction `from:2021-02-01` `to:2021-02-03` |
 | `Code de la santé publique art. L. 1111-7` | [Acces to my medical record](https://www.cnil.fr/fr/modele/courrier/acceder-son-dossier-medical) | action:`ACCESS`, data-category:`HEALTH` |
 | `GDPR.15` | [Access to data "Preventel" has on me](https://www.cnil.fr/fr/modele/courrier/acceder-aux-informations-contenues-dans-preventel) | action:`ACCESS` |
 | `GDPR.15` | [Access to data a financial organization has on me](https://www.cnil.fr/fr/modele/courrier/connaitre-les-informations-detenues-par-un-etablissement-financier): Access to all data the (financial)organization has on me, Provide with any available information on the origin of this data concerning me | action:`ACCESS`,`TRANSPARENCY.PROVENANCE` |
 | `GDPR.15` | [Access to data "Fichier central des Chèques (FCC)" has on me](https://www.cnil.fr/fr/modele/courrier/acceder-au-fichier-central-des-cheques-fcc) | action:`ACCESS` |
 | `GDPR.15` | [Access to data "Fichier national des Incidents de remboursement de Crédit (FICP)](https://www.cnil.fr/fr/modele/courrier/acceder-aux-donnees-du-fichier-national-des-incidents-de-remboursement-de-credit) | action:`ACCESS` |
-| `GDPR.15` | [Access to geolocation data or an access control device an organization has on me](https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces) on a specific period of time | action:`ACCESS`, other-property:`from-to` |
+| `GDPR.15` | [Access to geolocation data or an access control device an organization has on me](https://www.cnil.fr/fr/modele/courrier/acceder-des-donnees-de-geolocalisation-ou-un-dispositif-de-controle-dacces) on a specific period of time | action:`ACCESS`, Data Range Restriction `from`,`to` |
 | `GDPR.20` | [Exerce my right to portability](https://www.cnil.fr/fr/professionnels-comment-repondre-une-Demand-de-droit-la-portabilite) : Receive the data that concerns me to reuse them and transmit them to another data controller| action:`ACCESS`,`PORTABILITY` |
-| `GDPR.16` | [Rectify incorrect data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes)| action:`MODIFY`, other-property:`Selector.to-modify`,`data.rectified` |
-| `GDPR.16` | [Rectify incomplete data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes) | action:`MODIFY`, other-property:`Selector.to-modify`,`data.rectified` |
-| `GDPR.17.1` | [Deletion](https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles) | action:`DELETE`, message:`Reason of deletion`, other-property:`Data.identifier`(Information to delete-can be one or several data capture, or limited to a field , Data cat., Process cat. , Purpose, URL, ...)  |
-| `GDPR.21.2` | [Stop receiving advertising from organization](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites) | action:`DELETE`, data-category:`CONTACT`, purpose:`MARKETING` |
-| `GDPR.17.1` | [Closing an online account](https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne) | action:`OTHER-DATA` |
+| `GDPR.16` | [Rectify incorrect data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-inexactes)| action:`MODIFY`, `data-category`: particular `selector` to modify, `data`: new data |
+| `GDPR.16` | [Rectify incomplete data organization has on me](https://www.cnil.fr/fr/modele/courrier/rectifier-des-donnees-incompletes) | action:`MODIFY`, `data-category`: particular `selector` to modify, `data`: new data  |
+| `GDPR.17.1` | [Deletion](https://www.cnil.fr/fr/modele/courrier/supprimer-des-donnees-personnelles) | action:`DELETE`,`data-category`: category or particular `selector` of the data to be deleted, or any Capture Restriction or Data Range Restriction, (optional) `message`:Reason of deletion   |
+| `GDPR.21.2` | [Stop receiving advertising from organization](https://www.cnil.fr/fr/modele/courrier/ne-plus-recevoir-de-publicites) | action:`OBJECT`, data-category:`CONTACT`, purpose:`ADVERTISING` |
+| `GDPR.17.1` | [Closing an online account](https://www.cnil.fr/fr/modele/courrier/cloturer-un-compte-en-ligne) | `action`:`DELETE`,`data-category`: `UID.USER-ACCOUNT` |
 | `GDPR.21.1`,`GDPR.17.1.c` | [Delete my data that are published on a webiste](https://www.cnil.fr/fr/modele/courrier/supprimer-des-informations-vous-concernant-dun-site-internet) : Delete my data a website has published, Pages where my data appears are no longer referenced by search engines | action:`DELETE`, message:`Reason of deletion`, other-property:`Data.identifier`(data + URL) |
 | `GDPR.21.1`,`GDPR.17.1.c` | [Removal of my image online](https://www.cnil.fr/fr/Demandr-le-retrait-de-votre-image-en-ligne) | action: `DELETE`, data-category:`IMAGE`, message:`Reason of deletion`, other-property:`Data.identifier`(data + URL) |
 | `GDPR.21.2`,`GDPR.17.1`,`GDPR.19` | [Opposition to commercial prospecting](https://www.cnil.fr/fr/modele/courrier/sopposer-la-prospection-commerciale-par-telephone-sms-mail-courriers) : Opposition to treatment of all data the organization has on me for prospecting purpose, Deletion of my contact details from organization's prospecting files , Propagation of request | action:`RESTRICT`,`DELETE`, data-category:`CONTACT`, purpose:`MARKETING`, target: `ORGANISATION`,`PARTNERS`(propagation) |
@@ -144,7 +144,7 @@ In the following examples we show how, requests introduced by different regulati
 | `GDPR.21`,`GDPR.18.1` | Opt out of tracking on my data | action:`RESTRICT`, data-category:`BEHAVIOR`,`DEVICE`,`LOCATION`, processing-category:`COLLECTION`, purpose:`TRACKING` |
 | `GDPR.13.1.f`, `GDPR.14.1.f` | Storage information : know where is stored the data organization has on me | action:`TRANSPARENCY.WHERE` |
 | `GDPR.14.1.e` | Accessibility information : know who can access the data organization has on me | action:`TRANSPARENCY.WHO` |
-| `GDPR.14.2.f` | Provenance information : know the provenance of data organization has on me  | action:`TRANSPARENCY.PROVENANCE` | 
+| `GDPR.14.2.f` | Provenance information : know the provenance of data organization has on me  | action:`TRANSPARENCY.PROVENANCE` |
 | `GDPR.13.2.a`, `GDPR.14.2.a` | Know when my data will be deleted | action:`TRANSPARENCY.RETENTION` |
 | `**GDPR.13?**` | Know what is the policy of the organization to keep data it has on me | action:`TRANSPARENCY.POLICY` |
 | `GDPR.15.1.a` | Know the purpose of the processing organization does on the data it has on me | action:`TRANSPARENCY.PURPOSE` |
@@ -161,7 +161,7 @@ In the following examples we show how, requests introduced by different regulati
 | `CCPA.1798.100.1` | A consumer shall have the right to request that a business that collects a consumer’s personal information disclose to that consumer the categories and specific pieces of personal information the business has collected | action:`TRANSPARENCY.KNOWN`,`TRANSPARENCY.DATA-CATEGORIES` |
 | `CCPA.1798.100.4` | A business that receives a verifiable consumer request from a consumer to access personal information shall promptly take steps to disclose and deliver, free of charge to the consumer, the personal information required by this section.  | action:`ACCESS` |
 | `1798.105.1` | A consumer shall have the right to request that a business delete any personal information about the consumer which the business has collected from the consumer | action:`DELETE` |
-| `1798.110.1.1` | A consumer shall have the right to request that a business that collects personal information about the consumer disclose to the consumer the following: The categories of personal information it has collected about that consumer | action:`TRANSPARENCY.DATA-CATEGORIES` | 
+| `1798.110.1.1` | A consumer shall have the right to request that a business that collects personal information about the consumer disclose to the consumer the following: The categories of personal information it has collected about that consumer | action:`TRANSPARENCY.DATA-CATEGORIES` |
 | `1798.110.1.2` | ...The categories of sources from which the personal information is collected | action:`TRANSPARENCY.PROVENANCE` |
 | `1798.110.1.3` | ...The business or commercial purpose for collecting or selling personal information | action:`TRANSPARENCY.PURPOSE` |
 | `1798.110.1.4` | ...The categories of third parties with whom the business shares personal information | action:`TRANSPARENCY.WHO` | `null` | processing-category:`SHARING`, `target`:`PARTNERS` |
@@ -183,7 +183,7 @@ In the following examples we show how, requests introduced by different regulati
 ###### Account Contact Data
 
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description |Representation |
-|  ------------ | -------------------------------------- | ------------ | ------------ | 
+|  ------------ | -------------------------------------- | ------------ | ------------ |
 | **account** | **Contact**  | Contact data related to a system account | data-category:`CONTACT` |
 | **account.contact** | **email**  | Account's email address | data-category:`CONTACT.EMAIL` |
 | **account.contact** | **phone_number**  | Account's phone number | data-category:`CONTACT.PHONE` |
@@ -194,8 +194,8 @@ In the following examples we show how, requests introduced by different regulati
 | **account.contact** | **street**  | Account's street level address | data-category:`CONTACT.ADDRESS` |
 ###### Account Payment Data
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | Representation |
-| ------------ | -------------------------------------- | ------------ | ------------ | 
-| **account** | **payment**  | Payment data related to system account | data-category:`FINANCIAL` | 
+| ------------ | -------------------------------------- | ------------ | ------------ |
+| **account** | **payment**  | Payment data related to system account | data-category:`FINANCIAL` |
 | **account.payment** | **financial_account_number**  | Payment data related to system account | data-category:`FINANCIAL.BANK-ACCOUNT` |
 
 ##### System Data Categories
@@ -215,10 +215,10 @@ In the following examples we show how, requests introduced by different regulati
 > Data derived from user provided data or as a result of user actions in the system
 
 | Ethyca Parent key | **Ethyca Label** | Ethyca Description | Representation |
-| ------------ | -------------------------------------- | ------------ | ------------ | 
+| ------------ | -------------------------------------- | ------------ | ------------ |
 | **user.derived** | **identifiable**  | Derived data that is linked to, or identifies a user | data-category:`**Any/all**`, provenance:`DERIVED` |
 | **user.derived.identifable** | **biometric_health**  | Encoded characteristic collected about a user | data-category:`BIOMETRIC`,`HEALTH`, provenance:`DERIVED` |
-| **user.derived.identifable** | **browsing_history**  | Content browsing history of a user | data-category:`BEHAVIOR`, provenance:`DERIVED` | 
+| **user.derived.identifable** | **browsing_history**  | Content browsing history of a user | data-category:`BEHAVIOR`, provenance:`DERIVED` |
 | **user.derived.identifable** | **contact**  | Contact data collected about a user | data-category:`CONTACT`,provenance:`DERIVED` |
 | **user.derived.identifable** | **demographic**  | Demographic data about a user | data-category:`DEMOGRAPHIC`, provenance:`DERIVED` |
 | **user.derived.identifable** | **gender**  | Gender of an individual | data-category:`DEMOGRAPHIC.GENDER`, provenance:`DERIVED` |
@@ -235,7 +235,7 @@ In the following examples we show how, requests introduced by different regulati
 | **user.derived.identifable** | **social**  | Social activity and interaction data | data-category:`RELATIONSHIPS`, provenance:`DERIVED` |
 | **user.derived.identifable** | **telemetry**  | User identifiable measurement data from system sensors and monitoring | data-category:`BEHAVIOR.TELEMETRY`, provenance:`DERIVED` |
 | **user.derived.identifable** | **unique_id**  | Unique identifier for a user assigned through system use | data-category:`UID`, provenance:`DERIVED` |
-| **user.derived.identifable** | **user_sensor**  | Measurement data derived about a user's environment through system use | data-category:`BEHAVIOR`,`COLLECTION`, provenance:`DERIVED` | 
+| **user.derived.identifable** | **user_sensor**  | Measurement data derived about a user's environment through system use | data-category:`BEHAVIOR`,`COLLECTION`, provenance:`DERIVED` |
 | **user.derived.identifable** | **workplace**  | Organization of employment | data-category:`AFFILIATION.WORK`, provenance:`DERIVED` |
 | **user.derived.identifable** | **device**  | Data related to a user's device, configuration and setting | data-category:`DEVICE`, provenance:`DERIVED` |
 | **user.derived.identifable** | **cookie_id**  | Cookie unique identification number | data-category:`BEHAVIOR`, provenance:`DERIVED` |
@@ -254,14 +254,14 @@ In the following examples we show how, requests introduced by different regulati
 | **user.provided.identifiable** | **children**  | Data relating to children | data-category :`**any/all**`, provenance:`USER` @milstan: I don't think the fact someone is a child makes it a separate Data Category. The same person can turn 18 and no longer be a child - and data category can't change due to that. So this should be the responsibility of the System to use AGE to determine if special child-related policies must apply. |
 | **user.provided.identifiable** | **health_and_medical**  | Health records or individual's personal medical information | data-category :`HEALTH` provenance:`USER` |
 | **user.provided.identifiable** | **job_title**  | Professional data | data-category :`CONTACT`, provenance:`USER` |
-| **user.provided.identifiable** | **name**  | User's real name | data-category :`NAME`, provenance:`USER` | 
+| **user.provided.identifiable** | **name**  | User's real name | data-category :`NAME`, provenance:`USER` |
 | **user.provided.identifiable** | **non_specific_age**  | Age range data | data-category :`DEMOGRAPHIC.AGE`, provenance:`USER` |
 | **user.provided.identifiable** | **political_opinion**  | Data related to the individual's political opinions | data-category :`DEMOGRAPHIC.BELIEFS`, provenance:`USER` |
 | **user.provided.identifiable** | **race**  | Racial or ethnic origin data | data-category :`DEMOGRAPHIC.RACE`, provenance:`USER` |
 | **user.provided.identifiable** | **religious_belief**  | Religion or religious belief | data-category :`DEMOGRAPHIC.BELIEFS`, provenance:`USER` |
-| **user.provided.identifiable** | **sexual_orientation**  | Personal sex life or sexual data | data-category :`DEMOGRAPHIC.SEXUAL-ORIENTATION`, provenance:`USER` | 
+| **user.provided.identifiable** | **sexual_orientation**  | Personal sex life or sexual data | data-category :`DEMOGRAPHIC.SEXUAL-ORIENTATION`, provenance:`USER` |
 | **user.provided.identifiable** | **workplace**  | Organization of employment | data-category :`AFFILIATION.WORK`, provenance:`USER` |
-| **user.provided.identifiable** | **date_of_birth**  | User's date of birth | data-category :`DEMOGRAPHIC.AGE`, provenance:`USER` | 
+| **user.provided.identifiable** | **date_of_birth**  | User's date of birth | data-category :`DEMOGRAPHIC.AGE`, provenance:`USER` |
 | **user.provided.identifiable** | **gender**  | Gender of an individual | data-category :`DEMOGRAPHIC.GENDER`, provenance:`USER` |
 | **user.provided.identifiable** | **genetic**  | Data about the genetic makeup provided by a user | data-category :`GENETIC`, provenance:`USER` |
 | **user.provided.identifiable** | **contact**  | User provided contact data for purposes other than account management | data-category :`CONTACT`, provenance:`USER` |
@@ -269,10 +269,10 @@ In the following examples we show how, requests introduced by different regulati
 | **user.provided.identifiable** | **country**  | User's country level address data | data-category :`CONTACT.ADDRESS`, provenance:`USER` |
 | **user.provided.identifiable** | **email**  | User's provided email address | data-category :`CONTACT.EMAIL`, provenance:`USER` |
 | **user.provided.identifiable** | **phone_number**  | User's phone number | data-category :`CONTACT.PHONE`, provenance:`USER` |
-| **user.provided.identifiable** | **postal_code**  | User's postal code | data-category :`CONTACT.ADDRESS`, provenance:`USER` | 
+| **user.provided.identifiable** | **postal_code**  | User's postal code | data-category :`CONTACT.ADDRESS`, provenance:`USER` |
 | **user.provided.identifiable** | **state**  | User's state level address data | data-category :`CONTACT.ADDRESS`, provenance:`USER` |
 | **user.provided.identifiable** | **street**  | User's street level address data | data-category :`CONTACT.ADDRESS`, provenance:`USER` |
-| **user.provided.identifiable** | **credentials**  | User provided authentication data | data-category :`UID.USER-ACCOUNT`, provenance:`USER` | 
+| **user.provided.identifiable** | **credentials**  | User provided authentication data | data-category :`UID.USER-ACCOUNT`, provenance:`USER` |
 | **user.provided.identifiable** | **biometric_credentials**  | User provided authentication data | data-category :`UID.USER-ACCOUNT`,`BIOMETRIC`, provenance:`USER` |
 | **user.provided.identifiable** | **password**  | Password for system authentication | data-category :`UID.USER-ACCOUNT`, provenance:`USER` |
 | **user.provided.identifiable** | **financial**  | Payment data and financial history | data-category :`FINANCIAL`, provenance:`USER` |
