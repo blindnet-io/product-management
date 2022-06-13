@@ -467,7 +467,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
         - More than one [Capture Restriction](./RFC-PRIV.md#capture-restriction),
         - More than one [Data Reference Restriction](./RFC-PRIV.md#data-reference-restriction)
         - A Capture Restriction and any other restriction that is not a Privacy Scope Restriction, or a Data Reference Restriction,
-        - More than one [Data Range](./RFC-PRIV.md#data-range) Restriction.
+        - More than one [Date Range](./RFC-PRIV.md#date-range) Restriction.
 
     - second, Calculate **Restriction Scope** and **Concerned Fragments**. This is done by processing every Restriction according to the following approach:
         - at the beginning set **Restriction Scope** to be equal to the Eligible Privacy Scope of the Data Subject
@@ -483,10 +483,10 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
 
         - when processing a [Data Reference Restriction](./RFC-PRIV.md#data-reference-restriction) look for all the Data Capture the `data-reference` of which matches the `data-reference`  of the Restriction. Then for each such Data Capture `capture-id` proceed as if when processing when processing a [Capture Restriction](./RFC-PRIV.md#capture-restriction).
 
-        - when processing a [Data Range](./RFC-PRIV.md#data-range), look for all the Data Capture Fragments the dates of which are within the given Data Range, and set the new **Restriction Scope** to be the intersection of the previous **Restriction Scope** with union of the [Privacy Scope](./RFC-PRIV.md#privacy-scope)s of each of those Data Capture fragments
+        - when processing a [Date Range](./RFC-PRIV.md#date-range), look for all the Data Capture Fragments the dates of which are within the given Date Range, and set the new **Restriction Scope** to be the intersection of the previous **Restriction Scope** with union of the [Privacy Scope](./RFC-PRIV.md#privacy-scope)s of each of those Data Capture fragments
         **Concerned Fragments** is set to all Data Capture Fragments that satisfy both of the criteria:
             - their `scope` is included in the **Restriction Scope**, AND
-            - their `date` falls within the Data Range of the Restriction
+            - their `date` falls within the Date Range of the Restriction
 
         - when processing a [Provenance Restriction](./RFC-PRIV.md#provenance-restriction) look for all the Data Capture Fragments that match the Provenance Restriction criteria (as seen in [Resolving provenance in requests](#resolving-provenance-in-requests)) and set the new **Restriction Scope** to be the intersection of the previous **Restriction Scope** with union of the [Privacy Scope](./RFC-PRIV.md#privacy-scope)s of each of those Data Capture fragments
         **Concerned Fragments** is set to all Data Capture Fragments that satisfy both of the criteria:
@@ -498,7 +498,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
         >
         > Data Capture Fragments the scopes of which fall under the **Restriction Scope** are not the same as (but are a superset of) the Data Capture Fragments included in the **Concerned Fragments** scope.
         >
-        > This is due to [Data Range](./RFC-PRIV.md#data-range), [Capture Restriction](./RFC-PRIV.md#capture-restriction) and [Provenance Restriction](./RFC-PRIV.md#provenance-restriction), all of which might be used to select particular Data Capture Fragments out of many thay may be captured with the same Data Capture Fragment `selector`.
+        > This is due to [Date Range](./RFC-PRIV.md#date-range), [Capture Restriction](./RFC-PRIV.md#capture-restriction) and [Provenance Restriction](./RFC-PRIV.md#provenance-restriction), all of which might be used to select particular Data Capture Fragments out of many thay may be captured with the same Data Capture Fragment `selector`.
         >
 
     - third, with regards to the `action` of the Demand:     
@@ -509,7 +509,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
          - If restricted to concrete consent IDs with a [Consent Restriction](./RFC-PRIV.md#consent-restriction), recommend status = `GRANTED` and recalculate Eligible Privacy Scope to drop any Privacy Scope Triples that have been included as a result of Consents being revoked.
          - If Demand is restricted by a Privacy Scope, recommend status = `GRANTED` and [update consents](#updateConsent)
          - If no Restriction is given in the Demand, revoke all consents given by this Data Subject
-         - If only a Data Range restriction is present, recommend status = `GRANTED` and revoke all consents that have been collected in the given Data Range
+         - If only a Date Range restriction is present, recommend status = `GRANTED` and revoke all consents that have been collected in the given Date Range
          - In other combinations of Restrictions, take the resulting **Restriction Scope**, recommend status = `GRANTED` and [update consents](#updateConsent) as if an `OBJECT` Demand has been made with the **Restriction Scope**
 
      - `OBJECT`, `RESTRICT` Demands:

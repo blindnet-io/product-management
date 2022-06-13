@@ -141,9 +141,9 @@ A Demand MAY refer to only certain Privacy Scope (categories of data, certain ty
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `restrictions` |  0-* | An optional array of restriction objects, each being one of [Privacy Scope](#privacy-scope), [Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Data Range](#data-range), [Provenance](#provenance-restriction)|
+| `restrictions` |  0-* | An optional array of restriction objects, each being one of [Privacy Scope](#privacy-scope), [Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Date Range](#date-range), [Provenance Restriction](#provenance-restriction), [Data Reference Restriction](#data-reference-restriction)|
 
-When more than one restriction is specified, the System MUST interpret the Demand as referring to the intersection of restrictions. For example let us consider a `DELETE` demand having two restrictions: `LOCATION` `data-category` as Privacy Scope, and from 11th to 15th of June 2022 as Data Range. The System SHOULD understand that the Data Subject wants the System to delete only their location data processed in this precise period.
+When more than one restriction is specified, the System MUST interpret the Demand as referring to the intersection of restrictions. For example let us consider a `DELETE` demand having two restrictions: `LOCATION` `data-category` as Privacy Scope, and from 11th to 15th of June 2022 as Date Range. The System SHOULD understand that the Data Subject wants the System to delete only their location data processed in this precise period.
 
 A demand with multiple restrictions MUST NOT have more than one restriction of the same type.
 
@@ -224,17 +224,17 @@ A Demand can be restricted to particular Capture ID(s). For example, a Data Subj
 
 When one or more `capture-ids` are indicated, Systems MUST interpret the demand all related to all the data captured as part of those Data Captures.
 
-###### Data Range
+###### Date Range
 
-A Demand can be restricted to particular Data Range, for example the Data Subject may `OBJECT` to data collection in a particular time period, or they might want to `DELETE` only data collected at certain dates.
+A Demand can be restricted to particular Date Range, for example the Data Subject may `OBJECT` to data collection in a particular time period, or they might want to `DELETE` only data collected at certain dates.
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `from` | 0-* | Date and Time when the Data Range starts in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `to` | 0-* | Date and Time when the Data Range ends in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `from` | 0-* | Date and Time when the Date Range starts in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `to` | 0-* | Date and Time when the Date Range ends in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 
 
-A Data Range defined by only one of the {`from`, `to`} properties indicates a period of time after or before a certain date, unbounded on the other end.
+A Date Range defined by only one of the {`from`, `to`} properties indicates a period of time after or before a certain date, unbounded on the other end.
 
 ###### Provenance Restriction
 
@@ -246,6 +246,8 @@ A Demand can be restricted to particular `provenance-category`, for example the 
 | `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
 
 Optionally the Provenance Restriction may also include a particular [Target](#targets). E.g. the Data Subject might demand to have `ACCESS` to data that was `TRANSFERRED` by partner Systems (`target`:`PARTNERS`).
+
+[A list of eligible `provenance-category` values with corresponding user-facing descriptions is provided](./dictionary/provenance/) for convenience.
 
 ###### Data Reference Restriction
 
@@ -405,7 +407,7 @@ We provide a [JSON Schema document](./priv.schema.json) for machine-readable int
 
 ### Authenticated exchanges
 
-Systems exchanging Privacy Requests MUST be able to do so in a way allowing them to very the integrity of their content, and the identity of the system having emitted the Privacy Request.
+Systems exchanging Privacy Requests MUST be able to do so in a way allowing them to verify the integrity of their content, and the identity of the system having emitted the Privacy Request. Ideally, Privacy Requests MAY be signed by Data Subjects themselves.
 
 For this purposes Privacy Requests MAY be embedded as 'Claims' in [JWTs (RFC7519)](https://datatracker.ietf.org/doc/html/rfc7519).
 
