@@ -243,7 +243,7 @@ Data is deleted in the following workflow:
 
 _**FR-BE11.** The Server must be able to delete the encrypted data._
 
-The Server deletes data and metadata in a request containing medical_data_id.
+The Server deletes data and metadata in a request containing data_id.
 
 If the data contained files, the server must delete all files from Azure.
 
