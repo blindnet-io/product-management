@@ -417,7 +417,7 @@ Therefore, we use a set of attributes to uniquely identify one Data Subject. One
 
 #### Globally Unique Data Subject Identities
 
-The identifiers used to refer to Data Subjects MUST be globally unique. One Data Subject identity corresponds to one Data Subject. One Data Subject can have several Data Subject Identity.
+The identifiers used to refer to Data Subjects MUST be globally unique. One Data Subject identity corresponds to one Data Subject. One Data Subject can have several Data Subject Identities.
 
 When refering to a Data Subject, Systems MUST use both of the following attributes:
 - `dsid` - Data Subject ID
