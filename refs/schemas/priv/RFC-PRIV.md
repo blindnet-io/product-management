@@ -67,7 +67,7 @@ With this design we seek:
 ### Design Choices
 
 We have made the following choices:
-- **Language Independence**. The Privacy Request Interchange Vocabulary is independent from any programming language, or any format or language for expressing structured data, and can be materialised in different forms such as json, xml, or other. A [json schema](PRIV.schema.json) is provided for convenience.
+- **Language Independence**. The Privacy Request Interchange Vocabulary is independent from any programming language, or any format or language for expressing structured data, and can be materialised in different forms such as json, xml, or other. A [json schema](./json-schema/priv.schema.json) is provided for convenience.
 
 - **Rich Semantics**. The Privacy Request Interchange Vocabulary includes `terms` - reserved words to describe common types of Privacy Requests, categories of data, categories of data processing and other key notions. This choice is made to facilitate their uniform interpretation by the implementing systems. Their [human-readable titles and descriptions](dictionary) are provided in json format for convenience.
 
