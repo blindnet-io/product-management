@@ -264,7 +264,7 @@ The Server updates the data in a request containing:
 * Data Consumer id
 * old data id
 * new encrypted data
-* new medical data id 
+* new data id 
 
 Response:
 * Status (OK/error)
