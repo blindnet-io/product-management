@@ -269,11 +269,11 @@ It is therefore convenient for a Data Subject to be able to formulate Privacy Re
 
 `ORGANISATION` includes, in addition to the `SYSTEM`, all other Systems belonging to the same Organisation. Those are understood as being a part of the same First-Party Set (**TODO** ref and compatibility check)  
 
-`PARTNERS.DOWNWARD` includes, in addition to the `SYSTEM`, all other Systems belonging to Organisations with which the data about the Data Subject has been shared.
+`PARTNERS.DOWNWARD` includes, in addition to the `SYSTEM`, and to all other Systems belonging to the same Organisation, all other Systems belonging to Organisations with which the data about the Data Subject has been shared.
 
-`PARTNERS.UPWARD` includes, in addition to the `SYSTEM`, all other Systems belonging to Organisations from which the data about the Data Subject has been obtained.
+`PARTNERS.UPWARD` includes, in addition to the `SYSTEM`, and to all other Systems belonging to the same Organisation,  all other Systems belonging to Organisations from which the data about the Data Subject has been obtained.
 
-`PARTNERS` includes, in addition to the `SYSTEM`, all other Systems belonging to Organisations with which any sort of exchange of data concerning the Data Subject has been performed.
+`PARTNERS` includes, in addition to the `SYSTEM`, and to all other Systems belonging to the same Organisation, all other Systems belonging to Organisations with which any sort of exchange of data concerning the Data Subject has been performed.
 
 Different values of the `target` Property imply different obligations for the System receiving a Privacy Request to transfer that request to other Systems.
 
