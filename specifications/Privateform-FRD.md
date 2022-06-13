@@ -220,7 +220,7 @@ The Server retrieves the data in a request containing:
 
 Response:
 * an array of
-    * encrypted medical data
+    * encrypted data
 
 _**FR-BE10-4.** The Server must be able to return a list of file IDs for a given form._
 
