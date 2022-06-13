@@ -247,6 +247,14 @@ A Demand can be restricted to particular `provenance-category`, for example the 
 
 Optionally the Provenance Restriction may also include a particular [Target](#targets). E.g. the Data Subject might demand to have `ACCESS` to data that was `TRANSFERRED` by partner Systems (`target`:`PARTNERS`).
 
+###### Data Reference Restriction
+
+A Demand can be restricted to particular `data-reference` to precisely identify particular data to which the Data Subject wants to refer in their Demand. E.g., a Data Subject can request from a law-firm to `DELETE` data from a particular file and provide the reference of that file. A Data Subject may request from a website to `DELETE` their photo from a particular web URL.
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `data-reference` | 1-* | one or more references that uniquely identify the data that the Demand concerns (e.g. URLs, file IDs, etc.)|
+
 #### Targets
 
 It is common for Internet Systems to be distributed (organised in a set of connected websites and applications) and to exchange data among themselves.
