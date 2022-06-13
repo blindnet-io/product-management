@@ -265,7 +265,7 @@ It is therefore convenient for a Data Subject to be able to formulate Privacy Re
 | --------------- | ------ | -------------------- |
 | `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `PARTNERS.DOWNWARD`, `PARTNERS.UPWARD`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
 
-`SYSTEM` refers to the particular System with witch the Data Subject is in direct interaction while making the Privacy Request (or giving the Consent).
+`SYSTEM` refers to the particular System with which the Data Subject is in direct interaction while making the Privacy Request (or giving the Consent).
 
 `ORGANISATION` includes, in addition to the `SYSTEM`, all other Systems belonging to the same Organisation. Those are understood as being a part of the same First-Party Set (**TODO** ref and compatibility check)  
 
