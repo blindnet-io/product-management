@@ -209,7 +209,7 @@ The Server retrieves the data in a request containing:
 
 Response:
 * an array of
-    * encrypted medical data
+    * encrypted data
 
 _**FR-BE10-3.** The Server must be able to retrieve all encrypted data for given ids._
 
