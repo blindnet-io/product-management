@@ -197,7 +197,7 @@ _**FR-BE10.** The Server must be able to retrieve the encrypted data._
 
 The Server retrieves the data in a request containing:
 * Data Consumer id
-* medical data id
+*data id
 
 Response:
 * encrypted data
