@@ -134,7 +134,7 @@ In the following examples we show how, requests introduced by different regulati
 
 | LAW | Demand  | Representation |
 | -------- | ----------------------------------------------------- | ------------ |
-| `GDPR.16` | Change my address, with new address being 1 blindnet street, 75000 blindcity, France, as of 01.01.2021  | action:`MODIFY`, data-category:`CONTACT.ADDRESS`, Data Range restriction `from`:2021-01-01; `data`:1 blindnet street, 75000 blindcity, France |
+| `GDPR.16` | Change my address, with new address being 1 blindnet street, 75000 blindcity, France, as of 01.01.2021  | action:`MODIFY`, data-category:`CONTACT.ADDRESS`, `data`:1 blindnet street, 75000 blindcity, France , `message`: as of 01.01.2021 (*NB: can't be modeled as a Data Range as Data Ragnge MUST resolve to particular Data Capture Fragments*)|
 | `GDPR.17` | Opt out of contact lists : Delete my contact details from all contact lists an ornaginzation has with my contact details | action:`DELETE`, data-category:`CONTACT`; action:`OBJECT` (`purpose`:`MARKETING`, `ADVERTISING`) |
 | `GDPR.21`,`GDPR.18.1` | Opt out of automated decision making | action:`OBJECT`, processing-category:`AUTOMATED-DECISION-MAKING` |
 | `GDPR.21`,`GDPR.18.1` | Opt out of sale of my data | action:`OBJECT`, purpose`SALE` |
