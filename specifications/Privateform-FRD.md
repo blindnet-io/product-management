@@ -200,7 +200,7 @@ The Server retrieves the data in a request containing:
 * medical data id
 
 Response:
-* encrypted medical data
+* encrypted data
 
 _**FR-BE10-2.** The Server must be able to retrieve all encrypted data for a Data Consumer._
 
