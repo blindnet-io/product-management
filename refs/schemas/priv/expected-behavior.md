@@ -465,7 +465,8 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
         - [Consent Restriction](./RFC-PRIV.md#consent-restriction) with any other type of Restriction,
         - [Consent Restriction](./RFC-PRIV.md#consent-restriction) within a Demand other than `REVOKE-CONSENT`,
         - More than one [Capture Restriction](./RFC-PRIV.md#capture-restriction),
-        - A Capture Restriction and any other restriction that is not a Privacy Scope Restriction,
+        - More than one [Data Reference Restriction](./RFC-PRIV.md#data-reference-restriction)
+        - A Capture Restriction and any other restriction that is not a Privacy Scope Restriction, or a Data Reference Restriction,
         - More than one [Data Range](./RFC-PRIV.md#data-range) Restriction.
 
     - second, Calculate **Restriction Scope** and **Concerned Fragments**. This is done by processing every Restriction according to the following approach:
@@ -480,6 +481,8 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
             - their `scope` is included in the **Restriction Scope**, AND
             - they are part of one of the Data Captures the `capture-id` of which is listed under `capture-ids` of that Capture Restriction
 
+        - when processing a [Data Reference Restriction](./RFC-PRIV.md#data-reference-restriction) look for all the Data Capture the `data-reference` of which matches the `data-reference`  of the Restriction. Then for each such Data Capture `capture-id` proceed as if when processing when processing a [Capture Restriction](./RFC-PRIV.md#capture-restriction).
+
         - when processing a [Data Range](./RFC-PRIV.md#data-range), look for all the Data Capture Fragments the dates of which are within the given Data Range, and set the new **Restriction Scope** to be the intersection of the previous **Restriction Scope** with union of the [Privacy Scope](./RFC-PRIV.md#privacy-scope)s of each of those Data Capture fragments
         **Concerned Fragments** is set to all Data Capture Fragments that satisfy both of the criteria:
             - their `scope` is included in the **Restriction Scope**, AND
@@ -489,6 +492,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
         **Concerned Fragments** is set to all Data Capture Fragments that satisfy both of the criteria:
             - their `scope` is included in the **Restriction Scope**, AND
             - they match the Provenance Restriction criteria (as seen in [Resolving provenance in requests](#resolving-provenance-in-requests))
+
 
         > **Note**
         >

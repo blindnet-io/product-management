@@ -4,7 +4,7 @@
 | :------------ | :------------------------------------------------------------------------------------- |
 | **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659)                      |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
-| **Updated**   | 2022-06-07                                                                             |
+| **Updated**   | 2022-06-13                                                                             |
 
 
 
@@ -346,6 +346,7 @@ A Data Capture is given by one Data Subject which can be identified by one or mo
 | --------------- | ------ | -------------------- |
 | `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
 | `capture-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `data-reference` | 1-* | one or more references that uniquely identify the data that the capture concerns (e.g. a legal case file reference, account ID, contract ID, a URL)|
 | `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
 | `fragments` | 1-* | One or more [Data Capture Fragments](#data-capture-fragments) |
 
