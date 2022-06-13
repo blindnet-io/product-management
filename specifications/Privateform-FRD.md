@@ -701,7 +701,7 @@ Figma ref: [1](https://www.figma.com/file/dkfknQnwNhCTGOMgIPjayx/PF-GDPR-Sketche
 
 _**FF-BE13.** The Server must be able to delete Data Consumer’s account._
 
-Deleting an account implies deleting all Data Consumer’s data + all of her Submitters’ forms and medical data.
+Deleting an account implies deleting all Data Consumer’s data + all of her Submitters’ forms and data.
 
 After an account is deleted, a confirmation email is sent to a Data Consumer.
 
