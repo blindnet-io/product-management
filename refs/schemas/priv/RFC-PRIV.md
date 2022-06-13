@@ -90,7 +90,7 @@ Data Subject is the author of a Privacy Request.
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
+| `data-subject` |  1-* | [Data Subject Identities](#decentralised-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
 
 A Privacy Request is made by one and only one Data Subject.
 
