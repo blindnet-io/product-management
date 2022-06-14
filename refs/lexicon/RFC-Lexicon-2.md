@@ -1,6 +1,6 @@
 # RFC Lexicon 2
 
-| Status        | draft                                                                                  |
+| Status        | proposed                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **Author(s)** | milstan (milstan@blindnet.io)             |
 | **PR**   | [694](https://github.com/blindnet-io/product-management/pull/694) |
