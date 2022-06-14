@@ -4,7 +4,7 @@
 | :------------ | :------------------------------------------------------------------------------------- |
 | **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659)                      |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
-| **Updated**   | 2022-06-13                                                                             |
+| **Updated**   | 2022-06-14                                                                             |
 
 
 
@@ -14,30 +14,28 @@ We propose a simple vocabulary for representing [Privacy Requests](https://githu
 
 The vocabulary introduces a finite set of `concepts`, `properties` and `terms`. `Concepts` define the objects of exchange, `properties` define their characteristics, and `terms` define commonly understood values of properties.
 
-This vocabulary corresponds to the [Schemas](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#schemas) component of the [High-Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
+This vocabulary corresponds to the [Schemas](../high-level-architecture#schemas) component of the [High-Level Architecture](../high-level-architecture).
 
 Additional documents: [Examples of use](./examples.md), [Scenarios](./scenarios.md) and [Expected Behavior of Implementing Systems](./expected-behavior.md), complement this document.
 
 
 ## Motivation
 
-An individual is in connection with software Systems (and Organisations operating them) that process the individual's data.
-In order to [regulate the relationship](https://github.com/blindnet-io/product-management/blob/main/refs/notion-of-privacy/notion-of-privacy.md) with those Systems (and Organisations), the individual makes requests related to their privacy.
+An individual is in connection with software Systems (and Organizations operating them) that process the individual's data.
+In order to [regulate the relationship](../notion-of-privacy/notion-of-privacy.md) with those Systems (and Organizations), the individual makes requests related to their privacy.
 
 With a Privacy Request the individual aims to gain a degree of transparency about data processing and a degree of control over the data and over the data processing. Allowing individuals to make Privacy Requests is becoming more and more a legal obligation.
 
-Different Systems, and different components of a single System, including different components of blindnet devkit are likely to exchange information about Privacy Requests. Therefore, a common format is needed to facilitate exchange of information without loss of semantics. The goal of Privacy Request Interchange Vocabulary is to establish a shared conceptualisation and format of Privacy Request so that their processing can be, as much as possible, automatised by the Systems.
+Different Systems, and different components of a single System, including different components of blindnet devkit are likely to exchange information about Privacy Requests. Therefore, a common format is needed to facilitate exchange of information without loss of semantics. The goal of Privacy Request Interchange Vocabulary is to establish a shared conceptualization and format of Privacy Request so that their processing can be, as much as possible, automatized by the Systems.
 
 
 ## Terminology
 
->**TO BE Updated** once Lexicon and High Level Conceptualization are synchronised
-
-- We use the term Privacy Request interchangeably with the (deprecated) terms Rights Request and Data Rights Request as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
-- We use the terms Individual, Person, You, and Data Subject as defined in the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv)
-- We use the term System as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
-- We use MUST, MUST NOT and MAY, as defined in [IETF RFC2119](https://datatracker.ietf.org/doc/html/rfc2119)
-- We use the terms Organization, Submitter, Data Consumer as defined in the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv) as defined there.
+- The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119)
+- The key word "CAN" denotes ability of someone or something, and is interpreted as "MUST be able to"
+- The key words "blindnet devkit", "CCPA", "CPRA", "Capture Fragment", "Component", "Data Capture", "Data Capture Fragment", "Data Consumer", "Data Subject", "DPO", "Fragment", "GDPR", "HIPPA", "Internet User", "Organization", "Privateform", "Privacy Request", "System", "Submitter", "User" are to be interpreted as described in [RFC-Lexicon-2](../lexicon/RFC-Lexicon-2.md)
+- Any additional precision about the key words defined in [RFC-Lexicon-2](../lexicon/RFC-Lexicon-2.md), as well as additional key words such as "Consent" and "Legal Base", provided in [High Level Conceptualization](../high-level-conceptualization/) is to be considered normative
+- All key words denoting components of [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit), such as "Capture Component", "Encryption and Access Management Engine", "Privacy Computation Engine", "Privacy Compiler", "Privacy Request Capture Interface", "Customization API", "Data Consumer Interface", "Schemas" and "Storage Component" are to be interpreted as defined in [High Level Architecture](../high-level-architecture/)
 
 ## Version
 
@@ -49,7 +47,7 @@ This document defines the version `1.0` of the Privacy Request Interchange Vocab
 
 - **Smart data structures and dumb code works a lot better than the other way around.** lesson No 9 from Raymond, Eric Steven. ["The Cathedral and the Bazaar"](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar). We want PRIF to embody a smart way of thinking about privacy, solving common challenges through the data structure itself.
 
-- **Often, the most striking and innovative solutions come from realizing that your concept of the problem was wrong.** lesson No 12 from Raymond, Eric Steven. ["The Cathedral and the Bazaar"](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar). We indeed now have novel understanding of the [problem of Privacy in Software Systems](https://github.com/blindnet-io/product-management/blob/main/refs/notion-of-privacy/notion-of-privacy.md).
+- **Often, the most striking and innovative solutions come from realizing that your concept of the problem was wrong.** lesson No 12 from Raymond, Eric Steven. ["The Cathedral and the Bazaar"](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar). We indeed now have novel understanding of the [problem of Privacy in Software Systems](../notion-of-privacy/notion-of-privacy.md).
 
 ### Design Goals
 
@@ -67,22 +65,35 @@ With this design we seek:
 ### Design Choices
 
 We have made the following choices:
-- **Language Independence**. The Privacy Request Interchange Vocabulary is independent from any programming language, or any format or language for expressing structured data, and can be materialised in different forms such as json, xml, or other. A [json schema](./json-schema/priv.schema.json) is provided for convenience.
+- **Language Independence**. The Privacy Request Interchange Vocabulary is independent from any programming language, or any format or language for expressing structured data, and can be materialized in different forms such as json, xml, or other. A [json schema](./json-schema/priv.schema.json) is provided for convenience.
 
 - **Rich Semantics**. The Privacy Request Interchange Vocabulary includes `terms` - reserved words to describe common types of Privacy Requests, categories of data, categories of data processing and other key notions. This choice is made to facilitate their uniform interpretation by the implementing systems. Their [human-readable titles and descriptions](dictionary) are provided in json format for convenience.
 
 - **Multiple User Identities**. The Privacy Request Interchange Vocabulary  allows for a Data Subject to be identified using more than one user identity. This choice is made to enable the Privacy Request to be easily exchanged across Systems that use different user identifiers.
 
-- **Systems resolve Privacy Requests**. The Privacy Requests are interpreted at the level of a particular System. If an Organisation operates several Systems, and if the Data Subject wants to have the Privacy Request transmitted to all of them, each System may respond differently. While a Privacy Request can target a group of Systems, the most atomic target of a Privacy Request is thus the System exposing an API for Privacy Requests, and it is only at this level that a Privacy Request can be resolved.
+- **Systems resolve Privacy Requests**. The Privacy Requests are interpreted at the level of a particular System. If an Organization operates several Systems, and if the Data Subject wants to have the Privacy Request transmitted to all of them, each System may respond differently. While a Privacy Request can target a group of Systems, the most atomic target of a Privacy Request is thus the System exposing an API for Privacy Requests, and it is only at this level that a Privacy Request can be resolved.
 
-- **Decentralised IDs**. The Privacy Request Interchange Vocabulary uses decentralised ways to uniquely identify Data Subjects, Systems, Requests and their elements. The exchange of Privacy Requests can happen without a centralised entity to control identity disambiguation.
+- **Decentralized IDs**. The Privacy Request Interchange Vocabulary uses decentralized ways to uniquely identify Data Subjects, Systems, Requests and their elements. The exchange of Privacy Requests can happen without a centralized entity to control identity disambiguation.
 
 ## Proposal
 
 The Privacy Request Interchange Vocabulary includes the following:
-- Key Concepts: [Consent](#consent), [Data Capture](#data-capture), [Data Capture Fragment](#data-capture-fragments), [Demand](#demands), [Privacy Request](#privacy-request), [Privacy Scope](#privacy-scope)
-- Properties: **TBD** full list of properties
-- Terms: **TBD** full list of terms
+
+- Concepts:
+[Consent](#consent),
+[Data Capture](#data-capture),
+[Data Capture Fragment](#data-capture-fragments),
+[Data Subject Identity](#decentralized-identity-of-data-subjects),
+[Demand](#demands),
+[Demand Restriction](#demand-restrictions) (including [Privacy Scope Restriction](#privacy-scope),[Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Date Range](#date-range), [Provenance Restriction](#provenance-restriction), [Data Reference Restriction](#data-reference-restriction)),
+[Privacy Request](#privacy-request),
+[Privacy Request Response](#privacy-request-response), [Privacy Scope](#privacy-scope)(and its dimensions: *Data Category*, *Processing Category* and *Purpose*), [Provenance](#provenance), 
+[Retention Policy](#retention-policy),
+[Data Subject Identity](#decentralized-identity-of-data-subjects)
+
+- Properties: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`,`fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `message`, `motive`, `policy-type`, `processing-categories`, `provenance, ``provenance-category`, `purposes`, `replaces`, `response-id`, `restrictions`, `request-id`, `replaced-by`, `retention`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
+
+- Terms: all terms included in [the dictionary](./dictionary)
 
 ### Privacy Request
 
@@ -168,7 +179,7 @@ Privacy Scope = (Data Categories) x (Categories of Processing) x (Purposes of Pr
 
 When several values are given, Systems MUST interpret the `data-category` dimension as a union of all the categories indicated.
 
-Categories are organised as a hierarchy, denoted with a dot ".", the more general category being written on the left.
+Categories are organized as a hierarchy, denoted with a dot ".", the more general category being written on the left.
 E.g. the following two `data-category` restrictions are equivalent:
 - `CONTACT`,`CONTACT.EMAIL`
 - `CONTACT`
@@ -269,21 +280,21 @@ It is therefore convenient for a Data Subject to be able to formulate Privacy Re
 
 `SYSTEM` refers to the particular System with which the Data Subject is in direct interaction while making the Privacy Request (or giving the Consent).
 
-`ORGANISATION` includes, in addition to the `SYSTEM`, all other Systems belonging to the same Organisation. Those are understood as being a part of the same First-Party Set (**TODO** ref and compatibility check)  
+`ORGANISATION` includes, in addition to the `SYSTEM`, all other Systems belonging to the same Organization. Those are understood as being a part of the same First-Party Set (**TODO** ref and compatibility check)  
 
-`PARTNERS.DOWNWARD` includes, in addition to the `SYSTEM`, and to all other Systems belonging to the same Organisation, all other Systems belonging to Organisations with which the data about the Data Subject has been shared.
+`PARTNERS.DOWNWARD` includes, in addition to the `SYSTEM`, and to all other Systems belonging to the same Organization, all other Systems belonging to Organizations with which the data about the Data Subject has been shared.
 
-`PARTNERS.UPWARD` includes, in addition to the `SYSTEM`, and to all other Systems belonging to the same Organisation,  all other Systems belonging to Organisations from which the data about the Data Subject has been obtained.
+`PARTNERS.UPWARD` includes, in addition to the `SYSTEM`, and to all other Systems belonging to the same Organization,  all other Systems belonging to Organizations from which the data about the Data Subject has been obtained.
 
-`PARTNERS` includes, in addition to the `SYSTEM`, and to all other Systems belonging to the same Organisation, all other Systems belonging to Organisations with which any sort of exchange of data concerning the Data Subject has been performed.
+`PARTNERS` includes, in addition to the `SYSTEM`, and to all other Systems belonging to the same Organization, all other Systems belonging to Organizations with which any sort of exchange of data concerning the Data Subject has been performed.
 
 Different values of the `target` Property imply different obligations for the System receiving a Privacy Request to transfer that request to other Systems.
 
-Let us imagine the following situation: System A gave information about the Data Subject to System B, and System B gave information about the Data Subject to System C. The same Organisation that operates System B, also operates System D.
+Let us imagine the following situation: System A gave information about the Data Subject to System B, and System B gave information about the Data Subject to System C. The same Organization that operates System B, also operates System D.
 
 When System B receives a Privacy Request having `target` value:
 - `SYSTEM`, it SHOULD NOT transfer it to any other system.
-- `ORGANISATION` for a `target`, it MUST transfer it to all other systems operated by the same Organisation (System D in our example).
+- `ORGANISATION` for a `target`, it MUST transfer it to all other systems operated by the same Organization (System D in our example).
 - `PARTNERS.DOWNWARD` it MUST also send it to all systems to which it transferred data about the Data Subject (System C).
 - `PARTNERS.UPWARD` it MUST also send it to all systems from which it obtained data about the Data Subject (System A).
 - `PARTNERS`, it MUST also send it to all systems from which it obtained data about the Data Subject or to which it gave information about the Data Subject (System A and System C).
@@ -302,7 +313,7 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 | `response-id` | 1 | Unique ID for referring to this request in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `in-response-to` | 1 | `request-id` of the Privacy Request to which response is made or `demand-id` of the particular Demand to which response is made, in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Privacy Request Response was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `by` | 1 | **TBD ID of the System having generated the response** |
+| `system` | 1 | System ID of the System having generated the response (**Format TBD**) |
 | `requested-action` | 0-1 | Optional information about the action that was demanded, and to which the response is made. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.KNOWN`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER-DEMAND`} |
 | `data-subject` |  0-* | Optional indication of the [Data Subject Identities](#decentralized-identity-of-data-subjects) to which the response refers to |
 | `status` | 1 | One of {`GRANTED`, `DENIED`, `PARTIALLY-GRANTED`, `UNDER-REVIEW`} |
@@ -712,9 +723,12 @@ Is the mechanism for extending the vocabulary appropriate?
 We need a way for Systems to encrypt the data (that compatible also with encryption libraries other then our own).
 
 ### Motivation or explanation of Demand
->**Note**
->
-> The motivation or explanation of Demand is modelled by a message, and the message is optional. If law regulations state that motivation or explanation of Demand is mandatory, it is not supported.
+
+When a Demand is motivated by a `message`, then it can't be processed automatically.
+To the best of our knowledge, motivating a Demand is optional under [supported legislation](#supported-legilsation).
+The `message` is thus optional.
+
+If PRIV is ever to support a legislation under which a message might be mandatory, this design SHOULD be reconsidered.
 
 ## Alternatives
 

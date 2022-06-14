@@ -3,31 +3,31 @@
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **Author(s)** | milstan (milstan@blindnet.io)         |
-| **Updated**   | 2022-06-07                                                                             |
+| **Updated**   | 2022-06-14                                                                             |
 
 ## Introduction
 
-This document specifies the expected behaviour of Systems implementing [Privacy Request Interchange Vocabulary](./RFC-PRIV.md). It defines actions that the systems MAY undertake with regards to particular Privacy Requests and particular situations.
+This document specifies the expected behavior of Systems implementing [Privacy Request Interchange Vocabulary](./RFC-PRIV.md). It defines actions that the systems MAY undertake with regards to particular Privacy Requests and particular situations.
 
-It is a first step towards the specification of the [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler), formerly known as Data Rights Compiler in the [High Level Architecture](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture).
+It is a first step towards the specification of the [Privacy Compiler](../high-level-architecture#data-rights-compiler), formerly known as Data Rights Compiler in the [High Level Architecture](../high-level-architecture).
 
 
 ## Motivation
 
-While this document is a first step in the definition of the [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler), it is not intended to be its formal specification nor to influence the design choices related to formalisation of rules and configurations.
+While this document is a first step in the definition of the [Privacy Compiler](../high-level-architecture#data-rights-compiler), it is not intended to be its formal specification nor to influence the design choices related to formalization of rules and configurations.
 
-The purpose of the document is primarily illustrate a possible behaviour Systems (And their Privacy Compilers) MAY implement in response to Privacy Requests, in order to test the completeness of the [Privacy Request Interchange Vocabulary](./RFC-PRIV.md).
+The purpose of the document is primarily illustrate a possible behavior Systems (And their Privacy Compilers) MAY implement in response to Privacy Requests, in order to test the completeness of the [Privacy Request Interchange Vocabulary](./RFC-PRIV.md).
 
 ## Terminology
 
-
-- We use all the terms of the  [Privacy Request Interchange Vocabulary](./RFC-PRIV.md) as defined there
-- We use the term Privacy Request interchangeably with the (deprecated) terms Rights Request and Data Rights Request as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
-- We use the terms Individual, Person, You, and Data Subject as defined in the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv)
-- We use the term System as defined in [High Level Conceptualization](https://github.com/blindnet-io/product-management/blob/master/refs/high-level-conceptualization/README.md)
-- We use MUST, MUST NOT and MAY, as defined in [IETF RFC2119](https://datatracker.ietf.org/doc/html/rfc2119)
-- We use the terms Organization, Submitter, Data Consumer as defined in the [Lexicon](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/privateform-lexicon.csv) as defined there.
-
+- The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119)
+- The key word "CAN" denotes ability of someone or something, and is interpreted as "MUST be able to"
+- The key words "blindnet devkit", "CCPA", "CPRA", "Capture Fragment", "Component", "Data Capture", "Data Capture Fragment", "Data Consumer", "Data Subject", "DPO", "Fragment", "GDPR", "HIPPA", "Internet User", "Organization", "Privateform", "Privacy Request", "System", "Submitter", "User" are to be interpreted as described in [RFC-Lexicon-2](../lexicon/RFC-Lexicon-2.md)
+- Any additional precision about the key words defined in [RFC-Lexicon-2](../lexicon/RFC-Lexicon-2.md), as well as additional key words such as "Consent" and "Legal Base", provided in [High Level Conceptualization](../high-level-conceptualization/) is to be considered normative
+- All key words denoting components of [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit), such as "Capture Component", "Encryption and Access Management Engine", "Privacy Computation Engine", "Privacy Compiler", "Privacy Request Capture Interface", "Customization API", "Data Consumer Interface", "Schemas" and "Storage Component" are to be interpreted as defined in [High Level Architecture](../high-level-conceptualization/)
+- Privacy Compiler was formerly known as Data Rights Compiler
+- Privacy Request was formerly known as Data Rights Request
+- All the concepts, properties and terms listed in the [Proposal](./RFC-PRIV.md#proposal) section of PRIV(Privacy Request Interchange Vocabulary are to be interpreted as defined in [Privacy Request Interchange Vocabulary](./RFC-PRIV.md#proposal)
 
 ## Scope of automation
 
@@ -36,7 +36,7 @@ Privacy Requests that are expressed in unambiguous terms, may be fully processed
 Those that include the keyword "OTHER" or a textual message with more details about the request likely require human intervention.
 Cf. [different automation scenarios](./scenarios.md#automation)
 
-Systems MAY be configured to treat Privacy Requests eligible for automation with or without human validation. In any case, the role of the [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) is to calculate the appropriate action, given particular Privacy Request in a particular situation.
+Systems MAY be configured to treat Privacy Requests eligible for automation with or without human validation. In any case, the role of the [Privacy Compiler](../high-level-architecture#data-rights-compiler) is to calculate the appropriate action, given particular Privacy Request in a particular situation.
 
 Systems MAY also want to direct certain requests (such as `MODIFY`) to dedicated interfaces that they may already have for Data Subjects to provide and modify their data.
 
@@ -44,7 +44,7 @@ Because of this Systems MUST be able to configure their particular ways of autom
 
 ## Configuration and Prerequisites
 
-A [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) serving a particular System MUST have the knowledge of the following key parameters and data structures:
+A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a particular System MUST have the knowledge of the following key parameters and data structures:
 
 - **Parameters**: a set of parameters defined under [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV) needed to resolve `TRANSPARENCY` requests.
 
@@ -92,7 +92,7 @@ A [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/mast
 
 ## Privacy Algebra
 
-For each Data Subject, at all times, the [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) maintains an **Eligible Privacy Scope**.
+For each Data Subject, at all times, the [Privacy Compiler](../high-level-architecture#data-rights-compiler) maintains an **Eligible Privacy Scope**.
 
 For each Data Capture Fragment `selector`, the Privacy Compiler knows the **Intended Privacy Scope**.
 At the same time the Privacy Compiler knows about a set of Privacy Scope triples that are associated with an active Legal Base (in the **Runtime Maps**)
@@ -176,7 +176,7 @@ Now this same Data Subject, makes a Privacy Request. In their request, they don'
 }
 ```
 
-The [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) SHOULD resolve this request by:
+The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD resolve this request by:
 - Generating a Privacy Request Response with the `GRANTED` Status,
 
 ```
@@ -243,7 +243,7 @@ When the System gets this request, the scope of the consent MUST change. The rem
 - `SHARING` of all `CONTACT` data other then `CONTACT.EMAIL`, for `PERSONALISATION` purposes, and
 - `STORING` of all `CONTACT` for `PERSONALISATION` purposes
 
-The [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) SHOULD resolve this request by:
+The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD resolve this request by:
 - Generating a Privacy Request Response with the `GRANTED` Status,
 
 ```
@@ -326,7 +326,7 @@ At the time of receiving this request, the System has consent for `STORING` of a
 
 Afther processing the `RESTRICT` request, only the consent for `STORING` of all `CONTACT` for `PERSONALISATION` purposes remains valid.
 
-The [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) SHOULD resolve this request by:
+The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD resolve this request by:
 - Generating a Privacy Request Response with the `GRANTED` Status,
 
 ```
@@ -425,14 +425,14 @@ However, the remaining purpose (`SERVICES`) now only allows the System to send e
 
 ### Calculating Permissions
 
-Since the [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) maintains the Eligible Privacy Scope at any time, it can (given a Data Capture ID, or a Data Capture Fragment ID) answer whether at that time, a particular data processing operation is permitted.
+Since the [Privacy Compiler](../high-level-architecture#data-rights-compiler) maintains the Eligible Privacy Scope at any time, it can (given a Data Capture ID, or a Data Capture Fragment ID) answer whether at that time, a particular data processing operation is permitted.
 
 For example, the System can inquire whether a particular data fragment, corresponding to `CONTACT.EMAIL` data category, can be used to invoice the user (processing = `USING`; purpose = `SERVICES`), or whether it can be shared with some other partner system for user profiling (processing = `SHARING`; purpose = `AUTOMATED-INFERENCE`).
 
 
 ## Resolving requests
 
-The [Privacy Compiler](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) evaluates Privacy Request Demands and issues recommendations to the System. The Systems can then be configured to respond to Privacy Requests automatically, blindly following those recommendations (whenever possible), or to await human input just in case. Cf. [different automation scenarios](./scenarios.md#automation)
+The [Privacy Compiler](../high-level-architecture#data-rights-compiler) evaluates Privacy Request Demands and issues recommendations to the System. The Systems can then be configured to respond to Privacy Requests automatically, blindly following those recommendations (whenever possible), or to await human input just in case. Cf. [different automation scenarios](./scenarios.md#automation)
 
 Privacy Requests MAY need to be processed in the context of different [authentication scenarios](./scenarios.md#authentication) and different [response scenarios](./scenarios.md#response).
 
@@ -543,7 +543,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
 
 ## Resolving Retention Policies
 
-[Privacy Compilers](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-architecture#data-rights-compiler) SHOULD store and resolve [Retention Policies](./RFC-PRIV.md#retention-policy), as well as to them associated *Events* in **Runtime Maps**.
+[Privacy Compilers](../high-level-architecture#data-rights-compiler) SHOULD store and resolve [Retention Policies](./RFC-PRIV.md#retention-policy), as well as to them associated *Events* in **Runtime Maps**.
 
 Systems SHOULD define Retention Policies at the time of configuration, and SHOULD cover all Data Categories and Data Capture Fragment `selector`s from the Intended Privacy Scope with at least one Retention Policy.
 
