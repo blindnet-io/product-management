@@ -13,7 +13,8 @@ This conceptualization does not directly translate to any database structure, wo
 ## TERMINOLOGY
 
 - The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119)
-- All terms defined in [RFC-Lexicon-2](RFC-Lexicon-2.md) are to be interpreted as described there.
+- The word "CAN" denotes ability of someone or something, and is interpreted as "MUST be able to"
+- All terms defined in [RFC-Lexicon-2](RFC-Lexicon-2.md) are to be interpreted as described there
 
 ### THE MAIN CONCEPT - DATA CAPTURE
 
@@ -30,7 +31,7 @@ Examples of a need include: medical history of a new patient (doctor); candidate
 
 A [Privateform](../lexicon/RFC-Lexicon-2.md#privateform) includes the interface, the data structures and to them associated settings and logic allowing to capture [Data Captures](../lexicon/RFC-Lexicon-2.md#data-capture).
 
-Settings may include configurations related to delays of conservation and expiry of Data Captures, confidentiality and access rights to captured data, consent collection options, view/decrypt rights and similar.
+Settings MAY include configurations related to delays of conservation and expiry of Data Captures, confidentiality and access rights to captured data, Consent collection options, view/decrypt rights and similar.
 
 When a [Submitter](../lexicon/RFC-Lexicon-2.md#submitter) interacts with an instance of Privateform, a Data Capture is created.
 
@@ -55,7 +56,7 @@ Data Capture Fragments have names, that exist in a multitude of languages and al
 
 The granularity can also allow, when needed, to the data consumers to accept or reject certain fragments for reasons of readability/conformity, and make the submitter submit them again.
 
-It may also favor incremental data submission (submit part of the form today, and another part some other day when the submitter collects more data), as well as partial modification and data update focused only on particular fragments.
+It also favors incremental data submission (submit part of the form today, and another part some other day when the submitter collects more data), as well as partial modification and data update focused only on particular fragments.
 
 <img width="300" alt="Checklist" src="./img/checklist.png">
 
@@ -75,30 +76,30 @@ Legal Bases impact the following properties of a particular Data Capture that ou
 More than one legal ground can exist for the same data at the same time.
 E.g.:
 
-- A user can give explicit consent, and at the same time keeping the data might be mandatory; When the user revokes consent, the data must still continue to be kept.
-- A service contract can exist between the user and the organization making the organization legitimate to keep the data, and at the same time the user might give consent. After contract has ended, the data can be kept until the user revokes consent and withing the maximal conservation time allowed by law.
+- A user can give explicit Consent, and at the same time keeping the data might be mandatory; When the user revokes Consent, the data must still continue to be kept.
+- A service contract can exist between the user and the organization making the organization legitimate to keep the data, and at the same time the user might give Consent. After contract has ended, the data can be kept until the user revokes Consent and withing the maximal conservation time allowed by law.
 
 The CAN/MUST-be-kept of the data at a given time is also constrained by [maximal conservation times defined by law](https://www.cnil.fr/fr/les-durees-de-conservation-des-donnees) or by minimal legally mandatory conservation time in certain domains (finance).
 
 Such times are often relative to some event (e.g. data collection date, or a date when the submitter-organization relationship or contract has ended).
 
-> _Managing Legal bases should be a value-added service allowing to trigger automatic Data Capture deletion, or its protection from user-initiated deletion_
+> _Managing Legal bases SHOULD be a value-added service allowing to trigger automatic Data Capture deletion, or its protection from user-initiated deletion_
 
 <img width="450" alt="Legal ground" src="./img/legal-ground.png">
 
 ### DATA CAPTURE – CONSENT
 
-Consent is a particular form of Legal Base for data collection and keeping. When it is the only Legal Base, Consent MUST be explicitly collected while capturing data (even partial Data Capture without all fragments completed). When consent is collected then, a possibility must be given to the submitter to revoke it.
+Consent is a particular form of Legal Base for data collection and keeping. When it is the only Legal Base, Consent MUST be explicitly collected while capturing data (even partial Data Capture without all fragments completed). When Consent is collected then, a possibility must be given to the submitter to revoke it.
 
 Consents have states (e.g., valid, expired, revoked).
 
-One consent corresponds to [one and only one purpose](https://www.cnil.fr/fr/les-bases-legales/consentement) (e.g., facilitate future purchases, ongoing contract, promotions, 3rd party communication). Thus, a Data Capture can be associated to more then one consent, that can be given and revoked separately.
+One Consent corresponds to [one and only one purpose](https://www.cnil.fr/fr/les-bases-legales/consentement) (e.g., facilitate future purchases, ongoing contract, promotions, 3rd party communication). Thus, a Data Capture can be associated to more then one Consent, that can be given and revoked separately.
 
 <img width="225" alt="Consent" src="./img/consent.png">
 
 ### DATA CAPTURE – PRIVACY REQUESTS
 
-A [Data Subject](../lexicon/RFC-Lexicon-2.md#data-subject) has the right to demand different things related to their privacy, their data and their rights. We call those, [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request). They may refer to:
+A [Data Subject](../lexicon/RFC-Lexicon-2.md#data-subject) has the right to demand different things related to their privacy, their data and their rights. We call those, [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request). They refer to:
 
 - **General information** about policies, storage locations, practices, and purposes of data treatment (unrelated to any particular Data Capture)
 - **Particular information** about Data Capture date, origin of data, etc.
@@ -106,7 +107,7 @@ A [Data Subject](../lexicon/RFC-Lexicon-2.md#data-subject) has the right to dema
 - Opposition to treatment (can be denied if unreasonable i.e. if other legal ground
   exists)
 
-The system should allow to capture such requests, keep track of them, and on what is done to act upon them, and provide proof that the action upon the requests was compliant (rights given/denied according to law and in time).
+The [System](../lexicon/RFC-Lexicon-2.md#system) SHOULD allow to capture such requests, keep track of them, and on what is done to act upon them, and provide proof that the action upon the requests was compliant (rights given/denied according to law and in time).
 
 Capturing requests related to a particular [Data Capture](../lexicon/RFC-Lexicon-2.md#data-capture) or [Data Capture Fragment](../lexicon/RFC-Lexicon-2.md#data-capture-fragment) requires user authentication.
 
@@ -132,9 +133,9 @@ Rights Requests also have states with regards to:
 - **Acceptance** (accepted, partially accepted, rejected)
 - **Fulfillment** of the [Data Subject's](../lexicon/RFC-Lexicon-2.md#data-subject) need (data accessed, data modified, data deleted)
 
-The system keeps a record of every status change and the corresponding timestamp allowing to build a timeline.
+The [System](../lexicon/RFC-Lexicon-2.md#system) keeps a record of every status change and the corresponding timestamp allowing to build a timeline.
 
-Also, rights have states, meaning that in a particular state, a particular type of rights request MUST be rejected. For example, during mandatory keeping a DELETE request from the user MUST be rejected.
+Also, rights have states, meaning that in a particular state, a particular type of [Privacy Request](../lexicon/RFC-Lexicon-2.md#privacy-request) MUST be rejected. For example, during mandatory keeping a DELETE request from the user MUST be rejected.
 
 > _The information provided here is just for illustrative purposes and does not imply any definitive naming or semantics of actual states._
 
@@ -153,7 +154,7 @@ The format of Privacy Requests to modify data must be compatible with the versio
 <img width="900" alt="interoperability" src="./img/interoperability.png">
 
 More than one [System](../lexicon/RFC-Lexicon-2.md#system) can use [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit) to collect, store, and exploit data.
-In other words, a [Data Capture](../lexicon/RFC-Lexicon-2.md#data-capture) MAY be generated by a [Submitter](../lexicon/RFC-Lexicon-2.md#submitter) within one system, but the [Data Consumers](../lexicon/RFC-Lexicon-2.md#data-consumer) may be consuming the data using multiple different systems.
+In other words, a [Data Capture](../lexicon/RFC-Lexicon-2.md#data-capture) MAY be generated by a [Submitter](../lexicon/RFC-Lexicon-2.md#submitter) within one system, but the [Data Consumers](../lexicon/RFC-Lexicon-2.md#data-consumer) MAY be consuming the data using multiple different systems.
 
 Systems can exchange Data Captures without compromising the encryption of the data. In addition, they can use blindnet devkit to pass any change of state, Legal Bases, Consents, or data modifications, [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request), etc., between Systems.
 
@@ -177,5 +178,5 @@ Blindnet serves as a _lingua franca_ for both confidentiality (encryption) and c
 - **control** (gain transparency and impose actions over data to the data consumers by the data subject)
 
 However, there must be a separation between the two allowing a developer to use [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit) only for one of these two purposes, and use an alternative solution for the other. E.g., a developer can use a non-encrypted web form to capture data, manage his own access to it, and still use blindnet devkit for managing Consent, and [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request).
-Composition of the components of the system is inspired by the bridge design pattern.
+Composition of the components of blindnet devkit is inspired by the bridge design pattern.
 See [Bridge Pattern, Gang of Four](https://refactoring.guru/design-patterns/bridge).

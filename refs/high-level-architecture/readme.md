@@ -29,7 +29,8 @@ Also, having the right structure of components is very important for several rea
 ## Terminology
 
 - The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119)
-- All terms defined in [RFC-Lexicon-2](RFC-Lexicon-2.md) are to be interpreted as described there.
+- The word "CAN" denotes ability of someone or something, and is interpreted as "MUST be able to"
+- All terms defined in [RFC-Lexicon-2](RFC-Lexicon-2.md) are to be interpreted as described there
 - Any additional precision about the terms defined in [RFC-Lexicon-2](RFC-Lexicon-2.md), as well as additional terms such as Consent and Legal Base, provided in [High Level Conceptualization](../high-level-conceptualization/) is to be considered normative
 
 
@@ -51,7 +52,7 @@ As such it needs to support the following functions:
 
 ## Proposal - Components
 
-All components can be observed in their roles in the following, more detailed image:
+All components are presented in their roles in the following, more detailed image:
 
 <img width="1400" alt="HIGH-LEVEL ARCHITECTURE DETAIL" src="./img/HLA-detail.png">
 
@@ -59,16 +60,16 @@ All components can be observed in their roles in the following, more detailed im
 
 The Capture Component is the entry point of the product. It is responsible for putting in motion [Data Captures](../high-level-conceptualization/README.md#the-main-concept---data-capture) in a way that reinforces privacy by ensuring confidentiality and control.
 
-It may be responsible for encrypting the data, obtaining [Consent](../high-level-conceptualization/README.md#data-capture--consent), and generating Data Capture metadata.
+It is responsible for encrypting the data, obtaining [Consent](../high-level-conceptualization/README.md#data-capture--consent), and generating Data Capture metadata.
 
-Data can be captured from the [Data Subject](../lexicon/RFC-Lexicon-2.md#data-subject) themself, or from someone else, a [Submitter](../lexicon/RFC-Lexicon-2.md#submitter).
-The roles of Data Subject, [Submitter](../lexicon/RFC-Lexicon-2.md#submitter), [Data Consumer](../lexicon/RFC-Lexicon-2.md#data-consumer) and [DPO](../lexicon/RFC-Lexicon-2.md#dpo) are not exclusive. The same person can be in all roles.
+Data CAN be captured from the [Data Subject](../lexicon/RFC-Lexicon-2.md#data-subject) themself, or from someone else, a [Submitter](../lexicon/RFC-Lexicon-2.md#submitter).
+The roles of Data Subject, [Submitter](../lexicon/RFC-Lexicon-2.md#submitter), [Data Consumer](../lexicon/RFC-Lexicon-2.md#data-consumer) and [DPO](../lexicon/RFC-Lexicon-2.md#dpo) are not exclusive. The same person CAN be in all roles.
 
 ### Encryption and Access Management Engine
 
 The Encryption and Access Management is composed of SDKs and APIs allowing to encrypt and decrypt the data in the context of [Data Captures](../high-level-conceptualization/README.md#the-main-concept---data-capture).
 
-This component can work with external user identity management solutions, as well as external encryption tools.
+This component CAN work with external user identity management solutions, as well as external encryption tools.
 The component is responsible to allow client [Systems](../lexicon/RFC-Lexicon-2.md#system) and user-facing components to define and modify the intended [Data Consumers](../lexicon/RFC-Lexicon-2.md#data-consumer) of a particular Data Capture.
 This component also provides functions allowing to support Data Consumers in situations of lost access.
 
@@ -76,10 +77,10 @@ The component MAY accomplish those responsibilities through coordination with us
 
 ### Privacy Computation Engine
 
-Data Rights Computation Engine is a component that client [Systems](../lexicon/RFC-Lexicon-2.md#system) can run in order to interpret their rights to hold and treat a particular [Data Capture](../high-level-conceptualization/README.md#the-main-concept---data-capture) at a particular point of time.
-The engine can also calculate a response to [Data Subjects'](../lexicon/RFC-Lexicon-2.md#data-subject) [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request).
+Privacy Computation Engine is a component that client [Systems](../lexicon/RFC-Lexicon-2.md#system) CAN run in order to interpret their rights to hold and treat a particular [Data Capture](../high-level-conceptualization/README.md#the-main-concept---data-capture) at a particular point of time.
+The engine CAN also calculate a response to [Data Subjects'](../lexicon/RFC-Lexicon-2.md#data-subject) [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request).
 
-A Data Rights Computation Engine component is composed of three elements:
+A Privacy Computation Engine component is composed of three elements:
 
 - a [Privacy Compiler](#privacy-compiler)
 - a [Privacy Request Capture Interface](#privacy-request-capture-interface)
@@ -88,9 +89,9 @@ A Data Rights Computation Engine component is composed of three elements:
 #### Privacy Compiler
 
 A **_Privacy Compiler_** computes one or more actions (and to them association motivations/reasons/explanations) that need to be performed by a [Systems](../lexicon/RFC-Lexicon-2.md#system) in order to respect [Data Subjects'](../lexicon/RFC-Lexicon-2.md#data-subject) data rights.
-Such actions may include (not limited to): data deletion, acceptance/denial of [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request), and transmission of Privacy Requests to another System.
+Such actions include (not limited to): data deletion, acceptance/denial of [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request), and transmission of Privacy Requests to another System.
 
-To compute the appropriate actions, this component can register and take into account:
+To compute the appropriate actions, this component CAN register and take into account:
 
 - Data Capture metadata including [Consents](../high-level-conceptualization/README.md#data-capture--consent);
 - [Settings](../high-level-conceptualization/README.md#form-follows-function) of a particular system (e.g. storage location, mandatory duration of data keeping, [Legal Bases](../high-level-conceptualization/README.md#data-capture--legal-base) etc.);
@@ -100,8 +101,8 @@ To compute the appropriate actions, this component can register and take into ac
 
 #### Privacy Request Capture Interface
 
-A **_Privacy Request Capture Interface_** is a standardized end-user interface that [Systems](../lexicon/RFC-Lexicon-2.md#system) can (optionally) run to capture [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request) from [Data Subjects](../lexicon/RFC-Lexicon-2.md#data-subject).
-A global Privacy Request Capture Interface can be hosted on an easy-to-remember URL to capture Privacy Requests in a standardized format ([Schema](#schemas)) on behalf of other Systems.
+A **_Privacy Request Capture Interface_** is a standardized end-user interface that [Systems](../lexicon/RFC-Lexicon-2.md#system) CAN (optionally) run to capture [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request) from [Data Subjects](../lexicon/RFC-Lexicon-2.md#data-subject).
+A global Privacy Request Capture Interface CAN be hosted on an easy-to-remember URL to capture Privacy Requests in a standardized format ([Schema](#schemas)) on behalf of other Systems.
 
 #### Customization API
 
@@ -110,7 +111,7 @@ The **_Customization API_** allows client [Systems](../lexicon/RFC-Lexicon-2.md#
 - set and modify system-specific [Settings](../high-level-conceptualization/README.md#form-follows-function) related to data rights and compliance (e.g. storage location, mandatory duration of data retention, legal bases of processing etc.)
 - register and keep track of system-to-system transfers of [Data Captures](../high-level-conceptualization/README.md#the-main-concept---data-capture) and noteworthy operations performed on data
 
-> **NB**. The system-specific Settings can make the output of two different Privacy Computation Engines to the same Privacy Request fundamentally different.
+> **NB**. The system-specific Settings CAN make the output of two different Privacy Computation Engines to the same Privacy Request fundamentally different.
 >
 > For example, if System A has transmitted a Data Capture to System B, and Systems and A and B have different Legal Bases for keeping data, when the Data Subject makes a DELETE request, the output of one system's Privacy Computation Engine might be to approve the DELETE request and of the other to deny it.
 
@@ -119,7 +120,7 @@ This engine works in a way inspired by [Digital Rights Management](https://en.wi
 ### Data Consumer Interface
 
 The Data Consumer Interface component allows [Data Consumers (in different roles, including system administrators and DPOs)](../high-level-conceptualization/README.md#submitter--data-consumer--dpo) to interact with the components of the system.
-It allows the following functions (that can be used separately and should correspond to separate subcomponents):
+It allows the following functions (that CAN be used separately and SHOULD correspond to separate subcomponents):
 
 - _VIEW_AND_MANAGE_: Data display for the eyes of authorized, authenticated Data Consumers, [acceptance/validation of Data Captures](../high-level-conceptualization/README.md#data-capture---states), and data deletion/modification;
 - _CONFIGURE_: Input of parameters related to data rights management, necessary for the operation of the Privacy Computation Engine (e.g. storage location, mandatory duration of data keeping, [Legal Bases](../high-level-conceptualization/README.md#data-capture--legal-base) etc.);
@@ -127,7 +128,7 @@ It allows the following functions (that can be used separately and should corres
 
 ### Schemas
 
-For the [System](../lexicon/RFC-Lexicon-2.md#system) to support interoperability with other Systems and solutions, schemas should be made (and data export/import implemented using them) for represent the following:
+For the [System](../lexicon/RFC-Lexicon-2.md#system) to support interoperability with other Systems and solutions, schemas SHOULD be made (and data export/import implemented using them) for represent the following:
 
 - [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request) made by users and allow their transfer from System to System and enforcement of [Data Subjects'](../lexicon/RFC-Lexicon-2.md#data-subject) rights across Systems holding their data.
 - [Data Captures](../high-level-conceptualization/README.md#the-main-concept---data-capture) and allow transfer of encrypted captured data across systems while maintaining the integrity of data and its intended usage by intended [Data Consumers](../lexicon/RFC-Lexicon-2.md#data-consumer)
@@ -136,15 +137,15 @@ For the [System](../lexicon/RFC-Lexicon-2.md#system) to support interoperability
 ### Storage
 
 The Storage component allows client [Systems](../lexicon/RFC-Lexicon-2.md#system) to store the [Data Captures](../high-level-conceptualization/README.md#the-main-concept---data-capture).
-It can interface with Systems that don't have their own storage but integrate the whole confidential data capturing as a fully external workflow, only integrated at the front-end level with their website or app.
+It CAN interface with Systems that don't have their own storage but integrate the whole confidential data capturing as a fully external workflow, only integrated at the front-end level with their website or app.
 
-The storage component can be configured to automatically interpret and execute data deletions and modifications according to the output of the [Privacy Computation Engine](#privacy-computation-engine).
+The storage component CAN be configured to automatically interpret and execute data deletions and modifications according to the output of the [Privacy Computation Engine](#privacy-computation-engine).
 
 ## Other Requirements
 
 ### Bridge and Interoperability
 
-The components of the system should be made in a way that favors interoperability — i.e. components can easily interoperate with software made in another project for the same purpose.
+The components of the system SHOULD be made in a way that favors interoperability — i.e. components CAN easily interoperate with software made in another project for the same purpose.
 
 This principle is already explained in the example of [confidentiality and control interoperability](../high-level-conceptualization/README.md#confidentiality--control-bridge).
 Appropriate abstractions SHOULD be designed on top of key components for (at least, not limited to) user identity, access management, encryption, Data Rights Management, storage, and Privacy Request capture.
@@ -152,21 +153,21 @@ These abstractions SHOULD be inspired by the [Bridge Pattern](https://en.wikiped
 
 This interoperability SHOULD support the following (extreme) example scenarios:
 
-- A System that uses Keycloak for user identity management, can use our Data Capture component in combination with 3rd party Encryption library. The System can instantiate and use our Privacy Computation Engine, and implement their own Storage able to automatically interpret and enforce actions resulting as output of the DPrivacy Computation Engine (automatic deletion and modification).
+- A System that uses Keycloak for user identity management, CAN use our Data Capture component in combination with 3rd party Encryption library. The System CAN instantiate and use our Privacy Computation Engine, and implement their own Storage able to automatically interpret and enforce actions resulting as output of the DPrivacy Computation Engine (automatic deletion and modification).
 
-- A System that is essentially a wordpress website, can embed the Capture Component in a wordpress webform, use the Storage Component, the Data Consumer Interface (as separate from the wordpress website), use Privacy Computation Engine and embed the Privacy Request Capture Interface in the wordpress website respecting its look and feel.
+- A System that is essentially a wordpress website, CAN embed the Capture Component in a wordpress webform, use the Storage Component, the Data Consumer Interface (as separate from the wordpress website), use Privacy Computation Engine and embed the Privacy Request Capture Interface in the wordpress website respecting its look and feel.
 
-- A System that has their own user identity management, uses 3rd party e2ee library, has its own storage and interfaces for data view, can instantiate the Privacy Computation Engine and use only the parts of the Data Consumer Interface related to Privacy Request parametrization and approval.
+- A System that has their own user identity management, uses 3rd party e2ee library, has its own storage and interfaces for data view, CAN instantiate the Privacy Computation Engine and use only the parts of the Data Consumer Interface related to Privacy Request parametrization and approval.
 
 ### Separation of Form and Function
 
-The components of [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit) MUST be made in such a way that a client [Systems](../lexicon/RFC-Lexicon-2.md#system) can use only the functional part and implement its own interfaces or otherwise achieve its own desired look and feel and UX.
+The components of [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit) MUST be made in such a way that a client [Systems](../lexicon/RFC-Lexicon-2.md#system) CAN use only the functional part and implement its own interfaces or otherwise achieve its own desired look and feel and UX.
 
 ### Different Privacy Request Response Scenarios
 
-Thanks to the *Privacy Computation Engine* the system allows to automatically (or semi-automatically) process Data Rights Requests, and do so in a distributed context of several Systems sharing and processing Data Subject's data.
+Thanks to the *Privacy Computation Engine* the system allows to automatically (or semi-automatically) process Privacy Requests, and do so in a distributed context of several Systems sharing and processing Data Subject's data.
 
-When *Privacy Requests* are transmitted from one System to another, there may be several scenarios for responding to the Data Subject.
+When *Privacy Requests* are transmitted from one System to another, there are several scenarios for responding to the Data Subject.
 
 The design of [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit) MUST at least support the following scenarios:
 
@@ -193,7 +194,7 @@ sequenceDiagram
 
 ```
 
-This scenario is adapted to Privacy Request Requests that do not involve access to the data, especially when not all Systems have the Data Subject's contact information (and may want to remain blind for it). For this scenario to work, Systems must expose functions for receiving the responses from other Systems.
+This scenario is adapted to Privacy Request Requests that do not involve access to the data, especially when not all Systems have the Data Subject's contact information (and MAY want to remain blind for it). For this scenario to work, Systems must expose functions for receiving the responses from other Systems.
 
 #### Scenario 2 - Direct Responses
 
