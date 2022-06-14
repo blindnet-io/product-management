@@ -16,6 +16,7 @@ This definition captures the essential features of the concept, in particular th
 
 ### Privacy is about the **self**.
 
+
 The _self_ is a very important element of human experience playing _"an integral part in human motivation, cognition, affect, and social identity"_[^2].
 
 The self is not the same as identity.
@@ -34,6 +35,7 @@ Privacy is a "factor of connection to oneself and to others"[^6].
 As relationships play a key role in shaping the view on the self, it is of crucial importance for the individual to control the access to self, and thus maintain control over their own view of the self.
 
 ### Privacy is **selective**.
+
 
 It is not an absolute binary "come in" vs. "go away".
 It is a nuanced choice to control access to parts of the _self_.
@@ -68,6 +70,7 @@ Humans are social species, hardwired for connection.
 Connection is crucial to development; without it, social animals experience distress and face severe developmental consequences[^10].
 Yet, connection can also expose the individual to existential vulnerabilities.
 
+
 The risk associated with connection has to be managed.
 Without privacy, the need for connection conflicts with the goal of protecting vital interests.
 Connection is **not** possible without privacy.
@@ -79,6 +82,7 @@ Privacy is not the opposite of connectedness.
 Connectedness exists on the continuum between fusion and isolation.
 Fusion is the state of total absence of boundaries and separateness.
 Isolation is the psychological equivalent of death.
+
 It leads to loneliness - correlated with negative effects on health[^11].
 
 Humans need connectedness to avoid isolation. Privacy regulates connectedness to avoid fusion (where there is not enough separateness for anything to need connecting).
@@ -143,6 +147,7 @@ Anecdotal and empirical evidence indicates that individuals are willing to trade
 
 However, as we have seen, privacy regulates the conflict of the need for connection with the need for competition, survival and overcoming the power diferential. Habits, and other needs, indeniably play a role in the persons choice of privacy related behavior and may yield behavior inconsistent with the persons beliefs and interests (as outlined by the _privacy paradox_)[^18].
 
+
 The existence of the privacy paradox is not indicative of a false concern for privacy, but rather of the context not favoring behavior aligned with this concern, as is common with attitude-behavior gap[^13].
 Researchers consider privacy-oblivious behavior to be a result of technological limitations as much as a consequence of users' deficiencies[^19].
 
@@ -179,6 +184,7 @@ In essence, the available knowledge teaches us the following:
 - **Connectedness is dysfunctional without privacy**
 
 Therefore, we believe that a properly designed Internet System is designed for Privacy-enabled Connectedness.
+
 
 The Privacy-enabled Connectedness is achieved through the following design principles:
 

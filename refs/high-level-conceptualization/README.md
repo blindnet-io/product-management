@@ -43,11 +43,17 @@ Examples include: a file and a comment explaining it; a set of fields composing 
 
 The data structure of Data Capture Fragments allows to have interface elements such as granular progress bars, or checklists to present to the user the state of completement of the submission.
 
+Data Capture Fragments have names, that exist in a multitude of languages and allow for easy reference by Data Sumbitters and Data Consumers.
+
 The granularity can also allow, when needed, to the data consumers to accept or reject certain fragments for reasons of readability/conformity, and make the submitter submit them again.
 
-It may also favor incremental data submission (submit par of the for today, and another part some other day when the submitter collects more data), as well as partial modification and data update focused only on particular fragments.
+It may also favor incremental data submission (submit part of the form today, and another part some other day when the submitter collects more data), as well as partial modification and data update focused only on particular fragments.
 
 <img width="300" alt="Checklist" src="./img/checklist.png">
+
+Capture Fragments can be subject to validations:
+- **a priori** using automatic validators (like checking the format of an e-mail adress, or extension of a file)
+- **a posteriori** using human input to validate the conformity of submitted data with what is expected
 
 ## DATA CAPTURE – LEGAL GROUND
 
@@ -96,6 +102,7 @@ Capturing requests related to a particular Data Capture or Data Capture Fragment
 
 <img width="275" alt="rights requests" src="./img/rights-requests.png">
 
+
 ## DATA CAPTURE - STATES
 
 Data Captures have states. States can be observed on the Data Capture level, or on the level of a Data Capture Fragment.
@@ -109,11 +116,26 @@ States concern different qualities, such as (not limited to):
 
 Legal grounds also have states indicating if the data MUST or CAN be kept/deleted.
 
-Rights requests also have states (e.g., received, denied, granted,...) – states relative to a particular request.
+Rights Requests also have states with regards to:
+
+- **Their treatment** by the Data Consumers / Organisation (received, viewed/under review, treated)
+- **Acceptance** (accepted, partially accepted, rejected)
+- **Fulfillment** of the Data Subject's need (data accessed, data modified, data deleted)
+
+The system keeps a record of every status change and the corresponding timestamp allowing to build a timeline.
 
 Also, rights have states, meaning that in a particular state, a particular type of rights request MUST be rejected. For example, during mandatory keeping a DELETE request from the user MUST be rejected.
 
 > _The information provided here is just for illustrative purposes and does not imply any definitive naming or semantics of actual states._
+
+## DATA CAPTURE – VERSIONING
+
+Data Capture Fragments are subject to versioning. A particuler data fragment can evolve as a result of:
+- **Changes** by Data Subject during submission
+- **Rights Requests** by Data Subject asking to modify the data
+- **Modifications** by Data Consumers (e.g., within modification requests, or through common features for user profile modification, or any other way) and DPOs (when the new data is collected offline from the Data Subject)
+
+Rights Request to modify data must be compatible with the versioning of Data Capture Fragments and allow for automatic update upon Rights Request acceptance.
 
 ## DATA CAPTURE – INTEROPERABILITY
 
@@ -147,3 +169,5 @@ Privacy, in a psychological sense, equals the freedom of an individual to engage
 Confidentiality is enforced by policy and by encryption. Control is enforced by law. blindnet allows software systems to handle both.
 
 However, there must be a separation between the two allowing a developer to use blindnet only for one of these two purposes, and use an alternative solution for the other. E.g., a developer can use a non-encrypted web form to capture data, manage his own access to it, and still use blindnet for managing consent, and submitter rights requests.
+Composition of the components of the system is inspired by the bridge design pattern.
+See [Bridge Pattern, Gang of Four](https://refactoring.guru/design-patterns/bridge).
