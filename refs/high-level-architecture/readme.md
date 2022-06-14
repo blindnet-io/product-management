@@ -223,7 +223,7 @@ This scenario is adapted to Privacy Requests where revealing of the response to 
 ### Normative References
 
 - [High Level Conceptualization](../high-level-conceptualization/)
-- [RFC-Lexicon-2](RFC-Lexicon-2.md)
+- [RFC-Lexicon-2](../lexicon/RFC-Lexicon-2.md)
 
 ### Informative References
 
