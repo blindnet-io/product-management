@@ -3,7 +3,7 @@
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **Author(s)** | milstan (milstan@blindnet.io)             |
-| **PR**   | **TBD**                                                                             |
+| **PR**   | [694](https://github.com/blindnet-io/product-management/pull/694) |
 | **Version**   | 2.0                                                                             |
 | **Updated**   | 2022-06-14                                                                             |
 | **Obsoletes** | [privateform-lexicon.csv](https://github.com/blindnet-io/product-management/blob/2b44581255fbe431cd056ebdb332c7f9067b0121/refs/privateform-lexicon.csv) |
