@@ -30,8 +30,8 @@ Also, having the right structure of components is very important for several rea
 
 - The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119)
 - The word "CAN" denotes ability of someone or something, and is interpreted as "MUST be able to"
-- All terms defined in [RFC-Lexicon-2](RFC-Lexicon-2.md) are to be interpreted as described there
-- Any additional precision about the terms defined in [RFC-Lexicon-2](RFC-Lexicon-2.md), as well as additional terms such as Consent and Legal Base, provided in [High Level Conceptualization](../high-level-conceptualization/) is to be considered normative
+- All terms defined in [RFC-Lexicon-2](../lexicon/RFC-Lexicon-2.md) are to be interpreted as described there
+- Any additional precision about the terms defined in [RFC-Lexicon-2](../lexicon/RFC-Lexicon-2.md), as well as additional terms such as Consent and Legal Base, provided in [High Level Conceptualization](../high-level-conceptualization/) is to be considered normative
 
 
 ### Overview of the Context

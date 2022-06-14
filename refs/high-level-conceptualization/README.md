@@ -14,7 +14,7 @@ This conceptualization does not directly translate to any database structure, wo
 
 - The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119)
 - The word "CAN" denotes ability of someone or something, and is interpreted as "MUST be able to"
-- All terms defined in [RFC-Lexicon-2](RFC-Lexicon-2.md) are to be interpreted as described there
+- All terms defined in [RFC-Lexicon-2](../lexicon/RFC-Lexicon-2.md) are to be interpreted as described there
 
 ### THE MAIN CONCEPT - DATA CAPTURE
 
