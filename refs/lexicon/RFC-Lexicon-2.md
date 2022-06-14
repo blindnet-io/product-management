@@ -10,6 +10,10 @@
 
 ## Introduction
 
+>
+> “The limits of language are the limits of my world.” - Ludwig Wittgenstein
+>
+
 Many product-related documents refer to terms of common interest, often written in [initial caps, or all caps](https://en.wikipedia.org/wiki/Letter_case#Stylistic_or_specialised_usage). This document defines the meaning of these terms as they should be interpreted in the context of blindnet products.
 
 ## Terms
