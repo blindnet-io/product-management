@@ -20,7 +20,7 @@ Many product-related documents refer to terms of common interest, often written 
 
 ### blindnet devkit
 
-A set of software components for implementing [privacy-enabled connectedness](../notion-of-privacy/notion-of-privacy.md).
+A set of software components for implementing [privacy-enabled connectedness](../notion-of-privacy/notion-of-privacy.md#privacy-enabled-connectedness).
 
 ### CCPA
 
@@ -95,13 +95,13 @@ It operates one or more [Systems](#system).
 
 ### Privateform
 
-A component of [user](#user)-facing software that uses [blindnet devkit](#blindnet-devkit) to capture user data (and to it associated metadata) in a way that restitutes confidentiality and control to the [Data Subject](#data-subject).
+[User](#user)-facing software that uses [blindnet devkit](#blindnet-devkit) to capture user data (and to it associated metadata) in a way that restitutes confidentiality and control to the [Data Subject](#data-subject).
 
 ### Privacy Request
 
 A request made by a [Data Subject](#data-subject) in order to regulate privacy in the relationship they have with a [System](#system) or an [Organization](#organization).
 
-Privacy Requests concern any aspect of the [privacy-enabled connectedness](../notion-of-privacy/notion-of-privacy.md), including transparency, confidentiality and control over data processing.
+Privacy Requests concern any aspect of the [privacy-enabled connectedness](../notion-of-privacy/notion-of-privacy.md#privacy-enabled-connectedness), including transparency, confidentiality and control over data processing.
 
 ### System
 
