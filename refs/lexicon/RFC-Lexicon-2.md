@@ -44,7 +44,7 @@ It is obtained in any way, including: directly submitted by a [Submitter](#submi
 
 ### Data Capture Fragment
 
-A meaningful compound of atomic information units (e.g, data fields of different type, files, and to them associated labels) that are meaningfully captured together.
+Part of a [Data Capture](#data-capture). A meaningful compound of atomic information units (e.g, data fields of different type, files, and to them associated labels) that are meaningfully captured together.
 
 Examples of situations in which information units are meaningfully captured together include:
 - splitting them would introduce an obstacle to making sense of the information that they carry. For example, elements of an address such as street number and street name,
@@ -55,11 +55,11 @@ Also know as Capture Fragment, or Fragment.
 
 ### Data Consumer
 
-A human, or a other entity consuming the data concerning Data Subjects.
+A human, or a other entity consuming the data concerning [Data Subjects](#data-subject).
 
 ### Data Subject
 
-A human, concerned by particular data that a System is processing. Holder of rights over the data concerning them.
+A human, concerned by particular data that a [System](#system) is processing. Holder of rights over the data concerning them.
 
 ### DPO
 
@@ -83,7 +83,7 @@ See [User](#user).
 
 ### Organization
 
-A structure, commercial or not, processing Data Subjects' data as a part of its operations.
+A structure, commercial or not, processing [Data Subjects'](#data-subject) data as a part of its operations.
 Also known as "controller", "data controller", and "processor" under [GDPR](#GDPR).
 Also know as "business" under [CCPA](#CCPA) and [CPRA](#CPRA).
 
@@ -91,7 +91,7 @@ It operates one or more [Systems](#system).
 
 ### Privateform
 
-A component of submitter-facing software that uses [blindnet devkit](#blindnet-devkit) to capture user data (and to it associated metadata) in a way that restitutes confidentiality and control to the submitter.
+A component of [user](#user)-facing software that uses [blindnet devkit](#blindnet-devkit) to capture user data (and to it associated metadata) in a way that restitutes confidentiality and control to the [Data Subject](#data-subject).
 
 ### Privacy Request
 
