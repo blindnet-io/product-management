@@ -85,7 +85,7 @@ Such times are often relative to some event (e.g. data collection date, or a dat
 
 > _Managing Legal bases SHOULD be a value-added service allowing to trigger automatic Data Capture deletion, or its protection from user-initiated deletion_
 
-<img width="450" alt="Legal ground" src="./img/legal-ground.png">
+<img width="450" alt="Legal base" src="./img/legal-ground.png">
 
 ### DATA CAPTURE – CONSENT
 
