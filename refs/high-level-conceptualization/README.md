@@ -104,7 +104,7 @@ A [Data Subject](../lexicon/RFC-Lexicon-2.md#data-subject) has the right to dema
 - **General information** about policies, storage locations, practices, and purposes of data treatment (unrelated to any particular Data Capture)
 - **Particular information** about Data Capture date, origin of data, etc.
 - Data access and manipulation rights **related to a particular Data Capture or Data Capture Fragment**.
-- Opposition to treatment (can be denied if unreasonable i.e. if other legal ground
+- Opposition to treatment (can be denied if unreasonable i.e. if other legal base
   exists)
 
 The [System](../lexicon/RFC-Lexicon-2.md#system) SHOULD allow to capture such requests, keep track of them, and on what is done to act upon them, and provide proof that the action upon the requests was compliant (rights given/denied according to law and in time).
