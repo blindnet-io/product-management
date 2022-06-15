@@ -101,7 +101,7 @@ It operates one or more [Systems](#system).
 
 A request made by a [Data Subject](#data-subject) in order to regulate privacy in the relationship they have with a [System](#system) or an [Organization](#organization).
 
-Privacy Requests concern any aspect of the [privacy-enabled connectedness](../notion-of-privacy/notion-of-privacy.md#privacy-enabled-connectedness), including transparency, confidentiality and control over data processing.
+Privacy Requests MAY concern any aspect of the [privacy-enabled connectedness](../notion-of-privacy/notion-of-privacy.md#privacy-enabled-connectedness), including transparency, confidentiality and control over data processing.
 
 ### System
 

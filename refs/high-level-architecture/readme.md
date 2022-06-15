@@ -60,9 +60,9 @@ All components are presented in their roles in the following, more detailed imag
 
 The Capture Component is the entry point of the product. It is responsible for putting in motion [Data Captures](../high-level-conceptualization/README.md#the-main-concept---data-capture) in a way that reinforces privacy by ensuring confidentiality and control.
 
-It is responsible for encrypting the data, obtaining [Consent](../high-level-conceptualization/README.md#data-capture--consent), and generating Data Capture metadata.
+It is responsible for generating Data Capture metadata, including [Consent](../high-level-conceptualization/README.md#data-capture--consent). When configured so, it operates alongside [Encryption and Access Management Engine](#encryption-and-access-management-engine) tasked with ensuring confidentiality.
 
-Data CAN be captured from the [Data Subject](../lexicon/RFC-Lexicon-2.md#data-subject) themself, or from someone else, a [Submitter](../lexicon/RFC-Lexicon-2.md#submitter).
+Data MAY be captured from the [Data Subject](../lexicon/RFC-Lexicon-2.md#data-subject) themself, or from someone else, a [Submitter](../lexicon/RFC-Lexicon-2.md#submitter).
 The roles of Data Subject, [Submitter](../lexicon/RFC-Lexicon-2.md#submitter), [Data Consumer](../lexicon/RFC-Lexicon-2.md#data-consumer) and [DPO](../lexicon/RFC-Lexicon-2.md#dpo) are not exclusive. The same person CAN be in all roles.
 
 ### Encryption and Access Management Engine
