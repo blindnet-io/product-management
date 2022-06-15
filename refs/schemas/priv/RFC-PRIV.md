@@ -93,7 +93,7 @@ The Privacy Request Interchange Vocabulary includes the following:
 
 - Properties: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`,`fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `message`, `motive`, `policy-type`, `processing-categories`, `provenance, ``provenance-category`, `purposes`, `replaces`, `response-id`, `restrictions`, `request-id`, `replaced-by`, `retention`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
 
-- Terms: all terms included in [the dictionary](./dictionary)
+- TERMS: all terms included in [the dictionary](./dictionary)
 
 ### Privacy Request
 
@@ -175,7 +175,7 @@ Privacy Scope = (Data Categories) x (Categories of Processing) x (Purposes of Pr
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `data-categories` |  0-* | `AFFILIATION`, `AFFILIATION.MEMBERSHIP`, `AFFILIATION.SCHOOL`, `AFFILIATION.WORKPLACE`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`, `BEHAVIOR.PREFERENCE`, `BEHAVIOR.TELEMETRY`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEMOGRAPHIC.SEXUAL-ORIENTATION`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`, `PROFILING`, `RELATIONSHIPS`, `UID`, `UID.ID`, `UID.IP`, `UID.USER-ACCOUNT` , `UID.SOCIAL-MEDIA` , `OTHER-DATA` or any [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
+| `data-categories` |  0-* | One of {`AFFILIATION`, `AFFILIATION.MEMBERSHIP`, `AFFILIATION.SCHOOL`, `AFFILIATION.WORKPLACE`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`, `BEHAVIOR.PREFERENCE`, `BEHAVIOR.TELEMETRY`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEMOGRAPHIC.SEXUAL-ORIENTATION`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`, `PROFILING`, `RELATIONSHIPS`, `UID`, `UID.ID`, `UID.IP`, `UID.USER-ACCOUNT` , `UID.SOCIAL-MEDIA` , `OTHER-DATA`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation) including any [Data Capture Fragment](#data-capture-fragments) `selector`|
 
 When several values are given, Systems MUST interpret the `data-category` dimension as a union of all the categories indicated.
 
@@ -191,7 +191,7 @@ In the absence of indication of any `data-category` dimension, Systems MUST inte
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `processing-categories` | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `USING`, `OTHER-PROCESSING`} |
+| `processing-categories` | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `USING`, `OTHER-PROCESSING`}  or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation) |
 
 When several values are given, Systems MUST interpret the `processing-categories` dimension as a union of all the processing categories indicated.
 
@@ -203,7 +203,7 @@ In the absence of indication of any `processing-categories` dimension, Systems M
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `purposes` | 0-* | `ADVERTISING`, `COMPLIANCE`, `EMPLOYMENT`, `JUSTICE`, `MARKETING`, `MEDICAL`, `PERSONALISATION`, `PUBLIC-INTERESTS`, `RESEARCH`, `SALE`, `SECURITY`, `SERVICES`, `SERVICES.ADDITIONAL-SERVICES`, `SERVICES.BASIC-SERVICE`, `SOCIAL-PROTECTION`, `TRACKING`, `VITAL-INTERESTS`, `OTHER-PURPOSE` |
+| `purposes` | 0-* | One of {`ADVERTISING`, `COMPLIANCE`, `EMPLOYMENT`, `JUSTICE`, `MARKETING`, `MEDICAL`, `PERSONALISATION`, `PUBLIC-INTERESTS`, `RESEARCH`, `SALE`, `SECURITY`, `SERVICES`, `SERVICES.ADDITIONAL-SERVICES`, `SERVICES.BASIC-SERVICE`, `SOCIAL-PROTECTION`, `TRACKING`, `VITAL-INTERESTS`, `OTHER-PURPOSE`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation) |
 
 When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated.
 
@@ -370,7 +370,7 @@ A Data Capture concerns one and only one Data Subject who MAY be identified by m
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `fragment-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `selector` | 1 | a string used to uniquely identify a data field (in the System's data model) to which the fragment corresponds |
+| `selector` | 1 | a string used to uniquely identify a data field (in the System's data model) to which the fragment corresponds. MUST be a subcategory of a *Data Category* and MUST be defined according to [Term Dot Notation](#term-dot-notation) |
 | `date` | 1 | Date and Time when data was Captured was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the fragment SHOULD be interpreted as unlimited |
 | `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
@@ -489,9 +489,9 @@ The reason for using UUDIs is to allow Systems to independently generate globall
 Having a public ledger for UUDIs MAY be considered for Consents and Data Captures, but serious implications to Data Subject exposure MUST also be considered.
 However, the design MUST be compatible with building a public decentralised ledger.
 
-### Term Syntax
+### Term Dot Notation
 
-The vocabulary defines TERMS to express different aspects of Pravacy Reqeust, Data Captures, Consents etc.
+The vocabulary defines TERMS to express different aspects of Privacy Request, Data Captures, Consents etc.
 
 TERMS follow Term Dot Notation (TDN), defined using the following ABNF (cf. [FRC5234](https://www.rfc-editor.org/info/rfc5234)):
 ```
@@ -508,9 +508,23 @@ E.g. the following statements are equivalent:
 - `A.B`, `A`
 - `A`
 
-The lists of TERMS SHOULD be designed in such a way to be:
+PRIV includes a set of TERMS, provided in [the dictionary](./dictionary).
+
+This list is designed with the aim to be:
 - **Unambiguous** : The developer using the schema knows without ambiguity which one (of which ones) to use in any given situation, AND
 - **Complete** : They allow to express the totality of possible needs in the context of a user wanting to [regulate their privacy/connectedness](https://github.com/blindnet-io/product-management/blob/dogma/refs/notion-of-privacy/notion-of-privacy.md), as well as the totality of requests defined by the [supported legilsation](#supported-legilsation).
+
+Implementing Systems SHOULD be able to interpret and operate with all the TERMS.
+
+#### Extending TERMS
+
+When needed, Systems MAY include support for additional terms, not included in [the dictionary](./dictionary).
+Such additional terms MUST be subcategories of one of the TERMS, and they MUST follow the same syntax of the [Term Dot Notation](#term-dot-notation).
+
+Such Systems MAY manifest specific behavior in reaction to those additional terms, yet they may end-up communicating them with other Systems that only support the TERMS from [the dictionary](./dictionary).
+In that case, Systems MUST interpret the additional terms, as being equivalent to the first super-category that they support.
+
+In that way, interoperability can always be expected at the level of TERMS.
 
 ### Extending the vocabulary
 
@@ -520,9 +534,10 @@ Systems MAY specify the vocabulary used to express data being exchanged. The val
 | --------------- | ------ | -------------------- |
 | `vocab` | 0-1 | The name of the vocabulary used to describe data. In absence of indication `priv.1.0` is assumed. |
 
-This vocabulary can be extended by defining a new identifier for the new vocabulary. New vocabularies MAY include other vocabularies as long as their sets of concepts, properties and terms are disjoint.  
+When [addition additional terms](#extending-terms) is not sufficient, and additional Concepts or Properties are needed, it is possible to extend the vocabulary.
 
-In addition, the Systems implementing PRIV can simply define their own subcategories of terms (not properties not concepts) defined by PRIV. This might be useful for their own internal operation, however the interoperability with other system can only be expected at the level of the particular, shared, version of the vocabulary.
+This vocabulary can be extended by defining a new identifier for the new vocabulary.
+New vocabularies MAY include other vocabularies as long as their sets of concepts, properties and terms are disjoint.  
 
 ## Examples
 
@@ -658,8 +673,6 @@ Maybe there are reasons for it (although similar notations are used for packages
 
 A candidate for a standard notation is the [URN](https://datatracker.ietf.org/doc/html/rfc8141). It is - less pretty (still human-readable), + standard, = equally searchable, = equally bad for storage and time. However we would still need to specify our own notation of the part of the URN that we want to customise. So the advantages are limited (if any).
 
-Or if none (which would be surprising) we could define our syntax using [Backus-Naur Form](https://datatracker.ietf.org/doc/html/rfc4234). Advantage: geeks will love us.
-We would need to ensure: that any string used on any side of any dot, it is not contained in any other string not containing a dot.
 Disadvantage: using a non-standard notation we expose ourselves to unpredictable risks.
 
 ### Schema elegance and modularity

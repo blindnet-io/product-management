@@ -337,7 +337,7 @@ Transcend proposes the following [data categories](https://github.com/transcend-
 
 #### Transcend
 
-The following correspondence of [HIPPA](https://www.hhs.gov/hipaa) categories can be used:
+The following correspondence of [data categories](https://www.luc.edu/its/aboutits/itspoliciesguidelines/hipaainformation/18hipaaidentifiers/) needed for [HIPPA](https://www.hhs.gov/hipaa) compliance can be used:
 
 | HIPPA Category | PRIV Data Category |
 | -------------- | ------------------ |

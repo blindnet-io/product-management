@@ -57,13 +57,13 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
 
     - **Intended Privacy Scope** : A set of **Privacy Scope Triple**s that describe the usage the System is likely to make with data. Each triple consists of:
         - a `selector` (or Data Category implying every `selector` used within that Data Category)
-        - a Processing Category that the System is likely to perform on that data
-        - a Purpose
+        - a Processing Category (or any of their subcategories defined according to [Term Dot Notation](./RFC-PRIV.md#term-dot-notation)) that the System is likely to perform on that data
+        - a Purpose (or any of their subcategories defined according to [Term Dot Notation](./RFC-PRIV.md#term-dot-notation)
     Each **Known Selector** MUST be included in the The Intended Privacy Scope.
 
 > **Note**
 >
-> In addition to `selectors` that are a native mechanism for extending Data Categories with System-specific subcategories, it is necessary to allow Systems to also extend Processing Categories and Purposes, with potentially System-specific terms following PRIV's DOT NOTATION.
+> In addition to `selectors` that are a native mechanism for extending Data Categories with System-specific subcategories, it is necessary to allow Systems to also extend Processing Categories and Purposes, with potentially System-specific terms following PRIV's [Term Dot Notation](./RFC-PRIV.md#term-dot-notation).
 >
 > This is necessary for interoperability with the specific Processing Categories of the [HL7 Standards](./RFC-PRIV.md#hl7-standards)
 >
