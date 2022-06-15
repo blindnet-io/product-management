@@ -101,10 +101,10 @@ One Consent corresponds to [one and only one purpose](https://www.cnil.fr/fr/les
 
 A [Data Subject](../lexicon/RFC-Lexicon-2.md#data-subject) has the right to demand different things related to their privacy, their data and their rights. We call those, [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request). They refer to:
 
-- **General information** about policies, storage locations, practices, and purposes of data treatment (unrelated to any particular Data Capture)
+- **General information** about policies, storage locations, practices, and purposes of data processing (unrelated to any particular Data Capture)
 - **Particular information** about Data Capture date, origin of data, etc.
 - Data access and manipulation rights **related to a particular Data Capture or Data Capture Fragment**.
-- Opposition to treatment (can be denied if unreasonable i.e. if other legal base
+- Opposition to processing (can be denied if unreasonable i.e. if other legal base
   exists)
 
 The [System](../lexicon/RFC-Lexicon-2.md#system) SHOULD allow to capture such requests, keep track of them, and on what is done to act upon them, and provide proof that the action upon the requests was compliant (rights given/denied according to law and in time).
@@ -129,7 +129,7 @@ Legal grounds also have states indicating if the data MUST or CAN be kept/delete
 
 Rights Requests also have states with regards to:
 
-- **Their treatment** by the [Data Consumers](../lexicon/RFC-Lexicon-2.md#data-consumers) / [Organization](../lexicon/RFC-Lexicon-2.md#organization) (received, viewed/under review, treated)
+- **Their processing** by the [Data Consumers](../lexicon/RFC-Lexicon-2.md#data-consumers) / [Organization](../lexicon/RFC-Lexicon-2.md#organization) (received, viewed/under review, treated)
 - **Acceptance** (accepted, partially accepted, rejected)
 - **Fulfillment** of the [Data Subject's](../lexicon/RFC-Lexicon-2.md#data-subject) need (data accessed, data modified, data deleted)
 
