@@ -335,6 +335,30 @@ Transcend proposes the following [data categories](https://github.com/transcend-
 | OTHER | A specific type of information not covered by the above categories | data-category:`OTHER-DATA` use `message` to specify|
 | UNSPECIFIED | The type of information is not explicitly stated or unclear| data-category:`OTHER-DATA` use `message` to specify|
 
+#### Transcend
+
+The following correspondence of [HIPPA](https://www.hhs.gov/hipaa) categories can be used:
+
+| HIPPA Category | PRIV Data Category |
+| -------------- | ------------------ |
+| Name | `NAME` |
+| Address (all geographic subdivisions smaller than state, including street address, city county, and zip code) | `CONTACT.ADDRESS` |
+| All elements (except years) of dates related to an individual (including birthdate, admission date, discharge date, date of death, and exact age if over 89) | `DEMOGRAPHIC.AGE` for birth date, death date, recommended `selector` for admission date `BEHAVIOR.ACTIVITY.ADMISSION`, discharge date  `BEHAVIOR.ACTIVITY.DISCHARGE`|
+| Telephone numbers | `CONTACT.PHONE` |
+| Fax number | recommended `selector` `CONTACT.FAX` |
+| Email address | `CONTACT.EMAIL` |
+| Social Security Number | `UID.ID` |
+| Medical record number | recommended `selector` `HEALTH.RECORD`|
+| Health plan beneficiary number | recommended `selector` `HEALTH.PLAN-BENEFICIARY-NUMBER` |
+| Account number | `UID.USER-ACCOUNT` |
+| Certificate or license number | recommended `selector` `UID.ID.LICENCE-NUMBER` |
+| Vehicle identifiers and serial numbers, including license plate numbers | recommended `selector` `UID.ID.VEHICULE-ID` |
+| Device identifiers and serial numbers | `DEVICE` |
+| Web URL | `UID.USER-ACCOUNT` or `selector` `UID.WEB-URL` |
+| Internet Protocol (IP) Address | `UID.IP` |
+| Finger or voice print | `BIOMETRIC` |
+| Photographic image - Photographic images are not limited to images of the face. | `IMAGE` |
+| Any other characteristic that could uniquely identify the individual | `UID` |
 
 
 ## Questions and Discussion Topics

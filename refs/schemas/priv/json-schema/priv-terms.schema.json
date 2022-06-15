@@ -69,6 +69,7 @@
           "RELATIONSHIPS",
           "UID",
           "UID.ID",
+          "UID.IP",
           "UID.USER-ACCOUNT",
           "UID.SOCIAL-MEDIA",
           "OTHER-DATA",

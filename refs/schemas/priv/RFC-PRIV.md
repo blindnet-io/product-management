@@ -87,7 +87,7 @@ The Privacy Request Interchange Vocabulary includes the following:
 [Demand](#demands),
 [Demand Restriction](#demand-restrictions) (including [Privacy Scope Restriction](#privacy-scope),[Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Date Range](#date-range), [Provenance Restriction](#provenance-restriction), [Data Reference Restriction](#data-reference-restriction)),
 [Privacy Request](#privacy-request),
-[Privacy Request Response](#privacy-request-response), [Privacy Scope](#privacy-scope)(and its dimensions: *Data Category*, *Processing Category* and *Purpose*), [Provenance](#provenance), 
+[Privacy Request Response](#privacy-request-response), [Privacy Scope](#privacy-scope)(and its dimensions: *Data Category*, *Processing Category* and *Purpose*), [Provenance](#provenance),
 [Retention Policy](#retention-policy),
 [Data Subject Identity](#decentralized-identity-of-data-subjects)
 
@@ -175,7 +175,7 @@ Privacy Scope = (Data Categories) x (Categories of Processing) x (Purposes of Pr
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `data-categories` |  0-* | `AFFILIATION`, `AFFILIATION.MEMBERSHIP`, `AFFILIATION.SCHOOL`, `AFFILIATION.WORKPLACE`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`, `BEHAVIOR.PREFERENCE`, `BEHAVIOR.TELEMETRY`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEMOGRAPHIC.SEXUAL-ORIENTATION`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`, `PROFILING`, `RELATIONSHIPS`, `UID`, `UID.ID`, `UID.USER-ACCOUNT` , `UID.SOCIAL-MEDIA` , `OTHER-DATA` or any [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
+| `data-categories` |  0-* | `AFFILIATION`, `AFFILIATION.MEMBERSHIP`, `AFFILIATION.SCHOOL`, `AFFILIATION.WORKPLACE`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`, `BEHAVIOR.PREFERENCE`, `BEHAVIOR.TELEMETRY`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEMOGRAPHIC.SEXUAL-ORIENTATION`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`, `PROFILING`, `RELATIONSHIPS`, `UID`, `UID.ID`, `UID.IP`, `UID.USER-ACCOUNT` , `UID.SOCIAL-MEDIA` , `OTHER-DATA` or any [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
 
 When several values are given, Systems MUST interpret the `data-category` dimension as a union of all the categories indicated.
 
@@ -742,13 +742,31 @@ Their support for purposes, and per-purpose consents is limited.
 
 Yet, we want to be compatible with them.
 
-Still the question remains, should we fully reuse what they have built (in terms of categories of data) and try to extend it? My view is that that would limit our ability to offer automation in many use-cases.
+We examine, in [examples.md](./examples.md#ethyca-data-categories) how users of Ethyca can map their matadata PRIV terms.
 
 ### ISO 19944
 
 There is an ISO standard for data categories and processing categories. They are mostly very broad, many overlap, and they are of almost no use for resolving Privacy Requests in the context of GDPR.
 
 However, we might want to allow developers to use our format (properties and concepts) with ISO 19944 categories instead of our terms.
+
+### HL7 Standards
+
+The [HL7 Version 3 Standard: Role-based Access Control Healthcare Permission Catalog](http://www.hl7.org/documentcenter/private/standards/v3/V3_HACC_R3_2016_R2021.pdf) offers terms for describing a variety of:
+- Operations: OPERATE, CREATE, READ, UPDATE, APPEND, ANNOTATE, DELETE, PURGE, EXECUTE, REPRODUCE, COPY, BACKUP, RESTORE, EXPORT, PRINT, DERIVE, CONVERT, EXCERPT, TRANSLATE, MOVE, ARCHIVE, REPLACE, FORWARD, TRANSFER, SIGN, VERIFY, NOTARIZE, ALARM
+- Permissions (associating those Processing Categories with different types of information objects.)
+
+Users of this standard SHOULD be able to easily associate those Operations with PRIV Processing Categories, and treat them as subcategories according to the DOT NOTATION.
+
+### HIPAA Identifiers
+
+[HIPPA](https://www.hhs.gov/hipaa) regulation introduces 18 categories of Protected Health Information:
+Name, Address (all geographic subdivisions smaller than state, including street address, city county, and zip code), All elements (except years) of dates related to an individual (including birthdate, admission date, discharge date, date of death, and exact age if over 89), Telephone numbers, Fax number, Email address, Social Security Number, Medical record number, Health plan beneficiary number, Account number, Certificate or license number, Vehicle identifiers and serial numbers, including license plate numbers, Device identifiers and serial numbers, Web URL, Internet, Protocol (IP) Address, Finger or voice print, Photographic image - Photographic images are not limited to images of the face, Any other characteristic that could uniquely identify the individual.
+
+We examine, in [examples.md](./examples.md#hippa) how those categories can be mapped to PRIV's Data Categories.
+
+
+
 
 ## See also
 

@@ -61,6 +61,14 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
         - a Purpose
     Each **Known Selector** MUST be included in the The Intended Privacy Scope.
 
+> **Note**
+>
+> In addition to `selectors` that are a native mechanism for extending Data Categories with System-specific subcategories, it is necessary to allow Systems to also extend Processing Categories and Purposes, with potentially System-specific terms following PRIV's DOT NOTATION.
+>
+> This is necessary for interoperability with the specific Processing Categories of the [HL7 Standards](./RFC-PRIV.md#hl7-standards)
+>
+
+
     - *Legal Bases*: For each **Privacy Scope Triple** from the **Intended Privacy Scope**, one or more [Legal Bases](./RFC-PRIV.md#legal-bases)
 
     - *Corresponding Systems*: A map of Other Systems with which data is being exchanged. For each System The Privacy Compiler MUST know if they are an `ORGANISATION` or `PARTNERS` System, and have a way to uniquely identify and address them (see [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV), [Working with Provenance](#working-with-provenance))

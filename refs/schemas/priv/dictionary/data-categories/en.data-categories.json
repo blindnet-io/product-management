@@ -34,5 +34,6 @@
   "UID.ID": "Official identification number of proof of identity",
   "UID.USER-ACCOUNT": "Data about a person's account or profile on the first-party website/app and its contents",
   "UID.SOCIAL-MEDIA": "Data about a person's account or profile from a social media website/app or other third party service",
+  "UID.IP" : "IP address of a person",
   "OTHER-DATA": "Other data"
 }
