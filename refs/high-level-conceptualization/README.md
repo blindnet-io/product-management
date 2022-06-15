@@ -73,7 +73,7 @@ Legal Bases impact the following properties of a particular Data Capture that ou
 - Data **MUST** be kept at a given time
 
 **See more about legal bases** [here](https://www.cnil.fr/fr/les-bases-legales).
-More than one legal ground can exist for the same data at the same time.
+More than one legal base can exist for the same data at the same time.
 E.g.:
 
 - A user can give explicit Consent, and at the same time keeping the data might be mandatory; When the user revokes Consent, the data must still continue to be kept.
