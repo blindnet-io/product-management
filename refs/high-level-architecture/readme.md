@@ -139,7 +139,7 @@ For the [System](../lexicon/RFC-Lexicon-2.md#system) to support interoperability
 The Storage Component allows client [Systems](../lexicon/RFC-Lexicon-2.md#system) to store the [Data Captures](../high-level-conceptualization/README.md#the-main-concept---data-capture).
 It CAN interface with Systems that don't have their own storage but integrate the whole confidential data capturing as a fully external workflow, only integrated at the front-end level with their website or app.
 
-The storage Component CAN be configured to automatically interpret and execute data deletions and modifications according to the output of the [Privacy Computation Engine](#privacy-computation-engine).
+The Storage Component CAN be configured to automatically interpret and execute data deletions and modifications according to the output of the [Privacy Computation Engine](#privacy-computation-engine).
 
 ## Other Requirements
 
