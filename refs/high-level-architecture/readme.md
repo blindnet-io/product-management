@@ -22,7 +22,7 @@ The [High Level Conceptualization](../high-level-conceptualization/) is insuffic
 
 Also, having the right structure of components is very important for several reasons, including for:
 
-- client [Systems](../lexicon/RFC-Lexicon-2.md#system) to be able to use only a part of our system,
+- client [Systems](../lexicon/RFC-Lexicon-2.md#system) to be able to use only a part of [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit),
 - our system to be interoperable with 3rd party solutions (that cover a sub-scope of our scope or that cover requirements adjacent to our scope),
 - [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit) to be able to evolve in certain aspects with as little as possible impact on its functioning in other aspects.
 
