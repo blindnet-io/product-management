@@ -1,6 +1,6 @@
 # Privacy Request Interchange Vocabulary : Scenarios of Use
 
-| Status        | draft                                                                                  |
+| Status        | NA / supporting document                                                               |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **Author(s)** | milstan (milstan@blindnet.io)         |
 | **Updated**   | 2022-06-10                                                                             |

@@ -1,6 +1,6 @@
 *[Privacy Scope Triples](#privacy-scope-triples)# Privacy Request Interchange Vocabulary : Expected Behavior of Implementing Systems
 
-| Status        | draft                                                                                  |
+| Status        | NA / supporting document                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **Author(s)** | milstan (milstan@blindnet.io)         |
 | **Updated**   | 2022-06-14                                                                             |
@@ -74,7 +74,7 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
    - *All Captures*: a list of all the [Data Capture](./RFC-PRIV.md#data-capture) objects that the Privacy Compiler is aware of.
 
    > Data Captures are not only generated on user input, but may result from user tracking, or from data transfers. All such Data Captures objects are of interest to the Privacy Compiler.
-   
+
    - *All Requests*: a list of all the [Privacy Request](./RFC-PRIV.md#privacy-request) objects that the Privacy Compiler is aware of
    - *All Responses*: a list of all the [Privacy Request Response](./RFC-PRIV.md#privacy-request-response) objects that the Privacy Compiler is aware of
    - Legal Bases:
@@ -638,6 +638,8 @@ After having resolved the `target` value to concrete Systems IDs, the Privacy Co
 ### Normative References
 
 - **[RFC8259]**  Bray, T., ["The JavaScript Object Notation (JSON) Data Interchange Format"](https://datatracker.ietf.org/doc/html/rfc8259), STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017.
+- **[RFC3986]**  Berners-Lee, T., Fielding, R., and L. Masinter, ["Uniform Resource Identifier (URI): Generic Syntax"](https://www.rfc-editor.org/rfc/rfc3986), STD 66, RFC 3986, January 2005.
+- **[RFC2119]**  Bradner, S., ["Key words for use in RFCs to Indicate Requirement Levels"](https://datatracker.ietf.org/doc/html/rfc2119), BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997,
 
 
 ### Supported Legislation

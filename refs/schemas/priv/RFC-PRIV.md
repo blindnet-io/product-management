@@ -1,6 +1,6 @@
 # Privacy Request Interchange Vocabulary (PRIV)
 
-| Status        | draft                                                                                  |
+| Status        | proposed                                                                              |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659)                      |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
@@ -345,7 +345,7 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 | `response-id` | 1 | Unique ID for referring to this request in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `in-response-to` | 1 | `request-id` of the Privacy Request to which response is made or `demand-id` of the particular Demand to which response is made, in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Privacy Request Response was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `system` | 1 | System ID of the System having generated the response (**Format TBD**) |
+| `system` | 1 | System ID of the System having generated the response. A String in the format of URI according to [RFC3986 of IETF](https://www.rfc-editor.org/rfc/rfc3986) |
 | `requested-action` | 0-1 | Optional information about the action that was demanded, and to which the response is made. [Action](#actions)|
 | `data-subject` |  0-* | Optional indication of the [Data Subject Identities](#decentralized-identity-of-data-subjects) to which the response refers to |
 | `status` | 1 | [Status Terms](#statuses) |
@@ -433,13 +433,28 @@ Certain processing is made legitimate (`LEGITIMATE-INTEREST`) or mandatory (`NEC
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `provenance-category` | 1 | [Provenance Terms](#provenance-categories) |
-| `system` | 1 | System ID (**Format TBD**) |
+| `system` | 1 | the ID of the System having generated the Data Capture Fragment (when data is collected from a user, or derived), or ID of the System having initiated a transfer (when data is transferred). A String in the format of URI according to [RFC3986 of IETF](https://www.rfc-editor.org/rfc/rfc3986)  |
 
 Data provenance is interpreted in relation to a particular System.
 
 The same Data Capture Fragment might be:
 - data collected from the `USER` for one System (the one being in direct interaction with the Data Subject), and be
 - data `TRANSFERRED` in the eyes of another System that obtained it through transfer from the user-facing System.
+
+E.g. let us imagine a Data Capture Fragment that contains information that the Data Subject provided to System A. System A transferred this Data Capture Fragment to System B.
+
+In the System A, this Data Capture Fragment SHOULD be associated with one Provenance object, having `provenance-category`:`USER.DATA-SUBJECT`, and `system`: `URL of the System A`
+
+In the System B, this Data Capture Fragment SHOULD be associated with two Provenance objects:
+- one having `provenance-category`:`USER.DATA-SUBJECT`, and `system`: `URL of the System A`
+- one having `provenance-category`:`TRANSFERRED`, and `system`: `URL of the System A`
+
+In this way, the System B has complete information: the Data Capture Fragment was collected from the Data Subject by System A, and then transferred to it from System A.
+
+If now System B transfers this data transfers this Data Capture Fragment to System C, then In the System B, this Data Capture Fragment SHOULD be associated with tree Provenance objects:
+- one having `provenance-category`:`USER.DATA-SUBJECT`, and `system`: `URL of the System A`
+- one having `provenance-category`:`TRANSFERRED`, and `system`: `URL of the System A`
+- one having `provenance-category`:`TRANSFERRED`, and `system`: `URL of the System B`
 
 Not to be confused with [Provenance Restriction](#provenance-restriction).
 
@@ -633,9 +648,8 @@ In [here](./examples.md) we provide an overview of various Privacy Requests that
 ### Remembering Transfers
 
 When data about Data Subjects is transmitted from one system to another, in order to be able to process the [Targets property](#targets), and in order to reply to `TRANSPARENCY.WHO` and `TRANSPARENCY.PROVENANCE` demands, Systems MUST keep track of:
-- System of destination/origin and addresses where their APIs can be reached
-- Categories of data being transferred
-- Identifiers (`data-capture-id`s,`fragment-id`s) associated to the data being transferred
+- ID of Systesm of origin and destination, in the format of URI according to [RFC3986 of IETF](https://www.rfc-editor.org/rfc/rfc3986)
+- Full Data Capture metadata objects
 - Consents (`consent-id`) associated to the data being transferred
 - Data Subject Identities (`dsid`,`dsid-schema`) pairs associated to the data being transferred
 
@@ -738,7 +752,7 @@ We need a way to make enums different categories and types more elegant, and reu
 
 ### Addressability of System Endpoints
 
-Is there a standard way for representing peer-to-peer System's API endpoints (compatible with our [implications for systems](#exposing-privacy-request-api)) that we can reuse here for representing systems?
+System IDs are identified by URIs([RFC3986 of IETF](https://www.rfc-editor.org/rfc/rfc3986)), for compatibility with both [Web3, such as Ethereum](https://ethereum.org/zh/developers/docs/networking-layer/network-addresses), and [OpenID/OAuth/SAML](https://oauth.net/specs/).
 
 ### Anonymous Privacy Requests
 
@@ -852,6 +866,7 @@ This document comes with the following support documents:
 - **[RFC8259]**  Bray, T., ["The JavaScript Object Notation (JSON) Data Interchange Format"](https://datatracker.ietf.org/doc/html/rfc8259), STD 90, RFC 8259, DOI 10.17487/RFC8259, December 2017.
 - **[RFC2119]**  Bradner, S., ["Key words for use in RFCs to Indicate Requirement Levels"](https://datatracker.ietf.org/doc/html/rfc2119), BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997,
 - **[RFC5234]**  Crocker, D., Ed. and P. Overell, ["Augmented BNF for Syntax Specifications: ABNF"](https://www.rfc-editor.org/info/rfc5234), STD 68, RFC 5234, DOI 10.17487/RFC5234, January 2008,
+- **[RFC3986]**  Berners-Lee, T., Fielding, R., and L. Masinter, ["Uniform Resource Identifier (URI): Generic Syntax"](https://www.rfc-editor.org/rfc/rfc3986), STD 66, RFC 3986, January 2005.
 
 
 
