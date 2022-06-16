@@ -106,7 +106,7 @@ The Privacy Request Interchange Vocabulary includes the following:
 
     -  **<a name="provenance-categories"></a>Provenance Terms**: {`DERIVED`, `TRANSFERRED`, `USER`, `USER.DATA-SUBJECT`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/provenance](./dictionary/provenance).*
 
-    -  **<a name="targets"></a>Target Terms**: {`ORGANIZATION`, `PARTNERS`, `SYSTEM`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/targets](./dictionary/targets).*
+    -  **<a name="target-terms"></a>Target Terms**: {`ORGANIZATION`, `PARTNERS`, `SYSTEM`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/targets](./dictionary/targets).*
 
     -  **<a name="target-directions"></a>Target Direction Terms**: {`PARTNERS.DOWNWARD`, `PARTNERS.UPWARD`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/targets](./dictionary/targets).*
 
@@ -205,7 +205,7 @@ It is possible to specify a Privacy Scope by referring to only one or two, or no
 An unspecified dimension MUST be interpreted as designating the totality of Terms that are eligible as one of its Expected values.
 
 E.g. A Privacy Scope defined only by `data-categories`: `CONTACT` is interpreted as any [Processing](#processing-categories), for any [Purpose](#purpose) or any data marked with `CONTACT` or any of its subcategories including `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`.
-This Privacy Scope includes Privacy Scope Triples that are all possible combinations of those known subcategories (including [Data Capture Fragment](#data-capture-fragments) `selectors`) of `CONTACT` with all known [Processing](#processing-categories) and with all known [Purpose Terms](#purpose).
+This Privacy Scope includes Privacy Scope Triples that are all possible combinations of those known subcategories (including [Data Capture Fragment](#data-capture-fragments) `selectors`) of `CONTACT` with all known [Processing Terms](#processing-categories) and with all known [Purpose Terms](#purposes).
 
 *Data Categories*
 
@@ -283,9 +283,9 @@ A Demand can be restricted to particular `provenance-category`, for example the 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `provenance-category` | 1 | [Provenance Terms](#provenance-categories) |
-| `target` | 0-1 | [Target Terms](#targets). In absence of indication `SYSTEM` is assumed |
+| `target` | 0-1 | [Target Terms](#target-terms). In absence of indication `SYSTEM` is assumed |
 
-Optionally the Provenance Restriction may also include a particular [Target](#targets).
+Optionally the Provenance Restriction may also include a particular [Target](#target-terms).
 
 E.g. the Data Subject might demand to have `ACCESS` to data that was `TRANSFERRED` by partner Systems (`target`:`PARTNERS`).
 
@@ -301,13 +301,13 @@ A Demand can be restricted to particular `data-reference` to precisely identify 
 
 #### Targets
 
-It is common for Internet Systems to be distributed (organised in a set of connected websites and applications) and to exchange data among themselves.
+It is common for Internet Systems to be distributed (organized in a set of connected websites and applications) and to exchange data among themselves.
 
 It is therefore convenient for a Data Subject to be able to formulate Privacy Requests (but also give Consents) targeting well-defined Systems.
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `target` | 0-1 | [Target Terms](#targets) or [Target Direction Terms](#target-directions)
+| `target` | 0-1 | [Target Terms](#target-terms) or [Target Direction Terms](#target-directions)
  In absence of indication `SYSTEM` is assumed |
 
 `SYSTEM` refers to the particular System with which the Data Subject is in direct interaction while making the Privacy Request (or giving the Consent).
@@ -378,7 +378,7 @@ A Consent is given by one Data Subject which can be identified by one or more [D
 | `consent-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Consent was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `expires` | 0-1 | Date and Time when Consent expires in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `target` | 0-1 | [Target Terms](#targets) to indicate the category of Systems to which consent for processing is given. In absence of indication `SYSTEM` is assumed. |
+| `target` | 0-1 | [Target Terms](#target-terms) to indicate the category of Systems to which consent for processing is given. In absence of indication `SYSTEM` is assumed. |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the Consent SHOULD be interpreted as unlimited |
 | `replaces` |  0-* | Optionally one or more 'consent-id's of previous [Consents](#consent) that have became void when this consent was made |
 | `replaced-by` |  0-* | Optionally one or more 'consent-id's of previous [Consents](#consent) that have became void when this consent was made |
@@ -392,7 +392,7 @@ A Data Capture is given by one Data Subject which can be identified by one or mo
 | `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
 | `capture-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `data-reference` | 1-* | one or more references that uniquely identify the data that the capture concerns (e.g. a legal case file reference, account ID, contract ID, a URL)|
-| `target` | 0-1 | [Target Terms](#targets). In absence of indication `SYSTEM` is assumed |
+| `target` | 0-1 | [Target Terms](#target-terms). In absence of indication `SYSTEM` is assumed |
 | `fragments` | 1-* | One or more [Data Capture Fragments](#data-capture-fragments) |
 
 A Data Capture concerns one and only one Data Subject who CAN be identified by multiple Data Subject Identities.
@@ -405,10 +405,10 @@ A Data Capture concerns one and only one Data Subject who CAN be identified by m
 | `selector` | 1 | a string used to uniquely identify a data field (in the System's data model) to which the fragment corresponds. MUST be a subcategory of a [Data Category](#data-categories) and MUST be defined according to [Term Dot Notation](#term-dot-notation) |
 | `date` | 1 | Date and Time when data was Captured was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the fragment SHOULD be interpreted as unlimited, including all categories of all dimensions |
-| `target` | 0-1 | [Target Terms](#targets). In absence of indication `SYSTEM` is assumed |
+| `target` | 0-1 | [Target Terms](#target-terms). In absence of indication `SYSTEM` is assumed |
 | `retention` | 1-* | one or more [Retention Policies](#retention-policy) |
-| `provenance` | 1-* | one or more [Provenance](#provenance) |
-| `data` | 0-* | Optionally concrete data (Format **TBD**) |
+| `provenance` | 1-* | one or more [Provenance](#provenance) to indicate how the data was obtained |
+| `data` | 0-* | Optionally concrete data |
 | `legal-base` | 0-* | [Legal Bases](#legal-bases) |
 
 A `selector` MUST include, at the beginning of its string, one of the [Data Category Terms](#data-categories).
@@ -420,6 +420,8 @@ For example selectors 'CONTACT.ADDRESS.SHIPPING' and 'CONTACT.ADDRESS.BILLING' i
 While the Data Categories are globally defined by PRIV and interpreted the same way by all implementing Systems, the selectors are defined by the Systems.
 A `selector` uniquely identifies a particular data field that the Systems works with.
 When several Systems exchange data among them, they SHOULD align on using the same `selectors` in the same way, in order to be able to correctly interoperate.
+
+The value of the `target` indicates whether the data in question is going to be processed only by the System collecting it, of within a larger target scope. See [Targets](#targets).
 
 Processing MAY be legitimate according to one or more [Legal Bases](#legal-bases) for processing.
 For example, a Data Subject can give explicit `CONSENT` when creating an account with a particular online service, and at the time, the System providing a service to the Data Subject might need to process their data in order to deliver a service or honor a `CONTRACT` (e.g. deliver the purchased goods to the Data Subjects address and issue an invoice).
