@@ -334,7 +334,7 @@ sequenceDiagram
 
 ## A Complex Journey of a Data Capture
 
-A Data Capture MAY end up being shared among several Systems. We illustrate this on an example. System A and System B are a part of the same Organisation, while System C is a part of a Partner Organisation.
+A Data Capture MAY end up being shared among several Systems. We illustrate this on an example. System A and System B are a part of the same Organization, while System C is a part of a Partner Organization.
 
 This complex scenario may take place under different [authentication](#authentication), [automation](#automation), and [response](#response) scenarios. For the sake of clarity of the diagram, we don't include all the possible options. We also abstract Privacy Compilers and interactions with them, as well as Data Consumers and DPOs.
 
@@ -352,8 +352,8 @@ sequenceDiagram
 
     systemA->>systemA: Data Capture DEVICE (iPhone 13), provenance:DERIVED
 
-    subject->>systemA: consent1 purpose: ADVERTISING, PERSONALISATION, target: ORGANISATION
-    subject->>systemA: consent2 purpose: ADVERTISING, PERSONALISATION, target: PARTNERS
+    subject->>systemA: consent1 purpose: ADVERTISING, PERSONALIZATION, target: ORGANIZATION
+    subject->>systemA: consent2 purpose: ADVERTISING, PERSONALIZATION, target: PARTNERS
 
     systemA->>systemB: Data Capture, Consent
     systemB->>systemC: Data Capture, Consent
@@ -370,16 +370,16 @@ sequenceDiagram
 
     systemA->>subject: Advertising e-mail
 
-    subject->>systemA: Privacy Request OBJECT purpose:ADVERTISING, target: ORGANISATION
+    subject->>systemA: Privacy Request OBJECT purpose:ADVERTISING, target: ORGANIZATION
     systemA->>systemB: Privacy Request OBJECT purpose:ADVERTISING
 
-    systemA->>systemA: consent1->consent1.1 purpose: PERSONALISATION, target: ORGANISATION
-    systemB->>systemB: consent1->consent1.1 purpose: PERSONALISATION, target: ORGANISATION
+    systemA->>systemA: consent1->consent1.1 purpose: PERSONALIZATION, target: ORGANIZATION
+    systemB->>systemB: consent1->consent1.1 purpose: PERSONALIZATION, target: ORGANIZATION
 
     systemB->>systemA: Privacy Request GRANTED
     systemA->>subject: Privacy Request GRANTED
 
-    subject->>systemA: Privacy Request ACCESS provenance:TRANSFERRED,DERIVED target: ORGANISATION
+    subject->>systemA: Privacy Request ACCESS provenance:TRANSFERRED,DERIVED target: ORGANIZATION
 
     systemA->>subject: Privacy Request GRANTED
     note left of systemA: DEVICE (iPhone 13)
@@ -387,8 +387,8 @@ sequenceDiagram
     systemB->>subject: Privacy Request GRANTED
     note left of systemB: CONTACT (name, e-mail, phone) DEVICE (iPhone 13)
 
-    subject->>systemA: Privacy Request RESTRICT provenance:USER target: ORGANISATION
-    systemA->>systemB: Privacy Request RESTRICT provenance:USER target: ORGANISATION
+    subject->>systemA: Privacy Request RESTRICT provenance:USER target: ORGANIZATION
+    systemA->>systemB: Privacy Request RESTRICT provenance:USER target: ORGANIZATION
 
     systemA->>systemA: Delete DEVICE (iPhone 13)
     systemB->>systemB: Delete DEVICE (iPhone 13)

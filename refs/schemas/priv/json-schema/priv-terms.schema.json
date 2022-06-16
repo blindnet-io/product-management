@@ -17,7 +17,7 @@
           "TRANSPARENCY.DPO",
           "TRANSPARENCY.KNOWN",
           "TRANSPARENCY.LEGAL-BASES",
-          "TRANSPARENCY.ORGANISATION",
+          "TRANSPARENCY.ORGANIZATION",
           "TRANSPARENCY.POLICY",
           "TRANSPARENCY.PROCESSING-CATEGORIES",
           "TRANSPARENCY.PROVENANCE",
@@ -131,7 +131,7 @@
          "JUSTICE",
          "MARKETING",
          "MEDICAL",
-         "PERSONALISATION",
+         "PERSONALIZATION",
          "PUBLIC-INTERESTS",
          "RESEARCH",
          "SALE",
@@ -162,7 +162,7 @@
       },
       "targets": {
         "enum": [
-          "ORGANISATION",
+          "ORGANIZATION",
           "PARTNERS",
           "SYSTEM"
         ]

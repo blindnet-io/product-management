@@ -1,7 +1,7 @@
 {
-  "ORGANISATION": "This System and all other Systems belonging to the same Organisation", 
-  "PARTNERS": "Systems belinging to any Organisation with which the data is exchanged", 
-  "PARTNERS.DOWNWARD": "Systems belinging to any Organisation with which the data is shared", 
-  "PARTNERS.UPWARD": "Systems belinging to any Organisation from which the data is obtained",
+  "ORGANIZATION": "This System and all other Systems belonging to the same Organization",
+  "PARTNERS": "Systems belinging to any Organization with which the data is exchanged",
+  "PARTNERS.DOWNWARD": "Systems belinging to any Organization with which the data is shared",
+  "PARTNERS.UPWARD": "Systems belinging to any Organization from which the data is obtained",
   "SYSTEM": "Only this System"
 }

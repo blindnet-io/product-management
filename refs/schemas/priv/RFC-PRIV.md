@@ -60,7 +60,7 @@ With this design we seek:
 - Exhaustivity with regards to situations we need to support in response to [supported legislation](#supported-legislation) yet Extensibility in case new situations arise in the future.
 - Highly normative minimal specification, using as much as possible the [Plain Language](https://www.plainlanguage.gov/media/FederalPLGuidelines.pdf) while at the same time making clear references to the (often misfortunate) language of the [supported legislations](#supported-legislation)
 - Limit, as much as possible, the possibility of representing the same meaning in more than one way
-- Decentralised design compatible with both the Internet's Client-Server Architecture and Metaverse/Web3 Architecture
+- Decentralized design compatible with both the Internet's Client-Server Architecture and Metaverse/Web3 Architecture
 
 ### Design Choices
 
@@ -79,7 +79,7 @@ We have made the following choices:
 
 The Privacy Request Interchange Vocabulary includes the following:
 
-- Concepts:
+- **Concepts**:
 [Consent](#consent),
 [Data Capture](#data-capture),
 [Data Capture Fragment](#data-capture-fragments),
@@ -87,13 +87,40 @@ The Privacy Request Interchange Vocabulary includes the following:
 [Demand](#demands),
 [Demand Restriction](#demand-restrictions) (including [Privacy Scope Restriction](#privacy-scope),[Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Date Range](#date-range), [Provenance Restriction](#provenance-restriction), [Data Reference Restriction](#data-reference-restriction)),
 [Privacy Request](#privacy-request),
-[Privacy Request Response](#privacy-request-response), [Privacy Scope](#privacy-scope)(and its dimensions: *Data Category*, *Processing Category* and *Purpose*), [Provenance](#provenance),
+[Privacy Request Response](#privacy-request-response),
+[Privacy Scope](#privacy-scope)(and its dimensions: *Data Category*, *Processing Category* and *Purpose*), [Provenance](#provenance),
 [Retention Policy](#retention-policy),
 [Data Subject Identity](#decentralized-identity-of-data-subjects)
 
-- Properties: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`,`fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `message`, `motive`, `policy-type`, `processing-categories`, `provenance, ``provenance-category`, `purposes`, `replaces`, `response-id`, `restrictions`, `request-id`, `replaced-by`, `retention`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
+- **Properties**: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`,`fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `message`, `motive`, `policy-type`, `processing-categories`, `provenance, `provenance-category`, `purposes`, `replaces`, `response-id`, `restrictions`, `request-id`, `replaced-by`, `retention`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
 
-- TERMS: all terms included in [the dictionary](./dictionary)
+- **<a name="terms"></a>Terms**: all terms included in the [dictionary](./dictionary), and particularly:
+
+    - **<a name="actions"></a>Action Terms**: {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.KNOWN`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANIZATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER-DEMAND`} or any of their subcategories defined using the [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/actions](./dictionary/actions).*
+
+    - **<a name="data-categories"></a>Data Category Terms**: {`AFFILIATION`, `AFFILIATION.MEMBERSHIP`, `AFFILIATION.SCHOOL`, `AFFILIATION.WORKPLACE`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`, `BEHAVIOR.CONNECTION`, `BEHAVIOR.PREFERENCE`, `BEHAVIOR.TELEMETRY`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEMOGRAPHIC.SEXUAL-ORIENTATION`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`, `PROFILING`, `RELATIONSHIPS`, `UID`, `UID.ID`, `UID.IP`, `UID.USER-ACCOUNT` , `UID.SOCIAL-MEDIA` , `OTHER-DATA`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation) including any [Data Capture Fragment](#data-capture-fragments) `selector`s. *See definitions in the [dictionary/data-categories](./dictionary/data-categories).*
+
+    - **<a name="processing-categories"></a>Processing Category Terms**: {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `USING`, `OTHER-PROCESSING`}  or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/processing-categories](./dictionary/processing-categories).*
+
+    - **<a name="purposes"></a>Purposes Terms**: {`ADVERTISING`, `COMPLIANCE`, `EMPLOYMENT`, `JUSTICE`, `MARKETING`, `MEDICAL`, `PERSONALIZATION`, `PUBLIC-INTERESTS`, `RESEARCH`, `SALE`, `SECURITY`, `SERVICES`, `SERVICES.ADDITIONAL-SERVICES`, `SERVICES.BASIC-SERVICE`, `SOCIAL-PROTECTION`, `TRACKING`, `VITAL-INTERESTS`, `OTHER-PURPOSE`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/purposes](./dictionary/purposes).*
+
+    -  **<a name="provenance-categories"></a>Provenance Terms**: {`DERIVED`, `TRANSFERRED`, `USER`, `USER.DATA-SUBJECT`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/provenance](./dictionary/provenance).*
+
+    -  **<a name="targets"></a>Target Terms**: {`ORGANIZATION`, `PARTNERS`, `SYSTEM`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/targets](./dictionary/targets).*
+
+    -  **<a name="target-directions"></a>Target Direction Terms**: {`PARTNERS.DOWNWARD`, `PARTNERS.UPWARD`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/targets](./dictionary/targets).*
+
+    - **<a name="statuses"></a>Status Terms**: {`GRANTED`, `DENIED`, `PARTIALLY-GRANTED`, `UNDER-REVIEW`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/statuses](./dictionary/statuses).*
+
+    - **<a name="motives"></a>Motive Terms**: {`IDENTITY-UNCONFIRMED`, `LANGUAGE-UNSUPPORTED`, `VALID-REASONS`, `IMPOSSIBLE`, `NO-SUCH-DATA`, `REQUEST-UNSUPPORTED`, `USER-UNKNOWN`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/motives](./dictionary/motives).*
+
+    - **<a name="boolean"></a>Boolean Terms**: {`YES`, `NO`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/boolean](./dictionary/boolean).*
+
+    - **<a name="legal-bases"></a>Legal Base Terms**: {`CONTRACT`, `CONSENT`, `LEGITIMATE-INTEREST`, `NECESSARY`, `OTHER-LEGAL-BASE`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/legal-bases](./dictionary/legal-bases).*
+
+    - **<a name="retentions"></a>Retention Terms**: {NO-LONGER-THAN, "NO-LESS-THAN"} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/retentions](./dictionary/retentions).*
+
+    - **<a name="events"></a>Event Terms**: {`CAPTURE-DATE`,`RELATIONSHIP-END`, `SERVICE-END`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/events](./dictionary/events).*
 
 ### Privacy Request
 
@@ -101,7 +128,7 @@ Data Subject is the author of a Privacy Request.
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `data-subject` |  1-* | [Data Subject Identities](#decentralised-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
+| `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
 
 A Privacy Request is made by one and only one Data Subject.
 
@@ -130,90 +157,93 @@ A Demand is a concrete action that the user requests.
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `demand-id` | 1 | Unique ID for referring to this demand in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `action` | 1 | Unique value. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.KNOWN`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER-DEMAND`} |
+| `action` | 1 | Unique value. One of the [Action Terms](#actions) |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
 | `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
-| `data` | 0-* | Optionally concrete data (Format **TBD**) |
+| `data` | 0-* | Optionally concrete data |
 
 
 The key element that defines the nature of the Demand is the `action`. A Demand MUST have one and only one `action`.
 
-Actions are hierarchical.
-Their relationships are denoted with a dot "." separating two actions, the more general one being written on the left.
-`TRANSPARENCY` includes `TRANSPARENCY.WHERE`.
-When `TRANSPARENCY` is demanded, Systems MUST interpret the demand as if all the subcategories of `TRANSPARENCY` were demanded.
+Actions are hierarchical, and defined using the [Term Dot Notation](#term-dot-notation).
+
+E.g. when `TRANSPARENCY` is demanded, Systems MUST interpret the demand as if all the subcategories of `TRANSPARENCY` were demanded.
 
 Certain Demands MAY include data, such as a `MODIFY` Demand where new data MAY be provided by the Data Subject.
 
 ##### Demand Restrictions
 
 The `action` that the Data Subject requests with a particular Demand MUST be interpreted in the context of restrictions.
-A Demand MAY refer to only certain Privacy Scope (categories of data, certain types of processing, certain purposes of processing) or may only refer to particular Consents (e.g. those that the Data Subject wants to revoke) or to particular Data Captures (e.g. those that the Data Subject want to delete).
+
+A Demand MAY refer to only certain Privacy Scope (Data Categories, certain Processing Categories, certain Purposes of processing) or may only refer to particular Consents (e.g. those that the Data Subject wants to revoke) or to particular Data Captures (e.g. those that the Data Subject want to delete).
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `restrictions` |  0-* | An optional array of restriction objects, each being one of [Privacy Scope](#privacy-scope), [Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Date Range](#date-range), [Provenance Restriction](#provenance-restriction), [Data Reference Restriction](#data-reference-restriction)|
 
-When more than one restriction is specified, the System MUST interpret the Demand as referring to the intersection of restrictions. For example let us consider a `DELETE` demand having two restrictions: `LOCATION` `data-category` as Privacy Scope, and from 11th to 15th of June 2022 as Date Range. The System SHOULD understand that the Data Subject wants the System to delete only their location data processed in this precise period.
+When more than one restriction is specified, the System MUST interpret the Demand as referring to the **intersection of restrictions**.
+For example let us consider a `DELETE` demand having two restrictions: `data-category`:`LOCATION` as Privacy Scope, and from 11th to 15th of June 2022 as Date Range.
+The System SHOULD understand that the Data Subject wants the System to delete only their location data processed in this precise period.
 
 A demand with multiple restrictions MUST NOT have more than one restriction of the same type.
 
 ###### Privacy Scope
 
-A Privacy Scope MAY be defined by three dimensions: Data Categories, Categories of Processing, and Purposes of Processing.
-A Data Subject can formulate a Demand or give Consent within a particular Privacy Scope, e.g. only referring to `COLLECTING` (Category of Processing) `CONTACT` data (Category of Data) for `PERSONALISATION` (Purpose of Processing).
+A Privacy Scope is be defined by three dimensions: Data Categories, Categories of Processing, and Purposes of Processing.
+
+A Data Subject can formulate a Demand or give Consent within a particular Privacy Scope, e.g. only referring to `COLLECTING` (Category of Processing) `CONTACT` data (Category of Data) for `PERSONALIZATION` (Purpose of Processing).
 
 Privacy Scope can be understood as a vector space defined by those three dimensions.
 
 ```
 
-Privacy Scope = (Data Categories) x (Categories of Processing) x (Purposes of Processing)
+Privacy Scope = (Data Categories) x (Processing Category) x (Purposes of Processing)
 
 ```
+
+It is possible to specify a Privacy Scope by referring to only one or two, or none (out of those tree) dimensions.
+An unspecified dimension MUST be interpreted as designating the totality of Terms that are eligible as one of its Expected values.
+
+E.g. A Privacy Scope defined only by `data-categories`: `CONTACT` is interpreted as any [Processing](#processing-categories), for any [Purpose](#purpose) or any data marked with `CONTACT` or any of its subcategories including `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`.
+This Privacy Scope includes Privacy Scope Triples that are all possible combinations of those known subcategories (including [Data Capture Fragment](#data-capture-fragments) `selectors`) of `CONTACT` with all known [Processing](#processing-categories) and with all known [Purpose Terms](#purpose).
 
 *Data Categories*
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `data-categories` |  0-* | One of {`AFFILIATION`, `AFFILIATION.MEMBERSHIP`, `AFFILIATION.SCHOOL`, `AFFILIATION.WORKPLACE`, `BEHAVIOR`, `BEHAVIOR.ACTIVITY`,  `BEHAVIOR.CONNECTION`, `BEHAVIOR.PREFERENCE`, `BEHAVIOR.TELEMETRY`, `BIOMETRIC`, `CONTACT`, `CONTACT.EMAIL`, `CONTACT.ADDRESS`, `CONTACT.PHONE`, `DEMOGRAPHIC`, `DEMOGRAPHIC.AGE`, `DEMOGRAPHIC.BELIEFS`, `DEMOGRAPHIC.GENDER`, `DEMOGRAPHIC.ORIGIN`, `DEMOGRAPHIC.RACE`, `DEMOGRAPHIC.SEXUAL-ORIENTATION`, `DEVICE`, `FINANCIAL`, `FINANCIAL.BANK-ACCOUNT`, `GENETIC`, `HEALTH`, `IMAGE`, `LOCATION`, `NAME`, `PROFILING`, `RELATIONSHIPS`, `UID`, `UID.ID`, `UID.IP`, `UID.USER-ACCOUNT` , `UID.SOCIAL-MEDIA` , `OTHER-DATA`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation) including any [Data Capture Fragment](#data-capture-fragments) `selector`|
+| `data-categories` |  0-* | [Data Category Terms](#data-categories)|
 
-When several values are given, Systems MUST interpret the `data-category` dimension as a union of all the categories indicated.
+When several values are given, Systems MUST interpret the `data-categories` dimension as a **union** of all the categories indicated.
 
-Categories are organized as a hierarchy, denoted with a dot ".", the more general category being written on the left.
-E.g. the following two `data-category` restrictions are equivalent:
-- `CONTACT`,`CONTACT.EMAIL`
-- `CONTACT`
+E.g. if `GENETIC` and `FINANCIAL` are specified, the `data-categories` dimension includes all known subcategories of those two [Data Category Terms](#data-categories), including `FINANCIAL.BANK-ACCOUNT`. If the the System knows of a system-specific subcategory `GENERIC.GENOME`, then the `data-categories` dimension includes that as well.
 
-In the absence of indication of any `data-category` dimension, Systems MUST interpret the Privacy Scope as being related to all categories of data.
-[A list of eligible `data-category` values with corresponding user-facing descriptions is provided](dictionary/data-categories/) for convenience.
+In the absence of indication of any `data-categories` dimension, Systems MUST interpret the Privacy Scope as being related to all and any known [Data Category](#data-categories).
 
-*Categories of Processing*
+
+*Processing Categories*
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `processing-categories` | 0-* | One of {`ANONYMIZATION`, `AUTOMATED-INFERENCE`, `AUTOMATED-DECISION-MAKING`, `COLLECTION`, `GENERATING`, `PUBLISHING`, `STORING`, `SHARING`, `USING`, `OTHER-PROCESSING`}  or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation) |
+| `processing-categories` | 0-* | [Processing Category Terms](#processing-categories) |
 
-When several values are given, Systems MUST interpret the `processing-categories` dimension as a union of all the processing categories indicated.
+When several values are given, Systems MUST interpret the `processing-categories` dimension as a **union** of all the processing categories indicated.
 
-In the absence of indication of any `processing-categories` dimension, Systems MUST interpret the Demand as being related to all and any `processing-categories` of treatment.
+E.g. if `STORING` and `GENERATING` are specified, the `processing-categories` dimension includes all known subcategories of those two [Processing Category Terms](#processing-categories). If the the System knows of a system-specific subcategory `GENERATING.TRANSLATING`, then the `processing-categories` dimension includes that as well.
 
-[A list of eligible `processing-categories` values with corresponding user-facing descriptions is provided](dictionary/processing-categories/) for convenience.
+In the absence of indication of any `processing-categories` dimension, Systems MUST interpret the Demand as being related to all and any known [Processing Category](#processing-categories).
+
 
 *Purposes of Processing*
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `purposes` | 0-* | One of {`ADVERTISING`, `COMPLIANCE`, `EMPLOYMENT`, `JUSTICE`, `MARKETING`, `MEDICAL`, `PERSONALISATION`, `PUBLIC-INTERESTS`, `RESEARCH`, `SALE`, `SECURITY`, `SERVICES`, `SERVICES.ADDITIONAL-SERVICES`, `SERVICES.BASIC-SERVICE`, `SOCIAL-PROTECTION`, `TRACKING`, `VITAL-INTERESTS`, `OTHER-PURPOSE`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation) |
+| `purposes` | 0-* | [Purposes Terms](#purposes) |
 
-When several values are given, Systems MUST interpret the `purposes` restriction as a union of all the purposes indicated.
+When several values are given, Systems MUST interpret the `purposes` restriction as a **union** of all the purposes indicated.
 
-Purposes are organised as a hierarchy, denoted with a dot ".", the more general purpose being written on the left. E.g. the following two `pruposes` restrictions are equivalent:
-- `SERVICES`,`SERVICES.BASIC-SERVICE`
-- `SERVICES`
+E.g. if `RESEARCH` and `SERVICES` are specified, the `purposes` dimension includes all known subcategories of those two [Purposes Terms](#purposes) including `SERVICES.BASIC-SERVICE` and `SERVICES.ADDITIONAL-SERVICES`. If the the System knows of a system-specific subcategory `RESEARCH.MEDICAL-RESEARCH`, then the `purposes` dimension includes that as well.
 
-In the absence of indication of any `purpose` restriction, Systems MUST interpret the Demand as being related to all and any purpose of treatment.
-
-[A list of eligible `purposes` values with corresponding user-facing descriptions is provided](./dictionary/purposes/) for convenience.
+In the absence of indication of any `purpose` restriction, Systems MUST interpret the Demand as being related to all and any known [Purpose](#purposes).
 
 ###### Consent Restriction
 
@@ -227,13 +257,13 @@ When one or more `consent-ids` are indicated, Systems MUST interpret the Demand 
 
 ###### Capture Restriction
 
-A Demand can be restricted to particular Capture ID(s). For example, a Data Subject to delete a particular data, they indicate the data capture concerned by their Demand.
+A Demand can be restricted to particular Capture ID(s). For example, a Data Subject to delete a particular data, they indicate the [Data Capture](#data-capture) concerned by their Demand.
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `capture-ids` | 0-* | Optional array of Data Capture IDs to indicate that the Demand (e.g. a `DELETE` Demand) is restricted to data captured within particular Data Captures. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `capture-ids` | 0-* | Optional array of [Data Capture](#data-capture) IDs to indicate that the Demand (e.g. a `DELETE` Demand) is restricted to data captured within particular Data Captures. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 
-When one or more `capture-ids` are indicated, Systems MUST interpret the demand all related to all the data captured as part of those Data Captures.
+When one or more `capture-ids` are indicated, Systems MUST interpret the demand all related to (the **union** of) all the data captured as part of those Data Captures.
 
 ###### Date Range
 
@@ -244,7 +274,6 @@ A Demand can be restricted to particular Date Range, for example the Data Subjec
 | `from` | 0-* | Date and Time when the Date Range starts in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `to` | 0-* | Date and Time when the Date Range ends in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 
-
 A Date Range defined by only one of the {`from`, `to`} properties indicates a period of time after or before a certain date, unbounded on the other end.
 
 ###### Provenance Restriction
@@ -253,12 +282,14 @@ A Demand can be restricted to particular `provenance-category`, for example the 
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `provenance-category` | 1 | one of {`DERIVED`, `TRANSFERRED`, `USER`, `USER.DATA-SUBJECT`} |
-| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
+| `provenance-category` | 1 | [Provenance Terms](#provenance-categories) |
+| `target` | 0-1 | [Target Terms](#targets). In absence of indication `SYSTEM` is assumed |
 
-Optionally the Provenance Restriction may also include a particular [Target](#targets). E.g. the Data Subject might demand to have `ACCESS` to data that was `TRANSFERRED` by partner Systems (`target`:`PARTNERS`).
+Optionally the Provenance Restriction may also include a particular [Target](#targets).
 
-[A list of eligible `provenance-category` values with corresponding user-facing descriptions is provided](./dictionary/provenance/) for convenience.
+E.g. the Data Subject might demand to have `ACCESS` to data that was `TRANSFERRED` by partner Systems (`target`:`PARTNERS`).
+
+Not to be confused with [Provenance](#provenance).
 
 ###### Data Reference Restriction
 
@@ -276,11 +307,12 @@ It is therefore convenient for a Data Subject to be able to formulate Privacy Re
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `PARTNERS.DOWNWARD`, `PARTNERS.UPWARD`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
+| `target` | 0-1 | [Target Terms](#targets) or [Target Direction Terms](#target-directions)
+ In absence of indication `SYSTEM` is assumed |
 
 `SYSTEM` refers to the particular System with which the Data Subject is in direct interaction while making the Privacy Request (or giving the Consent).
 
-`ORGANISATION` includes, in addition to the `SYSTEM`, all other Systems belonging to the same Organization. Those are understood as being a part of the same First-Party Set (**TODO** ref and compatibility check)  
+`ORGANIZATION` includes, in addition to the `SYSTEM`, all other Systems belonging to the same Organization. In the context of Systems that are essentially wbesites, the `ORGANIZATION` Term SHOULD be understood as all Systems being a part of the same [First-Party Set](https://github.com/WICG/first-party-sets).
 
 `PARTNERS.DOWNWARD` includes, in addition to the `SYSTEM`, and to all other Systems belonging to the same Organization, all other Systems belonging to Organizations with which the data about the Data Subject has been shared.
 
@@ -294,14 +326,14 @@ Let us imagine the following situation: System A gave information about the Data
 
 When System B receives a Privacy Request having `target` value:
 - `SYSTEM`, it SHOULD NOT transfer it to any other system.
-- `ORGANISATION` for a `target`, it MUST transfer it to all other systems operated by the same Organization (System D in our example).
+- `ORGANIZATION` for a `target`, it MUST transfer it to all other systems operated by the same Organization (System D in our example).
 - `PARTNERS.DOWNWARD` it MUST also send it to all systems to which it transferred data about the Data Subject (System C).
 - `PARTNERS.UPWARD` it MUST also send it to all systems from which it obtained data about the Data Subject (System A).
 - `PARTNERS`, it MUST also send it to all systems from which it obtained data about the Data Subject or to which it gave information about the Data Subject (System A and System C).
 
-Systems should interpret the target of Privacy Request the same way regardless of the Privacy Request being received directly from the Data Subject or from a corresponding System.
+Systems should interpret the target of Privacy Request regardless of the Privacy Request being received directly from the Data Subject or from a corresponding System.
+This means that the same `target` value of the same Privacy Request transferred across several Systems may end-up being interpreted differently by those Systems (e.g. in every System `PARTNERS.DOWNWARD` is likely to be resolved to different Systems)
 
-Convenient tables of `target` values and corresponding user-facing descriptions, in different languages, are provided [here](dictionary/targets).
 
 ### Privacy Request Response
 
@@ -314,15 +346,15 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 | `in-response-to` | 1 | `request-id` of the Privacy Request to which response is made or `demand-id` of the particular Demand to which response is made, in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Privacy Request Response was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `system` | 1 | System ID of the System having generated the response (**Format TBD**) |
-| `requested-action` | 0-1 | Optional information about the action that was demanded, and to which the response is made. One of {`ACCESS`, `DELETE`, `MODIFY`, `OBJECT`, `PORTABILITY`, `RESTRICT`, `REVOKE-CONSENT`, `TRANSPARENCY`, `TRANSPARENCY.DATA-CATEGORIES`, `TRANSPARENCY.DPO`, `TRANSPARENCY.KNOWN`, `TRANSPARENCY.LEGAL-BASES`, `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.PROCESSING-CATEGORIES`, `TRANSPARENCY.PROVENANCE`, `TRANSPARENCY.PURPOSE`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, `OTHER-DEMAND`} |
+| `requested-action` | 0-1 | Optional information about the action that was demanded, and to which the response is made. [Action](#actions)|
 | `data-subject` |  0-* | Optional indication of the [Data Subject Identities](#decentralized-identity-of-data-subjects) to which the response refers to |
-| `status` | 1 | One of {`GRANTED`, `DENIED`, `PARTIALLY-GRANTED`, `UNDER-REVIEW`} |
-| `motive` | 0-* | Optionally one of {`IDENTITY-UNCONFIRMED`, `LANGUAGE-UNSUPPORTED`, `VALID-REASONS`, `IMPOSSIBLE`, `NO-SUCH-DATA`, `REQUEST-UNSUPPORTED`, `USER-UNKNOWN`} |
-| `answers` | 0-* | Any of the terms the meaning of which is defined by the present vocabulary |
+| `status` | 1 | [Status Terms](#statuses) |
+| `motive` | 0-* | [Motive Terms](#motives) |
+| `answers` | 0-* | [Terms](#terms) |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
 | `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 | `includes` | 0-* | Optionally an array of one or more [Privacy Request Response](#privacy-request-response)s |
-| `data` | 0-* | Optionally concrete data to which access is being given (Format **TBD**) |
+| `data` | 0-* | Optionally concrete data to which access is being given|
 
 A Privacy Request Response MUST have:
 - a unique ID,
@@ -330,11 +362,11 @@ A Privacy Request Response MUST have:
 - a date,
 - a status.
 
-Privacy Request Responses can be nested. One can imagine a Privacy Request Response to a particular Privacy Request, that `includes` Privacy Request Responses to the particular Demands made in that Privacy Request. Several Systems MAY respond to the same Privacy Request or Demand, and one System MAY nest them in order to gather them and send them back to the Data Subject (in the [Coordinated Response secenario](./scenarios.md#coordinated-response)).
+Privacy Request Responses CAN be nested. One can imagine a Privacy Request Response to a particular Privacy Request, that `includes` Privacy Request Responses to the particular Demands made in that Privacy Request. Several Systems MAY respond to the same Privacy Request or Demand, and one System MAY nest them in order to gather them and send them back to the Data Subject (in the [Coordinated Response secenario](./scenarios.md#coordinated-response)).
 
 When a Demand is being denied, the Privacy Request Response MUST provide a `motive`.
 
->To illustrate the `answers` value, we can imagine a `TRANSPARENCY.DATA-CATEGORIES` Demand, to which a response may include `answers`: `CONTACT`, `IMAGE`. Or a `TRANSPARENCY.KNOWN` Demand to which the answer may include `answers`: `YES`.
+>To illustrate the `answers` value, we can imagine a `TRANSPARENCY.DATA-CATEGORIES` Demand, to which a response may include `answers`: `CONTACT`, `IMAGE`. Or a `TRANSPARENCY.KNOWN` Demand to which the answer may include `answers`: `YES` from [Boolean Terms](#boolean).
 
 ### Consent
 
@@ -346,10 +378,10 @@ A Consent is given by one Data Subject which can be identified by one or more [D
 | `consent-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Consent was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `expires` | 0-1 | Date and Time when Consent expires in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`} to indicate the category of Systems to which consent for processing is given. In absence of indication `SYSTEM` is assumed. |
+| `target` | 0-1 | [Target Terms](#targets) to indicate the category of Systems to which consent for processing is given. In absence of indication `SYSTEM` is assumed. |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the Consent SHOULD be interpreted as unlimited |
-| `replaces` |  0-* | Optionally one or more 'consent-id's of previous consents that have became void when this consent was made |
-| `replaced-by` |  0-* | Optionally one or more 'consent-id's of previous consents that have became void when this consent was made |
+| `replaces` |  0-* | Optionally one or more 'consent-id's of previous [Consents](#consent) that have became void when this consent was made |
+| `replaced-by` |  0-* | Optionally one or more 'consent-id's of previous [Consents](#consent) that have became void when this consent was made |
 
 ### Data Capture
 
@@ -360,30 +392,37 @@ A Data Capture is given by one Data Subject which can be identified by one or mo
 | `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
 | `capture-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `data-reference` | 1-* | one or more references that uniquely identify the data that the capture concerns (e.g. a legal case file reference, account ID, contract ID, a URL)|
-| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
+| `target` | 0-1 | [Target Terms](#targets). In absence of indication `SYSTEM` is assumed |
 | `fragments` | 1-* | One or more [Data Capture Fragments](#data-capture-fragments) |
 
-A Data Capture concerns one and only one Data Subject who MAY be identified by multiple Data Subject Identities.
+A Data Capture concerns one and only one Data Subject who CAN be identified by multiple Data Subject Identities.
 
 #### Data Capture Fragments
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `fragment-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `selector` | 1 | a string used to uniquely identify a data field (in the System's data model) to which the fragment corresponds. MUST be a subcategory of a *Data Category* and MUST be defined according to [Term Dot Notation](#term-dot-notation) |
+| `selector` | 1 | a string used to uniquely identify a data field (in the System's data model) to which the fragment corresponds. MUST be a subcategory of a [Data Category](#data-categories) and MUST be defined according to [Term Dot Notation](#term-dot-notation) |
 | `date` | 1 | Date and Time when data was Captured was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the fragment SHOULD be interpreted as unlimited |
-| `target` | 0-1 | Optionally one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}. In absence of indication `SYSTEM` is assumed |
+| `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the fragment SHOULD be interpreted as unlimited, including all categories of all dimensions |
+| `target` | 0-1 | [Target Terms](#targets). In absence of indication `SYSTEM` is assumed |
 | `retention` | 1-* | one or more [Retention Policies](#retention-policy) |
 | `provenance` | 1-* | one or more [Provenance](#provenance) |
 | `data` | 0-* | Optionally concrete data (Format **TBD**) |
-| `legal-base` | 0-* | Optionally an array of values among `CONTRACT`, `CONSENT`, `LEGITIMATE-INTEREST`, `NECESSARY`, `OTHER-LEGAL-BASE` |
+| `legal-base` | 0-* | [Legal Bases](#legal-bases) |
 
-`selector`s MUST include the data category of the data. For example selectors 'CONTACT.ADDRESS.SHIPPING' and 'CONTACT.ADDRESS.BILLING' indicate that the data being captured by a particular fragment belonging to the `CONTACT.ADDRESS` data category.
+A `selector` MUST include, at the beginning of its string, one of the [Data Category Terms](#data-categories).
+Its syntax MUST follow the [Term Dot Notation](#term-dot-notation).
+A `selector` is considered a subcategory (in the sense of the [Term Dot Notation](#term-dot-notation)) of the most granular [Data Category Term](#data-categories) that it includes at at the beginning of its string.
 
-While the Data Categories are global, the selectors are defined by the Systems. A `selector` uniquely identifies a particular data field that the Systems works with. When several Systems exchange data among them, they SHOULD align on using the same `selectors` in the same way, in order to be able to correctly interoperate.
+For example selectors 'CONTACT.ADDRESS.SHIPPING' and 'CONTACT.ADDRESS.BILLING' indicate that the data being captured by a particular fragment belonging to the `CONTACT.ADDRESS` [Data Category](#data-categories) of which they are considered to be a subcategory.
 
-Processing MAY be legitimate according to several legal bases for processing. For example, a Data Subject can give explicit `CONSENT` when creating an account with a particular online service, and at the time, the System providing some service to the Data Subject might need to process their data in order to deliver a service or honour a `CONTRACT` (e.g. deliver the purchased goods to the Data Subjects address and issue an invoice).
+While the Data Categories are globally defined by PRIV and interpreted the same way by all implementing Systems, the selectors are defined by the Systems.
+A `selector` uniquely identifies a particular data field that the Systems works with.
+When several Systems exchange data among them, they SHOULD align on using the same `selectors` in the same way, in order to be able to correctly interoperate.
+
+Processing MAY be legitimate according to one or more [Legal Bases](#legal-bases) for processing.
+For example, a Data Subject can give explicit `CONSENT` when creating an account with a particular online service, and at the time, the System providing a service to the Data Subject might need to process their data in order to deliver a service or honor a `CONTRACT` (e.g. deliver the purchased goods to the Data Subjects address and issue an invoice).
 
 Certain processing is made legitimate (`LEGITIMATE-INTEREST`) or mandatory (`NECESSARY`) by law, e.g. [Article 6 og GDPR](https://gdpr-info.eu/art-6-gdpr/).
 
@@ -391,26 +430,31 @@ Certain processing is made legitimate (`LEGITIMATE-INTEREST`) or mandatory (`NEC
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `provenance-category` | 1 | one of {`DERIVED`, `TRANSFERRED`, `USER`, `USER.DATA-SUBJECT`} |
+| `provenance-category` | 1 | [Provenance Terms](#provenance-categories) |
 | `system` | 1 | System ID (**Format TBD**) |
 
 Data provenance is interpreted in relation to a particular System.
-The same Data Capture Fragment might be data collected from the `USER` for one System that is in direct interaction with the Data Subject, and be data `TRANSFERRED` in the eyes of another System that obtained in through transfer from the user-facing System.
+
+The same Data Capture Fragment might be:
+- data collected from the `USER` for one System (the one being in direct interaction with the Data Subject), and be
+- data `TRANSFERRED` in the eyes of another System that obtained it through transfer from the user-facing System.
+
+Not to be confused with [Provenance Restriction](#provenance-restriction).
 
 ##### Retention Policy
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `data-category` | 1-* | Any of the any Data Category terms or concrete Data Capture Fragment `selector`s within those categories |
-| `policy-type` | 1 | one of {NO-LONGER-THAN, "NO-LESS-THAN"} |
+| `data-categories` | 1-* | Any of the any [Data Category Terms](#data-categories) or concrete [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
+| `policy-type` | 1 | [Retention](#retentions) |
 | `duration` | 1 | Duration in JSON Schema [duration](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `after` | 1 | Event to which the retention duration is relative to. One of {`CAPTURE-DATE`,`RELATIONSHIP-END`, `SERVICE-END`}
+| `after` | 1 | Event to which the retention duration is relative to. [Events](#events) |
 
-When several `data-category` values are given, they are interpreted as a union.
+When several `data-categories` values are given, they are interpreted as a **union**.
 
 ## Detailed Design
 
-A separate document gives a list of [examples](examples.md) on how to represent real-life Privacy Requests, as defined in [supported legislation](#supported-legislation), or as modelled in existing systems with which we seek interoperability.
+A separate document gives a list of [examples](examples.md) on how to represent real-life Privacy Requests, as defined in [supported legislation](#supported-legislation), or as modeled in existing systems with which we seek interoperability.
 
 ### JSON format
 
@@ -422,7 +466,7 @@ Systems exchanging Privacy Requests MUST be able to do so in a way allowing them
 
 For this purposes Privacy Requests MAY be embedded as 'Claims' in [JWTs (RFC7519)](https://datatracker.ietf.org/doc/html/rfc7519).
 
-### Decentralised Identity of Data Subjects
+### Decentralized Identity of Data Subjects
 
 The Systems are only able to provide control to Data Subjects if they can identify them. On the other hand, there is no central authority to manage Data Subject identity globally.
 
@@ -470,7 +514,7 @@ However, in most cases, Systems MUST require the Data Subject to be authenticate
 
 When processing Privacy Request, Systems MAY automatically disregard the (`dsid`,`dsid-schema`) paris for which they have not been able to establish Data Subject authentication.
 
-However, the authentication does not necessarily have to be performed during the collection of the Privacy Request. It can be done separately. The design of PRIV aims to support several authentication workflows, as many as possible authentication methods (i.e. be as much as possible agnostic from the authentication method).
+However, the authentication does not necessarily have to be performed during the collection of the Privacy Request. It can be done separately. The design of PRIV aims to support [several authentication workflows](./scenarios.md#authentication), as many as possible authentication methods (i.e. be as much as possible agnostic from the authentication method).
 
 
 #### Matching Multiple Data Subject Identities
@@ -487,13 +531,13 @@ All of the following identifiers `capture-id`, `fragment-id`, `consent-id`, `req
 The reason for using UUDIs is to allow Systems to independently generate globally unique identifiers while being autonomous from a central entity that would ensure identifier uniqueness.
 
 Having a public ledger for UUDIs MAY be considered for Consents and Data Captures, but serious implications to Data Subject exposure MUST also be considered.
-However, the design MUST be compatible with building a public decentralised ledger.
+However, the design MUST be compatible with building a public decentralized ledger.
 
 ### Term Dot Notation
 
-The vocabulary defines TERMS to express different aspects of Privacy Request, Data Captures, Consents etc.
+The vocabulary defines [Terms](#terms) to express different aspects of Privacy Request, Data Captures, Consents etc.
 
-TERMS follow Term Dot Notation (TDN), defined using the following ABNF (cf. [FRC5234](https://www.rfc-editor.org/info/rfc5234)):
+[Terms](#terms) follow Term Dot Notation (TDN), defined using the following ABNF (cf. [FRC5234](https://www.rfc-editor.org/info/rfc5234)):
 ```
 term = category *subcategory
 
@@ -502,29 +546,41 @@ subcategory =  "." category
 category = *(%x41–5A) *((%x2D) 1*(%x41–5A))
 
 ```
-A category is equivalent to the union of all of its subcategories.
+A category includes the union of all of its subcategories.
 Terms can be specified at different levels of granularity.
 E.g. the following statements are equivalent:
 - `A.B`, `A`
 - `A`
 
-PRIV includes a set of TERMS, provided in [the dictionary](./dictionary).
+PRIV includes a set of [Terms](#terms), provided in the [dictionary](./dictionary).
 
 This list is designed with the aim to be:
-- **Unambiguous** : The developer using the schema knows without ambiguity which one (of which ones) to use in any given situation, AND
-- **Complete** : They allow to express the totality of possible needs in the context of a user wanting to [regulate their privacy/connectedness](https://github.com/blindnet-io/product-management/blob/dogma/refs/notion-of-privacy/notion-of-privacy.md), as well as the totality of requests defined by the [supported legilsation](#supported-legilsation).
+- **Unambiguous** : The developer using the schema knows without ambiguity which one (or which ones) to use in any given situation, AND
+- **Complete** : They allow to express the totality of possible needs in the context of a user wanting to [regulate their privacy/connectedness](https://github.com/blindnet-io/product-management/blob/dogma/refs/notion-of-privacy/notion-of-privacy.md), as well as the totality of requests defined by the [supported legislation](#supported-legislation).
 
-Implementing Systems SHOULD be able to interpret and operate with all the TERMS.
+Implementing Systems SHOULD be able to interpret and operate with all the [Terms](#terms).
 
-#### Extending TERMS
+#### Interpreting subcategories
 
-When needed, Systems MAY include support for additional terms, not included in [the dictionary](./dictionary).
-Such additional terms MUST be subcategories of one of the TERMS, and they MUST follow the same syntax of the [Term Dot Notation](#term-dot-notation).
+A term (`A.B`) is a subcategory of another term (`A`) if an only if the subcategory term's string includes at its beginning the totality of this other (supercategory) term's string.
 
-Such Systems MAY manifest specific behavior in reaction to those additional terms, yet they may end-up communicating them with other Systems that only support the TERMS from [the dictionary](./dictionary).
-In that case, Systems MUST interpret the additional terms, as being equivalent to the first super-category that they support.
+E.g. `TRANSPARENCY.ORGANIZATION` is a subcategory if `TRANSPARENCY`.
+`TRANSPARENCY.ORGANIZATION` is not a subcategory of `ORGANIZATION`
 
-In that way, interoperability can always be expected at the level of TERMS.
+E.g. `CONTACT.ADDRESS.SHIPPING` is a subcategory of `CONTACT.ADDRESS`.
+`CONTACT.ADDRESS.SHIPPING` is a subcategory of `CONTACT`
+
+
+#### Extending Terms
+
+When needed, Systems MAY include support for additional terms, not included in the [dictionary](./dictionary).
+Such additional terms MUST be subcategories of one of the [Terms](#terms), and they MUST follow the same syntax of the [Term Dot Notation](#term-dot-notation).
+
+Such Systems MAY manifest specific behavior in reaction to those additional terms, yet they may end-up communicating them with other Systems that only support the [Terms](#terms) from the [dictionary](./dictionary).
+
+Systems processing Privacy Requests (or other Concepts) containing a term unknown to them, SHOULD deploy behavior they are programmed to deploy in response to the first known supercategory of such term.
+
+In that way, interoperability CAN always be expected at the level of [Terms](#terms).
 
 ### Extending the vocabulary
 
@@ -536,12 +592,12 @@ Systems MAY specify the vocabulary used to express data being exchanged. The val
 
 When [addition additional terms](#extending-terms) is not sufficient, and additional Concepts or Properties are needed, it is possible to extend the vocabulary.
 
-This vocabulary can be extended by defining a new identifier for the new vocabulary.
+This vocabulary is extended by defining a new identifier for the new vocabulary.
 New vocabularies MAY include other vocabularies as long as their sets of concepts, properties and terms are disjoint.  
 
 ## Examples
 
-A [JSON schema of the PRIV](./priv.schema.json) is provided for convenience. To illustrate a request, let us take the example of a data subject wanting to know if a an organisation (and any of its partners if applicable) have any data on them, and if so, have their contact data deleted.
+A [JSON schema of the PRIV](./priv.schema.json) is provided for convenience. To illustrate a request, let us take the example of a data subject wanting to know if a an Organization (and any of its partners if applicable) have any data on them, and if so, have their contact data deleted.
 
 This request can be represented with the following json data:
 ```
@@ -568,7 +624,7 @@ This request can be represented with the following json data:
 }
 
 ```
-In [here](./examples.md) we provide an overview of various Privacy Requests that a Data Subject might want to formulate according to [supported legislation](#supported-legislation) and we give indications on how each of those can be modelled with the Privacy Request Interchange Vocabulary.
+In [here](./examples.md) we provide an overview of various Privacy Requests that a Data Subject might want to formulate according to [supported legislation](#supported-legislation) and we give indications on how each of those can be modeled with the Privacy Request Interchange Vocabulary.
 
 ## Design Implications for Systems Implementing PRIV
 
@@ -592,7 +648,7 @@ When data about Data Subjects is transmitted from one system to another, in orde
 
 In order to automatically respond to `TRANSPARENCY` demands, Systems should store general information about:
 - Countries where data servers are located (`TRANSPARENCY.WHERE`)
-- The identity of the organisation controlling them, and the Organization's representative(s) (`TRANSPARENCY.WHO`)
+- The identity of the Organization controlling them, and the Organization's representative(s) (`TRANSPARENCY.WHO`)
 - The categories of Data Consumers, and access policies (`TRANSPARENCY.WHO`)
 - Identity and contact of a Data Protection Officer (`TRANSPARENCY.DPO`)
 - A link to their Privacy Policy (`TRANSPARENCY.POLICY`)
@@ -604,7 +660,7 @@ In order to automatically respond to `TRANSPARENCY` demands, Systems should stor
 > - the right to lodge a complaint with a supervisory authority;
 > - whether the provision of personal data is a statutory or contractual requirement, or a requirement necessary to enter into a contract, as well as whether the data subject is obliged to provide the personal data and of the possible consequences of failure to provide such data
 > - the existence of automated decision-making, including profiling, referred to in Article 22(1) and (4) and, at least in those cases, meaningful information about the logic involved, as well as the significance and the envisaged consequences of such processing for the data subject.
-> - Where personal data are transferred to a third country or to an international organisation, the data subject shall have the right to be informed of the appropriate safeguards pursuant to Article 46 relating to the transfer.
+> - Where personal data are transferred to a third country or to an international Organization, the data subject shall have the right to be informed of the appropriate safeguards pursuant to Article 46 relating to the transfer.
 
 ### Storing Capture-related Information
 
@@ -633,8 +689,7 @@ It SHOULD be possible for systems to expose Privacy Request APIs in such a way t
 
 ### Compliance History
 
-Systems SHOULD keep a log of received [Privacy Requests](#privacy-request), generated [responses](#privacy-request-response), and as much as possible proofs of response delivery and visualisation.
-
+Systems SHOULD keep a log of received [Privacy Requests](#privacy-request), generated [responses](#privacy-request-response), and as much as possible proofs of response delivery and visualization.
 
 
 ## Questions and Discussion Topics
@@ -653,7 +708,7 @@ Should we include restrictions in the schema according to the [JSON-schema-valid
 
 In the current proposal, this is the case for target, but not for request types, data categories, and user identity schemas. We might want to include more forma constraints there, or deliberately leave flexibility. This is a discussion we need to have.
 
-### Dot-notation for TERMS
+### Dot-notation for Terms
 
 Hierarchies of categories are represented using the "supercategory.subcategory" notation. The idea behind this is to allow developers to use the level of granularity that is adapted to them, yet be able to easily situate the subcategory in supercategory when dealing with more generic requests.
 
@@ -693,7 +748,7 @@ This would make sense if the Systems would be responsible for finding a way to r
 
 A Data Subject can formulate a request to know about processing generally practiced by the System, or to know about processing being done on Data Subejct's particular data. Those can be different. Yet we have only one category 'TRANSPARENCY.PROCESSING-CATEGORIES'. Same goes for other `TRANSPARENCY` requests.
 
-Currently we don't offer any way to distinguish between those two kinds of demands. We will offer instructions for Systems (under [Expected Behavior](expected-behavior.md) - **TO BE WRITTEN**) on how to interpret them based on context (whether the request is made during capture, or prior to capture where request scope SHOULD be interpreted as general, or in some other context where the request scope SHOULD be interpreted as related to user's particular data).
+Currently we don't offer any way to distinguish between those two kinds of demands. We offer instructions for Systems, under [Expected Behavior](expected-behavior.md), on how to interpret them based on context (whether the request is made during capture, or prior to capture where request scope SHOULD be interpreted as general, or in some other context where the request scope SHOULD be interpreted as related to user's particular data).
 
 This design choice MAY be a bad idea.
 
@@ -738,7 +793,7 @@ We need a way for Systems to encrypt the data (that compatible also with encrypt
 ### Motivation or explanation of Demand
 
 When a Demand is motivated by a `message`, then it can't be processed automatically.
-To the best of our knowledge, motivating a Demand is optional under [supported legislation](#supported-legilsation).
+To the best of our knowledge, motivating a Demand is optional under [supported legislation](#supported-legislation).
 The `message` is thus optional.
 
 If PRIV is ever to support a legislation under which a message might be mandatory, this design SHOULD be reconsidered.

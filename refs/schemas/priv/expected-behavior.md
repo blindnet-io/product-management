@@ -1,4 +1,4 @@
-# Privacy Request Interchange Vocabulary : Expected Behavior of Implementing Systems
+*[Privacy Scope Triples](#privacy-scope-triples)# Privacy Request Interchange Vocabulary : Expected Behavior of Implementing Systems
 
 | Status        | draft                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
@@ -27,18 +27,18 @@ The purpose of the document is primarily illustrate a possible behavior Systems 
 - All key words denoting components of [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit), such as "Capture Component", "Encryption and Access Management Engine", "Privacy Computation Engine", "Privacy Compiler", "Privacy Request Capture Interface", "Customization API", "Data Consumer Interface", "Schemas" and "Storage Component" are to be interpreted as defined in [High Level Architecture](../high-level-conceptualization/)
 - Privacy Compiler was formerly known as Data Rights Compiler
 - Privacy Request was formerly known as Data Rights Request
-- All the concepts, properties and terms listed in the [Proposal](./RFC-PRIV.md#proposal) section of PRIV(Privacy Request Interchange Vocabulary are to be interpreted as defined in [Privacy Request Interchange Vocabulary](./RFC-PRIV.md#proposal)
+- All the concepts, properties and [Terms](./RFC-PRIV.md#terms) listed in the [Proposal](./RFC-PRIV.md#proposal) section of PRIV(Privacy Request Interchange Vocabulary are to be interpreted as defined in [Privacy Request Interchange Vocabulary](./RFC-PRIV.md#proposal)
 
 ## Scope of automation
 
 Privacy Requests can be resolved more or less automatically.
-Privacy Requests that are expressed in unambiguous terms, may be fully processed automatically.
-Those that include the keyword "OTHER" or a textual message with more details about the request likely require human intervention.
+Privacy Requests that are expressed in unambiguous [Terms](./RFC-PRIV.md#terms), may be fully processed automatically.
+Those that include any [Terms](./RFC-PRIV.md#terms) containing the string "OTHER" or a textual message with more details about the request likely require human intervention.
 Cf. [different automation scenarios](./scenarios.md#automation)
 
 Systems MAY be configured to treat Privacy Requests eligible for automation with or without human validation. In any case, the role of the [Privacy Compiler](../high-level-architecture#data-rights-compiler) is to calculate the appropriate action, given particular Privacy Request in a particular situation.
 
-Systems MAY also want to direct certain requests (such as `MODIFY`) to dedicated interfaces that they may already have for Data Subjects to provide and modify their data.
+Systems CAN also direct certain requests (such as `MODIFY`) to dedicated interfaces that they may already have for Data Subjects to provide and modify their data.
 
 Because of this Systems MUST be able to configure their particular ways of automating the processing of Privacy Requests.
 
@@ -55,10 +55,8 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
 
     - *Provenance*: For every **Known Selector** keep track of one or more [Provenance](./RFC-PRIV.md#provenance) objects.
 
-    - **Intended Privacy Scope** : A set of **Privacy Scope Triple**s that describe the usage the System is likely to make with data. Each triple consists of:
-        - a `selector` (or Data Category implying every `selector` used within that Data Category)
-        - a Processing Category (or any of their subcategories defined according to [Term Dot Notation](./RFC-PRIV.md#term-dot-notation)) that the System is likely to perform on that data
-        - a Purpose (or any of their subcategories defined according to [Term Dot Notation](./RFC-PRIV.md#term-dot-notation)
+    - **Intended Privacy Scope** : A set of **[Privacy Scope Triples](#privacy-scope-triples)** that describe the usage the System is likely to make with data.
+
     Each **Known Selector** MUST be included in the The Intended Privacy Scope.
 
 > **Note**
@@ -68,10 +66,9 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
 > This is necessary for interoperability with the specific Processing Categories of the [HL7 Standards](./RFC-PRIV.md#hl7-standards)
 >
 
+    - *Legal Bases*: For each [Privacy Scope Triple](#privacy-scope-triples) from the **Intended Privacy Scope**, one or more [Legal Bases](./RFC-PRIV.md#legal-bases)
 
-    - *Legal Bases*: For each **Privacy Scope Triple** from the **Intended Privacy Scope**, one or more [Legal Bases](./RFC-PRIV.md#legal-bases)
-
-    - *Corresponding Systems*: A map of Other Systems with which data is being exchanged. For each System The Privacy Compiler MUST know if they are an `ORGANISATION` or `PARTNERS` System, and have a way to uniquely identify and address them (see [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV), [Working with Provenance](#working-with-provenance))
+    - *Corresponding Systems*: A map of Other Systems with which data is being exchanged. For each System The Privacy Compiler MUST know if they are an `ORGANIZATION` or `PARTNERS` System, and have a way to uniquely identify and address them (see [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV), [Working with Provenance](#working-with-provenance))
 
 - **Privacy Metadata Store**, updated at runtime:
    - *All Captures*: a list of all the [Data Capture](./RFC-PRIV.md#data-capture) objects that the Privacy Compiler is aware of
@@ -80,8 +77,8 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
    - Legal Bases:
        - *All Consents*: a list of all the [Consent](./RFC-PRIV.md#consent) objects that the Privacy Compiler is aware of
        - *All Contracts*: establishing a correspondence between a Data Subject and a `contract-id` being an identifier of a particular relationship that the Data Subject has with the system (e.g. a user account open with the system, employment contract, a court case treated by a lawfirm, etc.) with a `start` date and (optionally, if ended) a `end` date.
-       - *All Legitimate Interests*: establishing a correspondence between a Data Subject and each **Privacy Scope Triple** included in the **Intended Privacy Scope** under `LEGITIMATE-INTEREST`
-       - *Necessary*: establishing a correspondence between a Data Subject and each **Privacy Scope Triple** included in the **Intended Privacy Scope** under `NECESSARY` Legal Base
+       - *All Legitimate Interests*: establishing a correspondence between a Data Subject and each [Privacy Scope Triples](#privacy-scope-triples) included in the **Intended Privacy Scope** under `LEGITIMATE-INTEREST`
+       - *Necessary*: establishing a correspondence between a Data Subject and each [Privacy Scope Triple](#privacy-scope-triples) included in the **Intended Privacy Scope** under `NECESSARY` Legal Base
 
 - **Runtime Maps**, updated at runtime:
     - Active Legal Bases:
@@ -89,26 +86,55 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
         - *Active Contracts*: a list of `contract-id`s of all active contracts that have not been subject to a `RELATIONSHIP-END` event
         - *Active Legitimate Interests*: a subset of *All Legitimate Interests*
     - Events, for [Resolving Retention Policies](#resolving-retention-policies):
-        - `SERVICE-END` events for contracts that end (e.g. user closes the account, or stops a service agreement), that directly impact *Active Contracts* the **Privacy Scope Triple**s of which have not been in the scope of any `DELETE`, `OBJECT`, or `RESTRICT` Privacy Request by the data Subject concerned
+        - `SERVICE-END` events for contracts that end (e.g. user closes the account, or stops a service agreement), that directly impact *Active Contracts* the [Privacy Scope Triples](#privacy-scope-triples) of which have not been in the scope of any `DELETE`, `OBJECT`, or `RESTRICT` Privacy Request by the data Subject concerned
         - `RELATIONSHIP-END` events the Data Subject ended all contracts and ended the relationship with the System/Organization
         - `CAPTURE-DATE` when a Data Capture is made or updated
     - Transfers:
         - All the data exchanges with other Systems, as described in [Remembering Transfers](./RFC-PRIV.md#remembering-transfers).
     - Privacy Scope:
         - For each Data Subject, an **Eligible Privacy Scope**, according to [Privacy Algebra](#privacy-algebra).
-        This **Eligible Privacy Scope** is easily resolved at the level of each Data Capture Fragment (or `selector`)
+        This **Eligible Privacy Scope** is easily resolved at the level of each [Data Capture Fragment](./RFC-PRIV.md#data-capture-fragments) (or its `selector`)
+
+## [Privacy Scope Triples](#privacy-scope-triples)
+
+A **<a name="triple"></a>Privacy Scope Triple** is a unit of [Privacy Scope](RFC-PRIV.md#privacy-scope)
+and it consists of (in that order):
+    - one [Data Category Term](./RFC-PRIV.md#data-categories) or `*`
+    - one [Processing Category Term](./RFC-PRIV.md#processing-categories) or `*`
+    - one [Purpose Term](./RFC-PRIV.md#purpose) or `*`
+
+When `*` is indicated at one of the places of the triple, it is interpreted as all [Data Categores](./RFC-PRIV.md#data-categories), all [Processing Categories](./RFC-PRIV.md#processing-categories) or all [Purposes](./RFC-PRIV.md#purpose) depending on its place in the triple.
+
+Each [Privacy Scope Triple](#privacy-scope-triples) that includes a `*` or a [Term](./RFC-PRIV.md#terms) of which subcategory terms are known (including [Data Capture Fragment](./RFC-PRIV.md#data-capture-fragments) `selectors` for [Data Category Terms](./RFC-PRIV.md#data-categories)) is equivalent to the set of Privacy Scope Triples including all combinations of such known subcategories (or all categories in case of `*`).
+
+E.g. `FINANCIAL` x `SHARING` x `SERVICES` is equivalent to the following set:
+
+`FINANCIAL` x `SHARING` x `SERVICES.ADDITIONAL-SERVICES`
+`FINANCIAL` x `SHARING` x `SERVICES.BASIC-SERVICE`
+`FINANCIAL.BANK-ACCOUNT` x `SHARING` x `SERVICES`
+`FINANCIAL.BANK-ACCOUNT` x `SHARING` x `SERVICES.ADDITIONAL-SERVICES`
+`FINANCIAL.BANK-ACCOUNT` x `SHARING` x `SERVICES.BASIC-SERVICE`
+
+If the System also knows of a `selector` `FINANCIAL.BANK-ACCOUNT.PRIMARY`, then the equivalent set also includes:
+
+`FINANCIAL.BANK-ACCOUNT.PRIMARY` x `SHARING` x `SERVICES`
+`FINANCIAL.BANK-ACCOUNT.PRIMARY` x `SHARING` x `SERVICES.ADDITIONAL-SERVICES`
+`FINANCIAL.BANK-ACCOUNT.PRIMARY` x `SHARING` x `SERVICES.BASIC-SERVICE`
+
+Systems MUST apply any operation concerning a Privacy Scope Triple to all of the Privacy Scope Triples equivalent to it.
+
 
 ## Privacy Algebra
 
 For each Data Subject, at all times, the [Privacy Compiler](../high-level-architecture#data-rights-compiler) maintains an **Eligible Privacy Scope**.
 
 For each Data Capture Fragment `selector`, the Privacy Compiler knows the **Intended Privacy Scope**.
-At the same time the Privacy Compiler knows about a set of Privacy Scope triples that are associated with an active Legal Base (in the **Runtime Maps**)
+At the same time the Privacy Compiler knows about a set of [Privacy Scope Triples](#privacy-scope-triples) that are associated with an active Legal Base (in the **Runtime Maps**)
 
-The **Eligible Privacy Scope**, is a set of Privacy Scope Triples, that is the INTERSECTION of:
-- set of Privacy Scope triples in the **Intended Privacy Scope**,
-- AND the set of Privacy Scope triples for which at least one of the following statements is true:
-    - They are associated with `CONSENT` legal base, and there is an active Consent such that the Privacy Scope Triple is contained in the Privacy Scope of that Consent
+The **Eligible Privacy Scope**, is a set of [Privacy Scope Triples](#privacy-scope-triples), that is the INTERSECTION of:
+- set of [Privacy Scope Triples](#privacy-scope-triples) in the **Intended Privacy Scope**,
+- AND the set of [Privacy Scope Triples](#privacy-scope-triples) for which at least one of the following statements is true:
+    - They are associated with `CONSENT` legal base, and there is an active Consent such that the [Privacy Scope Triple](#privacy-scope-triples) is contained in the Privacy Scope of that Consent
     - They are associated with `CONTRACT` legal base, and there is an active relationship (`contract-id` in *Active Contracts*) with the Data Subject in question for which no `RELATIONSHIP-END` event has been registered
     - They are associated with `LEGITIMATE-INTEREST` legal base, and
         - IF the Data Subject made any `OBJECT` Demand, they are not part of Privacy Scope of any such Demand
@@ -116,10 +142,10 @@ The **Eligible Privacy Scope**, is a set of Privacy Scope Triples, that is the I
     - They are associated with `NECESSARY` legal base
 
 The Privacy Compilers can be configured to evaluate Eligible Privacy Scopes in the context of particular regulations.
-In this case, Privacy Compilers maintain a list of Privacy Scope triples prohibited by that regulation and they exclude them from the Eligible Privacy Scope.
+In this case, Privacy Compilers maintain a list of [Privacy Scope Triples](#privacy-scope-triples) prohibited by that regulation and they exclude them from the Eligible Privacy Scope.
 E.g. under GDPR, it is prohibited to process gender and genetic data under any Legal Base other than Consent.
 
-For convenience, Privacy Compilers MAY also keep track of a set of **Prohibited (Privacy Scope)-(Legal Base) Pairs**, in which they SHOULD include Privacy Scope triples made illegal by the legislation that they want to support. It might also be convenient, when Data Subject's `OBJECT` or `RESTRICT` Demands are granted over a particular Privacy Scope, to list that scope under `LEGITIMATE-INTEREST` in the **Prohibited (Privacy Scope)-(Legal Base) Pairs** for making sure not to re-include them in the **Eligible Privacy Scope** unless the user gives explicit consent, signs a contract or becomes subject to mandatory data keeping.
+For convenience, Privacy Compilers MAY also keep track of a set of **Prohibited (Privacy Scope)-(Legal Base) Pairs**, in which they SHOULD include [Privacy Scope Triples](#privacy-scope-triples) made illegal by the legislation that they want to support. It might also be convenient, when Data Subject's `OBJECT` or `RESTRICT` Demands are granted over a particular Privacy Scope, to list that scope under `LEGITIMATE-INTEREST` in the **Prohibited (Privacy Scope)-(Legal Base) Pairs** for making sure not to re-include them in the **Eligible Privacy Scope** unless the user gives explicit consent, signs a contract or becomes subject to mandatory data keeping.
 
 > E.g. under GDPR, as processing of RACE data is only allowed under 'CONSENT' for medical research purposes, examples of **Prohibited (Privacy Scope)-(Legal Base) Pairs** include
 >
@@ -158,7 +184,7 @@ Let us imagine a System, processing data about a Data Subject, and having collec
   "scope": {
       "data-categories":["CONTACT"],
       "processing-categories": ["SHARING", "STORING"],
-      "purposes":["PERSONALISATION", "MARKETING", "ADVERTISING"]
+      "purposes":["PERSONALIZATION", "MARKETING", "ADVERTISING"]
     }
 }
 ```
@@ -210,7 +236,7 @@ The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD r
   "scope": {
       "data-categories":["CONTACT"],
       "processing-categories": ["SHARING", "STORING"],
-      "purposes":["PERSONALISATION"]
+      "purposes":["PERSONALIZATION"]
     }
 }
 ```
@@ -224,7 +250,7 @@ The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD r
 ```
 - Consider active the new consent: `4ec28dc8-8714-45a3-a710-c72cea6e6da4`
 
-The System MAY continue to use the Data Subjects' data for personalising their experience but no longer has consent to use the data for marketing and advertising.
+The System MAY continue to use the Data Subjects' data for personalizing their experience but no longer has consent to use the data for marketing and advertising.
 
 Let us now imagine the Data Subject making another Privacy Request, this time to object to any sharing of their e-mail address. For this, the following Privacy Request is made:
 
@@ -246,10 +272,10 @@ Let us now imagine the Data Subject making another Privacy Request, this time to
   }],
 }
 ```
-At the time of receiving this request, the System has consent for `STORING` and `SHARING` all `CONTACT` data for `PERSONALISATION` purposes.
+At the time of receiving this request, the System has consent for `STORING` and `SHARING` all `CONTACT` data for `PERSONALIZATION` purposes.
 When the System gets this request, the scope of the consent MUST change. The remaining scope of the consent will only include:
-- `SHARING` of all `CONTACT` data other then `CONTACT.EMAIL`, for `PERSONALISATION` purposes, and
-- `STORING` of all `CONTACT` for `PERSONALISATION` purposes
+- `SHARING` of all `CONTACT` data other then `CONTACT.EMAIL`, for `PERSONALIZATION` purposes, and
+- `STORING` of all `CONTACT` for `PERSONALIZATION` purposes
 
 The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD resolve this request by:
 - Generating a Privacy Request Response with the `GRANTED` Status,
@@ -277,7 +303,7 @@ The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD r
   "scope": {
       "data-categories":["CONTACT"],
       "processing-categories": ["STORING"],
-      "purposes":["PERSONALISATION"]
+      "purposes":["PERSONALIZATION"]
     }
 }
 
@@ -292,7 +318,7 @@ The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD r
   "scope": {
       "data-categories":["CONTACT.ADDRESS", "CONTACT.PHONE"],
       "processing-categories": ["SHARING"],
-      "purposes":["PERSONALISATION"]
+      "purposes":["PERSONALIZATION"]
     }
 }
 ```
@@ -314,7 +340,7 @@ Let us now imagine the Data Subject making another Privacy Request, this time to
 
 ```
 {
-  "request-id": "e848d0e0-41ab-492c-ae90-ca891b70abc1",
+  "request-id": "e848d0e0-41ab-492c-ae90-ca891b70abc1",TRANSPARENCY.ORGANIZATION
   "date": "2022-06-17T15:10:00+0000",
   "data-subject":[{
     "dsid-schema": "email-sha-256",
@@ -330,9 +356,9 @@ Let us now imagine the Data Subject making another Privacy Request, this time to
 }
 ```
 
-At the time of receiving this request, the System has consent for `STORING` of all `CONTACT` for `PERSONALISATION` purposes, and for `SHARING` of all `CONTACT` data other then `CONTACT.EMAIL`, for `PERSONALISATION` purposes.
+At the time of receiving this request, the System has consent for `STORING` of all `CONTACT` for `PERSONALIZATION` purposes, and for `SHARING` of all `CONTACT` data other then `CONTACT.EMAIL`, for `PERSONALIZATION` purposes.
 
-Afther processing the `RESTRICT` request, only the consent for `STORING` of all `CONTACT` for `PERSONALISATION` purposes remains valid.
+After processing the `RESTRICT` request, only the consent for `STORING` of all `CONTACT` for `PERSONALIZATION` purposes remains valid.
 
 The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD resolve this request by:
 - Generating a Privacy Request Response with the `GRANTED` Status,
@@ -370,7 +396,7 @@ The system receives the following Privacy Request:
 The System MUST no longer consider this Consent (nor any other consent derived from it) active. The list of active consents MUST now become empty, because the only active consent `6c8211c7-c152-4ef4-b264-098ee6533f75` is derived from `4ec28dc8-8714-45a3-a710-c72cea6e6da4` which is derived from
 `6b3ad78c-2d4a-4575-8a9f-a69c2bfe0bd2` that the user now revokes.
 
-The System SHOULD be able to deliver a timeline of Consents, Requests and Responses, that may serve as a proof of compliance and good faith.
+The System SHOULD be able to deliver a timeline of Consents, Privacy Requests and Privacy Request Responses, that may serve as a proof of compliance and good faith.
 
 > **Note**
 >
@@ -385,49 +411,49 @@ Also, as [we have seen](#updateConsent), `OBJECT` and `RESTRICT` Privacy Request
 In addition, when such Demands are received, the Eligible Privacy Scope SHOULD be recalculated.
 
 However, it is important to note that the `OBJECT` and `RESTRICT` Privacy Request Demands behave in very specific ways. Concretely:
-- They don't affect Privacy Scope Triples that are included in the Eligible Privacy Scope under `CONTRACT` or `NECESSARY` legal bases,
+- They don't affect [Privacy Scope Triples](#privacy-scope-triples) that are included in the Eligible Privacy Scope under `CONTRACT` or `NECESSARY` legal bases,
 
 - with regards to Consents, they affect only existing Consents, not the future ones.
     - Let us imagine for example that the Data Subject gave consent for processing of their data for any purpose.
     - Then later, the Data Subject makes an `OBJECT` Demand related to `SALE` purposes.
-    At this point all Privacy Scope Triples having `SALE` as purpose exit the Eligible Privacy Scope.
-    - This same Data Subject MAY again give consent for processing of their data for any purpose in which case the Privacy Scope Triples having `SALE` as purpose re-enter the Eligible Privacy Scope.
+    At this point all [Privacy Scope Triples](#privacy-scope-triples) having `SALE` as purpose exit the Eligible Privacy Scope.
+    - This same Data Subject MAY again give consent for processing of their data for any purpose in which case the [Privacy Scope Triples](#privacy-scope-triples) having `SALE` as purpose re-enter the Eligible Privacy Scope.
 
-- with regards to Privacy Scope Triples that are integrated in the Eligible Privacy Scope under `LEGITIMATE-INTEREST`, once `OBJECT` or `RESTRICT` Demands are made, they affect present and future Eligible Privacy Scope. In other words, the Privacy Scope Triples that have exited the Eligible Privacy Scope due to `OBJECT` or `RESTRICT` Demands, can't re-enter Eligible Privacy Scope under `LEGITIMATE-INTEREST`. When several `OBJECT` or `RESTRICT` Demands are made over time, a particular Privacy Scope Triple that entered the Eligible Privacy Scope under `LEGITIMATE-INTEREST`, can remain in the Eligible Privacy Scope if and only if:
+- with regards to [Privacy Scope Triples](#privacy-scope-triples) that are integrated in the Eligible Privacy Scope under `LEGITIMATE-INTEREST`, once `OBJECT` or `RESTRICT` Demands are made, they affect present and future Eligible Privacy Scope. In other words, the [Privacy Scope Triples](#privacy-scope-triples) that have exited the Eligible Privacy Scope due to `OBJECT` or `RESTRICT` Demands, can't re-enter Eligible Privacy Scope under `LEGITIMATE-INTEREST`. When several `OBJECT` or `RESTRICT` Demands are made over time, a particular [Privacy Scope Triple](#privacy-scope-triples) that entered the Eligible Privacy Scope under `LEGITIMATE-INTEREST`, can remain in the Eligible Privacy Scope if and only if:
     - It is not a part of union of Privacy Scopes of all `OBJECT` Demands, AND if
     - It is a part of the intersection of Privacy Scopes of all `RESTRICT` Demands
 
 Let us take an example to illustrate updating of Eligible Privacy Scope. At the beginning the System holds the Data Subjects e-mail address for prospecting purposes, under `LEGITIMATE-INTEREST` Legal Base.
 ```
 Eligible Privacy Scope:
-CONTACT.EMAIL x ALL x MARKETING (LEGITIMATE-INTEREST)
+CONTACT.EMAIL x * x MARKETING (LEGITIMATE-INTEREST)
 ```
 
 The Data Subject, after receiving a marketing e-mail, decides to open an account and start using the service. They provide their postal address for billing. While creating an account, they also give consent for their postal address to be used for advertising purposes.
 
 ```
 Eligible Privacy Scope:
-CONTACT.EMAIL x ALL x MARKETING (LEGITIMATE-INTEREST)
-CONTACT.EMAIL x ALL x SERVICES (CONTRACT)
-CONTACT.ADDRESS x ALL x SERVICES (CONTRACT)
-CONTACT.ADDRESS x ALL x ADVERTISING (CONSENT)
+CONTACT.EMAIL x * x MARKETING (LEGITIMATE-INTEREST)
+CONTACT.EMAIL x * x SERVICES (CONTRACT)
+CONTACT.ADDRESS x * x SERVICES (CONTRACT)
+CONTACT.ADDRESS x * x ADVERTISING (CONSENT)
 ```
 
-The Data Subject realises that they are receiving too much advertising material and they formulate a Privacy Request with one `REVOKE-CONSENT` demand targeting particular consent that they gave.
-
-```
-Eligible Privacy Scope:
-CONTACT.EMAIL x ALL x MARKETING (LEGITIMATE-INTEREST)
-CONTACT.EMAIL x ALL x SERVICES (CONTRACT)
-CONTACT.ADDRESS x ALL x SERVICES (CONTRACT)
-```
-
-The Data Subject realises that they are still receiving maketing e-mail and they formulate a Privacy Request with one `OBJECT` demand with `CONTACT.EMAIL` being defined as its Privacy Scope. Yet, this Demand only affects the Privacy Scope Triples held under `LEGITIMATE-INTEREST`. The System can still, continue to keep the `CONTACT.EMAIL` and `CONTACT.ADDRESS` for the same of the ongoing contractual relationship with the user.
+The Data Subject realizes that they are receiving too much advertising material and they formulate a Privacy Request with one `REVOKE-CONSENT` demand targeting particular consent that they gave.
 
 ```
 Eligible Privacy Scope:
-CONTACT.EMAIL x ALL x SERVICES (CONTRACT)
-CONTACT.ADDRESS x ALL x SERVICES (CONTRACT)
+CONTACT.EMAIL x * x MARKETING (LEGITIMATE-INTEREST)
+CONTACT.EMAIL x * x SERVICES (CONTRACT)
+CONTACT.ADDRESS x * x SERVICES (CONTRACT)
+```
+
+The Data Subject realizes that they are still receiving marketing e-mail and they formulate a Privacy Request with one `OBJECT` demand with `CONTACT.EMAIL` being defined as its Privacy Scope. Yet, this Demand only affects the [Privacy Scope Triples](#privacy-scope-triples) held under `LEGITIMATE-INTEREST`. The System can still, continue to keep the `CONTACT.EMAIL` and `CONTACT.ADDRESS` for the same of the ongoing contractual relationship with the user.
+
+```
+Eligible Privacy Scope:
+CONTACT.EMAIL x * x SERVICES (CONTRACT)
+CONTACT.ADDRESS x * x SERVICES (CONTRACT)
 ```
 However, the remaining purpose (`SERVICES`) now only allows the System to send e-mail related to the services being provided, and no longer supports sending marketing e-mail to this Data Subject.
 
@@ -464,9 +490,9 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
 - Regardless of restrictions
     - `OTHER` Demands: recommend human review and status = `UNDER-REVIEW`
     - `TRANSPARENCY.KNOWN` Demands: recommend status = `GRANTED`, and data = `YES`.
-    - `TRANSPARENCY.DATA-CATEGORIES` Demands: recommend status = `GRANTED`, and data = list of Data Categories that are included in any of the Privacy Scope Triples included in the Eligible Privacy Scope.
+    - `TRANSPARENCY.DATA-CATEGORIES` Demands: recommend status = `GRANTED`, and data = list of Data Categories that are included in any of the [Privacy Scope Triples](#privacy-scope-triples) included in the Eligible Privacy Scope.
     - `TRANSPARENCY.PROVENANCE`, see [Resolving provenance in requests](#resolving-provenance-in-requests)
-    - `TRANSPARENCY.ORGANISATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.DPO`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, Demands: recommend status = `GRANTED`, and data = information corresponding to the request taken from configuration settings as defined under [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV) and under [Configuration and Prerequisites](#configuration-and-prerequisites).
+    - `TRANSPARENCY.ORGANIZATION`, `TRANSPARENCY.POLICY`, `TRANSPARENCY.RETENTION`, `TRANSPARENCY.DPO`, `TRANSPARENCY.WHERE`, `TRANSPARENCY.WHO`, Demands: recommend status = `GRANTED`, and data = information corresponding to the request taken from configuration settings as defined under [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV) and under [Configuration and Prerequisites](#configuration-and-prerequisites).
 
 - With regards to Demand restrictions (if any) limiting the scope of the Demand:
     - first, check for presence of incompatible restrictions (and if incompatible recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED`):
@@ -510,11 +536,11 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
         >
 
     - third, with regards to the `action` of the Demand:     
-     - `TRANSPARENCY.LEGAL-BASES` Demands, recommend status = `GRANTED`, and data = list of Legal Bases under which any of the Privacy Scope Triples are included in the **Restriction Scope**
-     - `TRANSPARENCY.PROCESSING-CATEGORIES` Demands: recommend status = `GRANTED`, and data = list of Processing Categories that are included in any of the Privacy Scope Triples included in the **Restriction Scope**.
-     - `TRANSPARENCY.PURPOSE` Demands: recommend status = `GRANTED`, and data = list of Purposes that are included in any of the Privacy Scope Triples included in the **Restriction Scope**
+     - `TRANSPARENCY.LEGAL-BASES` Demands, recommend status = `GRANTED`, and data = list of Legal Bases under which any of the [Privacy Scope Triples](#privacy-scope-triples) are included in the **Restriction Scope**
+     - `TRANSPARENCY.PROCESSING-CATEGORIES` Demands: recommend status = `GRANTED`, and data = list of Processing Categories that are included in any of the [Privacy Scope Triples](#privacy-scope-triples) included in the **Restriction Scope**.
+     - `TRANSPARENCY.PURPOSE` Demands: recommend status = `GRANTED`, and data = list of Purposes that are included in any of the [Privacy Scope Triples](#privacy-scope-triples) included in the **Restriction Scope**
      - `REVOKE-CONSENT` Demands:
-         - If restricted to concrete consent IDs with a [Consent Restriction](./RFC-PRIV.md#consent-restriction), recommend status = `GRANTED` and recalculate Eligible Privacy Scope to drop any Privacy Scope Triples that have been included as a result of Consents being revoked.
+         - If restricted to concrete consent IDs with a [Consent Restriction](./RFC-PRIV.md#consent-restriction), recommend status = `GRANTED` and recalculate Eligible Privacy Scope to drop any [Privacy Scope Triples](#privacy-scope-triples) that have been included as a result of Consents being revoked.
          - If Demand is restricted by a Privacy Scope, recommend status = `GRANTED` and [update consents](#updateConsent)
          - If no Restriction is given in the Demand, revoke all consents given by this Data Subject
          - If only a Date Range restriction is present, recommend status = `GRANTED` and revoke all consents that have been collected in the given Date Range
@@ -527,7 +553,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
      - `DELETE` Demands:
          - If the **Concerned Fragments** set is empty, recommend status = `DENIED`, motive = `NO-SUCH-DATA`
          - If it is non-empty:
-             - recommend for deletion the Data Capture Fragments from that set, the `scope` of which only includes Privacy Scope Triples that are introduced in the Eligible Privacy Scope under Legal Bases belonging to {`LEGITIMATE-INTEREST`, `CONSENT`}
+             - recommend for deletion the Data Capture Fragments from that set, the `scope` of which only includes [Privacy Scope Triples](#privacy-scope-triples) that are introduced in the Eligible Privacy Scope under Legal Bases belonging to {`LEGITIMATE-INTEREST`, `CONSENT`}
              - if the set of Data Capture Fragments recommended for deletion is *the same as* the **Concerned Fragments** set, recommend status = `ACCEPT`,
              - else, if the set of Data Capture Fragments recommended for deletion is *included in* the **Concerned Fragments** set, recommend status = `PARTIALLY-GRANTED`,
              - else, recommend status = `DENIED`,
@@ -556,22 +582,22 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
 Systems SHOULD define Retention Policies at the time of configuration, and SHOULD cover all Data Categories and Data Capture Fragment `selector`s from the Intended Privacy Scope with at least one Retention Policy.
 
 Retention Policies are resolved upon concrete instances of Data Capture Fragments. A particular instance of data, given the Data Capture Fragment `selector` to which it corresponds, is considered `EXPIRED` if all of the following is true:
-- There is a Retention Policy the `data-category` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular Data Capture Fragment, that is of type `NO-LONGER-THAN`, such that the date of the event defined under `after` has passed for a more then the time defined under `duration`
-- AND There is no Retention Policy the `data-category` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular Data Capture Fragment, that is of type `NO-LESS-THAN`, such that the event defined under `after` is yet to happen or has happened before a period of time inferior to `duration`
+- There is a Retention Policy the `data-categories` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular Data Capture Fragment, that is of type `NO-LONGER-THAN`, such that the date of the event defined under `after` has passed for a more then the time defined under `duration`
+- AND There is no Retention Policy the `data-categories` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular Data Capture Fragment, that is of type `NO-LESS-THAN`, such that the event defined under `after` is yet to happen or has happened before a period of time inferior to `duration`
 
 Privacy Compilers SHOULD be able to:
 - provide lists of active policies, in the context of answering to the `TRANSPARENCY.RETENTION` requests
 - resolve policies and generate `EXPIRED` alerts, upon which the Systems MAY chose to implement automatic data deletion, or other protocols for data archiving or similar
 - resolve policies for Systems configured not to automatically delete data, but to automatically grant `DELETE` requests only when data is `EXPIRED`
 
-Optionally, for systems wanting to automatically deny `DELETE` requests when data MUST be kept, Privacy Compilers MAY be able resolve policies giving `HOLD` status, when there is at least one Retention Policy the `data-category` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular data, that is of type `NO-LESS-THAN`, such that the event defined under `after` is yet to happen or has happened before a period of time inferior to `duration`.
+Optionally, for systems wanting to automatically deny `DELETE` requests when data MUST be kept, Privacy Compilers MAY be able resolve policies giving `HOLD` status, when there is at least one Retention Policy the `data-categories` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular data, that is of type `NO-LESS-THAN`, such that the event defined under `after` is yet to happen or has happened before a period of time inferior to `duration`.
 
 ## Working with Provenance
 
 ### Remembering provenance
-In order to correctly process `TRANSPARENCY.PROVENANCE` requests as well as requests that are intended to be transferred (`target` = `ORGANISATION`, `PARTNERS`), the Privacy Compiler MUST:
+In order to correctly process `TRANSPARENCY.PROVENANCE` requests as well as requests that are intended to be transferred (`target` = `ORGANIZATION`, `PARTNERS`), the Privacy Compiler MUST:
 - Keep track of transfers, as described in [Implications for Systems](./RFC-PRIV.md#remembering-transfers)
-- Keep track of System IDs that correspond to particular targets values, i.e. know which Systems are in `ORGANISATION`, and which are in `PARTNERS`
+- Keep track of System IDs that correspond to particular targets values, i.e. know which Systems are in `ORGANIZATION`, and which are in `PARTNERS`
 - For every **Known Selector** keep track of one or more [Provenance](./RFC-PRIV.md#provenance) objects.
 
 > When a System generates data about the Data Subject, it creates a Data Capture and associates its Fragments with a [Provenance](./RFC-PRIV.md#provenance) object having `provenance-category`: `DERIVED`
@@ -584,15 +610,15 @@ In order to correctly process `TRANSPARENCY.PROVENANCE` requests as well as requ
 ### Resolving provenance in requests
 
 In response to `TRANSPARENCY.PROVENANCE` Demands, the Privacy Compiler can:
-- look for Data Capture Fragments related to particular Data Subject,
+- look for [Data Capture Fragment](./RFC-PRIV.md#data-capture-fragments) related to particular Data Subject,
 - specifically, when the `TRANSPARENCY.PROVENANCE` Demand is constrained to a particular Privacy Scope, look for only Data Capture Fragments corresponding to this particular Privacy Scope, and
 - retrieve the [Provenance](./RFC-PRIV.md#provenance) objects provided in `provenance` of such Data Capture Fragments
 
 When a Demand is restricted by a [Provenance Restriction](./RFC-PRIV.md#provenance-restriction), the Privacy Compiler is tasked with a more complex interpretation:
-- The [Provenance Restriction](./RFC-PRIV.md#provenance-restriction) either includes an explicit `target`, one of {`ORGANISATION`, `PARTNERS`, `SYSTEM`}, or `SYSTEM` is assumed.
+- The [Provenance Restriction](./RFC-PRIV.md#provenance-restriction) either includes an explicit `target`, one of {`ORGANIZATION`, `PARTNERS`, `SYSTEM`}, or `SYSTEM` is assumed.
 - The Privacy Compiler MUST resolve this information in the context of the particular System that it serves.
     - `SYSTEM` is understood as the System that the Privacy Compiler serves.
-    - To resolve `ORGANISATION` and `PARTNERS` The Privacy Compiler looks into the correspondence table it keeps, to know which System IDs are `ORGANISATION` and `PARTNERS` Systems to the System it serves.
+    - To resolve `ORGANIZATION` and `PARTNERS` The Privacy Compiler looks into the correspondence table it keeps, to know which System IDs are `ORGANIZATION` and `PARTNERS` Systems to the System it serves.
 
 After having resolved the `target` value to concrete Systems IDs, the Privacy Compiler looks for Data Capture Fragments, the `provenance` of which matches both:
 - the `provenance-category` of the Demand's [Provenance Restriction](./RFC-PRIV.md#provenance-restriction), AND

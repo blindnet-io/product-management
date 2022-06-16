@@ -11,7 +11,7 @@
   "TRANSPARENCY.DPO": "To know the contact details of the data protection officer",
   "TRANSPARENCY.KNOWN": "To know if the System has data on me",
   "TRANSPARENCY.LEGAL-BASES": "To know the legal bases for processing my data (including legitimate interests)",
-  "TRANSPARENCY.ORGANISATION": "To know the identity and the contact details of the organisation processing my data",
+  "TRANSPARENCY.ORGANIZATION": "To know the identity and the contact details of the organization processing my data",
   "TRANSPARENCY.POLICY": "To know the policies being applied to processing of data concerning me",
   "TRANSPARENCY.PROCESSING-CATEGORIES": "To know the categories of processing being done on the data the System has on me",
   "TRANSPARENCY.PROVENANCE": "To know the sources that the data concerning me come from",
