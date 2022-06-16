@@ -71,7 +71,10 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
     - *Corresponding Systems*: A map of Other Systems with which data is being exchanged. For each System The Privacy Compiler MUST know if they are an `ORGANIZATION` or `PARTNERS` System, and have a way to uniquely identify and address them (see [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV), [Working with Provenance](#working-with-provenance))
 
 - **Privacy Metadata Store**, updated at runtime:
-   - *All Captures*: a list of all the [Data Capture](./RFC-PRIV.md#data-capture) objects that the Privacy Compiler is aware of
+   - *All Captures*: a list of all the [Data Capture](./RFC-PRIV.md#data-capture) objects that the Privacy Compiler is aware of.
+
+   > Data Captures are not only generated on user input, but may result from user tracking, or from data transfers. All such Data Captures objects are of interest to the Privacy Compiler.
+   
    - *All Requests*: a list of all the [Privacy Request](./RFC-PRIV.md#privacy-request) objects that the Privacy Compiler is aware of
    - *All Responses*: a list of all the [Privacy Request Response](./RFC-PRIV.md#privacy-request-response) objects that the Privacy Compiler is aware of
    - Legal Bases:
