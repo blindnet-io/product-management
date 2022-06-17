@@ -1,4 +1,4 @@
-*[Privacy Scope Triples](#privacy-scope-triples)# Privacy Request Interchange Vocabulary : Expected Behavior of Implementing Systems
+# Privacy Request Interchange Vocabulary : Expected Behavior of Implementing Systems
 
 | Status        | NA / supporting document                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
