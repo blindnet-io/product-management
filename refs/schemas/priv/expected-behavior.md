@@ -73,7 +73,9 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
 - **Privacy Metadata Store**, updated at runtime:
    - *All Captures*: a list of all the [Data Capture](./RFC-PRIV.md#data-capture) objects that the Privacy Compiler is aware of.
 
-   > Data Captures are not only generated on user input, but may result from user tracking, or from data transfers. All such Data Captures objects are of interest to the Privacy Compiler.
+
+   > Data Captures are not only generated on user input, but may result from user tracking, or from data transfers.
+   > All such Data Captures objects are of interest to the Privacy Compiler.
 
    - *All Requests*: a list of all the [Privacy Request](./RFC-PRIV.md#privacy-request) objects that the Privacy Compiler is aware of
    - *All Responses*: a list of all the [Privacy Request Response](./RFC-PRIV.md#privacy-request-response) objects that the Privacy Compiler is aware of
@@ -98,7 +100,7 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
         - For each Data Subject, an **Eligible Privacy Scope**, according to [Privacy Algebra](#privacy-algebra).
         This **Eligible Privacy Scope** is easily resolved at the level of each [Data Capture Fragment](./RFC-PRIV.md#data-capture-fragments) (or its `selector`)
 
-## [Privacy Scope Triples](#privacy-scope-triples)
+## Privacy Scope Triples
 
 A **<a name="triple"></a>Privacy Scope Triple** is a unit of [Privacy Scope](RFC-PRIV.md#privacy-scope)
 and it consists of (in that order):
