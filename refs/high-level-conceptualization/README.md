@@ -7,7 +7,6 @@
 > It is foundation stone of a new software paradigm - it allows to build new kind of software, with privacy embedded in its design and architecture.
 
 _This high-level concept model describes the conceptualization behind blidnet’s software, in terms of the information it deals with and the reality it enables.
-
 This conceptualization does not directly translate to any database structure, workflow, or code. It aims to inform software designers’ thinking, guide design choices, and reduce confusion._
 
 ## TERMINOLOGY
