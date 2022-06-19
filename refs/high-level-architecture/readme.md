@@ -88,7 +88,7 @@ A Privacy Computation Engine component is composed of three elements:
 
 #### Privacy Compiler
 
-A **_Privacy Compiler_** computes one or more actions (and to them association motivations/reasons/explanations) that need to be performed by a [Systems](../lexicon/RFC-Lexicon-2.md#system) in order to respect [Data Subjects'](../lexicon/RFC-Lexicon-2.md#data-subject) data rights.
+A **_Privacy Compiler_** computes one or more actions (and to them association motivations/reasons/explanations) that need to be performed by a [System](../lexicon/RFC-Lexicon-2.md#system) in order to respect [Data Subjects'](../lexicon/RFC-Lexicon-2.md#data-subject) data rights.
 Such actions include (not limited to): data deletion, acceptance/denial of [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request), and transmission of Privacy Requests to another System.
 
 To compute the appropriate actions, this component CAN register and take into account:
