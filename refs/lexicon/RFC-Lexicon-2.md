@@ -44,7 +44,7 @@ A compound unit of data, concerning a [Data Subject](#data-subject), made availa
 
 It is composed of one or more [Data Capture Fragments](#data-capture-fragment).
 
-It is obtained in any way, including: directly submitted by a [Submitter](#submitter)(who is the same as the Data Subject, or not), transferred from System to System, generated or inferred by a System.
+It is obtained in any way, including: directly submitted by a [Submitter](#submitter) (who is the same as the Data Subject, or not), transferred from System to System, generated or inferred by a System.
 
 ### Data Capture Fragment
 
