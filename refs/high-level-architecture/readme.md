@@ -157,7 +157,7 @@ This interoperability SHOULD support the following (extreme) example scenarios:
 
 - A System that is essentially a wordpress website, CAN embed the Capture Component in a wordpress webform, use the Storage Component, the Data Consumer Interface (as separate from the wordpress website), use Privacy Computation Engine and embed the Privacy Request Capture Interface in the wordpress website respecting its look and feel.
 
-- A System that has their own user identity management, uses 3rd party e2ee library, has its own storage and interfaces for data view, CAN instantiate the Privacy Computation Engine and use only the parts of the Data Consumer Interface related to Privacy Request parametrization and approval.
+- A System that has its own user identity management, uses 3rd party e2ee library, has its own storage and interfaces for data view, CAN instantiate the Privacy Computation Engine and use only the parts of the Data Consumer Interface related to Privacy Request parametrization and approval.
 
 ### Separation of Form and Function
 
