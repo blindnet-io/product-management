@@ -161,7 +161,7 @@ This interoperability SHOULD support the following (extreme) example scenarios:
 
 ### Separation of Form and Function
 
-The components of [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit) MUST be made in such a way that a client [Systems](../lexicon/RFC-Lexicon-2.md#system) CAN use only the functional part and implement its own interfaces or otherwise achieve its own desired look and feel and UX.
+The components of [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit) MUST be made in such a way that client [Systems](../lexicon/RFC-Lexicon-2.md#system) CAN use only the functional part and implement its own interfaces or otherwise achieve its own desired look and feel and UX.
 
 ### Different Privacy Request Response Scenarios
 
