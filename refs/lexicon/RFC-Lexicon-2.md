@@ -59,7 +59,7 @@ Also know as Capture Fragment, or Fragment.
 
 ### Data Consumer
 
-A human, or a other entity consuming the data concerning [Data Subjects](#data-subject).
+A human, or some other entity consuming the data concerning [Data Subjects](#data-subject).
 
 ### Data Subject
 
