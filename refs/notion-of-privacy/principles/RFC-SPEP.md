@@ -2,7 +2,7 @@
 
 | Status        | proposed                                                                              |
 | :------------ | :------------------------------------------------------------------------------------- |
-| **PR #**      | [703](https://github.com/blindnet-io/product-management/pull/703))                    |
+| **PR #**      | [704](https://github.com/blindnet-io/product-management/pull/704))                    |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                           |
 | **Updated**   | 2022-06-20                                                                             |
 
