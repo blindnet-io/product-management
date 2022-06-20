@@ -1,6 +1,6 @@
 # Simple Privacy Engineering Principles
 
-| Status        | proposed                                                                              |
+| Status        | Accepted                                                                              |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **PR #**      | [704](https://github.com/blindnet-io/product-management/pull/704)                    |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                           |
@@ -28,23 +28,25 @@ While it is impossible to guarantee compliance with [regulation](#privacy-legisl
 
 ### Transparency
 
-`- to let the user know.`
+> To let the user know.
 
 Transparency means letting the user know what to expect (upfront transparency), and what is actually going on (ongoing transparency).
 
-Transparency refers to a different kinds of information that the user might want to know.
+Transparency refers to different kinds of information that the user might want to know.
 Particular [regulations](#privacy-legislation) define specific information.
+
 Among the most common are:
-    - Who can access the data
-    - Where is the data stored
-    - What is done with the data
-    - Why is data being collected and used
-    - For how long is the data kept
+
+- Who can access the data
+- Where is the data stored
+- What is done with the data
+- Why is data being collected and used
+- For how long is the data kept
 
 
 ### Confidentiality
 
-`- to keep the unintended parties away.`
+> To keep the unintended parties away.
 
 Data is handled in a way that ensures that only the intended parties can access it.
 This might involve different approaches to security and access management.
@@ -53,7 +55,7 @@ Particular [regulations](#privacy-legislation) impose specific techniques.
 
 ### Control
 
-`- to let the user negotiate the data usage.`
+> To let the user negotiate the data usage.
 
 Control means letting the users make requests related to data concerning them.
 The usage of data is negotiated within the limits of what the System needs to fulfill its purpose.
