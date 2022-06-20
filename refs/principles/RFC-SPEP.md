@@ -15,9 +15,7 @@ Ever since software Systems became tools for human connectedness, a need emerged
 [Academic research](../notion-of-privacy/notion-of-privacy.md) offers insight into the definition and function of privacy. Growing body of [regulation](#privacy-legislation) specifics how software Systems and Organizations operating them should behave in order to ensure privacy. Yet, it remains challenging for a software engineer to grasp all that information and translate it into design of a software System.
 
 We propose simple engineering principles that embody key understandings of privacy in the context of software engineering.
-While it is impossible to guarantee compliance with [regulation](#privacy-legislation) upfront, it is likely that Systems engineered in the spirit of these principles will reach compliance more easily than other systems, and natively cover major regulatory constraints.
-
-
+While it is impossible to guarantee compliance with [regulation](#privacy-legislation) upfront, Systems engineered in the spirit of these principles are more likely than others to be compliant or easily made compliant with privacy regulations.
 
 ## Terminology
 
@@ -30,9 +28,37 @@ While it is impossible to guarantee compliance with [regulation](#privacy-legisl
 
 ### Transparency
 
+`- to let the user **know**.`
+
+Transparency means letting the user know what to expect (upfront transparency), and what is actually going on (ongoing transparency).
+
+Transparency refers to a different kinds of information that the user might want to know.
+Particular [regulations](#privacy-legislation) define specific information.
+Among the most common are:
+    - Who can access the data
+    - Where is the data stored
+    - What is done with the data
+    - Why is data being collected and used
+    - For how long is the data kept
+
+
 ### Confidentiality
 
+`- to keep the **unintended** parties away.`
+
+Data is handled in a way that ensures that only the intended parties can access it.
+This might involve different approaches to security and access management.
+Particular [regulations](#privacy-legislation) impose specific techniques.
+
 ### Control
+
+`- to let the user **negotiate** the data usage.`
+
+Control means letting the users make requests related to data concerning them.
+The usage of data is negotiated within the limits of what the System needs to fulfill its purpose.
+
+Particular [regulations](#privacy-legislation) define specific requests the users must be able to make.
+
 
 ## References
 
