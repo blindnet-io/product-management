@@ -2,7 +2,7 @@
 
 | Status        | proposed                                                                              |
 | :------------ | :------------------------------------------------------------------------------------- |
-| **PR #**      | [704](https://github.com/blindnet-io/product-management/pull/704))                    |
+| **PR #**      | [704](https://github.com/blindnet-io/product-management/pull/704)                    |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                           |
 | **Updated**   | 2022-06-20                                                                             |
 
@@ -28,7 +28,7 @@ While it is impossible to guarantee compliance with [regulation](#privacy-legisl
 
 ### Transparency
 
-`- to let the user **know**.`
+`- to let the user know.`
 
 Transparency means letting the user know what to expect (upfront transparency), and what is actually going on (ongoing transparency).
 
@@ -44,15 +44,16 @@ Among the most common are:
 
 ### Confidentiality
 
-`- to keep the **unintended** parties away.`
+`- to keep the unintended parties away.`
 
 Data is handled in a way that ensures that only the intended parties can access it.
 This might involve different approaches to security and access management.
+The System (and its administrators and the Organization controlling it) may be an unintended party.
 Particular [regulations](#privacy-legislation) impose specific techniques.
 
 ### Control
 
-`- to let the user **negotiate** the data usage.`
+`- to let the user negotiate the data usage.`
 
 Control means letting the users make requests related to data concerning them.
 The usage of data is negotiated within the limits of what the System needs to fulfill its purpose.
@@ -69,7 +70,7 @@ Particular [regulations](#privacy-legislation) define specific requests the user
 ### Informative References
 
 - [Notion of Privacy](../notion-of-privacy/notion-of-privacy.md)
-- [Privacy by design](Privacy by design)
+- [Privacy by design](https://en.wikipedia.org/wiki/Privacy_by_design)
 
 ### Privacy Legislation
 
