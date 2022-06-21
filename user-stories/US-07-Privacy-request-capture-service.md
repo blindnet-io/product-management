@@ -232,7 +232,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **I want to** receive the Privacy Requests in a format that is compatible with my system
 
-**because** otherwise I cannot use blindnet devkit to for Privacy Request capture
+**because** otherwise I cannot use blindnet devkit for Privacy Request capture
 
 
 ### US-07-3-03
