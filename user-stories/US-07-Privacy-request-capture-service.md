@@ -14,7 +14,7 @@ Privacy Request Capture Service is a component of the [High Level Architecture](
 
 When this component is installed by a System and used to interact with the Internet Users of that System, we call that **Local** Privacy Request Capture Service.
 
-However, Systems may declare Data Captures that they are responsible of to a centralised Global service, where any Internet User can make a Privacy Request. We call this service **Global** Privacy Request Capture Service.
+However, Systems may declare Data Captures that they are responsible for to a centralised Global service, where any Internet User can make a Privacy Request. We call this service **Global** Privacy Request Capture Service.
 
 
 ## 07-1 Internet User (a Submitter or a Data Subject)
