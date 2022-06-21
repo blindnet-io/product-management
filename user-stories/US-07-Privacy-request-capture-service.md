@@ -71,7 +71,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
-**I want to** send several demands per request
+**I want to** send several [Demands](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#demands) per request
 
 **because** I want to exercise several data rights at the same time, on the data an Organization has on me
 
