@@ -61,5 +61,7 @@ Privacy rights engine:
 
 Storage elements of the architecture are responsible for storing the data.
 
+Identity elements of the architecture are responsible for creating and managing users of the devkit (e.g., Data Subjects, Data Consumers, etc.).
+
 [HLA]: ../architecture/
 
