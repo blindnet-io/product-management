@@ -9,7 +9,7 @@
 
 This document specifies the expected behavior of Systems implementing [Privacy Request Interchange Vocabulary](./RFC-PRIV.md). It defines actions that the systems MAY undertake with regards to particular Privacy Requests and particular situations.
 
-It is a first step towards the specification of the [Privacy Compiler](../high-level-architecture#data-rights-compiler), formerly known as Data Rights Compiler in the [High Level Architecture](../high-level-architecture).
+It is a first step towards the specification of the [Privacy Compiler](../../high-level-architecture#data-rights-compiler), formerly known as Data Rights Compiler in the [High Level Architecture](../../high-level-architecture).
 
 
 ## Motivation
