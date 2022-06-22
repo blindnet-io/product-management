@@ -14,7 +14,7 @@ It is a first step towards the specification of the [Privacy Compiler](../high-l
 
 ## Motivation
 
-While this document is a first step in the definition of the [Privacy Compiler](../high-level-architecture#data-rights-compiler), it is not intended to be its formal specification nor to influence the design choices related to formalization of rules and configurations.
+While this document is a first step in the definition of the [Privacy Compiler](../../high-level-architecture#data-rights-compiler), it is not intended to be its formal specification nor to influence the design choices related to formalization of rules and configurations.
 
 The purpose of the document is primarily illustrate a possible behavior Systems (And their Privacy Compilers) MAY implement in response to Privacy Requests, in order to test the completeness of the [Privacy Request Interchange Vocabulary](./RFC-PRIV.md).
 
