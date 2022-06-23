@@ -90,7 +90,6 @@ The Privacy Request Interchange Vocabulary includes the following:
 [Privacy Request Response](#privacy-request-response),
 [Privacy Scope](#privacy-scope)(and its dimensions: *Data Category*, *Processing Category* and *Purpose*), [Provenance](#provenance),
 [Retention Policy](#retention-policy),
-[Data Subject Identity](#decentralized-identity-of-data-subjects)
 
 - **Properties**: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`,`fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `message`, `motive`, `policy-type`, `processing-categories`, `provenance`, `provenance-category`, `purposes`, `replaces`, `response-id`, `restrictions`, `request-id`, `replaced-by`, `retention`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
 
