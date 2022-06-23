@@ -556,6 +556,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
          - Recommend deletion of the **Concerned Fragments**.
 
      - `DELETE` Demands:
+         - If restricted to a Privacy Scope Restriction having a `processing-category` or a `purpose`, recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED` (A DELETE request can only be relative to a category of data, not to a category of processing or a particular purpose.)
          - If the **Concerned Fragments** set is empty, recommend status = `DENIED`, motive = `NO-SUCH-DATA`
          - If it is non-empty:
              - recommend for deletion the Data Capture Fragments from that set, the `scope` of which only includes [Privacy Scope Triples](#privacy-scope-triples) that are introduced in the Eligible Privacy Scope under Legal Bases belonging to {`LEGITIMATE-INTEREST`, `CONSENT`}
@@ -565,7 +566,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
              - when status is one of {`PARTIALLY-GRANTED`, `DENIED`} add one or more motives = `VALID-REASONS` or `IMPOSSIBLE` when **Concerned Fragments** that are not recommended for deletion, have in their `scope` Privacy Scope Triples included in the Eligible Privacy Scope under `CONTRACT` or `NECESSARY` Legal Bases, respectively.
 
      - `MODIFY` Demands:
-         - If restricted to a Privacy Scope Restriction having a `processing-category` or a `purpose`, recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED` (A Delete request can only be relative to a category of data, not to a category of processing or a particular purpose.)
+         - If restricted to a Privacy Scope Restriction having a `processing-category` or a `purpose`, recommend status = `DENIED`, motive = `REQUEST-UNSUPPORTED` (A MODIFY request can only be relative to a category of data, not to a category of processing or a particular purpose.)
          - If the **Concerned Fragments** set is empty, recommend status = `DENIED`, motive = `NO-SUCH-DATA`
          - If it is non-empty, recommend status = `ACCEPT` (potentially upon human validation)
 
