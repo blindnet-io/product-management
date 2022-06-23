@@ -360,6 +360,19 @@ The following correspondence of [data categories](https://www.luc.edu/its/abouti
 | Photographic image - Photographic images are not limited to images of the face. | `IMAGE` |
 | Any other characteristic that could uniquely identify the individual | `UID` |
 
+#### UROPA
+
+[UROPA](https://github.com/uropa-project/uropa) defines the following Collection Means (called Provenance in PRIV) that can be mapped to PRIV Terms:
+
+| UROPA [collectionMean](https://gdpr.stoplight.io/docs/uropa/922d9e36659fd-data-type) | PRIV [Provenance Terms](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#provenance-categories) |
+| -------------- | ------------------ |
+| `generated` | `DERIVED` |
+| `computed` | `DERIVED`|
+| `submitted` | `USER` |
+| *not supported* | `TRANSFERRED` |
+
+It is possible to model subcategory terms `DERIVED.GENERATED` and `DERIVED.COMPUTED` for the purposes of interoperability with UROPA.
+
 
 ## Questions and Discussion Topics
 

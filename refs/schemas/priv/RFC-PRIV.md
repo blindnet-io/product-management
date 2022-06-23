@@ -848,6 +848,12 @@ Name, Address (all geographic subdivisions smaller than state, including street 
 
 We examine, in [examples.md](./examples.md#hippa) how those categories can be mapped to PRIV's Data Categories.
 
+### UROPA
+
+Alias.dev and Leto.legal have developed [UROPA](https://github.com/uropa-project/uropa) a schema for representing data processing records. Data Processing records are sort of configuration records, covering different general information and settings that PRIV implementing systems MUST configure. UROPA only specifies properties, but almost no particular terms (except for Provenance - the [mapping of which is given un examples.md]((./examples.md#uropa))).
+
+Full configuration needed to resolve many of the TRANSPARENCY requests can be represented using UROPA, provided that [PRIV Terms](#terms) are used as names of different categories (that are free strings in UROPA). The `data` values of [Privacy Request Responses](#privacy-request-response) MAY also be delivered using UROPA JSON format for better machine readability (the end-user-facing System are then tasked with rendering such information to the User).
+
 
 
 

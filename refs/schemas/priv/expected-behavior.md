@@ -46,7 +46,7 @@ Because of this Systems MUST be able to configure their particular ways of autom
 
 A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a particular System MUST have the knowledge of the following key parameters and data structures:
 
-- **Parameters**: a set of parameters defined under [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV) needed to resolve `TRANSPARENCY` requests.
+- **Parameters**: a set of parameters defined under [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV) needed to resolve `TRANSPARENCY` requests. Those MAY be received using UROPA format (see [UROPA section of PRIV](./RFC-PRIV.md#uropa)).
 
 - **Known Selectors** : exhaustive list of [Data Capture Fragment](./RFC-PRIV.md#data-capture-fragments) `selector` know by the System, including for every data field that the System is likely to store (either a field of a data collection form, or simply a field in its database) the [Data Capture Fragment](./RFC-PRIV.md#data-capture-fragments) `selector` corresponding to it
 
@@ -478,7 +478,7 @@ Privacy Requests MAY need to be processed in the context of different [authentic
 Here is how the Privacy Request Response recommendations are calculated:
 
 When no Data Subject ID is provided in the Privacy Request:
-- `TRANSPARENCY` Demands: recommend status = `GRANTED`. Provide requested information: Data Categories, Processing Categories, Purposes, and Legal Bases from Intended Privacy Scope, as well as other information from general settings as defined under [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV) and under [Configuration and Prerequisites](#configuration-and-prerequisites).
+- `TRANSPARENCY` Demands: recommend status = `GRANTED`. Provide requested information: Data Categories, Processing Categories, Purposes, and Legal Bases from Intended Privacy Scope, as well as other information from general settings as defined under [Implications for Systems](./RFC-PRIV.md#design-implications-for-systems-implementing-PRIV) and under [Configuration and Prerequisites](#configuration-and-prerequisites). The `data` values of Privacy Request Responses MAY be formatted using UROPA format (see [UROPA section of PRIV](./RFC-PRIV.md#uropa)).
 - `OTHER` Demands: recommend human review and status = `UNDER-REVIEW`
 - For any other action : recommend status = `DENIED`, motive=`IDENTITY-UNCONFIRMED`
 
