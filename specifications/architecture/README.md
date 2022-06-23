@@ -57,12 +57,12 @@ Different engines within blindnet devkit (Data capture engine, Data encryption e
 - Allows recovery after access is lost
 
 **Privacy rights engine**:
-- Captures Data Rights Requests from Data Subjects
+- Captures Privacy Requests from Data Subjects
 - Interprets Data Capture rights (based on Settings)
-- Calculates (explainable) response to Data Rights requests
-- Keeps traces of Data Rights Requests decisions and actions
-- Provides proofs of Data Rights Requests decisions and actions
-- Registers operations and transfers of Data Captures across systems
+- Calculates (explainable) response to Privacy Requests
+- Keeps traces of Privacy Requests decisions and actions
+- Provides proofs of Privacy Requests decisions and actions
+- Registers operations and transfers of Data Captures across Systems
 - Allows Data Subjects to revoke Consents
 
 **Storage** elements of the architecture are responsible for storing the data.
