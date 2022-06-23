@@ -649,7 +649,7 @@ In [here](./examples.md) we provide an overview of various Privacy Requests that
 When data about Data Subjects is transmitted from one system to another, in order to be able to process the [Targets property](#targets), and in order to reply to `TRANSPARENCY.WHO` and `TRANSPARENCY.PROVENANCE` demands, Systems MUST keep track of:
 - ID of Systesm of origin and destination, in the format of URI according to [RFC3986 of IETF](https://www.rfc-editor.org/rfc/rfc3986)
 - Full Data Capture metadata objects
-- Consents (`consent-id`) associated to the data being transferred
+- Full Consents metadata of consents relevant to the data being transferred
 - Data Subject Identities (`dsid`,`dsid-schema`) pairs associated to the data being transferred
 
 > **Note**
