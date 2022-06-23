@@ -1,11 +1,18 @@
 # blindnet devkit Architecture
 
-This document specifies the architecture of the blindnet devkit. 
+This document specifies the architecture of the blindnet devkit.
 
 > **Note**
 >
 > The current version of this document is based mainly on the [HLA][HLA]. It is expected for this document to evolve, especially once the [functional requirements document](../../specifications#functional-requirements) is available.
 
+## Terminology
+
+- All terms defined in [RFC-Lexicon-2][Lexicon] are to be interpreted as described there
+- Any additional precision about the terms defined in [RFC-Lexicon-2][Lexicon], as well as additional terms such as Consent and Legal Base, provided in [High Level Conceptualization][HLC] is to be considered normative
+- We use the terms Capture Component, Encryption and Access Management Engine, Privacy Computation Engine, Privacy Compiler, Privacy Request Capture Interface, Schemas and Storage Component as defined in [High Level Architecture][HLA]
+
+## Overview
 
 Figure below presents the blindnet devkit architecture.
 
@@ -14,16 +21,16 @@ Figure below presents the blindnet devkit architecture.
 
 ## Responsibilities
 
-Each element within the architecture is responsible for a certain set of functions within the devkit.
+Each element within the architecture is responsible for a certain set of functions within the blindnet devkit.
 
 Privacy Request Capture Interface is an end-user interface allowing Data Subjects to submit Privacy Requests.
 
 Data Consumer Interface, as described in the [HLA][HLA], is an end-user interface for Data Consumers which allows them to:
 - View and manage Data Captures
-- Set relevant configurations (e.g., for PRivacy Rights or Legal Bases)
+- Set relevant configurations (e.g., for Privacy Rights or Legal Bases)
 - Manage Privacy Requests
 
-Web components are fornt-end, look and feel agnostic components which allow integrations of different devkit functions into external systems and web sites. Currently, these include:
+Web components are front-end, look and feel agnostic components which allow integrations of different devkit functions into external systems and web sites. Currently, these include:
 - Login component
 - Communication (emailing) component
 - Custom data capture components
@@ -63,5 +70,11 @@ Storage elements of the architecture are responsible for storing the data.
 
 Identity elements of the architecture are responsible for creating and managing users of the devkit (e.g., Data Subjects, Data Consumers, etc.).
 
-[HLA]: ../architecture/
+## References
+- **Lexicon** [RFC-Lexicon-2][Lexicon]
+- **HLA** [High Level Architecture][HLA]
+- **HLC** [High Level Conceptualization][HLC]
 
+[Lexicon]: ../../refs/lexicon/RFC-Lexicon-2.md "RFC-Lexicon-2"
+[HLA]: ../../refs/high-level-architecture/ "High Level Architecture"
+[HLC]: ../../refs/high-level-conceptualization/ "High Level Conceptualization"
