@@ -6,7 +6,12 @@ All components of the devkit, when dealing with concepts described in this model
 
 Figure below specifies the model around [Privacy Request][prreq].
 <img src="./img/devkit_privacy_request.png">
-<br><br>
+<br>
+> **Note**
+>
+> If a demand has multiple restrictions, all restrictions [must](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#demand-restrictions) be of distinct types.
+> 
+<br>
 
 Figure below specifies the model around [Privacy Request Response][prreqresp].
 <img src="./img/devkit_priv_req_response.png">
@@ -14,7 +19,12 @@ Figure below specifies the model around [Privacy Request Response][prreqresp].
 
 Figure below specifies the model around [Data Capture][dc] and [Data Fragments][df].
 <img src="./img/devkit_capture.png">
-<br><br>
+<br>
+> **Note**
+>
+> The value of the [`scope` property][dcf] is a sub-category of Data Category Term.
+> 
+<br>
 
 Figure below specifies the model around [Consents][consent].
 <img src="./img/devkit_consent.png">
@@ -26,3 +36,4 @@ Figure below specifies the model around [Consents][consent].
 [dc]: https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#data-capture
 [df]: https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#data-capture-fragments
 [consent]: https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#consent
+[dcf]: https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#data-capture-fragments
