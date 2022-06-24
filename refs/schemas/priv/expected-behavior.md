@@ -114,6 +114,7 @@ Each [Privacy Scope Triple](#privacy-scope-triples) that includes a `*` or a [Te
 
 E.g. `FINANCIAL` x `SHARING` x `SERVICES` is equivalent to the following set:
 
+`FINANCIAL` x `SHARING` x `SERVICES`
 `FINANCIAL` x `SHARING` x `SERVICES.ADDITIONAL-SERVICES`
 `FINANCIAL` x `SHARING` x `SERVICES.BASIC-SERVICE`
 `FINANCIAL.BANK-ACCOUNT` x `SHARING` x `SERVICES`
@@ -165,6 +166,14 @@ The **Eligible Privacy Scope** is recalculated with every Data Capture, or whene
 Yet, the **Eligible Privacy Scope** is independent to [Retention Policy](./RFC-PRIV.md#retention-policy). A particular Data Capture Fragment MAY be associated with a non-empty Eligible Privacy Scope yet [be evaluated as expired under its Retention Policy](#resolving-retention-policies) and as such may need to be deleted anyway.
 
 ### Set Operations over Privacy Scope
+
+#### Set-Theoretic Operations over Privacy Scope
+
+A Privacy Scope consists of a set of [Privacy Scope Triples](#privacy-scope-triples).
+All set operations (union, intersection, inclusion, etc.) are performed over Privacy Scopes taking into account the [Privacy Scope Triples](#privacy-scope-triples) equivalence.
+
+Privacy Scopes MAY first be resolved to all of their equivalent [Privacy Scope Triples](#privacy-scope-triples), over which simple set-theoretic operations MAY be applied.
+
 
 #### <a name="updateConsent"></a>Operations over consents
 
