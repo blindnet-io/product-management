@@ -115,7 +115,7 @@ The Privacy Request Interchange Vocabulary includes the following:
 
     - **<a name="boolean"></a>Boolean Terms**: {`YES`, `NO`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/boolean](./dictionary/boolean).*
 
-    - **<a name="legal-bases"></a>Legal Base Terms**: {`CONTRACT`, `CONSENT`, `LEGITIMATE-INTEREST`, `NECESSARY`, `OTHER-LEGAL-BASE`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/legal-bases](./dictionary/legal-bases).*
+    - **<a name="legal-bases"></a>Legal Base Terms**: {`CONTRACT`, `CONSENT`, `LEGITIMATE-INTEREST`, `NECESSARY`, `NECESSARY.LEGAL-OBLIGATION`, `NECESSARY.PUBLIC-INTEREST`, `NECESSARY.VITAL-INTEREST`, `OTHER-LEGAL-BASE`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/legal-bases](./dictionary/legal-bases).*
 
     - **<a name="retentions"></a>Retention Terms**: {`NO-LONGER-THAN`, `NO-LESS-THAN`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/retentions](./dictionary/retentions).*
 

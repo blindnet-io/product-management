@@ -362,7 +362,7 @@ The following correspondence of [data categories](https://www.luc.edu/its/abouti
 
 #### UROPA
 
-[UROPA](https://github.com/uropa-project/uropa) defines the following Collection Means (called Provenance in PRIV) that can be mapped to PRIV Terms:
+[UROPA](https://github.com/uropa-project/uropa) defines the following JSON enum values that can be mapped to PRIV Terms:
 
 | UROPA [collectionMean](https://gdpr.stoplight.io/docs/uropa/922d9e36659fd-data-type) | PRIV [Provenance Terms](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#provenance-categories) |
 | -------------- | ------------------ |
@@ -372,6 +372,16 @@ The following correspondence of [data categories](https://www.luc.edu/its/abouti
 | *not supported* | `TRANSFERRED` |
 
 It is possible to model subcategory terms `DERIVED.GENERATED` and `DERIVED.COMPUTED` for the purposes of interoperability with UROPA.
+
+| UROPA [Legal Bases](https://github.com/uropa-project/uropa/blob/main/src/LegalBasis.json) | PRIV [Legal Base Terms](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#legal-bases) |
+| -------------- | ------------------ |
+| `contract` | `CONTRACT` |
+| `consent` | `CONSENT`|
+| `legitimate interest` | `LEGITIMATE-INTEREST` |
+| `legal obligation` | `NECESSARY.LEGAL-OBLIGATION` |
+| `vital interest` | `NECESSARY.VITAL-INTEREST` |
+| `public interest task` | `NECESSARY.PUBLIC-INTEREST` |
+| *not supported* | `OTHER-LEGAL-BASE` |
 
 
 ## Questions and Discussion Topics

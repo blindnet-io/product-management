@@ -87,6 +87,9 @@
           "CONTRACT",
           "LEGITIMATE-INTEREST",
           "NECESSARY",
+          "NECESSARY.LEGAL-OBLIGATION",
+          "NECESSARY.VITAL-INTEREST",
+          "NECESSARY.PUBLIC-INTEREST",
           "OTHER-LEGAL-BASE"
         ]
       },
