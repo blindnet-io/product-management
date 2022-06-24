@@ -11,6 +11,13 @@ This document illustrates different scenarios in which [Privacy Request Intercha
 
 The goal of this document is to explore the design implications for implementing systems, that might arise from different situations.
 
+Different scenarios described in this document MAY be combined, i.e. can be imagined any combination of any of the:
+- [Local Authentication](#local-authentication) scenarios,
+- [Multicast Authentication](#multicast-authentication) scenarios,
+- [Automation](#automation) scenarios,
+- [Automation](#automation) scenarios,
+- [Response](#response) scenarios.
+
 ## Terminology
 
 - The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119)
@@ -23,7 +30,10 @@ The goal of this document is to explore the design implications for implementing
 - All the concepts, properties and terms listed in the [Proposal](./RFC-PRIV.md#proposal) section of PRIV(Privacy Request Interchange Vocabulary are to be interpreted as defined in [Privacy Request Interchange Vocabulary](./RFC-PRIV.md#proposal)
 
 ## Authentication
-### Anonymous
+
+### Local Authentication
+
+#### Anonymous
 
 Systems MAY process certain requests without asking the user for their identity. This is especially the case with some of the `TRANSPARENCY` requests, in response to which general information is given.
 
@@ -42,7 +52,7 @@ sequenceDiagram
 
 In certain cases, such as with GDPR ([articles 13 and 14](./examples.md#articles-13-and-14)), Systems MAY find themselves in obligation to provide information prior to capturing any data. However, in such cases, Systems are expected to [respond differently to the same requests](./expected-behavior.md#resolving-requests), with regards to the Data Subject being authenticated or not. For example a `TRANSPARENCY.DATA-CATEGORIES` request for an anonymous Data Subject MAY trigger a response listing all the possible data categories that the System is configured to collect. The same request for the authenticated Data Subject MAY trigger a response listing only the categories of data that the System has on this particular Data Subject.
 
-### A Priori Authentication
+#### A Priori Authentication
 
 The Data Subject formulates a Privacy Request when their identity is already confirmed.
 
@@ -60,7 +70,7 @@ sequenceDiagram
 ```
 
 
-### A Posteriori Authentication
+#### A Posteriori Authentication
 
 The Data Subject formulates a Privacy Request before their identity is confirmed.
 
@@ -78,8 +88,9 @@ sequenceDiagram
     system->>subject: Privacy Request GRANTED
     note left of system: Phone number deleted
 ```
+### Multicast Authentication
 
-### Signle Point Authentication for Corresponding Systems
+#### Signle Point Authentication for Corresponding Systems
 
 In a context of multiple corresponding Systems, only one System confirms the identity of the user, and other Systems only process the Privacy Request.
 
@@ -122,7 +133,7 @@ sequenceDiagram
     note left of systemA: E-mail deleted
 ```
 
-### Independent Authentication for Corresponding Systems
+#### Independent Authentication for Corresponding Systems
 
 In a context of multiple corresponding Systems, every System confirms the identity of the Data Subject in their own way.
 
