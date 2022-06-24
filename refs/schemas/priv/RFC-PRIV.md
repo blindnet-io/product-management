@@ -650,7 +650,7 @@ When data about Data Subjects is transmitted from one system to another, in orde
 - ID of Systems of origin and destination, in the format of URI according to [RFC3986 of IETF](https://www.rfc-editor.org/rfc/rfc3986)
 - Full Data Capture metadata objects
 - Full Consents metadata of consents relevant to the data being transferred
-- Data Subject Identities (`dsid`,`dsid-schema`) pairs associated to the data being transferred
+- Data Subject Identity pairs (`dsid`,`dsid-schema`) associated to the data being transferred. Note that when Data Capture is transferred from a sending System to a receiving System, it is possible for a receiving System to add Data Subject Identities which are not known by the sending System  
 
 > **Note**
 >
