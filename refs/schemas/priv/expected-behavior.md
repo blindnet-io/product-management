@@ -153,7 +153,7 @@ E.g. under GDPR, it is prohibited to process gender and genetic data under any L
 
 For convenience, Privacy Compilers MAY also keep track of a set of **Prohibited (Privacy Scope)-(Legal Base) Pairs**, in which they SHOULD include [Privacy Scope Triples](#privacy-scope-triples) made illegal by the legislation that they want to support. It might also be convenient, when Data Subject's `OBJECT` or `RESTRICT` Demands are granted over a particular Privacy Scope, to list that scope under `LEGITIMATE-INTEREST` in the **Prohibited (Privacy Scope)-(Legal Base) Pairs** for making sure not to re-include them in the **Eligible Privacy Scope** unless the user gives explicit consent, signs a contract or becomes subject to mandatory data keeping.
 
-> E.g. under GDPR, as processing of RACE data is only allowed under 'CONSENT' for medical research purposes, examples of **Prohibited (Privacy Scope)-(Legal Base) Pairs** include
+> E.g. under GDPR, as processing of RACE data is only allowed under 'CONSENT' for medical research purposes, examples of **[Prohibited (Privacy Scope)-(Legal Base) Pairs](./prohibiter-scope-gdpr.md)** include
 >
 > (`data-category`=`DEMOGRAPHIC.RACE`, `purpose`=`ADVERTISING`) - CONSENT
 >
