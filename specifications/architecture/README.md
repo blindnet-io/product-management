@@ -21,26 +21,27 @@ Figure below presents the blindnet devkit architecture.
 
 Each element within the architecture is responsible for a certain set of functions within the blindnet devkit.
 
-**Privacy Request Capture Interface** is an end-user interface allowing Data Subjects to submit Privacy Requests.
+**Privacy Request Manager**, as described in [HLA][HLA], corresponds to the following two components:
+- **Privacy Request Capture Interface** is an end-user interface allowing Data Subjects to submit Privacy Requests.
 
-**Data Consumer Interface**, as described in the [HLA][HLA], is an end-user interface for Data Consumers which allows them to:
-- View and manage Data Captures
-- Set relevant configurations (e.g., for Privacy Rights or Legal Bases)
-- Manage Privacy Requests
+- **Data Consumer Interface**, as described in the [HLA][HLA], is an end-user interface for Data Consumers which allows them to:
+    - View and manage Data Captures
+    - Set relevant configurations (e.g., for Privacy Rights or Legal Bases)
+    - Manage Privacy Requests
 
 **Web components** are front-end, look and feel agnostic components which allow integrations of different blindnet devkit functions into external systems and web sites. Currently, these include:
 - Login component
 - Communication (emailing) component
 - Custom data capture components
 - Data consumption components
-- Data rights capture components
-- Data rights settings component
-- Data rights management components
+- Privacy Request capture components
+- Privacy settings component
+- Privacy Request management components
 
 **Blindnet common** is an entry point to blindnet devkit functions.
 It is imagined as a single element used by developers, which further uses different parts of the blindnet devkit depending on developers' needs.
 
-Different engines within blindnet devkit (Data capture engine, Data encryption engine, Privacy rights engine) consists of several elements, including SDKs, APIs, and databases.
+Different engines within blindnet devkit (Data Capture Engine, Data Encryption Engine, Privacy Computation Engine) consists of several elements, including SDKs, APIs, and databases.
 
 **Data Capture Engine**:
 - Captures data and metadata for Data Consumers
@@ -57,8 +58,7 @@ Different engines within blindnet devkit (Data capture engine, Data encryption e
 - Allows recovery after access is lost
 
 **Privacy Computation Engine**:
-- Captures Privacy Requests from Data Subjects
-- Interprets Data Capture rights (based on Settings)
+- Interprets Data Capture metadata (based on Settings)
 - Calculates (explainable) response to Privacy Requests
 - Keeps traces of Privacy Requests decisions and actions
 - Provides proofs of Privacy Requests decisions and actions
