@@ -42,7 +42,7 @@ It is imagined as a single element used by developers, which further uses differ
 
 Different engines within blindnet devkit (Data capture engine, Data encryption engine, Privacy rights engine) consists of several elements, including SDKs, APIs, and databases.
 
-**Data capture engine**:
+**Data Capture Engine**:
 - Captures data and metadata for Data Consumers
 - Protects confidentiality of Data Captures (encryption)
 - Obtains Legal Bases related to Data Captures
@@ -51,12 +51,12 @@ Different engines within blindnet devkit (Data capture engine, Data encryption e
 - Allows multiple Data Submitters to submit a Data Capture
 - Allows managing Data Captures on the Data Fragment level
 
-**Data encryption engine**:
+**Data Encryption Engine**:
 - Encrypts and decrypts data
 - Integrable with external OpenID tools
 - Allows recovery after access is lost
 
-**Privacy rights engine**:
+**Privacy Computation Engine**:
 - Captures Privacy Requests from Data Subjects
 - Interprets Data Capture rights (based on Settings)
 - Calculates (explainable) response to Privacy Requests
