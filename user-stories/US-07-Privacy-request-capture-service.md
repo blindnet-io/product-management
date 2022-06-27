@@ -234,16 +234,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** otherwise I cannot use blindnet devkit for Privacy Request capture
 
-
 ### US-07-3-03
-
-**As an** Organization, using blindnet devkit
-
-**I want to** only use some of the components, a subset of the scope of blindnet devkit for things I don't have yet
-
-**because** I want to continue using my existing interface that already covers some of my compliance needs
-
-### US-07-3-04
 
 **As an** Organization, using blindnet devkit
 
@@ -251,7 +242,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want to continue using my existing system that already covers some of my compliance needs (e.g my system already allows users to log in and modify data adresses, preferences etc - on Amazon, Facebook, etc)
 
-### US-07-3-05
+### US-07-3-04
 
 **As an** Organization, using blindnet devkit
 
@@ -259,7 +250,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I don't have any system that covers my compliance needs, I do everything manually
 
-### US-07-3-06
+### US-07-3-05
 
 **As an** Organization, using blindnet devkit
 
@@ -267,7 +258,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I need to process "other" type of request manually
 
-### US-07-3-07
+### US-07-3-06
 
 **As a** developper from an Organization, using blindnet devkit
 
@@ -275,7 +266,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** this is all I need, as I want to handle the file and import it to some other system
 
-### US-07-3-08
+### US-07-3-07
 
 **As a** developper from an Organization, using blindnet devkit
 
@@ -283,7 +274,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I need to generate a JSON file for the requests and also to view the requests. From there I will treat the requests manually
 
-### US-07-3-09
+### US-07-3-08
 
 **As a** developper from an Organization, using blindnet devkit
 
@@ -291,7 +282,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want it to automatically compute the responses to (at least some) requests
 
-### US-07-3-10
+### US-07-3-09
 
 **As an** Organization, using blindnet devkit
 
