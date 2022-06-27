@@ -1,6 +1,6 @@
 # HIGH-LEVEL COMPONENT ARCHITECTURE
 
-| Status        | DRAFT                                                             |
+| Status        | NORMATIVE DRAFT                                                             |
 | :------------ | :---------------------------------------------------------------- |
 | **PR #**      | [596](https://github.com/blindnet-io/product-management/pull/596), [694](https://github.com/blindnet-io/product-management/pull/694) |
 | **Author(s)** | milstan (milstan@blindnet.io)                                     |
@@ -48,7 +48,7 @@ As such it needs to support the following functions:
 - Encryption and Access
 - Storage
 - Transfer
-- Data Rights Management
+- Data Subject Rights Management
 
 ## Proposal - Components
 
@@ -83,7 +83,6 @@ The engine CAN also calculate a response to [Data Subjects'](../lexicon/RFC-Lexi
 A Privacy Computation Engine component is composed of three elements:
 
 - a [Privacy Compiler](#privacy-compiler)
-- a [Privacy Request Capture Interface](#privacy-request-capture-interface)
 - a [Customization API](#customization-api)
 
 #### Privacy Compiler
@@ -99,11 +98,6 @@ To compute the appropriate actions, this component CAN register and take into ac
 - Privacy Requests;
 - Human input (validation, user ID confirmation, etc.) in response to Privacy Requests.
 
-#### Privacy Request Capture Interface
-
-A **_Privacy Request Capture Interface_** is a standardized end-user interface that [Systems](../lexicon/RFC-Lexicon-2.md#system) CAN (optionally) run to capture [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request) from [Data Subjects](../lexicon/RFC-Lexicon-2.md#data-subject).
-A global Privacy Request Capture Interface CAN be hosted on an easy-to-remember URL to capture Privacy Requests in a standardized format ([Schema](#schemas)) on behalf of other Systems.
-
 #### Customization API
 
 The **_Customization API_** allows client [Systems](../lexicon/RFC-Lexicon-2.md#system) and end-user-facing components to:
@@ -117,7 +111,18 @@ The **_Customization API_** allows client [Systems](../lexicon/RFC-Lexicon-2.md#
 
 This engine works in a way inspired by [Digital Rights Management](https://en.wikipedia.org/wiki/Digital_rights_management).
 
-### Data Consumer Interface
+### Privacy Request Manager
+
+Privacy Request Manager is a component allowing different kinds of Users to interact around Privacy Requests. It consists of:
+- a [Privacy Request Capture Interface](#privacy-request-capture-interface)
+- a [Data Consumer Interface](#data-consumer-interface)
+
+#### Privacy Request Capture Interface
+
+A **_Privacy Request Capture Interface_** is a standardized end-user interface that [Systems](../lexicon/RFC-Lexicon-2.md#system) CAN (optionally) run to capture [Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request) from [Data Subjects](../lexicon/RFC-Lexicon-2.md#data-subject).
+A global Privacy Request Capture Interface CAN be hosted on an easy-to-remember URL to capture Privacy Requests in a standardized format ([Schema](#schemas)) on behalf of other Systems.
+
+#### Data Consumer Interface
 
 The Data Consumer Interface component allows [Data Consumers (in different roles, including system administrators and DPOs)](../high-level-conceptualization/README.md#submitter--data-consumer--dpo) to interact with the components of the system.
 It allows the following functions (that CAN be used separately and SHOULD correspond to separate subcomponents):
