@@ -246,17 +246,17 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **As an** Organization, using blindnet devkit
 
-**I want to** use the whole blindnet devkit to automate the processing of requests
+**I want to** use the whole blindnet devkit components to capture the request, automate the processing of requests, view the requests...
 
 **because** I don't have any system that covers my compliance needs, I do everything manually
 
 ### US-07-3-05
 
-**As an** Organization, using blindnet devkit
+**As an** Organization, using blindnet devkit to automate the processing of requests
 
-**I want to** use blindnet devkit to automate the processing of requests except for "other" type of request
+**I want to** automate a maximum of requests except the "other" type thant I need to process manually
 
-**because** I need to process "other" type of request manually
+**because** I want to save time 
 
 ### US-07-3-06
 
