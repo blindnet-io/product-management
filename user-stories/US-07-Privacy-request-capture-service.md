@@ -6,11 +6,11 @@
 | **Status** | Draft |
 | **Design** | [Figma activity diagram (draft)](https://www.figma.com/file/miUd9PEmLrjut53rwrQViX/Data-rights-request-capture-service?node-id=0%3A1)
 | **Previous discussions** | https://github.com/blindnet-io/product-ideas/issues/22
-| **Other documents** | [Privacy Request Interchange Vocabulary](../refs/schemas/priv/RFC-PRIV.md), [Examples of Privacy Requests](../refs/schemas/priv/examples.md), [Scenarios](../refs/schemas/priv/scenarios.md), [Expected Behavior of Systems](../refs/schemas/priv/expected-behavior.md)
+| **Other documents** | [Privacy Request Interchange Vocabulary](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md), [Examples of Privacy Requests](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md), [Scenarios](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/scenarios.md), [Expected Behavior of Systems](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/expected-behavior.md)
 
 ## Introduction
 
-Privacy Request Capture Service is a component of the [High Level Architecture](../refs/high-level-architecture). The user stories listed here illustrate its behavior, but are not to be considered exhaustive with regards to all the functionalities this component SHOULD offer.
+Privacy Request Capture Service is a component of the [High Level Architecture](https://github.com/blindnet-io/product-management/tree/main/refs/high-level-architecture). The user stories listed here illustrate its behavior, but are not to be considered exhaustive with regards to all the functionalities this component SHOULD offer.
 
 When this component is installed by a System and used to interact with the Internet Users of that System, we call that **Local** Privacy Request Capture Service.
 
@@ -63,7 +63,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
-**I want** be able to make any of the requests mentioned in the [requests list of this document](../refs/schemas/priv/examples.md)
+**I want** be able to make any of the requests mentioned in the [requests list of this document](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md)
 
 **because** this list of requests covers my data rights needs
 
@@ -287,7 +287,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **As a** developper from an Organization, using blindnet devkit
 
-**I want to** configure the data rights computation engine component (from the HLA) in my system with information about server locations, privacy policy, data types, organisation identity etc (cf. list of TRANSPARENCY actions from the [PRIV examples](../refs/schemas/priv/examples.md))
+**I want to** configure the data rights computation engine component (from the HLA) in my system with information about server locations, privacy policy, data types, organisation identity etc (cf. list of TRANSPARENCY actions from the [PRIV examples](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md)
 
 **because** I want it to automatically compute the responses to (at least some) requests
 
