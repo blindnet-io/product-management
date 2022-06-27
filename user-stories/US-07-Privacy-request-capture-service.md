@@ -254,7 +254,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **As an** Organization, using blindnet devkit to automate the processing of requests
 
-**I want to** automate a maximum of requests except the "other" type that I need to process manually
+**I want to** automate a maximum of requests except the "other" type of request that I need to process manually
 
 **because** I want to save time 
 
