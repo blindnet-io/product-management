@@ -69,25 +69,25 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 ### US-07-1-07
 
-**As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
+**As an** Internet User (a Submitter or a Data Subject),
 
-**I want to** send several [Demands](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#demands) per request
+**I want to** submit a Privacy Request with several [Demands](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#demands) (i.e. possibility of having several demands per request)
 
 **because** I want to exercise several data rights at the same time, on the data an Organization has on me
 
 ### US-07-1-08
 
-**As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
+**As an** Internet User (a Submitter or a Data Subject),
 
-**I want to** modify my address and to modify a field from an allergy record
+**I want to** submit a Privacy Request to modify my address and to modify a field from an allergy record
 
 **because** because I just moved and also discovered I have a new allergy
 
 ### US-07-1-09
 
-**As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
+**As an** Internet User (a Submitter or a Data Subject),
 
-**I want to** access the data that are derived from me and my behavior  
+**I want to** submit a Privacy Request to access the data that are derived from me and my behavior  
 
 **because** I want to know what data a system has one me that I did not input myself
 
@@ -101,9 +101,9 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 ### US-07-1-11
 
-**As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
+**As an** Internet User (a Submitter or a Data Subject),
 
-**I want to** know the provenance of the data a system has on me
+**I want to** submint a Privacy Request to know the provenance of the data a system has on me
 
 **because** I suspect someone might have shared my data without my authorization
 
