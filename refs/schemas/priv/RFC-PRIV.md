@@ -451,7 +451,7 @@ In the System B, this Data Capture Fragment SHOULD be associated with two Proven
 
 In this way, the System B has complete information: the Data Capture Fragment was collected from the Data Subject by System A, and then transferred to it from System A.
 
-If now System B transfers this data transfers this Data Capture Fragment to System C, then In the System B, this Data Capture Fragment SHOULD be associated with tree Provenance objects:
+If now System B transfers this data transfers this Data Capture Fragment to System C, then In the System B, this Data Capture Fragment SHOULD be associated with three Provenance objects:
 - one having `provenance-category`:`USER.DATA-SUBJECT`, and `system`: `URL of the System A`
 - one having `provenance-category`:`TRANSFERRED`, and `system`: `URL of the System A`
 - one having `provenance-category`:`TRANSFERRED`, and `system`: `URL of the System B`
