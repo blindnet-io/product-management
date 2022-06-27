@@ -198,7 +198,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **I want to** be able to recognize the user who made the request in my system
 
-**because** so I can easily identify their data
+**because** like that I can easily identify their data
 
 ### US-07-2-03
 
