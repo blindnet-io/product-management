@@ -21,53 +21,54 @@ Figure below presents the blindnet devkit architecture.
 
 Each element within the architecture is responsible for a certain set of functions within the blindnet devkit.
 
-**Privacy Request Manager**, as described in [HLA][HLA], corresponds to the following two components:
-- **Privacy Request Capture Interface** is an end-user interface allowing Data Subjects to submit Privacy Requests.
+**Privacy Request Capture Interface**, which is a part of **Privacy Request Manager** as described in [HLA][HLA], is an end-user interface allowing Data Subjects to submit Privacy Requests.
 
-- **Data Consumer Interface**, as described in the [HLA][HLA], is an end-user interface for Data Consumers which allows them to:
-    - View and manage Data Captures
-    - Set relevant configurations (e.g., for Privacy Rights or Legal Bases)
-    - Manage Privacy Requests
+**Data Consumer Interface**, which is a part of **Privacy Request Manager** as described in [HLA][HLA], is an end-user interface for Data Consumers which allows them to:
+- View and manage Data Captures
+- Set relevant configurations (e.g., for Privacy Requests or Legal Bases)
+- Manage Privacy Requests
 
 **Web components** are front-end, look and feel agnostic components which allow integrations of different blindnet devkit functions into external systems and web sites. Currently, these include:
 - Login component
 - Communication (emailing) component
 - Custom data capture components
-- Data consumption components
-- Privacy Request capture components
-- Privacy settings component
-- Privacy Request management components
+- Data consumption components, i.e., components that allow Data Consumers to view and manage data
+- Privacy Request capture components, i.e., components that allow Data Subjects to submit Privacy requests
+- Privacy settings component, i.e., component that allows Data Consumers to set desired configurations
+- Privacy Request management components, i.e. components that allow Data Consumer to view and manage Privacy Request
 
 **Blindnet common** is an entry point to blindnet devkit functions.
 It is imagined as a single element used by developers, which further uses different parts of the blindnet devkit depending on developers' needs.
 
-Different engines within blindnet devkit (Data Capture Engine, Data Encryption Engine, Privacy Computation Engine) consists of several elements, including SDKs, APIs, and databases.
+Different components from the [HLA][HLA] (Capture Component, Encryption and Access Management Engine, Privacy Computation Engine) are implemented through several architectural elements.
 
-**Data Capture Engine**:
+The [HLA][HLA]'s **Capture Component** consists of _Capture SDK_, _Capture API_, and _Capture DB_, and it:
 - Captures data and metadata for Data Consumers
-- Protects confidentiality of Data Captures (encryption)
+- Protects confidentiality of Data Captures (encryption), by relying on Encryption Engine
 - Obtains Legal Bases related to Data Captures
 - Allows capturing Data Captures through Data Fragments
 - Allows capturing Data Captures over multiple time instances
 - Allows multiple Data Submitters to submit a Data Capture
 - Allows managing Data Captures on the Data Fragment level
 
-**Data Encryption Engine**:
+The [HLA][HLA]'s **Encryption and Access Management Engine** consists of _Encryption SDK_, _Encryption API_, and _Encryption DB_, and it:
 - Encrypts and decrypts data
 - Integrable with external OpenID tools
 - Allows recovery after access is lost
 
-**Privacy Computation Engine**:
+The [HLA][HLA]'s **Privacy Computation Engine**, including **Privacy Compiler** and **Customization API**, consists of _Privacy SDK_, _Privacy API_, and _Privacy DB_, and it:
+- Captures Privacy Requests from from Data Subjects
+- Captures privacy-related Settings 
 - Interprets Data Capture metadata (based on Settings)
-- Calculates (explainable) response to Privacy Requests
+- Calculates (explainable) response to Privacy Requests 
 - Keeps traces of Privacy Requests decisions and actions
 - Provides proofs of Privacy Requests decisions and actions
 - Registers operations and transfers of Data Captures across Systems
 - Allows Data Subjects to revoke Consents
 
-**Storage** elements of the architecture are responsible for storing the data.
+**Storage** elements of the architecture (_Storage SDK_, _Storage API_, and _Cloud Storage_) are responsible for storing the data.
 
-**Identity** elements of the architecture are responsible for creating and managing Users of the blindnet devkit (e.g., Data Subjects, Data Consumers, etc.).
+**Identity** elements of the architecture (_Identity SDK_, _Identity API_, and _Identity Storage_) are responsible for creating and managing Users of the blindnet devkit (e.g., Data Subjects, Data Consumers, etc.).
 
 ## References
 - **Lexicon** [RFC-Lexicon-2][Lexicon]
