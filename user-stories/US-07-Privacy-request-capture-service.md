@@ -258,7 +258,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **I want to** automate a maximum of requests except the "other" type of request that I need to process manually
 
-**because** I want to save time 
+**because** I want to save time and effort
 
 ### US-07-5-04
 
@@ -280,9 +280,9 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **As a** developper from an Organization, using blindnet devkit
 
-**I want to** configure the privacy computation engine component (from the HLA) in my system with information about server locations, privacy policy, data types, organisation identity etc (cf. list of TRANSPARENCY actions from the [PRIV examples](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md))
+**I want to** I want it to automatically compute the responses to (at least some) requests such as information about server locations, privacy policy, data types, organisation identity etc (cf. list of TRANSPARENCY actions from the [PRIV examples](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md))
 
-**because** I want it to automatically compute the responses to (at least some) requests
+**because** I want to save time and effort
 
 ### US-07-5-07
 
