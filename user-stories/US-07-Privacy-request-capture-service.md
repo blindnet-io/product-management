@@ -16,8 +16,7 @@ When this component is installed by a System and used to interact with the Inter
 
 However, Systems may declare Data Captures that they are responsible for to a centralised Global service, where any Internet User can make a Privacy Request. We call this service **Global** Privacy Request Capture Service.
 
-
-## 07-1 Internet User (a Submitter or a Data Subject)
+## 07-1 Common US for Local and Global Privacy Request Capture Service
 
 ### US-07-1-01
 
@@ -37,37 +36,13 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 ### US-07-1-03
 
-**As an** Internet User (a Submitter or a Data Subject) (Global Privacy Request Capture Service)
-
-**I want to** easily find the address (email or postal) I need to send my Privacy Request to
-
-**because** it takes time and it is annoying to look for the right address
-
-### US-07-1-04
-
-**As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request (Global Privacy Request Capture Service)
-
-**I want to** have a proposition of addresses related to the Organization I want to address my Privacy Request to, if the address is known
-
-**because** it saves me time and it is convenient
-
-### US-07-1-05
-
-**As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request (Global Privacy Request Capture Service)
-
-**I want to** add the address of the Organization I am sending my request to, that doesn't yet use blindnet devkit, and be able to easily access it next time
-
-**because** I or other Internet Users might need the address of that Organization to send Privacy Requests in the future
-
-### US-07-1-06
-
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
 **I want** be able to make any of the requests mentioned in the [requests list of this document](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md)
 
 **because** this list of requests covers my data rights needs
 
-### US-07-1-07
+### US-07-1-04
 
 **As an** Internet User (a Submitter or a Data Subject),
 
@@ -75,7 +50,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want to exercise several data rights at the same time, on the data an Organization has on me
 
-### US-07-1-08
+### US-07-1-05
 
 **As an** Internet User (a Submitter or a Data Subject),
 
@@ -83,7 +58,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** because I just moved and also discovered I have a new allergy
 
-### US-07-1-09
+### US-07-1-06
 
 **As an** Internet User (a Submitter or a Data Subject),
 
@@ -91,15 +66,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want to know what data a system has one me that I did not input myself
 
-### US-07-1-10
-
-**As an** Internet User (a Submitter or a Data Subject), when the request I made is rejected
-
-**I want to** know the motive of the rejection
-
-**because** otherwise I might get frustrated not understanding why me request has been rejected
-
-### US-07-1-11
+### US-07-1-07
 
 **As an** Internet User (a Submitter or a Data Subject),
 
@@ -107,7 +74,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I suspect someone might have shared my data without my authorization
 
-### US-07-1-12
+### US-07-1-08
 
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
@@ -115,7 +82,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want or avoid making a Privacy Request that is likely to be rejected (imprecise, or wrongly formulated)
 
-### US-07-1-13
+### US-07-1-09
 
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
@@ -123,31 +90,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want or avoid making a Privacy Request that takes too much time (and human intervention) to process
 
-### US-07-1-14
-
-**As an** Internet User (a Submitter or a Data Subject), while creating a Privacy Request
-
-**I want to** be guided about all data fields the Organization collects
-
-**because** I want to select particular data field to modify (such as a delivery address)
-
-### US-07-1-15
-
-**As an** Internet User (a Submitter or a Data Subject), after submitting my data in a Data Capture
-
-**I want to** make a Privacy Request in relation to that particular Data Capture
-
-**because** I only want the Organization to delete that particular Data Capture, that I submitted by mistake
-
-### US-07-1-16
-
-**As an** Internet User (a Submitter or a Data Subject), after submitting my data in a Data Capture
-
-**I want to** make a Privacy Request in relation to one of the two particular consents I gave when submitting that particular Data Capture
-
-**because** I only want the Organization to continue using my data to deliver a service to me, but I no longer consent to having my data shared with any other Organization.
-
-### US-07-1-17
+### US-07-1-10
 
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
@@ -155,7 +98,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** My Privacy Request only concerns TRANSPARENCY about data usage (under Art. 13 and 14. of GDPR)
 
-### US-07-1-18
+### US-07-1-11
 
 *(see [a priori](../refs/schemas/priv/scenarios.md#a-priori-authentication) and [a posteriori](../refs/schemas/priv/scenarios.md#a-posteriori-authentication) authentication)*
 
@@ -165,8 +108,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I am requesting something that requires proof of identity
 
-
-### US-07-1-19
+### US-07-1-12
 
 **As an** Internet User (a Submitter or a Data Subject), after creating a Privacy Request
 
@@ -174,51 +116,17 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I have been waiting for a while and have got no response yet
 
-### US-07-1-20
-
-**As an** Internet User (a Submitter or a Data Subject) (Global Privacy Request Capture Service)
-
-**I want to** make one Privacy Request to all Organizations having my private phone number
-
-**because** I am getting too many calls and I don't know which Organization is responsible for them.
-
-## 07-2 Organization receiving Privacy Request (Global Privacy Request Capture Service)
+## 07-2 US specific to Local Privacy Request capture service
 
 ### US-07-2-01
 
-**As an** Organization (not using blindnet devkit) receiving Privacy Request
+**As an** Internet User (a Submitter or a Data Subject), while creating a Privacy Request
 
-**I want to** know the request I received has been sent by blindnet's Privacy Request Capture Service and be informed about blindnet devkit
+**I want to** be guided about all data fields the Organization collects
 
-**because** I might be interested in the service blindnet devkit offers
+**because** I want to select particular data field to modify (such as a delivery address)
 
 ### US-07-2-02
-
-**As an** Organization (not using blindnet devkit) receiving Privacy Request
-
-**I want to** be able to recognize the user who made the request in my system
-
-**because** like that I can easily identify their data
-
-### US-07-2-03
-
-**As an** Organization, using blindnet devkit, receiving Privacy Request
-
-**I want to** receive the request in the Privacy Request section of my system
-
-**because** it is more convenient for me to have all my Privacy Requests centralized
-
-### US-07-2-04
-
-**As an** Organization (using or not using blindnet devkit) receiving Privacy Request
-
-**I want to** transfer the request to another Organization if the request concerns data I transferred to another Organization or data I got from another Organization
-
-**because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transferred the user's data to or I got the user's data from, to also delete the data
-
-## 07-3 Organization using Local Privacy Request capture service
-
-### US-07-3-01
 
 **As an** Organization, using blindnet devkit, receiving Privacy Request
 
@@ -226,7 +134,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** my customers might directly go to my website to make their Privacy Request, and it is easier for my customers and for me to use this service
 
-### US-07-3-02
+### US-07-2-03
 
 **As an** Organization, using blindnet devkit, receiving Privacy Request
 
@@ -234,7 +142,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** otherwise I cannot use blindnet devkit for Privacy Request capture
 
-### US-07-3-03
+### US-07-2-04
 
 **As an** Organization, using blindnet devkit
 
@@ -242,7 +150,101 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want to continue using my existing system that already covers some of my compliance needs (e.g my system already allows users to log in and modify data adresses, preferences etc - on Amazon, Facebook, etc)
 
+## 07-3 US specific to Global Privacy Request Capture Service
+
+### US-07-3-01
+
+**As an** Internet User (a Submitter or a Data Subject)
+
+**I want to** easily find the address (email or postal) I need to send my Privacy Request to
+
+**because** it takes time and it is annoying to look for the right address
+
+### US-07-3-02
+
+**As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
+
+**I want to** have a proposition of addresses related to the Organization I want to address my Privacy Request to, if the address is known
+
+**because** it saves me time and it is convenient
+
+### US-07-3-03
+
+**As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
+
+**I want to** add the address of the Organization I am sending my request to, that doesn't yet use blindnet devkit, and be able to easily access it next time
+
+**because** I or other Internet Users might need the address of that Organization to send Privacy Requests in the future
+
 ### US-07-3-04
+
+**As an** Internet User (a Submitter or a Data Subject)
+
+**I want to** make one Privacy Request to all Organizations having my private phone number
+
+**because** I am getting too many calls and I don't know which Organization is responsible for them.
+
+### US-07-3-05
+
+**As an** Organization (not using blindnet devkit) receiving Privacy Request
+
+**I want to** know the request I received has been sent by blindnet's Privacy Request Capture Service and be informed about blindnet devkit
+
+**because** I might be interested in the service blindnet devkit offers
+
+### US-07-3-06
+
+**As an** Organization (not using blindnet devkit) receiving Privacy Request
+
+**I want to** be able to recognize the user who made the request in my system
+
+**because** it will allow me to easily identify their data
+
+### US-07-3-07
+
+**As an** Organization, using blindnet devkit, receiving Privacy Request
+
+**I want to** receive the request in the Privacy Request section of my system
+
+**because** it is more convenient for me to have all my Privacy Requests centralized
+
+### US-07-3-08
+
+**As an** Organization (using or not using blindnet devkit) receiving Privacy Request
+
+**I want to** transfer the request to another Organization if the request concerns data I transferred to another Organization or data I got from another Organization
+
+**because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transferred the user's data to or I got the user's data from, to also delete the data
+
+## TBD 07-4 US related to a particular data capture : Common or Global or Local ?
+
+### US-07-4-01
+
+**As an** Internet User (a Submitter or a Data Subject), after submitting my data in a Data Capture
+
+**I want to** make a Privacy Request in relation to one of the two particular consents I gave when submitting that particular Data Capture
+
+**because** I only want the Organization to continue using my data to deliver a service to me, but I no longer consent to having my data shared with any other Organization.
+
+### US-07-4-02
+
+**As an** Internet User (a Submitter or a Data Subject), after submitting my data in a Data Capture
+
+**I want to** make a Privacy Request in relation to that particular Data Capture
+
+**because** I only want the Organization to delete that particular Data Capture, that I submitted by mistake
+
+## TBD 07-5 Out of Privacy Request Capture Service scope ? 
+
+### US-07-5-01
+
+**As an** Internet User (a Submitter or a Data Subject), when the request I made is rejected
+
+**I want to** know the motive of the rejection
+
+**because** otherwise I might get frustrated not understanding why me request has been rejected
+
+### US-07-5-02
 
 **As an** Organization, using blindnet devkit
 
@@ -250,7 +252,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I don't have any system that covers my compliance needs, I do everything manually
 
-### US-07-3-05
+### US-07-5-03
 
 **As an** Organization, using blindnet devkit to automate the processing of requests
 
@@ -258,7 +260,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want to save time 
 
-### US-07-3-06
+### US-07-5-04
 
 **As a** developper from an Organization, using blindnet devkit
 
@@ -266,7 +268,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** this is all I need, as I want to handle the file and import it to some other system
 
-### US-07-3-07
+### US-07-5-05
 
 **As a** developper from an Organization, using blindnet devkit
 
@@ -274,7 +276,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I need to generate a JSON file for the requests and also to view the requests. From there I will treat the requests manually
 
-### US-07-3-08
+### US-07-5-06
 
 **As a** developper from an Organization, using blindnet devkit
 
@@ -282,7 +284,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want it to automatically compute the responses to (at least some) requests
 
-### US-07-3-09
+### US-07-5-07
 
 **As an** Organization, using blindnet devkit
 
