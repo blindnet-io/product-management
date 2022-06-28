@@ -36,11 +36,11 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 ### US-07-1-03
 
-**As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
+**As an** Internet User (a Submitter or a Data Subject),
 
-**I want** be able to make any of the requests mentioned in the [requests list of this document](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md)
+**I want** be able to make any of the requests mentioned in the [list of request examples this document](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md)
 
-**because** this list of requests covers my data rights needs
+**because** all my privacy needs to be covered
 
 ### US-07-1-04
 
@@ -52,21 +52,37 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 ### US-07-1-05
 
+**As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
+
+**I want** be able to make any of the demands mentioned in this [list of action](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/dictionary/actions/en.actions.json)
+
+**because** thoses actions cover my possible privacy needs
+
+### US-07-1-06
+
+**As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
+
+**I want** be able to define a demand for a particular type of data among this [list of data categories](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/dictionary/data-categories/en.data-categories.json), and/or for a particular type of processing among this this [list of processing categories](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/dictionary/processing-categories/en.processing-categories.json), and/or for a particular purpose of processing among this [list of purposes](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/dictionary/purposes/en.purposes.json)
+
+**because** my demand doesn't concern all of the data the Organization has on me, nor all the processing for all the purposes, but just a part of it
+
+### US-07-1-07
+
 **As an** Internet User (a Submitter or a Data Subject),
 
 **I want to** submit a Privacy Request to modify my address and to modify a field from an allergy record
 
 **because** because I just moved and also discovered I have a new allergy
 
-### US-07-1-06
+### US-07-1-08
 
 **As an** Internet User (a Submitter or a Data Subject),
 
-**I want to** submit a Privacy Request to access the data that are derived from me and my behavior  
+**I want to** submit a Privacy Request to access some specific data : the data that are derived from me and my behavior  
 
 **because** I want to know what data a system has one me that I did not input myself
 
-### US-07-1-07
+### US-07-1-09
 
 **As an** Internet User (a Submitter or a Data Subject),
 
@@ -74,7 +90,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I suspect someone might have shared my data without my authorization
 
-### US-07-1-08
+### US-07-1-10
 
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
@@ -82,7 +98,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want or avoid making a Privacy Request that is likely to be rejected (imprecise, or wrongly formulated)
 
-### US-07-1-09
+### US-07-1-11
 
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
@@ -90,7 +106,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want or avoid making a Privacy Request that takes too much time (and human intervention) to process
 
-### US-07-1-10
+### US-07-1-12
 
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
@@ -98,7 +114,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** My Privacy Request only concerns TRANSPARENCY about data usage (under Art. 13 and 14. of GDPR)
 
-### US-07-1-11
+### US-07-1-13
 
 *(see [a priori](../refs/schemas/priv/scenarios.md#a-priori-authentication) and [a posteriori](../refs/schemas/priv/scenarios.md#a-posteriori-authentication) authentication)*
 
@@ -108,7 +124,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I am requesting something that requires proof of identity
 
-### US-07-1-12
+### US-07-1-14
 
 **As an** Internet User (a Submitter or a Data Subject), after creating a Privacy Request
 
