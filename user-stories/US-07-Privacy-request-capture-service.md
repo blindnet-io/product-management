@@ -86,11 +86,19 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **As an** Internet User (a Submitter or a Data Subject),
 
-**I want to** submint a Privacy Request to know the provenance of the data a system has on me
+**I want to** submint a Privacy Request to know the [provenance](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/dictionary/provenance/en.provenance.json) of the data a system has on me
 
 **because** I suspect someone might have shared my data without my authorization
 
 ### US-07-1-10
+
+**As an** Internet User (a Submitter or a Data Subject), submitting a Privacy Request to an Organization
+
+**I want** my request to be taken into account by some or all possible targets from this [targets list](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/dictionary/targets/en.targets.json)
+
+**because** I want my Privacy Request to be fully completed
+
+### US-07-1-11
 
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
@@ -98,7 +106,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want or avoid making a Privacy Request that is likely to be rejected (imprecise, or wrongly formulated)
 
-### US-07-1-11
+### US-07-1-12
 
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
@@ -106,7 +114,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want or avoid making a Privacy Request that takes too much time (and human intervention) to process
 
-### US-07-1-12
+### US-07-1-13
 
 **As an** Internet User (a Submitter or a Data Subject), when creating a Privacy Request
 
@@ -114,7 +122,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** My Privacy Request only concerns TRANSPARENCY about data usage (under Art. 13 and 14. of GDPR)
 
-### US-07-1-13
+### US-07-1-14
 
 *(see [a priori](../refs/schemas/priv/scenarios.md#a-priori-authentication) and [a posteriori](../refs/schemas/priv/scenarios.md#a-posteriori-authentication) authentication)*
 
@@ -124,7 +132,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I am requesting something that requires proof of identity
 
-### US-07-1-14
+### US-07-1-15
 
 **As an** Internet User (a Submitter or a Data Subject), after creating a Privacy Request
 
