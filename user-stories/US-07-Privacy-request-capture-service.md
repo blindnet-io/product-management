@@ -174,6 +174,23 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I want to continue using my existing system that already covers some of my compliance needs (e.g my system already allows users to log in and modify data adresses, preferences etc - on Amazon, Facebook, etc)
 
+### US-07-2-05
+
+**As an** Internet User (a Submitter or a Data Subject), after submitting my data in a Data Capture to an Organization using blindnet devkit
+
+**I want to** make a Privacy Request in relation to one of the two particular consents I gave when submitting that particular Data Capture
+
+**because** I only want the Organization to continue using my data to deliver a service to me, but I no longer consent to having my data shared with any other Organization.
+
+### US-07-2-06
+
+**As an** Internet User (a Submitter or a Data Subject), after submitting my data in a Data Capture to an Organization using blindnet devkit
+
+**I want to** make a Privacy Request in relation to that particular Data Capture
+
+**because** I only want the Organization to delete that particular Data Capture, that I submitted by mistake
+
+
 ## 07-3 US specific to Global Privacy Request Capture Service
 
 ### US-07-3-01
@@ -239,24 +256,6 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 **I want to** transfer the request to another Organization if the request concerns data I transferred to another Organization or data I got from another Organization
 
 **because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transferred the user's data to or I got the user's data from, to also delete the data
-
-## TBD 07-4 US related to a particular data capture : Common or Global or Local ?
-
-### US-07-4-01
-
-**As an** Internet User (a Submitter or a Data Subject), after submitting my data in a Data Capture
-
-**I want to** make a Privacy Request in relation to one of the two particular consents I gave when submitting that particular Data Capture
-
-**because** I only want the Organization to continue using my data to deliver a service to me, but I no longer consent to having my data shared with any other Organization.
-
-### US-07-4-02
-
-**As an** Internet User (a Submitter or a Data Subject), after submitting my data in a Data Capture
-
-**I want to** make a Privacy Request in relation to that particular Data Capture
-
-**because** I only want the Organization to delete that particular Data Capture, that I submitted by mistake
 
 ## TBD 07-5 Out of Privacy Request Capture Service scope ? 
 
