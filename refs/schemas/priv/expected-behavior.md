@@ -598,7 +598,7 @@ Systems SHOULD define Retention Policies at the time of configuration, and SHOUL
 
 Retention Policies are resolved upon concrete instances of Data Capture Fragments. A particular instance of data, given the Data Capture Fragment `selector` to which it corresponds, is considered `EXPIRED` if all of the following is true:
 - There is a Retention Policy the `data-categories` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular Data Capture Fragment, that is of type `NO-LONGER-THAN`, such that the date of the event defined under `after` has passed for a more then the time defined under `duration`
-- AND There is no Retention Policy the `data-categories` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular Data Capture Fragment, that is of type `NO-LESS-THAN`, such that the event defined under `after` is yet to happen or has happened before a period of time inferior to `duration`
+- AND `selector` of the Data Capture Fragment is NOT a part of a Privacy Scope of any of the Data Categories defined under `data-categories` property of the Retention Policy, whose type is `NO-LESS-THAN` and the difference between the current date and the date of the event defined under `after` is less than the value of `duration`, or has already occurred 
 
 Privacy Compilers SHOULD be able to:
 - provide lists of active policies, in the context of answering to the `TRANSPARENCY.RETENTION` requests
