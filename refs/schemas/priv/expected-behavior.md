@@ -597,7 +597,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
 Systems SHOULD define Retention Policies at the time of configuration, and SHOULD cover all Data Categories and Data Capture Fragment `selector`s from the Intended Privacy Scope with at least one Retention Policy.
 
 Retention Policies are resolved upon concrete instances of Data Capture Fragments. A particular instance of data, given the Data Capture Fragment `selector` to which it corresponds, is considered `EXPIRED` if all of the following is true:
-- There is a Retention Policy the `data-categories` of which is a Privacy Scope that includes Data Capture Fragment `selector` of the particular Data Capture Fragment, that is of type `NO-LONGER-THAN`, such that the date of the event defined under `after` has passed for a more then the time defined under `duration`
+- `selector` of the Data Capture Fragment is a part of a Privacy Scope of any of the Data Categories defined under `data-categories` property of the Retention Policy. Retention Policy is of type `NO-LONGER-THAN` and the difference between the current date and the date of the event defined under `after` is larger than the value of `duration` 
 - AND `selector` of the Data Capture Fragment is NOT a part of a Privacy Scope of any of the Data Categories defined under `data-categories` property of the Retention Policy, whose type is `NO-LESS-THAN` and the difference between the current date and the date of the event defined under `after` is less than the value of `duration`, or has already occurred 
 
 Privacy Compilers SHOULD be able to:
