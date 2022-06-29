@@ -40,7 +40,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **I want** be able to make any of the requests mentioned in the [list of request examples this document](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md)
 
-**because** all my privacy needs to be covered
+**because** all my different privacy needs need to be covered
 
 ### US-07-1-04
 
@@ -48,7 +48,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **I want to** submit a Privacy Request with several [Demands](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md#demands) (i.e. possibility of having several demands per request)
 
-**because** I want to exercise several data rights at the same time, on the data an Organization has on me
+**because** I want to exercise several privacy rights at the same time, on the data an Organization has on me
 
 ### US-07-1-05
 
@@ -257,7 +257,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transferred the user's data to or I got the user's data from, to also delete the data
 
-## TBD 07-5 Out of Privacy Request Capture Service scope ? 
+## TBD 07-5 Out of Privacy Request Capture Service scope ? -> to delete from this doc ?
 
 ### US-07-5-01
 
