@@ -37,7 +37,7 @@ Fragment data never transits through the Data Capture Fragment.
 
 ### Encryption
 
-Encryption being optional, all components other than the Encryption Component need to behave in the same way, whether
+Encryption being optional, the Data Capture and Storage components need to behave in the same way, whether
 the data is encrypted or not. The Data Capture and Storage component do not need to communicate with the
 Encryption Component, only the client app does.
 The Encryption component is responsible for storage of all encryption keys, including user asymmetric keys and fragment
