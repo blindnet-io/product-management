@@ -140,7 +140,7 @@ A System MAY have multiple ways to identify the Data Subject, especially when da
 > - System B MUST (in addition to ID-b, also save ID-a)
 > - System that captures Bobs data MUST obtain consent for processing-category:MATCHING, target:PARTNERS
 > - When Bob makes Privacy Request at System B but wants the Privacy Request transmitted to System A, System B must include both DSIDs (ID-a & ID-b) in the Privacy Request sent to System A
-> - If Bob makes a REVOKE-CONSENT processing-category:MATCHING, then System B MUST delete the correspondence between ID-a and ID-b, and there is no more interoperability of future Privacy Requests.
+> - If Bob makes a REVOKE-CONSENT processing-category:MATCHING, then System B may find itself in a situation to have to delete the correspondence between ID-a and ID-b, and there is no more interoperability of future Privacy Requests.
 
 > If System A and Systems B use the same ID for Bob, then all this is much simpler.
 
