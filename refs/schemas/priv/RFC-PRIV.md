@@ -133,6 +133,17 @@ A Privacy Request is made by one and only one Data Subject.
 
 A System MAY have multiple ways to identify the Data Subject, especially when data about them came from some other System that uses different identifiers.
 
+> Let us imagine two Systems A and B interoperate, and exchange data about Bob. System A identifies bob with an ID (ID-a), System A sends Bobs data to System B. Systems B uses a different ID (ID-b).
+
+> If Systems A and B want to interoperate, and be able to interpret Bobs future Privacy Requests, then:
+
+> - System B MUST (in addition to ID-b, also save ID-a)
+> - System that captures Bobs data MUST obtain consent for processing-category:MATCHING, target:PARTNERS
+> - When Bob makes Privacy Request at System B but wants the Privacy Request transmitted to System A, System B must include both DSIDs (ID-a & ID-b) in the Privacy Request sent to System A
+> - If Bob makes a REVOKE-CONSENT processing-category:MATCHING, then System B MUST delete the correspondence between ID-a and ID-b, and there is no more interoperability of future Privacy Requests.
+
+> If System A and Systems B use the same ID for Bob, then all this is much simpler.
+
 The System capturing the Privacy Request MAY associate multiple Data Subject Identities to the Privacy Request, especially if the Privacy Request is likely to be transmitted to other systems.
 
 An array of one or more [Data Subject Identities](#decentralized-identity-of-data-subjects) MUST be provided in order to match the Data Subject with the data concerning them.
