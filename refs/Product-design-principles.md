@@ -1,8 +1,9 @@
 # Product Design Principles
 
-|  Version | 0.1 |
+|  Version | 0.2 |
 | -------- | --- |
-| **Update** | 2021-05-03
+| Status | Accepted |
+| **Update** | 2022-07-02 |
 
 The purpose of this document is to ensure the efficiency of the design process while imposing product qualities compatible with the company’s values.
 The document defines principles to be used when designing the product.
@@ -22,7 +23,7 @@ This implies that product design options are considered in the following order:
 
 FIRST: Options that have no implications to the client’s nor to the user’s workflow. If such options exist, then no other options are taken into consideration.
 
-SECOND: Options that have no implications to the user’s workflow, but do have implications to the client’s software design, architecture and therefore workflow. 
+SECOND: Options that have no implications to the user’s workflow, but do have implications to the client’s software design, architecture and therefore workflow.
 
 THIRD: if and only if no option exists of FIRST and SECOND type, can options having an implication to the users’ workflow be considered.
 
@@ -40,3 +41,10 @@ This implies that all final user facing parts of the devkit and associated produ
 2. **always** discourage [Deceptive Design "dark patterns"](https://en.wikipedia.org/wiki/Dark_pattern) and Privacy UX / Privacy-by-Design antipatterns
 
 No "technical reason" can be considered to justify any infringement to this rule.
+
+## 4. Anti-perfectionism Principle
+
+For any unit of work, be it design, specification, code, documentation or other:
+- good enough, finished
+**is preferable over**
+- potentially perfect, in progress.
