@@ -21,15 +21,19 @@ Figure below presents the blindnet devkit architecture.
 
 Each element within the architecture is responsible for a certain set of functions within the blindnet devkit.
 
-**Privacy Request Capture Interface**, which is a part of **Privacy Request Manager** as described in [HLA][HLA], is an end-user interface allowing Data Subjects to submit Privacy Requests.
+**Privacy Request Capture Interface**, which is a part of **Privacy Request Manager** as described in [HLA][HLA], is an end-user interface allowing Data Subjects to submit Privacy Requests. For requests that require it, this component may also initiate Data Subject Authentication, deliver the Privacy Request Response (including the data that may be part of response) and show its status.
 
 **Data Consumer Interface**, which is a part of **Privacy Request Manager** as described in [HLA][HLA], is an end-user interface for Data Consumers which allows them to:
+
+*Q3 2022 Scope*:
+- Set relevant configurations (e.g., Retention Policies, General Information for TRANSPARENCY requests, Transfers information, desired level of automation of Privacy Request Processing )
+- Manage Privacy Requests (View Privacy Requests, Act upon Privacy Request Response recommendations - grant/deny/transfer requests)
+
+*Autumn 2022 Scope*:
 - View and manage Data Captures
-- Set relevant configurations (e.g., for Privacy Requests or Legal Bases)
-- Manage Privacy Requests
 
 **Web components** are front-end, look and feel agnostic components which allow integrations of different blindnet devkit functions into external systems and web sites. Currently, these include:
-- Login component
+- Login component (System must be able to work with existing login engines of client Systems)
 - Communication (emailing) component
 - Custom data capture components
 - Data consumption components, i.e., components that allow Data Consumers to view and manage data
@@ -43,6 +47,11 @@ It is imagined as a single element used by developers, which further uses differ
 Different components from the [HLA][HLA] (Capture Component, Encryption and Access Management Engine, Privacy Computation Engine) are implemented through several architectural elements.
 
 The [HLA][HLA]'s **Capture Component** consists of _Capture SDK_, _Capture API_, and _Capture DB_, and it:
+
+*Q3 2022 Scope*:
+- Generates metadata according to PRIV (whenever a data record is made - from user input or any other data-collection mode e.g. transfer, machine learning etc.), covering everything (including 3rd party consents) needed for Privacy Computation Engine to operate as automatically as possible.
+
+*Autumn 2022 Scope*:
 - Captures data and metadata for Data Consumers
 - Protects confidentiality of Data Captures (encryption), by relying on Encryption Engine
 - Obtains Legal Bases related to Data Captures
@@ -57,10 +66,10 @@ The [HLA][HLA]'s **Encryption and Access Management Engine** consists of _Encryp
 - Allows recovery after access is lost
 
 The [HLA][HLA]'s **Privacy Computation Engine**, including **Privacy Compiler** and **Customization API**, consists of _Privacy SDK_, _Privacy API_, and _Privacy DB_, and it:
-- Captures Privacy Requests from from Data Subjects
-- Captures privacy-related Settings 
+- Captures Privacy Requests from Data Subjects
+- Captures privacy-related Settings (including mapping between PRIV terms and database schema of the client System)
 - Interprets Data Capture metadata (based on Settings)
-- Calculates (explainable) response to Privacy Requests 
+- Calculates (explainable) response to Privacy Requests
 - Keeps traces of Privacy Requests decisions and actions
 - Provides proofs of Privacy Requests decisions and actions
 - Registers operations and transfers of Data Captures across Systems
