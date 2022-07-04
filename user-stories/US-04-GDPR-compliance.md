@@ -1,4 +1,4 @@
-# GDPR Compliance
+# GDPR Compliance User Stories
 
 <!-- prettier-ignore -->
 | User Stories | 05 |
