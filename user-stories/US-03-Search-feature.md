@@ -1,4 +1,4 @@
-# Search feature
+# Search feature User Stories
 
 <!-- prettier-ignore -->
 | User Stories | 03 |
