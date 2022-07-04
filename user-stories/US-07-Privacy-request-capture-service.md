@@ -1,4 +1,4 @@
-# Privacy Request capture service
+# Privacy Request capture service User Stories
 
 <!-- prettier-ignore -->
 | User Stories | 07 |
