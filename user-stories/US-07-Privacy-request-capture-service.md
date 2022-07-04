@@ -152,7 +152,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **As an** Internet User (a Submitter or a Data Subject), creating a Privacy Request
 
-**I want to** be able to specifiy a specific request
+**I want to** be able to specifiy a specific demand and/or a specific elements of the demand
 
 **because** I can't find what I want to request in the proposed elements
 
