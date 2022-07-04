@@ -139,6 +139,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 **I want to** know the status of my Privacy Request
 
 **because** I have been waiting for a while and have got no response yet
+
 ### US-07-1-16
 
 **As an** Internet User (a Submitter or a Data Subject), after creating a Privacy Request
@@ -146,6 +147,15 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 **I want to** know the see/download the data concerning me
 
 **because** the Privacy Request I made included an `ACCESS` demand.
+
+### US-07-1-17
+
+**As an** Internet User (a Submitter or a Data Subject), creating a Privacy Request
+
+**I want to** be able to specifiy a specific request
+
+**because** I can't find what I want to request in the proposed elements
+
 ## 07-2 US specific to Local Privacy Request capture service
 
 ### US-07-2-01
