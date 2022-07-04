@@ -1,4 +1,4 @@
-# Multi-user feature
+# Multi-user feature User Stories
 
 <!-- prettier-ignore -->
 | User Stories | 05 |
