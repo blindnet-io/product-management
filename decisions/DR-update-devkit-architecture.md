@@ -53,7 +53,11 @@ By default, the user's eligible privacy scope is composed of privacy scope tripl
 
 ### TBD Retention policy
 
-Since no capture/fragment ids can be accessed by a privacy compiler, handling retention policies becomes a tricky problem.
+Since metadata can't be accessed by a privacy compiler, handling retention policies becomes a tricky problem.
 Data access engine can handle them by querying the storage on fixed intervals. That might put burden of additional development on a client.
+
+### TBD Provenance
+
+Privacy compiler should also be aware of data transfers between the systems, which includes knowing about the ids of the transferred data.
 
 ### 
