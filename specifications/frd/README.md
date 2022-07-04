@@ -29,7 +29,9 @@ In each sub-section, we understand by **Component** the component of blindnet de
 
 The component MUST display the identity of the Organization, its representative, and its DPO, as well as the privacy policy (or link to it).
 
+#### FR-PRCI-002
 
+The component MUST allow a Data Subject to create a rights request with the properties described in [PRIV][PRIV].
 
 ### Data Consumer Interface
 > The scope covered by this document only concerns the Q3 2022 milestone (does not include data view)
@@ -42,6 +44,9 @@ The Component MUST authenticate (and log in) any Data Consumer prior to exposing
 
 The Component MUST allow a logged-in Data Consumer to log out.
 
+#### FR-DCI-003
+
+The component MUST allow a Data Consumer to view a list of all new and processed privacy requests. This list MAY be sorted in ascending or descending order by date received.
 
 ### Privacy Request Computation Engine
 
