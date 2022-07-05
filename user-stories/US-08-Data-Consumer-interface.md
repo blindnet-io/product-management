@@ -95,3 +95,19 @@
 **I want to** be able easily access and send a Privacy request capture link 
 
 **because** a submitter might directly ask me where they can submit a Privacy Request 
+
+## US-07-08-12
+
+**As an** Organization, using blindnet devkit to automate the processing of requests
+
+**I want to** automate a maximum of requests except the "other" type of request that I need to process manually
+
+**because** I want to save time and effort
+
+## US-07-08-13
+
+**As a** developper from an Organization, using blindnet devkit
+
+**I want to** I want it to automatically compute the responses to (at least some) requests such as information about server locations, privacy policy, data types, organisation identity etc (cf. list of TRANSPARENCY actions from the [PRIV examples](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md))
+
+**because** I want to save time and effort
