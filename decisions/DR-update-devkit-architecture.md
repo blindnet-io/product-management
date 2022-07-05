@@ -1,6 +1,6 @@
 # Update devkit architecture
 
-| Status      | draft |
+| Status      | accepted |
 | :---------- | :-------------------------------------------------------------------------------------- |
 | **PR #**    | [761](https://github.com/blindnet-io/product-management/pull/761/) |
 | **Author & Sponsor** | [Marko](https://github.com/m4rk055) (marko@blindnet.io) |
