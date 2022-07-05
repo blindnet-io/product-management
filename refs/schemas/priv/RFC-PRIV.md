@@ -717,41 +717,9 @@ Systems SHOULD keep a log of received [Privacy Requests](#privacy-request), gene
 
 ## Questions and Discussion Topics
 
-### Use UUID for identifying Data Subjects
-
-We could imagine an alternative design, where we would force systems to use an [UUID]([uuid](https://en.wikipedia.org/wiki/Universally_unique_identifier)) (according to the [IETF RFC4122](https://www.rfc-editor.org/rfc/rfc4122.html)), to identify the users. That would require us to provide some way for systems to match UUIDs with their local IDs (usernames, or e-mails), and would potentially limit the ability of 3rd party systems to interpret Privacy Request made at another system. This goal of proposed design is to allow for flexibility. However it is a very important aspect of the proposal, that deserves further debate.
-
 ### Zero-knowledge proof Data Subject authentication
 
 PRIV MUST be agnostic of the authentication method, and as such MUST be compatible with Zero-knowledge proof authentication, biometric methods, password-based authentication and any other method. We should check whether this is the case with the current design.
-
-### Mandatory properties and value constrains
-
-Should we include restrictions in the schema according to the [JSON-schema-validation vocabulary](https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00#page-4) in order to make certain properties mandatory and ensure to limit string values to the values we support?
-
-In the current proposal, this is the case for target, but not for request types, data categories, and user identity schemas. We might want to include more forma constraints there, or deliberately leave flexibility. This is a discussion we need to have.
-
-### Dot-notation for Terms
-
-Hierarchies of categories are represented using the "supercategory.subcategory" notation. The idea behind this is to allow developers to use the level of granularity that is adapted to them, yet be able to easily situate the subcategory in supercategory when dealing with more generic requests.
-
-E.g. We have a data capture associated to "CONTACT.ADDRESS" data category. The Data Subject makes a DELETE request related to all of their data falling under "CONTACT" data category. The developer can easily identify "CONTACT.ADDRESS" as being a subcategory of ""CONTACT.ADDRESS" (either in SQL or in jquery).
-
-The advantages are:
-- It is human-readable
-- It is easy to filter and get what you need
-
-The disadvantages:
-- Takes a lot of bites to store (as it is text) and the search operations in it a string operations (also taking time). Those disadvantages can be easily managed on the level of the storage used for the data, and do not have to be managed on the level of this interoperability format,
-- this notation (although intuitive) is to the best of my knowledge, non-standard.
-
-Maybe there are reasons for it (although similar notations are used for packages in programming languages, which are also hierarchical structures).
-
-*Is there a standard (better) notation we can adopt?*
-
-A candidate for a standard notation is the [URN](https://datatracker.ietf.org/doc/html/rfc8141). It is - less pretty (still human-readable), + standard, = equally searchable, = equally bad for storage and time. However we would still need to specify our own notation of the part of the URN that we want to customise. So the advantages are limited (if any).
-
-Disadvantage: using a non-standard notation we expose ourselves to unpredictable risks.
 
 ### Schema elegance and modularity
 
@@ -771,7 +739,7 @@ This would make sense if the Systems would be responsible for finding a way to r
 
 A Data Subject can formulate a request to know about processing generally practiced by the System, or to know about processing being done on Data Subejct's particular data. Those can be different. Yet we have only one category 'TRANSPARENCY.PROCESSING-CATEGORIES'. Same goes for other `TRANSPARENCY` requests.
 
-Currently we don't offer any way to distinguish between those two kinds of demands. We offer instructions for Systems, under [Expected Behavior](expected-behavior.md), on how to interpret them based on context (whether the request is made during capture, or prior to capture where request scope SHOULD be interpreted as general, or in some other context where the request scope SHOULD be interpreted as related to user's particular data).
+Currently we don't offer any way to distinguish between those two kinds of demands. We offer instructions for Systems, under [Expected Behavior](./expected-behavior.md), on how to interpret them based on context (whether the request is made during capture, or prior to capture where request scope SHOULD be interpreted as general, or in some other context where the request scope SHOULD be interpreted as related to user's particular data).
 
 This design choice MAY be a bad idea.
 
@@ -803,7 +771,6 @@ Should we include a way for systems to sign responses and allow to confirm their
 ### Expect Language
 
 Should we implement the Accept-Language logic from HTTP? Or can we assume that the 'lang' of request is the language in which the response is expected?
-
 
 ### Extending the vocabulary
 
