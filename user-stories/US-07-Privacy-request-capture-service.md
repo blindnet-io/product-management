@@ -206,6 +206,21 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I only want the Organization to delete that particular Data Capture, that I submitted by mistake
 
+### US-07-2-07
+
+**As an** Organization, using blindnet devkit
+
+**I want to** set up the data catgory, processing category and purpose category elements to the ones that are applicable in my case
+
+**because** limiting the choice to only applicable elements will help the Internet user (a Submitter or a Data Subject) save timle by offering him the choice among only applicable demands and limit the submission of non applicable demands that will be automatically rejected
+
+### US-07-2-08
+
+**As an** Organization, using blindnet devkit
+
+**I want to** offer a list of recommended/most frequent requests made to the Internet user (a Submitter or a Data Subject) who wants to create a request
+
+**because** it can help them save time by quickly choose a pre-defined request among the list of recommened recommended/most frequent requests made
 
 ## 07-3 US specific to Global Privacy Request Capture Service
 
