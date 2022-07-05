@@ -210,7 +210,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **As an** Organization, using blindnet devkit
 
-**I want to** set up the data catgory, processing category and purpose category elements to the ones that are applicable in my case
+**I want to** set up the data catgory, processing category and purpose category elements to the ones that are applicable in my case (ie only keeping the applicable elements)
 
 **because** limiting the choice to only applicable elements will help the Internet user (a Submitter or a Data Subject) save timle by offering him the choice among only applicable demands and limit the submission of non applicable demands that will be automatically rejected
 
@@ -221,6 +221,14 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 **I want to** offer a list of recommended/most frequent requests made to the Internet user (a Submitter or a Data Subject) who wants to create a request
 
 **because** it can help them save time by quickly choose a pre-defined request among the list of recommened recommended/most frequent requests made
+
+### US-07-2-09
+
+**As an** Organization, using blindnet devkit
+
+**I want to** to be able set the [target](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/dictionary/targets/en.targets.json) elements (SYSTEM, ORGANISATION, PARTNERS) to make them applicable to my case (ie only keeping the applicable elements and/or changing the wording on the interface to make it more understable for the user)
+
+**because** I may be a big company with different systems offering different services (e.g organization = meta, system= instagram, a user might want to delete his data only from instragram) or I may be a small company and my organisation only have one system 
 
 ## 07-3 US specific to Global Privacy Request Capture Service
 
