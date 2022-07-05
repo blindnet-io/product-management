@@ -42,7 +42,7 @@ PCE is [configurable](https://github.com/blindnet-io/product-management/blob/264
   - consent templates (default consents)
 - Regulations
 
-Regulation is defined as `(privacy scope)-(legal base)` which means data in `privacy scope` can only be processed if a user has the active `legal base` (e.g. has given consent).
+Regulation is defined as allowed `(privacy scope)-(legal base)` pairs which means that for data in `privacy scope` to be processed under this regulation, the Data Subject MUST have an active `legal base` included in those pairs.
 
 A new user can be created in the PCE in the following ways:
 - manually, with a request
