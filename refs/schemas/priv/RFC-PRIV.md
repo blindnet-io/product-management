@@ -281,8 +281,8 @@ A Demand can be restricted to particular Date Range, for example the Data Subjec
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `from` | 0-* | Date and Time when the Date Range starts in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `to` | 0-* | Date and Time when the Date Range ends in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `from` | 0-1 | Date and Time when the Date Range starts in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `to` | 0-1 | Date and Time when the Date Range ends in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 
 A Date Range defined by only one of the {`from`, `to`} properties indicates a period of time after or before a certain date, unbounded on the other end.
 
