@@ -2,7 +2,7 @@
 
 | Status      | draft |
 | :---------- | :-------------------------------------------------------------------------------------- |
-| **PR #**    | []() |
+| **PR #**    | [761](https://github.com/blindnet-io/product-management/pull/761/) |
 | **Author & Sponsor** | [Marko](https://github.com/m4rk055) (marko@blindnet.io) |
 | **Reviewers** | [Milan](https://github.com/milstan), [Amaury](https://github.com/TheKinrar), [Justin](https://github.com/jboileau99) |
 | **Assignee** | [Milan](https://github.com/milstan) |
