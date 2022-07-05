@@ -273,7 +273,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transferred the user's data to or I got the user's data from, to also delete the data
 
-## TBD 07-4 Other
+## 07-4 Other
 
 ### US-07-4-01
 
