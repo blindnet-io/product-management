@@ -51,7 +51,14 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
 - **Known Selectors** : exhaustive list of [Data Capture Fragment](./RFC-PRIV.md#data-capture-fragments) `selector` know by the System, including for every data field that the System is likely to store (either a field of a data collection form, or simply a field in its database) the [Data Capture Fragment](./RFC-PRIV.md#data-capture-fragments) `selector` corresponding to it
 
 - **Configuration Maps**, defined at configuration time:
-    - *Retention Policies*: For each **Known Selector** (or Data Category implying every `selector` used within that Data Category) a data [Retention Policy](./RFC-PRIV.md#retention-policy),
+    - *Retention Policies*: For each **Known Selector** (or Data Category implying every `selector` used within that Data Category) one or more data [Retention Policies](./RFC-PRIV.md#retention-policy),
+
+    > **Note**
+    >
+    > A `selector` MAY be concerned by more than one Retention Policy. Certain Retention Policies are defined at a granular level of the selector (e.g., having `data-categories`:`CONTACT.ADDRESS.SHIPPING`) and others at a more global level of a category (e.g., having `data-categories`:`CONTACT`).
+    >
+    > All of those MUST be [resolved](#resolving-retention-policies) i.e. all policies concerning any Data Category in which the `selector` is included MUST be applied to data associated with that `selector`.
+    >
 
     - *Provenance*: For every **Known Selector** keep track of one or more [Provenance](./RFC-PRIV.md#provenance) objects.
 
@@ -597,8 +604,12 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
 Systems SHOULD define Retention Policies at the time of configuration, and SHOULD cover all Data Categories and Data Capture Fragment `selector`s from the Intended Privacy Scope with at least one Retention Policy.
 
 Retention Policies are resolved upon concrete instances of Data Capture Fragments. A particular instance of data, given the Data Capture Fragment `selector` to which it corresponds, is considered `EXPIRED` if all of the following is true:
-- `selector` of the Data Capture Fragment is a part of a Privacy Scope of any of the Data Categories defined under `data-categories` property of the Retention Policy. Retention Policy is of type `NO-LONGER-THAN` and the difference between the current date and the date of the event defined under `after` is larger than the value of `duration` 
-- AND `selector` of the Data Capture Fragment is NOT a part of a Privacy Scope of any of the Data Categories defined under `data-categories` property of the Retention Policy, whose type is `NO-LESS-THAN` and the difference between the current date and the date of the event defined under `after` is less than the value of `duration`, or has already occurred 
+- `selector` of the Data Capture Fragment is a part of a Privacy Scope of any of the Data Categories defined under `data-categories` property of the Retention Policy. Retention Policy is of type `NO-LONGER-THAN` and the difference between the current date and the date of the event defined under `after` is larger than the value of `duration`
+- AND `selector` of the Data Capture Fragment is NOT a part of a Privacy Scope of any of the Data Categories defined under `data-categories` property of the Retention Policy, whose type is `NO-LESS-THAN` and the difference between the current date and the date of the event defined under `after` is less than the value of `duration`, or has already occurred
+
+In other words, as specified in [PRIV](./RFC-PRIV.md#retention-policy), conflicting policies are resolved by considering `NO-LESS-THAN` to take priority over `NO-LONGER-THAN` policies.
+
+
 
 Privacy Compilers SHOULD be able to:
 - provide lists of active policies, in the context of answering to the `TRANSPARENCY.RETENTION` requests

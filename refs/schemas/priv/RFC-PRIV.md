@@ -480,6 +480,12 @@ Not to be confused with [Provenance Restriction](#provenance-restriction).
 
 When several `data-categories` values are given, they are interpreted as a **union**.
 
+It may happen that two or more Retention Policies conflict, e.g. the same data may be at the same time:
+- no longer to be kept (covered by a `NO-LONGER-THAN` Retention Policy, the event of which has happened and the `duration` delay expired),
+- AND in mandatory keeping (covered by a `NO-LESS-THAN` Retention Policy, the event of which is yet to happen, or the `duration` of which is yet to expire).
+
+In such cases, `NO-LESS-THAN` takes priority over `NO-LONGER-THAN`. The data is kept.
+
 ## Detailed Design
 
 A separate document gives a list of [examples](examples.md) on how to represent real-life Privacy Requests, as defined in [supported legislation](#supported-legislation), or as modeled in existing systems with which we seek interoperability.
