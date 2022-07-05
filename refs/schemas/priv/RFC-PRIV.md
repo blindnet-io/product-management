@@ -85,7 +85,7 @@ The Privacy Request Interchange Vocabulary includes the following:
 [Data Capture Fragment](#data-capture-fragments),
 [Data Subject Identity](#decentralized-identity-of-data-subjects),
 [Demand](#demands),
-[Demand Restriction](#demand-restrictions) (including [Privacy Scope Restriction](#privacy-scope),[Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Date Range](#date-range), [Provenance Restriction](#provenance-restriction), [Data Reference Restriction](#data-reference-restriction)),
+[Demand Restriction](#demand-restrictions) (including [Privacy Scope Restriction](#privacy-scope),[Consent Restriction](#consent-restriction), [Date Range](#date-range), [Provenance Restriction](#provenance-restriction), [Data Reference Restriction](#data-reference-restriction)),
 [Privacy Request](#privacy-request),
 [Privacy Request Response](#privacy-request-response),
 [Privacy Scope](#privacy-scope)(and its dimensions: *Data Category*, *Processing Category* and *Purpose*), [Provenance](#provenance),
@@ -189,7 +189,7 @@ A Demand MAY refer to only certain Privacy Scope (Data Categories, certain Proce
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `restrictions` |  0-* | An optional array of restriction objects, each being one of [Privacy Scope](#privacy-scope), [Consent Restriction](#consent-restriction), [Capture Restriction](#capture-restriction), [Date Range](#date-range), [Provenance Restriction](#provenance-restriction), [Data Reference Restriction](#data-reference-restriction)|
+| `restrictions` |  0-* | An optional array of restriction objects, each being one of [Privacy Scope](#privacy-scope), [Consent Restriction](#consent-restriction), [Date Range](#date-range), [Provenance Restriction](#provenance-restriction), [Data Reference Restriction](#data-reference-restriction)|
 
 When more than one restriction is specified, the System MUST interpret the Demand as referring to the **intersection of restrictions**.
 For example let us consider a `DELETE` demand having two restrictions: `data-category`:`LOCATION` as Privacy Scope, and from 11th to 15th of June 2022 as Date Range.
@@ -264,16 +264,6 @@ A Demand can be restricted to particular Consent ID(s). For example, a Data Subj
 | `consent-ids` | 0-* | Optional array of consent ids to indicate that the Demand (e.g. a `REVOKE-CONSENT` Demand) is restricted to particular consents. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 
 When one or more `consent-ids` are indicated, Systems MUST interpret the Demand as related to all Consents related to indicated `consent-ids`.
-
-###### Capture Restriction
-
-A Demand can be restricted to particular Capture ID(s). For example, a Data Subject to delete a particular data, they indicate the [Data Capture](#data-capture) concerned by their Demand.
-
-| Property | Expected cardinality | Expected values |
-| --------------- | ------ | -------------------- |
-| `capture-ids` | 0-* | Optional array of [Data Capture](#data-capture) IDs to indicate that the Demand (e.g. a `DELETE` Demand) is restricted to data captured within particular Data Captures. Items of the array are strings in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-
-When one or more `capture-ids` are indicated, Systems MUST interpret the demand all related to (the **union** of) all the data captured as part of those Data Captures.
 
 ###### Date Range
 
