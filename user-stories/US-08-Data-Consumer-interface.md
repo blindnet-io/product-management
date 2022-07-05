@@ -88,7 +88,7 @@
 
 **because** I want to save time and I might not know what are the valid reasons to deny a Privacy request
 
-## US-08-11
+## US-08-11 
 
 **As a** Data Consumer,
 
@@ -96,7 +96,7 @@
 
 **because** a submitter might directly ask me where they can submit a Privacy Request 
 
-## US-07-08-12
+## US-07-08-12 - other (not part of interface per se)
 
 **As an** Organization, using blindnet devkit to automate the processing of requests
 
@@ -104,7 +104,7 @@
 
 **because** I want to save time and effort
 
-## US-07-08-13
+## US-07-08-13 - other (not part of interface per se)
 
 **As a** developper from an Organization, using blindnet devkit
 
