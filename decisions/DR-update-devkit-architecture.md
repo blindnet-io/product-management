@@ -28,7 +28,7 @@ The [Privacy computation engine](https://github.com/blindnet-io/product-manageme
 **Data access engine** is a component deployed by a client. It communicates with the **Privacy Compiler** and a **Data storage connector**.
 
 A **Data storage connector** is a component that has mappings that queries the data storage. It can be implemented by blindnet or by a client for an unsupported storage or if the data model is not suitable.
-It should containg a set of rules (mappings) on how to map a `selector` to a corresponding fetch query (`selector` to a e.g. table column in a relational database). 
+It should containg a set of rules (mappings) on how to map a `selector` to corresponding queries (`selector` to a e.g. table column in a relational database). 
 
 PCE is [configurable](https://github.com/blindnet-io/product-management/blob/2645056f4477a93b5a6635129c77a3e7fe4d9a9b/refs/schemas/priv/expected-behavior.md#configuration-and-prerequisites) with the following:
 - Parameters for `TRANSPARENCY` requests
