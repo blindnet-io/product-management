@@ -273,9 +273,9 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transferred the user's data to or I got the user's data from, to also delete the data
 
-## TBD 07-5 Out of Privacy Request Capture Service scope ? -> to delete from this doc ?
+## TBD 07-4 Other
 
-### US-07-5-01
+### US-07-4-01
 
 **As an** Internet User (a Submitter or a Data Subject), when the request I made is rejected
 
@@ -283,23 +283,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** otherwise I might get frustrated not understanding why me request has been rejected
 
-### US-07-5-02
-
-**As an** Organization, using blindnet devkit
-
-**I want to** use the whole blindnet devkit components to capture the request, automate the processing of requests, view the requests...
-
-**because** I don't have any system that covers my compliance needs, I do everything manually
-
-### US-07-5-03
-
-**As an** Organization, using blindnet devkit to automate the processing of requests
-
-**I want to** automate a maximum of requests except the "other" type of request that I need to process manually
-
-**because** I want to save time and effort
-
-### US-07-5-04
+### US-07-4-02
 
 **As a** developper from an Organization, using blindnet devkit
 
@@ -307,23 +291,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** this is all I need, as I want to handle the file and import it to some other system
 
-### US-07-5-05
-
-**As a** developper from an Organization, using blindnet devkit
-
-**I want to** use the capture interface component and the data consumer interface component (from the HLA)
-
-**because** I need to generate a JSON file for the requests and also to view the requests. From there I will treat the requests manually
-
-### US-07-5-06
-
-**As a** developper from an Organization, using blindnet devkit
-
-**I want to** I want it to automatically compute the responses to (at least some) requests such as information about server locations, privacy policy, data types, organisation identity etc (cf. list of TRANSPARENCY actions from the [PRIV examples](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md))
-
-**because** I want to save time and effort
-
-### US-07-5-07
+### US-07-4-03
 
 **As an** Organization, using blindnet devkit
 
