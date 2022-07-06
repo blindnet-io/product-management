@@ -31,7 +31,23 @@ The component MUST display the identity of the Organization, its representative,
 
 #### FR-PRCI-002
 
-The component MUST allow a Data Subject to create a rights request with the properties described in [PRIV][PRIV].
+The component MUST allow a Data Subject to create a rights request with the properties described in [PRIV][PRIV], or they may enter their own properties.
+
+#### FR-PRCI-003
+
+The component MAY produce a JSON file for a created request.
+
+#### FR-PRCI-004
+
+The component MUST inform the user of the status of their previously created requests.
+
+#### FR-PRCI-005
+
+The component SHOULD guide the user in creating a privacy request in order to aid their understanding, as well as to make the request as precise, correct, and automatically processable as possible.
+
+#### FR-PRCI-006
+
+The component MAY be configured to display only a subset of the values for certain request properties, based on applicability to the organization. The component MAY also recommend values for certain properties, based on frequent occurrence in previous requests.
 
 ### Data Consumer Interface
 > The scope covered by this document only concerns the Q3 2022 milestone (does not include data view)
