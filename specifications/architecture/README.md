@@ -33,7 +33,6 @@ Each element within the architecture is responsible for a certain set of functio
 - View and manage Data Captures
 
 **Web components** are front-end, look and feel agnostic components which allow integrations of different blindnet devkit functions into external systems and web sites. Currently, these include:
-- Login component (System must be able to work with existing login engines of client Systems)
 - Communication (emailing) component
 - Custom data capture components
 - Data consumption components, i.e., components that allow Data Consumers to view and manage data
