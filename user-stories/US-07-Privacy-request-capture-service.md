@@ -228,7 +228,11 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **I want to** to be able set the [target](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/dictionary/targets/en.targets.json) elements (SYSTEM, ORGANISATION, PARTNERS) to make them applicable to my case (ie only keeping the applicable elements and/or changing the wording on the interface to make it more understable for the user)
 
+<<<<<<< HEAD
 **because** I may be a big company with different systems offering different services (e.g organization = meta, system= instagram, a user might want to delete his data only from instragram) or I may be a small company and my organisation only have one system
+=======
+**because** I may be a big company with different systems offering different services (e.g organization = meta, system= instagram, a user might want to delete his data only from instragram) or I may be a small company and my organisation only have one system 
+>>>>>>> d9e68c1e60f54e5f9ad88ce2d9d2b64928985c1b
 
 ## 07-3 US specific to Global Privacy Request Capture Service
 
