@@ -50,11 +50,81 @@ The component MUST allow a Data Consumer to view a list of all new and processed
 
 ### Privacy Request Computation Engine
 
+**TBD: handling real data access for certaing types of Privacy Requests**
+**TBD: handling Provenance**
+**TBD: handling Retention Policies**
+
 #### FR-PRCE-001
 
 The Component MUST receive Privacy Requests from other components (or other Systems) expressed in a machine-readable format using [PRIV][PRIV].
 
-The Component MUST confirm reception, or signal an error (messaging **TBD**).
+Depending on the type of a Privacy Request, the requesting party migh need to authenticate.
+
+#### FR-PRCE-
+
+The Component MUST authenticate incoming requests.
+
+Authentication is done through blindnet tokens.
+Two types of tokens exist:
+- user tokens
+- system token
+
+Following roles are observed in a user token:
+- data subject
+- data consumer
+- DPO
+
+#### FR-PRCE-
+
+The Component MUST automatically resolve TRANSPARENCY demands.
+
+The Component SHOULD automatically resolve other types of demands if applicable.
+
+#### FR-PRCE-
+
+The Component MUST return the list of requests to a requesting component.
+
+#### FR-PRCE-
+
+The Component MUST receive Privacy Request resolution from other components and create a Privacy Response.
+
+#### FR-PRCE-
+
+The Component MUST notify a Data Subject when the Privacy Response is finished.
+
+#### FR-PRCE-
+
+The Component MUST receive configuration for a particular system, according to [PRIV][PRIV] and [Expected behavior of systems implementing PRIV][[expected-behavior].
+
+Configuration can be submitted by either a specialized user (e.g. with the DPO role) through specialized UI or directly from the system.
+
+Configuration includes:
+- general info
+- list of selectors
+- for each selector
+  - privacy scope
+  - retention policy
+  - target provenance
+- list of legal bases (necessary, contracts, legitimate interests)
+- privacy scope for each legal base
+- consent templates and associated privacy scopes
+- active regulations (e.g. GDPR)
+
+#### FR-PRCE-
+
+The Component MUST recive consents from a user of the implementing system.
+Consent is received as an ID of a configured consent template, and is used for calculation of Eligible privacy scope of a user.
+
+#### FR-PRCE-
+
+The Component MUST return information about it's configuration.
+- list of legal bases
+- list of regulations
+- list of selectors
+- required consents for each selector to be compliant with the regulation
+- list of consents a user has submitted
+- selectors (types of data) that can be processed for a user, in terms of user's consents
+- etc.
 
 ### Capture Component (a.k.a. Metadata Engine)
 
@@ -70,9 +140,11 @@ The Component MUST generate metadata using [PRIV][PRIV], given:
 - **HLA** [High Level Architecture][HLA]
 - **HLC** [High Level Conceptualization][HLC]
 - **PRIV** [Privacy Request Interchange Vocabulary][PRIV]
+- **Expected behavior** [Privacy Request Interchange Vocabulary : Expected Behavior of Implementing Systems][expected-behavior]
 
 [Lexicon]: ../../refs/lexicon/RFC-Lexicon-2.md "RFC-Lexicon-2"
 [HLA]: ../../refs/high-level-architecture/ "High Level Architecture"
 [HLC]: ../../refs/high-level-conceptualization/ "High Level Conceptualization"
 [PRIV]: ../../refs/schemas/priv/RFC-PRIV.md "Privacy Request Interchange Vocabulary"
 [RFC 2119]: https://datatracker.ietf.org/doc/html/rfc2119 "Key words for use in RFCs to Indicate Requirement Levels"
+[expected-behavior]: ../../refs/schemas/priv/expected-behavior.md "Privacy Request Interchange Vocabulary : Expected Behavior of Implementing Systems"
