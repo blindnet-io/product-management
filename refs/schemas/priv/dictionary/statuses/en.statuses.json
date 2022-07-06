@@ -1,0 +1,7 @@
+{
+ "GRANTED": "Granted",
+ "DENIED": "Denied",
+ "PARTIALLY-GRANTED": "Partially granted",
+ "UNDER-REVIEW": "Under review",
+ "OTHER-RESPONSE"
+ }

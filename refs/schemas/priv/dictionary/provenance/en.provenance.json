@@ -1,0 +1,6 @@
+{
+  "USER": "The data is provided by a user of the system (potentially the Data Subject)",
+  "USER.DATA-SUBJECT": "The data is provided by the Data Subject",
+  "DERIVED": "The data is derived from users actions, extracted from other data or inferred",
+  "TRANSFERRED": "The data is obtained by transfer from another System",
+}

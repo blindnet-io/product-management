@@ -1,0 +1,180 @@
+{"$id": "https://blindnet.io/schemas/priv-terms.schema.json",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Privacy Request Interchange Vocabulary - Terms",
+    "description": "Terms of the Privacy Request Interchange Vocabulary",
+    "$defs": {
+      "actions": {
+        "enum": [
+          "ACCESS",
+          "DELETE",
+          "MODIFY",
+          "OBJECT",
+          "PORTABILITY",
+          "RESTRICT",
+          "REVOKE-CONSENT",
+          "TRANSPARENCY",
+          "TRANSPARENCY.DATA-CATEGORIES",
+          "TRANSPARENCY.DPO",
+          "TRANSPARENCY.KNOWN",
+          "TRANSPARENCY.LEGAL-BASES",
+          "TRANSPARENCY.ORGANIZATION",
+          "TRANSPARENCY.POLICY",
+          "TRANSPARENCY.PROCESSING-CATEGORIES",
+          "TRANSPARENCY.PROVENANCE",
+          "TRANSPARENCY.PURPOSE",
+          "TRANSPARENCY.RETENTION",
+          "TRANSPARENCY.WHERE",
+          "TRANSPARENCY.WHO",
+          "OTHER-DEMAND"
+        ]
+      },
+      "boolean": {
+        "enum": [
+          "YES",
+          "NO"
+        ]
+      },
+      "data-categories": {
+        "enum": [
+          "AFFILIATION",
+          "AFFILIATION.WORKPLACE",
+          "AFFILIATION.SCHOOL",
+          "AFFILIATION.MEMBERSHIP",
+          "AFFILIATION.MEMBERSHIP.UNION",
+          "BEHAVIOR",
+          "BEHAVIOR.ACTIVITY",
+          "BEHAVIOR.CONNECTION",
+          "BEHAVIOR.PREFERENCE",
+          "BEHAVIOR.TELEMETRY",
+          "BIOMETRIC",
+          "CONTACT",
+          "CONTACT.EMAIL",
+          "CONTACT.ADDRESS",
+          "CONTACT.PHONE",
+          "DEMOGRAPHIC",
+          "DEMOGRAPHIC.AGE",
+          "DEMOGRAPHIC.BELIEFS",
+          "DEMOGRAPHIC.GENDER",
+          "DEMOGRAPHIC.ORIGIN",
+          "DEMOGRAPHIC.RACE",
+          "DEMOGRAPHIC.SEXUAL-ORIENTATION",
+          "DEVICE",
+          "FINANCIAL",
+          "FINANCIAL.BANK-ACCOUNT",
+          "GENETIC",
+          "HEALTH",
+          "IMAGE",
+          "LOCATION",
+          "NAME",
+          "PROFILING",
+          "RELATIONSHIPS",
+          "UID",
+          "UID.ID",
+          "UID.IP",
+          "UID.USER-ACCOUNT",
+          "UID.SOCIAL-MEDIA",
+          "OTHER-DATA",
+        ]
+      },
+      "events": {
+        "enum": [
+          "CAPTURE-DATE",
+          "RELATIONSHIP-END"
+        ]
+      },
+      "legal-bases": {
+        "enum": [
+          "CONSENT",
+          "CONTRACT",
+          "LEGITIMATE-INTEREST",
+          "NECESSARY",
+          "NECESSARY.LEGAL-OBLIGATION",
+          "NECESSARY.VITAL-INTEREST",
+          "NECESSARY.PUBLIC-INTEREST",
+          "OTHER-LEGAL-BASE"
+        ]
+      },
+      "motives": {
+        "enum": [
+          "IDENTITY-UNCONFIRMED",
+          "LANGUAGE-UNSUPPORTED",
+          "VALID-REASONS",
+          "IMPOSSIBLE",
+          "REQUEST-UNSUPPORTED",
+          "USER-UNKNOWN"
+        ]
+      },
+      "processing-categories": {
+        "enum": [
+          "ANONYMIZATION",
+          "AUTOMATED-INFERENCE",
+          "AUTOMATED-DECISION-MAKING",
+          "COLLECTION",
+          "GENERATING",
+          "PUBLISHING",
+          "STORING",
+          "SHARING",
+          "USING",
+          "OTHER-PROCESSING"
+        ]
+      },
+      "provenance": {
+        "enum": [
+          "DERIVED",
+          "TRANSFERRED",
+          "USER",
+          "USER.DATA-SUBJECT"
+        ]
+      }
+    },
+      "purposes": {
+        "enum": [
+         "ADVERTISING",
+         "COMPLIANCE",
+         "EMPLOYMENT",
+         "JUSTICE",
+         "MARKETING",
+         "MEDICAL",
+         "PERSONALIZATION",
+         "PUBLIC-INTERESTS",
+         "RESEARCH",
+         "SALE",
+         "SECURITY",
+         "SERVICES",
+         "SERVICES.ADDITIONAL-SERVICES",
+         "SERVICES.BASIC-SERVICE",
+         "SOCIAL-PROTECTION",
+         "TRACKING",
+         "VITAL-INTERESTS",
+         "OTHER-PURPOSE",
+        ]
+      },
+      "retentions": {
+        "enum": [
+          "NO-LONGER-THAN",
+          "NO-LESS-THAN"
+        ]
+      },
+      "statuses": {
+        "enum": [
+          "GRANTED",
+          "DENIED",
+          "PARTIALLY-GRANTED",
+          "UNDER-REVIEW",
+          "OTHER-RESPONSE"
+        ]
+      },
+      "targets": {
+        "enum": [
+          "ORGANIZATION",
+          "PARTNERS",
+          "SYSTEM"
+        ]
+      },
+      "targets-directional": {
+        "enum": [
+          "PARTNERS.DOWNWARD",
+          "PARTNERS.UPWARD"
+        ]
+      }
+}

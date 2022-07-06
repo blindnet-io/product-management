@@ -1,1 +1,3 @@
-*.DS_Store
+*.DS_Store.DS_Store
+refs/schemas/prif/dictionary/.DS_Store
+.DS_Store
