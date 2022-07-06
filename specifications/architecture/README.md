@@ -67,7 +67,6 @@ The [HLA][HLA]'s **Encryption and Access Management Engine** consists of _Encryp
 The [HLA][HLA]'s **Privacy Computation Engine**, including **Privacy Compiler** and **Customization API**, consists of _Privacy SDK_, _Privacy API_, and _Privacy DB_, and it:
 - Captures Privacy Requests from Data Subjects
 - Captures privacy-related Settings (including mapping between PRIV terms and database schema of the client System)
-- Interprets Data Capture metadata (based on Settings)
 - Calculates (explainable) response to Privacy Requests
 - Keeps traces of Privacy Requests decisions and actions
 - Provides proofs of Privacy Requests decisions and actions
