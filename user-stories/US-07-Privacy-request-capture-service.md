@@ -4,9 +4,9 @@
 | User Stories | 07 |
 | ---------- | ---- |
 | **Status** | Draft |
-| **Design** | [Figma activity diagram (draft)](https://www.figma.com/file/miUd9PEmLrjut53rwrQViX/Data-rights-request-capture-service?node-id=0%3A1)
-| **Previous discussions** | https://github.com/blindnet-io/product-ideas/issues/22
-| **Other documents** | [Privacy Request Interchange Vocabulary](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md), [Examples of Privacy Requests](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md), [Scenarios](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/scenarios.md), [Expected Behavior of Systems](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/expected-behavior.md)
+| **Design** | [Figma activity diagram (draft)](https://www.figma.com/file/miUd9PEmLrjut53rwrQViX/Data-rights-request-capture-service?node-id=0%3A1) |
+| **Previous discussions** | blindnet-io/product-ideas/issues/22 |
+| **Other documents** | [Privacy Request Interchange Vocabulary](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/RFC-PRIV.md), [Examples of Privacy Requests](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md), [Scenarios](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/scenarios.md), [Expected Behavior of Systems](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/expected-behavior.md) |
 
 ## Introduction
 
@@ -78,7 +78,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **As an** Internet User (a Submitter or a Data Subject),
 
-**I want to** submit a Privacy Request to access some specific data : the data that are derived from me and my behavior  
+**I want to** submit a Privacy Request to access some specific data : the data that are derived from me and my behavior
 
 **because** I want to know what data a system has one me that I did not input myself
 
@@ -206,6 +206,29 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I only want the Organization to delete that particular Data Capture, that I submitted by mistake
 
+### US-07-2-07
+
+**As an** Organization, using blindnet devkit
+
+**I want to** set up the data catgory, processing category and purpose category elements to the ones that are applicable in my case (ie only keeping the applicable elements)
+
+**because** limiting the choice to only applicable elements will help the Internet user (a Submitter or a Data Subject) save timle by offering him the choice among only applicable demands and limit the submission of non applicable demands that will be automatically rejected
+
+### US-07-2-08
+
+**As an** Organization, using blindnet devkit
+
+**I want to** offer a list of recommended/most frequent requests made to the Internet user (a Submitter or a Data Subject) who wants to create a request
+
+**because** it can help them save time by quickly choose a pre-defined request among the list of recommened recommended/most frequent requests made
+
+### US-07-2-09
+
+**As an** Organization, using blindnet devkit
+
+**I want to** to be able set the [target](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/dictionary/targets/en.targets.json) elements (SYSTEM, ORGANISATION, PARTNERS) to make them applicable to my case (ie only keeping the applicable elements and/or changing the wording on the interface to make it more understable for the user)
+
+**because** I may be a big company with different systems offering different services (e.g organization = meta, system= instagram, a user might want to delete his data only from instragram) or I may be a small company and my organisation only have one system
 
 ## 07-3 US specific to Global Privacy Request Capture Service
 
@@ -273,9 +296,9 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I need to be compliant, if a user wants their data deleted, I have to inform the other company I transferred the user's data to or I got the user's data from, to also delete the data
 
-## TBD 07-5 Out of Privacy Request Capture Service scope ? -> to delete from this doc ?
+## 07-4 Other
 
-### US-07-5-01
+### US-07-4-01
 
 **As an** Internet User (a Submitter or a Data Subject), when the request I made is rejected
 
@@ -283,23 +306,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** otherwise I might get frustrated not understanding why me request has been rejected
 
-### US-07-5-02
-
-**As an** Organization, using blindnet devkit
-
-**I want to** use the whole blindnet devkit components to capture the request, automate the processing of requests, view the requests...
-
-**because** I don't have any system that covers my compliance needs, I do everything manually
-
-### US-07-5-03
-
-**As an** Organization, using blindnet devkit to automate the processing of requests
-
-**I want to** automate a maximum of requests except the "other" type of request that I need to process manually
-
-**because** I want to save time and effort
-
-### US-07-5-04
+### US-07-4-02
 
 **As a** developper from an Organization, using blindnet devkit
 
@@ -307,23 +314,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** this is all I need, as I want to handle the file and import it to some other system
 
-### US-07-5-05
-
-**As a** developper from an Organization, using blindnet devkit
-
-**I want to** use the capture interface component and the data consumer interface component (from the HLA)
-
-**because** I need to generate a JSON file for the requests and also to view the requests. From there I will treat the requests manually
-
-### US-07-5-06
-
-**As a** developper from an Organization, using blindnet devkit
-
-**I want to** I want it to automatically compute the responses to (at least some) requests such as information about server locations, privacy policy, data types, organisation identity etc (cf. list of TRANSPARENCY actions from the [PRIV examples](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md))
-
-**because** I want to save time and effort
-
-### US-07-5-07
+### US-07-4-03
 
 **As an** Organization, using blindnet devkit
 

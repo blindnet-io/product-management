@@ -31,21 +31,23 @@ Privacy is a "factor of connection to oneself and to others"[^6].
 
 - Privacy is about **control of access**.
 
-As relationships play a key role in shaping the view on the self, it is of crucial importance for the individual to control the access to self, and thus maintain control over the change of the self.
-That is the function of Privacy.
+As relationships play a key role in shaping the view on the self, it is of crucial importance for the individual to control the access to self, and thus maintain control over their own view of the self.
 
 - Privacy is **selective**.
 
 It is not an absolute binary "come in" vs. "go away".
 It is a nuanced choice to control access to parts of the _self_.
 
-## Genesis and Function
+## Function
+
+### Privacy Enables Connection
 
 Privacy seems to trace its origins in biological processes.
 "Withdrawal from others is ubiquitous across the animal kingdom" [^7].
 Researchers make an analogy with cell membrane[^1] that selectively allows material inputs and outputs, similarly as privacy selectively regulates external stimulation to one's self or the flow of information to others[^7].
 
-Biology research suggests that, in social species, privacy might have emerged as the cost-benefit balance between the advantages offered by the life in a group and the interests of the individual's competition over scarce resources.
+Biology research suggests that, in social species, privacy might have emerged as the cost-benefit balance between the advantages offered by the life in a group and the interests of the individual's competition over scarce resources. In other words, **privacy balances the dangers and advantages of connection**, which makes connection possible.
+
 The practice of withholding information or actively sending deceiving signals might have had origins in a survival mechanism i.e. sending away the individuals competing for the same resources.
 _"By increasing another individual's misinformation about the environment, an animal may increase its own fitness"_[^7].
 
@@ -57,9 +59,33 @@ Compelling animals to remain in contact contrary to their own privacy inclinatio
 
 Beyond the privacy of an individual, privacy also has a group-preserving function in the relationship between one group to another[^15].
 
-## Privacy and Other Topics
+### Connection is a prerequisite for Humans' Survival
 
-### Privacy and Information Asymmetry
+Humans are social species, hardwired for connection.
+
+> « **Connection is the energy that exists between people when they feel seen, heard and valued; when they can give and receive without judgement; and when they derive sustenance and strength from the relationship.** » &mdash; _Brené Brown_
+
+Connection is crucial to development; without it, social animals experience distress and face severe developmental consequences[^10]. 
+Yet, connection can also expose the individual to existential vulnerabilities. 
+
+The risk associated with connection has to be managed.
+Without privacy, the need for connection conflicts with the goal of protecting vital interests.
+Connection is **not** possible without privacy.
+
+<img width="900" alt="connectedness" src="./img/connectedness.png">
+
+Privacy is not the opposite of connectedness. 
+
+Connectedness exists on the continuum between fusion and isolation.
+Fusion is the state of total absence of boundaries and separateness. 
+Isolation is the psychological equivalent of death. 
+It leads to loneliness - correlated with negative effects on health[^11].
+
+Humans need connectedness to avoid isolation. Privacy regulates connectedness to avoid fusion (where there is not enough separateness for anything to need connecting).
+
+To acheive different levels of connectedness on this continuum, an individual needs to balance and regulate, in other words control the access to self. Privacy is thus a necessary condition for connectedness. **There is no connectedness without privacy.**
+
+### Privacy Works Through Information Asymmetry
 
 Information asymmetry[^8] is clearly a key concept for privacy as identified by biological studies of privacy in animal societies.
 
@@ -71,25 +97,11 @@ In the context of a power differential, where an individual interacts with a mor
 Indeed, in order to selectively control the access to self, the individual has to know what the other party will do if given access to a part of the self.
 This two-way understanding of the information asymmetry that privacy seeks to create is the ground on which the legislation around _data minimization_, _transparency of treatment_ and _consent_ is formed.
 
-### Privacy vs Loneliness/Isolation
+## Consequences
 
-Humans are social species, hardwired for connection.
+As a key element of connection to others, privacy also impacts our connection to ourselves and our idea of our identity and self-efficacy. Functioning privacy creates a fertile ground for building trust and functional connectedness. Disfunctioning privacy is linked with despair.
 
-> « **Connection is the energy that exists between people when they feel seen, heard and valued; when they can give and receive without judgement; and when they derive sustenance and strength from the relationship.** » &mdash; _Brené Brown_
-
-It is crucial to development; without it, social animals experience distress and face severe developmental consequences[^10].
-
-Privacy is not a tool to reduce connection and favor isolation (which leads to loneliness - correlated with negative effects on health[^11]).
-On the contrary, privacy is a necessary element of connection making connection compatible with survival in the natural context of power differential and scarce resources.
-
-### Privacy and Trust
-
-> « **Trust is choosing to make something important to you vulnerable to the actions of someone else.** » &mdash; _Charles Feldman_[^20]
-
-Privacy is strongly linked with trust.
-Because privacy is about the access to _self_, and self is clearly of great importance, an individual is expected to choose a particular level of privacy in relation to the level of trust.
-
-### Privacy and Identity
+### Privacy Influences Identity
 
 As we derive the knowledge of self from our relationships with others, the freedom to engage and disengage from those relationships and selectively allow access to self is crucial to our ability to keep our identity safe.
 
@@ -101,17 +113,13 @@ At the psychological level:
 
 Inability to obtain privacy has important psychological consequences ranging from embarrassment and stigma to de-individuation and dehumanization[^16].
 
-### Privacy Paradox
+### Privacy is strongly linked with Trust
 
-The privacy paradox is a phenomenon in which online users state that they are concerned about their privacy but behave as if they were not.[^12]
-Anecdotal and empirical evidence indicates that individuals are willing to trade their personal information for relatively small rewards[^14].
+> « **Trust is choosing to make something important to you vulnerable to the actions of someone else.** » &mdash; _Charles Feldman_[^20]
 
-However, as we have seen, privacy regulates the conflict of the need for connection with the need for competition, survival and overcoming the power diferential.Habits, and other needs, indeniably play a role in the persons choice of privacy related behavior and may yeald behavior inconsistent with the persons beliefs and interests (as outlined by the _privacy paradox_)[^18].
+Because privacy is about the access to _self_, and self is clearly of great importance, an individual is expected to choose a particular level of privacy in relation to the level of trust.
 
-The existence of the privacy paradox is not indicative of a false concern for privacy, but rather of the context not favoring behavior aligned with this concern, as is common with attitude-behavior gap[^13].
-Researchers consider privacy-oblivious behavior to be a result of technological limitations as much as a consequence of users' deficiencies[^19].
-
-### Privacy Fatigue
+### No Privacy leads to Privacy Fatigue
 
 Privacy fatigue reflects a sense of weariness toward privacy issues, in which individuals believe that there is no effective means of managing their personal information on the internet[^21].
 
@@ -127,12 +135,68 @@ Researchers suggest that clinical depression and related mental illnesses may re
 Indeed, privacy is related to identity, and to our perception of our own competence to deal with the world[^1][^16].
 Repetetive exposure to technological limitations[^19], as well as the privacy paradox attitude-behavior gap[^12] might situate the explanation of privacy fatigue in the scope of learned helplessness.
 
+
+## Privacy Paradox
+
+The privacy paradox is a phenomenon in which online users state that they are concerned about their privacy but behave as if they were not.[^12]
+Anecdotal and empirical evidence indicates that individuals are willing to trade their personal information for relatively small rewards[^14].
+
+However, as we have seen, privacy regulates the conflict of the need for connection with the need for competition, survival and overcoming the power diferential.Habits, and other needs, indeniably play a role in the persons choice of privacy related behavior and may yeald behavior inconsistent with the persons beliefs and interests (as outlined by the _privacy paradox_)[^18].
+
+The existence of the privacy paradox is not indicative of a false concern for privacy, but rather of the context not favoring behavior aligned with this concern, as is common with attitude-behavior gap[^13].
+Researchers consider privacy-oblivious behavior to be a result of technological limitations as much as a consequence of users' deficiencies[^19].
+
+
 ## Privacy in Software Systems
 
-Software Systems, and especially the ones operating over the internet, put an individual in a situation of _need_ to control the access to self, naturally enabled by the context of use of such systems.
-The user has to balance the need for connection (ranging from simple information gathering, over social interactions to economic transactions) with the need for protection of the self from unwanted connection, harm and abuse.
+### Internet Systems are Tools For Connection
+
+The rise of Internet Systems and of the Web[^29] is inspired by the concept of Memex, proposed by Vannevar Bush in 1945 in his article *As We May Think*[^25]. Memex is imagined as a tehorethical machine that humans can use to augment their cognitive powers. Memex can store information and provide access to it at later times. Also Memex is collaborative, as it can facilitate access to information provided by others - a *collective memory-extension tool*.
+
+Memex was the inspiration for:
+- NLS[^26], a system that used the early internet infrastructure to demonstrate the pioneering use of videoconferencing, collaborative document editing, hypermedia, document version control and many other concepts prevalent in modern Internet Systems. Developed in 1968, by Doug Engelbart, it was the first system to implement practical use of hypertext links[^27] for connecting information
+- The Wrold Wide Web[^28], created in 1990 by Tim Berners-Lee
+
+All of modern internet infrastructure and available applications and systems materialize the vision of Memex, where:
+- human are connected to information,
+- information is connected to information,
+- humans are connected to humans.
+
+### Control is Essential to Human-Computer Interactions
 
 Having control (having the system respond predictably to user's actions) is one of the key features a user can expect from a properly designed human-computer interaction[^17].
+
+Since *privacy is the selective **control** of access to the self*, a computer system, properly designed for connection, must also give the user control over their privacy.
+
+### Privacy-enabled Connectedness
+
+In essence, the available knowledge teaches us the following:
+- **Internet Systems are tools for connection**
+- **There is no connection without exposure of the self**
+- **Privacy is the selective control of access to the self**
+- **Properly designed computer systems put the user in control**
+- **Privacy enables sustainable connection and trust (choosing to make something important to you vulnerable to the actions of someone else)**
+- **Connectedness is dysfunctional without privacy** 
+
+Therefore, we believe that a properly designed Internet System is designed for Privacy-enabled Connectedness. 
+
+The Privacy-enabled Connectedness is achieved through the following design principles:
+
+#### **No Access without Control**
+
+The system is designed to prevent any form of access to the user or to the user’s data without giving user the control over such access.
+
+> **Examples**
+>
+> A system collecting user’s data over a web form and storing the data unencrypted in a database is not designed to prevent any form of access to the user or to the user’s data without giving user the control over such access. A system collecting data end-to-end encrypted for clearly identified target consumers, is.
+
+#### Distributed Control for Distributed Access
+
+A system collecting user’s data, that shares this data with other systems, is designed to propagate any access-related instruction given by the user across the receiving systems. (No loose ends)
+
+> **Examples**
+>
+> When a user deletes their data from one system, a properly designed system allows the user to have the delete action propagated to other systems to which the data was transmitted. A poorly designed system only deletes the data from its own storage.
 
 [^1]: Altman I (1975) The environment and social behavior. Wadsworth, Belmont
 [^2]: Sedikides, C. & Spencer, S.J. (Eds.) (2007). The Self. New York: Psychology Press
@@ -157,3 +221,8 @@ Having control (having the system respond predictably to user's actions) is one 
 [^21]: Hanbyul Choia, Jonghwa Parka, Yoonhyuk Jung, [The role of privacy fatigue in online privacy behavior](https://iranarze.ir/wp-content/uploads/2018/04/E6393-IranArze.pdf)
 [^23]: [Learned Helplessness](https://en.wikipedia.org/wiki/Learned_helplessness)
 [^24]: Seligman ME (1975). Helplessness: On Depression, Development, and Death. San Francisco: W. H. Freeman
+[^25]: Bush, Vannevar (1945-07-01). ["As We May Think"](https://www.theatlantic.com/magazine/archive/1945/07/as-we-may-think/303881/). The Atlantic
+[^26]: [NLS](https://en.wikipedia.org/wiki/NLS_(computer_system)) by Doug Engelbart
+[^27]: [Hypertext](https://en.wikipedia.org/wiki/Hypertext)
+[^28]: [World Wide Web](https://en.wikipedia.org/wiki/World_Wide_Web)
+[^29]: The **Internet** is a global network, while the **Web** is a structure of information that is accessed via the Internet

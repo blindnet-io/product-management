@@ -24,3 +24,12 @@ Traditionally, modal dialogues can be used with moderation (e.g. when the user c
 Blindnet interfaces are made to avoid the use of overlapping interface elements whenever possible. The use of modal dialogs, and interface elements placed on top of each other, can be accepted, _if and only if the user is about to put himself or others in a vital danger, or is likely to suffer irreparable and highly damageable consequences of his intended actions._
 
 In all other situations, no overlapping interface elements should be used.
+
+## 3. Be Password Strength Policy Agnostic
+
+A security system is only as secure as its secret. Yet, password strength can be achieved in many different ways. When blindnet’s software is used by other software systems, it can operate regardless of the particular password strength policies in place in those systems.
+
+User-facing components of blindnet’s system prefer:
+-	objective measures of Password Strength (such as Shannon entropy) over arbitrary constrains
+-	length of passwords over complexity of passwords
+-	to educate, inform and support various ways to reach password strength rather than impose a rigid set of constrains
