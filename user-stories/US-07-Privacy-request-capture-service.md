@@ -210,7 +210,7 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **As an** Organization, using blindnet devkit
 
-**I want to** set up the data catgory, processing category and purpose category elements to the ones that are applicable in my case (ie only keeping the applicable elements)
+**I want to** set up the actions, data catgory, processing category and purpose category elements to the ones that are applicable in my case (ie only keeping the applicable elements)
 
 **because** limiting the choice to only applicable elements will help the Internet user (a Submitter or a Data Subject) save timle by offering him the choice among only applicable demands and limit the submission of non applicable demands that will be automatically rejected
 
