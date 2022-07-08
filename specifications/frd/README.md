@@ -3,9 +3,9 @@
 | Status        | Accepted as normative draft                                                    |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **Author(s)** | [milstan](https://github.com/milstan), [blindnet engineering](https://github.com/orgs/blindnet-io/teams/engineering)             |
-| **PR**   | **TBD** |
-| **Version**   | 1.0                                                                             |
-| **Updated**   | 2022-07-04                                                                             |
+| **PR**   | [#755](https://github.com/blindnet-io/product-management/pull/755), [] |
+| **Version**   | 1.1                                                                             |
+| **Updated**   | 2022-07-08                                                                             |
 
 This document specifies the technical requirements for the blindnet devkit.
 
@@ -27,27 +27,27 @@ In each sub-section, we understand by **Component** the component of blindnet de
 
 #### FR-PRCI-001
 
-The component MUST display the identity of the Organization, its representative, and its DPO, as well as the privacy policy (or link to it).
+The Component MUST display the identity of the Organization, its representative, and its DPO, as well as the privacy policy (or link to it).
 
 #### FR-PRCI-002
 
-The component MUST allow a Data Subject to create a rights request with the properties described in [PRIV][PRIV], or they may enter their own properties.
+The Component MUST allow a Data Subject to create a Privacy Request with the properties described in [PRIV][PRIV], or they may enter their own properties.
 
 #### FR-PRCI-003
 
-The component MAY produce a JSON file for a created request.
+The Component MAY produce a JSON file for a created Privacy Request.
 
 #### FR-PRCI-004
 
-The component MUST inform the user of the status of their previously created requests.
+The Component MUST inform the User of the status of their previously created Privacy Requests.
 
 #### FR-PRCI-005
 
-The component SHOULD guide the user in creating a privacy request in order to aid their understanding, as well as to make the request as precise, correct, and automatically processable as possible.
+The Component SHOULD guide the User in creating a Privacy Request in order to aid their understanding, as well as to make the request as precise, correct, and automatically processable as possible.
 
 #### FR-PRCI-006
 
-The component MAY be configured to display only a subset of the values for certain request properties, based on applicability to the organization. The component MAY also recommend values for certain properties, based on frequent occurrence in previous requests.
+The Component MAY be configured to display only a subset of the values for certain Privacy Request properties, based on applicability to the organization. The Component MAY also recommend values for certain properties, based on frequent occurrence in previous requests.
 
 ### Data Consumer Interface
 > The scope covered by this document only concerns the Q3 2022 milestone (does not include data view)
@@ -62,23 +62,23 @@ The Component MUST allow a logged-in Data Consumer to log out.
 
 #### FR-DCI-003
 
-The component MUST allow a Data Consumer to view a list of all new and processed privacy requests. This list MAY be sorted in ascending or descending order by date received.
+The Component MUST allow a Data Consumer to view a list of all new and processed Privacy Requests. This list MAY be sorted in ascending or descending order by date received.
 
 ### Privacy Request Computation Engine
 
-**TBD: handling real data access for certaing types of Privacy Requests**
+**TBD: handling real data access for certain types of Privacy Requests**
 **TBD: handling Provenance**
 **TBD: handling Retention Policies**
 
 #### FR-PRCE-001
 
-The Component MUST receive Privacy Requests from other components (or other Systems) expressed in a machine-readable format using [PRIV][PRIV].
+The Component MUST receive Privacy Requests from other Components (or other Systems) expressed in a machine-readable format using [PRIV][PRIV].
 
-Depending on the type of a Privacy Request, the requesting party migh need to authenticate.
+Depending on the type of a Privacy Request, the requesting party might need to authenticate.
 
-#### FR-PRCE-
+#### FR-PRCE-002
 
-The Component MUST authenticate incoming requests.
+The Component MUST authenticate incoming Privacy Request.
 
 Authentication is done through blindnet tokens.
 Two types of tokens exist:
@@ -90,25 +90,25 @@ Following roles are observed in a user token:
 - data consumer
 - DPO
 
-#### FR-PRCE-
+#### FR-PRCE-003
 
 The Component MUST automatically resolve TRANSPARENCY demands.
 
 The Component SHOULD automatically resolve other types of demands if applicable.
 
-#### FR-PRCE-
+#### FR-PRCE-004
 
-The Component MUST return the list of requests to a requesting component.
+The Component MUST return the list of requests to a requesting Component.
 
-#### FR-PRCE-
+#### FR-PRCE-005
 
-The Component MUST receive Privacy Request resolution from other components and create a Privacy Response.
+The Component MUST receive Privacy Request resolution from other Components and create a Privacy Response.
 
-#### FR-PRCE-
+#### FR-PRCE-006
 
 The Component MUST notify a Data Subject when the Privacy Response is finished.
 
-#### FR-PRCE-
+#### FR-PRCE-007
 
 The Component MUST receive configuration for a particular system, according to [PRIV][PRIV] and [Expected behavior of systems implementing PRIV][[expected-behavior].
 
@@ -126,12 +126,12 @@ Configuration includes:
 - consent templates and associated privacy scopes
 - active regulations (e.g. GDPR)
 
-#### FR-PRCE-
+#### FR-PRCE-008
 
-The Component MUST recive consents from a user of the implementing system.
+The Component MUST receive consents from a user of the implementing system.
 Consent is received as an ID of a configured consent template, and is used for calculation of Eligible privacy scope of a user.
 
-#### FR-PRCE-
+#### FR-PRCE-009
 
 The Component MUST return information about it's configuration.
 - list of legal bases
