@@ -3,7 +3,7 @@
 | Status        | Accepted as normative draft                                                    |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **Author(s)** | [milstan](https://github.com/milstan), [blindnet engineering](https://github.com/orgs/blindnet-io/teams/engineering)             |
-| **PR**   | [#755](https://github.com/blindnet-io/product-management/pull/755), [] |
+| **PR**   | [#755](https://github.com/blindnet-io/product-management/pull/755), [#792](https://github.com/blindnet-io/product-management/pull/792) |
 | **Version**   | 1.1                                                                             |
 | **Updated**   | 2022-07-08                                                                             |
 
@@ -110,7 +110,7 @@ The Component MUST notify a Data Subject when the Privacy Response is finished.
 
 #### FR-PRCE-007
 
-The Component MUST receive configuration for a particular system, according to [PRIV][PRIV] and [Expected behavior of systems implementing PRIV][[expected-behavior].
+The Component MUST receive configuration for a particular system, according to [PRIV][PRIV] and [Expected behavior of systems implementing PRIV][expected-behavior].
 
 Configuration can be submitted by either a specialized user (e.g. with the DPO role) through specialized UI or directly from the system.
 
