@@ -28,7 +28,11 @@ Such a need might arise from contractual liabilities of Systems or from legal ob
 
 - The Protocol is agnostic from any particular way to address Systems and transfer messages to and from them. Systems are responsible of knowing how to identify and address another System with which they exchange data or any object defined in [PRIV][PRIV].
 
-- Systems MAY be cable of sending Privacy Requests, receiving Privacy Requests, or both. E.g. a browser might be capable of sending Privacy Requests but not receiving them.
+- Systems MAY be capable of sending Privacy Requests (and other PRIV concepts), receiving them, or both. E.g. a browser might be capable of sending Privacy Requests but not receiving them.
+
+- Systems SHOULD know only of Privacy Requests (and other PRIV concepts) concerning them i.e. that require some action from them or are likely to have implications on them.
+
+- Systems process Privacy Requests and other PRIV concepts (e.g. legal-base related events and consents) in order of their dates, and regardless fo the order in which they have gain knowledge of them using the Protocol.
 
 - The Protocol is agnostic of inter-system trust. A System MAY be implemented to trust other Systems to authenticate the Data Subject, covey responses, tell the truth or not. The security implications of such choices are out of scope of the Protocol.
 
@@ -36,7 +40,25 @@ Such a need might arise from contractual liabilities of Systems or from legal ob
 
 - The Protocol is asynchronous, i.e. it is possible for one System to be unavailable when the other System aims to communicate with it.
 
-- Systems are independent in their responses, i.e. a System MUST BE ABLE respond to a Privacy Request addressed to it regardless of (the existence and content of) responses of other Systems.
+- Systems are independent in their responses, i.e. a System MUST BE ABLE to respond to a Privacy Request addressed to it regardless of (the existence and the content of) the responses of other Systems.
+
+- The Protocol can be used regardless of the Systems exchanging data in a one-off data dump, or through a continuous connection. The Protocol specifies no means for Systems to actually exchange data, and is only concerned by the privacy aspects of the data being exchanges.
+
+## Design Goals
+
+- Achieve information consistency (equal information) among all Systems exchanging data about one Data Subject. This information includes Privacy Requests and every information likely to impact the validity of legal bases and retention policies (including events such as those related to `CONTRACT` legal bases, Consents and modifications of Consents).
+
+- Efficiency : Systems reach information consistency with minimal effort.
+
+- Support for situations where the graph of data flow among Systems is cyclical.
+
+- Information consistency is evaluated regardless of order and route from which information is obtained i.e. two systems having obtained same elements of information from different sources and in different order are considered to have equal information. [Sequential Consistency](https://en.wikipedia.org/wiki/Sequential_consistency) is not expected.
+
+- [Strong Eventual Consistency](https://en.wikipedia.org/wiki/Eventual_consistency#Strong_eventual_consistency)
+
+- Fully support [PRIV][PRIV] and ints design choices
+
+- Support highly volatile networks of Systems exchanging data about one Data Subject i.e. Systems can participate on an ad-hoc basis, only once, disappear and reappear.
 
 ## Proposal
 
@@ -47,6 +69,10 @@ Such a need might arise from contractual liabilities of Systems or from legal ob
 ### Callback Mechanism
 
 Systems MUST implement, internally, a callback mechanism, with a message queue to account for asynchronous nature of the Protocol.
+
+### Using blockchain or hashgraph
+
+Having in mind the multitude of risks associated with exchange of PRIV concepts across Systems (involving possible attacks), there is a clear case for implementing PRMP on top of an existing distributed ledger with its own safety mechanisms.
 
 ## Safety Considerations
 
