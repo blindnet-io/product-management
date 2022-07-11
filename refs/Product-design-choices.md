@@ -44,7 +44,6 @@ The system should behave in the following way :
    - Validation passed: no decoration
    - Validation failed: error indicator*
 
-*Error message should be under the field rather than in the right panel tooltip
 
 - After the field is focused for the second time and onward, field validation runs on every value change so a user knows immediately when the value is acceptable
 - Submitting the form validates all fields.
