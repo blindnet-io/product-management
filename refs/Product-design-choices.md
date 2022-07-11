@@ -42,7 +42,7 @@ The system should behave in the following way :
 - After a field is focused for the first time, wait until a user finishes filling it in
 - After the field is unfocused for the first time, validate it.
    - Validation passed: no decoration
-   - Validation failed: error indicator - red border with an error message*
+   - Validation failed: error indicator*
 
 *Error message should be under the field rather than in the right panel tooltip
 
