@@ -122,5 +122,5 @@ In addition to environmental concerns, there seams to be a fundamental incompati
 
 - [Examples of use](../priv/examples.md)
 - [Expected Behavior of Implementing Systems](../priv/expected-behavior.md)
-- [Scenarios](./scenarios.md)
+- [Scenarios](../scenarios.md)
 - [GDPR](https://eur-lex.europa.eu/eli/reg/2016/679/oj)
