@@ -28,7 +28,7 @@ The need to exchange Privacy Requests (or other [PRIV](../priv/RFC-PRIV.md) obje
 - Systems exchange PRIV objects related to Data Subjects they both know of. The way they do it MUST be:
     - Asynchronous: A System may be unavailable and get a message when it becomes available again
     - Non-blocking: Systems may take action with regards to PRIV objects they know of without waiting for any input from other Systems
-    - [Eventually Consistent](https://en.wikipedia.org/wiki/Eventual_consistency) with regards to PRIV objects a Systems is concerned by
+    - [Eventually Consistent](https://en.wikipedia.org/wiki/Eventual_consistency) with regards to PRIV objects [a System is concerned by](#priv-objects-that-concern-a-system)
 
 - Systems SHOULD NOT have access to the content of PRIV objects not concerning them (e.g. Privacy Requests of users they do not know of, or Privacy Requests Responses from other Systems that may be confidential)
 
