@@ -48,7 +48,7 @@ The Privacy Compiler maintains a data structure storing PRIV object related to a
 
 ```mermaid
 flowchart TD
-        A[Event: SERVICE-START] o--o B[Retention Policy: NO-LESS-THAN duration:8m after:RELATIONSHIP-END] o--o C[LEGITIMATE-INTEREST data-category:CONTACT] o--o C[Consent 1w4b7] o--o D[Consent 23a1c6] o--o E[Privacy Request: REVOKE-CONSENT 1w4b70] o--o F[Privacy Request: DELETE data-category:CONTACT] o--o G[Privacy Request Response: DENIED]
+        A[Event: SERVICE-START] o--o B[Retention Policy: NO-LESS-THAN duration:8m after:RELATIONSHIP-END] o--o C[LEGITIMATE-INTEREST data-category:CONTACT] o--o D[Consent 1w4b7] o--o E[Consent 23a1c6] o--o F[Privacy Request: REVOKE-CONSENT 1w4b70] o--o G[Privacy Request: DELETE data-category:CONTACT] o--o H[Privacy Request Response: DENIED]
 
 ```
 
