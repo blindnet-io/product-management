@@ -33,3 +33,19 @@ User-facing components of blindnet’s system prefer:
 -	objective measures of Password Strength (such as Shannon entropy) over arbitrary constrains
 -	length of passwords over complexity of passwords
 -	to educate, inform and support various ways to reach password strength rather than impose a rigid set of constrains
+
+## 4. Form fields validation should be done immediately after a field is filled
+
+Form fields validation should be done immediately after a field is filled rather than after the form is submitted to reduce friction and user frustration.
+The system should behave in the following way : 
+- When a form is initialized, no field has an error
+- After a field is focused for the first time, wait until a user finishes filling it in
+- After the field is unfocused for the first time, validate it.
+   - Validation passed: no decoration
+   - Validation failed: error indicator
+
+
+- After the field is focused for the second time and onward, field validation runs on every value change so a user knows immediately when the value is acceptable
+- Submitting the form validates all fields.
+  - Validation passed: send a request to server
+  - Validation failed: put an error indicator to every field with a bad value. From this point onward, all fields behave as if they were "focused" once
