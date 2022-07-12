@@ -111,3 +111,11 @@
 **I want to** I want it to automatically compute the responses to (at least some) requests such as information about server locations, privacy policy, data types, organisation identity etc (cf. list of TRANSPARENCY actions from the [PRIV examples](https://github.com/blindnet-io/product-management/blob/devkit-schemas/refs/schemas/priv/examples.md))
 
 **because** I want to save time and effort
+
+## US-07-08-14 - other (not part of interface per se)
+
+**As a** developper from an Organization, using blindnet devkit
+
+**I want to** be able to configure which requests are processed automatically, and which are processed using human validation (Privacy Computation Engine gives a recommendation but a human - Data Consumer/DPO accepts or rjects it)
+
+**because** some of the requests can be processed automatically, some others cannot and need human validation 
