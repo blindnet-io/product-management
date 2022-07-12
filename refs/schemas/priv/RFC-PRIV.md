@@ -86,12 +86,13 @@ The Privacy Request Interchange Vocabulary includes the following:
 [Data Subject Identity](#decentralized-identity-of-data-subjects),
 [Demand](#demands),
 [Demand Restriction](#demand-restrictions) (including [Privacy Scope Restriction](#privacy-scope),[Consent Restriction](#consent-restriction), [Date Range](#date-range), [Provenance Restriction](#provenance-restriction), [Data Reference Restriction](#data-reference-restriction)),
+[Event](#event),
 [Privacy Request](#privacy-request),
 [Privacy Request Response](#privacy-request-response),
 [Privacy Scope](#privacy-scope)(and its dimensions: *Data Category*, *Processing Category* and *Purpose*), [Provenance](#provenance),
 [Retention Policy](#retention-policy),
 
-- **Properties**: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`,`fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `message`, `motive`, `parent`, `policy-type`, `processing-categories`, `provenance`, `provenance-category`, `purposes`, `replaces`, `response-id`, `restrictions`, `request-id`, `replaced-by`, `retention`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
+- **Properties**: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`, `event-type`, `fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `message`, `motive`, `parent`, `policy-type`, `processing-categories`, `provenance`, `provenance-category`, `purposes`, `replaces`, `response-id`, `restrictions`, `request-id`, `replaced-by`, `retention`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
 
 - **<a name="terms"></a>Terms**: all terms included in the [dictionary](./dictionary), and particularly:
 
@@ -392,7 +393,7 @@ A Data Capture is given by one Data Subject which can be identified by one or mo
 | --------------- | ------ | -------------------- |
 | `data-subject` |  1-* | [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
 | `capture-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
-| `data-reference` | 1-* | one or more references that uniquely identify the data that the capture concerns (e.g. a legal case file reference, account ID, contract ID, a URL)|
+| `data-reference` | 0-* | optionally one or more references that uniquely identify the data that the capture concerns (e.g. a legal case file reference, account ID, contract ID, a URL)|
 | `target` | 0-1 | [Target Terms](#target-terms). In absence of indication `SYSTEM` is assumed |
 | `fragments` | 1-* | One or more [Data Capture Fragments](#data-capture-fragments) |
 
@@ -404,7 +405,7 @@ A Data Capture concerns one and only one Data Subject who CAN be identified by m
 | --------------- | ------ | -------------------- |
 | `fragment-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `selector` | 1 | a string used to uniquely identify a data field (in the System's data model) to which the fragment corresponds. MUST be a subcategory of a [Data Category](#data-categories) and MUST be defined according to [Term Dot Notation](#term-dot-notation) |
-| `date` | 1 | Date and Time when data was Captured was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `date` | 1 | Date and Time when data was Captured given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the fragment SHOULD be interpreted as unlimited, including all categories of all dimensions |
 | `target` | 0-1 | [Target Terms](#target-terms). In absence of indication `SYSTEM` is assumed |
 | `retention` | 1-* | one or more [Retention Policies](#retention-policy) |
@@ -459,14 +460,14 @@ If now System B transfers this data transfers this Data Capture Fragment to Syst
 
 Not to be confused with [Provenance Restriction](#provenance-restriction).
 
-##### Retention Policy
+### Retention Policy
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `data-categories` | 1-* | Any of the any [Data Category Terms](#data-categories) or concrete [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
 | `policy-type` | 1 | [Retention](#retentions) |
 | `duration` | 1 | Duration in JSON Schema [duration](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `after` | 1 | Event to which the retention duration is relative to. [Events](#events) |
+| `after` | 1 | Event to which the retention duration is relative to. Any of the [Event Terms](#events) |
 
 When several `data-categories` values are given, they are interpreted as a **union**.
 
@@ -475,6 +476,19 @@ It may happen that two or more Retention Policies conflict, e.g. the same data m
 - AND in mandatory keeping (covered by a `NO-LESS-THAN` Retention Policy, the event of which is yet to happen, or the `duration` of which is yet to expire).
 
 In such cases, `NO-LESS-THAN` takes priority over `NO-LONGER-THAN`. The data is kept.
+
+### Event
+
+| Property | Expected cardinality | Expected values |
+| --------------- | ------ | -------------------- |
+| `event-type` | 1 | Any of the [Event Terms](#events) |
+| `data-subject` |  1-* | Data Subject concerned by the event, identified by one or more of their [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
+| `data-reference` | 0-* | optionally one or more references that uniquely identify the data that the event concerns (e.g. a legal case file reference, account ID, contract ID, a URL - For example, if the user canceled a particular subscription contract it is the contract ID) |
+| `date` | 1 | Date and Time of the Event given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+
+Events are a key element in evaluation of Retention Policies as well as for determining the validity of certain legal bases for data processing, especially `LEGITIMATE-INTEREST` or `CONTRACT` legal bases.
+
+Systems have the interest to register and exchange such information. For example, if a user canceled a subscription an Event of `event-type`:`SERVICE-END` should be created, with `data-reference` set to the ID of the subscription contract being canceled. This does not directly imply that the user's data should be deleted. The same user might have other ongoing contracts, or might have given consent for processing. The event is simply of the information that Privacy Compilers take into account when resolving retention policies and legal bases for data processing.
 
 ## Detailed Design
 
