@@ -119,7 +119,7 @@ The Privacy Request Interchange Vocabulary includes the following:
 
     - **<a name="retentions"></a>Retention Terms**: {`NO-LONGER-THAN`, `NO-LESS-THAN`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/retentions](./dictionary/retentions).*
 
-    - **<a name="events"></a>Event Terms**: {`CAPTURE-DATE`,`RELATIONSHIP-END`, `SERVICE-END`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/events](./dictionary/events).*
+    - **<a name="events"></a>Event Terms**: {`CAPTURE-DATE`,`RELATIONSHIP-END`, `RELATIONSHIP-START`, `SERVICE-END`,  `SERVICE-START`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/events](./dictionary/events).*
 
 ### Privacy Request
 

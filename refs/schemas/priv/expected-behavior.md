@@ -42,6 +42,19 @@ Systems CAN also direct certain requests (such as `MODIFY`) to dedicated interfa
 
 Because of this Systems MUST be able to configure their particular ways of automating the processing of Privacy Requests.
 
+## Timeline of PRIV objects
+
+The Privacy Compiler maintains a data structure storing PRIV object related to a Data Subject in chronological order. PRIV object CAN be learned asynchronously. What is important for the Privacy Compiler is the order in which they were created (or effective) regardless of when they have reached the Privacy Compiler.
+
+```mermaid
+flowchart TD
+        A[Event: SERVICE-START] o--o B[Retention Policy: NO-LESS-THAN duration:8m after:RELATIONSHIP-END] o--o C[LEGITIMATE-INTEREST data-category:CONTACT] o--o C[Consent 1w4b7] o--o D[Consent 23a1c6] o--o E[Privacy Request: REVOKE-CONSENT 1w4b70] o--o F[Privacy Request: DELETE data-category:CONTACT] o--o G[Privacy Request Response: DENIED]
+
+```
+
+At any time, given this data structure (and given general configuration settings) the Privacy Compiler can efficiently resolve any Privacy Request, or any inquiry about particular data processing being allowed or not.
+
+
 ## Configuration and Prerequisites
 
 A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a particular System MUST have the knowledge of the following key parameters and data structures:

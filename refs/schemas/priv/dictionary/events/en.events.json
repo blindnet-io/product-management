@@ -1,5 +1,7 @@
 {
   "CAPTURE-DATE": "A date when the data has been catured",
   "RELATIONSHIP-END": "A date when the relationship with the Data Subject ended",
+  "RELATIONSHIP-START": "A date when the relationship with the Data Subject started",
   "SERVICE-END": "A date when the particular service ended",
+  "SERVICE-START": "A date when the particular service started"
 }
