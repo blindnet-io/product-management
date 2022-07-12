@@ -1,10 +1,10 @@
 # Privacy Request Interchange Vocabulary (PRIV)
 
-| Status        | proposed                                                                              |
+| Status        | Accepted                                                                              |
 | :------------ | :------------------------------------------------------------------------------------- |
-| **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659)                      |
+| **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659), [799](https://github.com/blindnet-io/product-management/pull/799)                      |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
-| **Updated**   | 2022-06-14                                                                             |
+| **Updated**   | 2022-07-12                                                                             |
 
 
 
