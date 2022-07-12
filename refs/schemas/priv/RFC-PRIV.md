@@ -7,7 +7,6 @@
 | **Updated**   | 2022-07-12                                                                             |
 
 
-
 ## Introduction
 
 We propose a simple vocabulary for representing [Privacy Requests](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-conceptualization#data-capture--rights-requests).
@@ -308,8 +307,7 @@ It is therefore convenient for a Data Subject to be able to formulate Privacy Re
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `target` | 0-1 | [Target Terms](#target-terms) or [Target Direction Terms](#target-directions)
- In absence of indication `SYSTEM` is assumed |
+| `target` | 0-1 | [Target Terms](#target-terms) or [Target Direction Terms](#target-directions). In absence of indication `SYSTEM` is assumed |
 
 `SYSTEM` refers to the particular System with which the Data Subject is in direct interaction while making the Privacy Request (or giving the Consent).
 
