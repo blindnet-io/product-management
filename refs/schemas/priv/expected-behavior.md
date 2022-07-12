@@ -3,7 +3,7 @@
 | Status        | NA / supporting document                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **Author(s)** | milstan (milstan@blindnet.io)         |
-| **Updated**   | 2022-06-14                                                                             |
+| **Updated**   | 2022-07-12                                                                             |
 
 ## Introduction
 
@@ -97,7 +97,7 @@ A [Privacy Compiler](../high-level-architecture#data-rights-compiler) serving a 
         - *Active Consents*: a list of `consent-id`s that is modified when Consent is collected and within [Operations over consents](#operations-over-consents)
         - *Active Contracts*: a list of `contract-id`s of all active contracts that have not been subject to a `RELATIONSHIP-END` event
         - *Active Legitimate Interests*: a subset of *All Legitimate Interests*
-    - Events, for [Resolving Retention Policies](#resolving-retention-policies):
+    - [Events](./RFC-PRIV.md#event), for [Resolving Retention Policies](#resolving-retention-policies):
         - `SERVICE-END` events for contracts that end (e.g. user closes the account, or stops a service agreement), that directly impact *Active Contracts* the [Privacy Scope Triples](#privacy-scope-triples) of which have not been in the scope of any `DELETE`, `OBJECT`, or `RESTRICT` Privacy Request by the data Subject concerned
         - `RELATIONSHIP-END` events the Data Subject ended all contracts and ended the relationship with the System/Organization
         - `CAPTURE-DATE` when a Data Capture is made or updated
