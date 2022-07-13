@@ -12,7 +12,7 @@
 Privacy is a complex yet essential component of human socialization.
 Ever since software Systems became tools for human connectedness, a need emerged to engineer privacy in them.
 
-[Academic research](../notion-of-privacy/notion-of-privacy.md) offers insight into the definition and function of privacy. Growing body of [regulation](#privacy-legislation) specifics how software Systems and Organizations operating them should behave in order to ensure privacy. Yet, it remains challenging for a software engineer to grasp all that information and translate it into design of a software System.
+[Academic research](../notion-of-privacy.md) offers insight into the definition and function of privacy. Growing body of [regulation](#privacy-legislation) specifics how software Systems and Organizations operating them should behave in order to ensure privacy. Yet, it remains challenging for a software engineer to grasp all that information and translate it into design of a software System.
 
 We propose simple engineering principles that embody key understandings of privacy in the context of software engineering.
 While it is impossible to guarantee compliance with [regulation](#privacy-legislation) upfront, Systems engineered in the spirit of these principles are more likely than others to be compliant or easily made compliant with privacy regulations.
