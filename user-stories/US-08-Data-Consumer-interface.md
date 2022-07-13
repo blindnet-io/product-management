@@ -168,7 +168,7 @@
 
 **because** in that case I want to chose to reply to the Partner organization or to the Data Subject
 
-## US-08-XX - other (not part of interface per se)
+## US-08-21 - other (not part of interface per se)
 
 **As an** Organization, using blindnet devkit to automate the processing of requests
 
@@ -176,7 +176,7 @@
 
 **because** I want to save time and effort
 
-## US-08-XX - other (not part of interface per se)
+## US-08-22 - other (not part of interface per se)
 
 **As a** developper from an Organization, using blindnet devkit
 
@@ -184,7 +184,7 @@
 
 **because** I want to save time and effort
 
-## US-08-XX - other (not part of interface per se)
+## US-08-23 - other (not part of interface per se)
 
 **As a** developper from an Organization, using blindnet devkit
 
