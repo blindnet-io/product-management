@@ -96,7 +96,79 @@
 
 **because** a submitter might directly ask me where they can submit a Privacy Request 
 
-## US-07-08-12 - other (not part of interface per se)
+## US-08-12 
+
+**As a** Data Consumer, receiving a Privacy request containing mulitple demands
+
+**I want to** be able to answer to some demand today, and to some other another day
+
+**because** I might need more time to answer some demand, for example if I need to get information I don't have at the moment
+
+## US-08-13
+
+**As a** Data Consumer, receiving a Privacy request containing multiple demands
+
+**I want** the demands that I configured as to be processed automatically, to be answered right away and then receive the request with the status of each demands
+
+**because** I need to know which demands have already been processed automatically and which demands stil need to be answered manually so that I can answer them
+
+## US-08-14
+
+**As a** Data Consumer,
+
+**I want** to able to answer several times to the same Privacy request I already responded to
+
+**because** I might need to add something more that is not in my previous answer
+
+## US-08-15
+
+**As a** Data Consumer,
+
+**I want** to be informed when an [Event](https://github.com/blindnet-io/product-management/blob/priv-event/refs/schemas/priv/RFC-PRIV.md#event) can happen, or a [Retention Policy](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#retention-policy) might expire, or the user may Revoke Consent (processed automatically) and as a result the Privacy Compiler might emit a recommendation for me to delete particular Fragments
+
+**because** I want to know of such recommendations and react to them
+
+## US-08-16
+
+**As a** Data Consumer,
+
+**I want** to have a proof of compliance for treated Privacy Requests that I can download and print, with the information regarding the Data Subject, what he requested and when, what I answered and when, if it was an access demand, see if the Data Subject actually accessed the data...
+
+**because** I might need it for legal reason or I might need to give to my boss or colleague
+
+## US-08-17
+
+**As a** Data Consumer,
+
+**I want** to search for a particular Data Subject among my Privacy requests history and filter only their Privacy requests 
+
+**because** I have a long Privacy request history and it is not convenient to try to spot the name of the Data Subject I am looking for by scrolling among my Privacy request history
+
+## US-08-18
+
+**As a** Data Consumer, receiving a Privacy Request that I need to share with a Partner organization
+
+**I want** to be able to easily forward the Privacy request to that Partner organization, by configuring a setting to automatically forward such request with contact of all my Partner organizations and/or being able to explicitely forward it on the interface with the possibility of configuring sugesstion to whom forward the request with contact of all my Partner organizations
+
+**because** I want to save time and effort regarding Privacy request transfer
+
+## US-08-19
+
+**As a** Data Consumer, receiving a Privacy Request transmitted from a Partner organization
+
+**I want** to know and see on the Privacy request details that the request is not direclty coming from the Data Subject but from a transfer by a Partner organization
+
+**because** in that case I might want to reply to the Partner organization and not directly to the user
+
+## US-08-20
+
+**As a** Data Consumer, receiving a Privacy Request transmitted from a Partner organization
+
+**I want** to be able to either answer directly to the Data Subject or to answer to the Partner organization that will transmit my answer to the Data Subject
+
+**because** in that case I want to chose to reply to the Partner organization or to the Data Subject
+
+## US-08-XX - other (not part of interface per se)
 
 **As an** Organization, using blindnet devkit to automate the processing of requests
 
@@ -104,7 +176,7 @@
 
 **because** I want to save time and effort
 
-## US-07-08-13 - other (not part of interface per se)
+## US-08-XX - other (not part of interface per se)
 
 **As a** developper from an Organization, using blindnet devkit
 
@@ -112,10 +184,12 @@
 
 **because** I want to save time and effort
 
-## US-07-08-14 - other (not part of interface per se)
+## US-08-XX - other (not part of interface per se)
 
 **As a** developper from an Organization, using blindnet devkit
 
-**I want to** be able to configure which requests are processed automatically, and which are processed using human validation (Privacy Computation Engine gives a recommendation but a human - Data Consumer/DPO accepts or rjects it)
+**I want to** be able to configure which requests / which demands (inside a request containing multiple demands) are processed automatically, and which are processed using human validation (Privacy Computation Engine gives a recommendation but a human - Data Consumer/DPO accepts or rjects it)
 
 **because** some of the requests can be processed automatically, some others cannot and need human validation 
+
+
