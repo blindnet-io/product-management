@@ -507,7 +507,6 @@ For more details, refer to [Expected Behavior of Implementing Systems](./expecte
 | `legal-base` | 1-* | Any [Legal Base Term](#legal-bases) other than `CONSENT`|
 | `data-reference` | 0-* | optionally one or more references that uniquely identify the data that the event concerns (e.g. a legal case file reference, account ID, contract ID, a URL - For example, if the user canceled a particular subscription contract it is the contract ID) |
 | `date` | 1 | Date and Time of the Event given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `scope` |  0-1 | a [Privacy Scope](#privacy-scope) gained or lost by this particular event. Specified only for special cases where a particular event affects only a part of the scope of the Legal Base. If not specified, the total Privacy Scope of the Legal bases is assumed. |
 
 
 Legal Base Events are a key element in evaluation of Retention Policies as well as for determining the validity of certain legal bases for data processing, especially `LEGITIMATE-INTEREST` or `CONTRACT` legal bases.
