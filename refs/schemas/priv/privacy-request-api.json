@@ -1,0 +1,797 @@
+{
+    "openapi": "3.1.0",
+    "x-stoplight": {
+        "id": "5b11d36wsvti6"
+    },
+    "info": {
+        "title": "privacy-request-api",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000"
+        }
+    ],
+    "paths": {
+        "/privacy-request": {
+            "post": {
+                "summary": "",
+                "operationId": "post-privacy-request",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/privacy-response"
+                    }
+                },
+                "description": "Make a privacy request",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/privacy-request"
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "demand": {
+                "title": "demand",
+                "x-stoplight": {
+                    "id": "0ocybqlte8t6q"
+                },
+                "type": "object",
+                "properties": {
+                    "demand-id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "action": {
+                        "$ref": "#/components/schemas/action"
+                    },
+                    "data": {
+                        "type": "object"
+                    },
+                    "restrictions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/restriction"
+                        }
+                    },
+                    "target": {
+                        "oneOf": [
+                            {
+                                "$ref": "#/components/schemas/target"
+                            },
+                            {
+                                "$ref": "#/components/schemas/target-directional"
+                            }
+                        ]
+                    }
+                },
+                "required": [
+                    "action"
+                ],
+                "description": ""
+            },
+            "data-subject-identity": {
+                "title": "data-subject-identity",
+                "x-stoplight": {
+                    "id": "5gtwnb1thw6yc"
+                },
+                "type": "object",
+                "properties": {
+                    "dsid-schema": {
+                        "type": "string"
+                    },
+                    "dsid": {
+                        "type": "string"
+                    }
+                },
+                "description": "[Data subject identities](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#decentralized-identity-of-data-subjects)"
+            },
+            "privacy-scope": {
+                "title": "privacy-scope",
+                "x-stoplight": {
+                    "id": "muh9s9k2f8gy7"
+                },
+                "type": "object",
+                "properties": {
+                    "data-categories": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/data-category"
+                        }
+                    },
+                    "processing-categories": {
+                        "type": [
+                            "string",
+                            "array"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/processing-category"
+                        }
+                    },
+                    "purposes": {
+                        "type": [
+                            "string",
+                            "array"
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/purpose"
+                        }
+                    }
+                }
+            },
+            "message": {
+                "title": "message",
+                "x-stoplight": {
+                    "id": "zxn7a03ljy5fe"
+                },
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string"
+                    },
+                    "lang": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "message"
+                ]
+            },
+            "action": {
+                "type": "string",
+                "title": "action",
+                "x-stoplight": {
+                    "id": "zqxgant3hns6y"
+                },
+                "enum": [
+                    "ACCESS",
+                    "DELETE",
+                    "MODIFY",
+                    "OBJECT",
+                    "RESTRICT",
+                    "REVOKE-CONSENT",
+                    "TRANSPARENCY",
+                    "TRANSPARENCY.DATA-CATEGORIES",
+                    "TRANSPARENCY.DPO",
+                    "TRANSPARENCY.KNOWN",
+                    "TRANSPARENCY.LEGAL-BASES",
+                    "TRANSPARENCY.ORGANIZATION",
+                    "TRANSPARENCY.POLICY",
+                    "TRANSPARENCY.PROCESSING-CATEGORIES",
+                    "TRANSPARENCY.PROVENANCE",
+                    "TRANSPARENCY.PURPOSE",
+                    "TRANSPARENCY.RETENTION",
+                    "TRANSPARENCY.WHERE",
+                    "TRANSPARENCY.WHO",
+                    "OTHER-DEMAND"
+                ],
+                "description": "See [Actions](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/json-schema/priv-terms.schema.json)"
+            },
+            "target": {
+                "type": "string",
+                "title": "target",
+                "x-stoplight": {
+                    "id": "e9o8seycsh3ur"
+                },
+                "enum": [
+                    "ORGANIZATION",
+                    "PARTNERS",
+                    "SYSTEM"
+                ]
+            },
+            "target-directional": {
+                "type": "string",
+                "title": "target-directional",
+                "x-stoplight": {
+                    "id": "xw37zla4f5d4b"
+                },
+                "enum": [
+                    "PARTNERS.DOWNWARD",
+                    "PARTNERS.UPWARD"
+                ]
+            },
+            "status": {
+                "type": "string",
+                "title": "status",
+                "x-stoplight": {
+                    "id": "m1756m6ez43ck"
+                },
+                "enum": [
+                    "GRANTED",
+                    "DENIED",
+                    "PARTIALLY-GRANTED",
+                    "UNDER-REVIEW",
+                    "OTHER-RESPONSE"
+                ],
+                "description": "See [Status Terms](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#statuses)"
+            },
+            "motive": {
+                "type": "string",
+                "title": "motive",
+                "x-stoplight": {
+                    "id": "0asb86stcd78s"
+                },
+                "enum": [
+                    "IDENTITY-UNCONFIRMED",
+                    "LANGUAGE-UNSUPPORTED",
+                    "VALID-REASONS",
+                    "IMPOSSIBLE",
+                    "REQUEST-UNSUPPORTED",
+                    "USER-UNKNOWN"
+                ],
+                "description": "See [Motive Terms](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#motives)"
+            },
+            "data-category": {
+                "type": "string",
+                "title": "data-category",
+                "x-stoplight": {
+                    "id": "nxc07uoetqdkt"
+                },
+                "enum": [
+                    "AFFILIATION",
+                    "AFFILIATION.WORKPLACE",
+                    "AFFILIATION.SCHOOL",
+                    "AFFILIATION.MEMBERSHIP",
+                    "AFFILIATION.MEMBERSHIP.UNION",
+                    "BEHAVIOR",
+                    "BEHAVIOR.ACTIVITY",
+                    "BEHAVIOR.CONNECTION",
+                    "BEHAVIOR.PREFERENCE",
+                    "BEHAVIOR.TELEMETRY",
+                    "BIOMETRIC",
+                    "CONTACT",
+                    "CONTACT.EMAIL",
+                    "CONTACT.ADDRESS",
+                    "CONTACT.PHONE",
+                    "DEMOGRAPHIC",
+                    "DEMOGRAPHIC.AGE",
+                    "DEMOGRAPHIC.BELIEFS",
+                    "DEMOGRAPHIC.GENDER",
+                    "DEMOGRAPHIC.ORIGIN",
+                    "DEMOGRAPHIC.RACE",
+                    "DEMOGRAPHIC.SEXUAL-ORIENTATION",
+                    "DEVICE",
+                    "FINANCIAL",
+                    "FINANCIAL.BANK-ACCOUNT",
+                    "GENETIC",
+                    "HEALTH",
+                    "IMAGE",
+                    "LOCATION",
+                    "NAME",
+                    "PROFILING",
+                    "RELATIONSHIPS",
+                    "UID",
+                    "UID.ID",
+                    "UID.IP",
+                    "UID.USER-ACCOUNT",
+                    "UID.SOCIAL-MEDIA",
+                    "OTHER-DATA"
+                ]
+            },
+            "event": {
+                "type": "string",
+                "title": "events",
+                "x-stoplight": {
+                    "id": "e319h8wkx21j6"
+                },
+                "enum": [
+                    "CAPTURE-DATE",
+                    "RELATIONSHIP-END"
+                ]
+            },
+            "legal-base": {
+                "type": "string",
+                "title": "legal-bases",
+                "x-stoplight": {
+                    "id": "phssio59k93bn"
+                },
+                "enum": [
+                    "CONSENT",
+                    "CONTRACT",
+                    "LEGITIMATE-INTEREST",
+                    "NECESSARY",
+                    "NECESSARY.LEGAL-OBLIGATION",
+                    "NECESSARY.VITAL-INTEREST",
+                    "NECESSARY.PUBLIC-INTEREST",
+                    "OTHER-LEGAL-BASE"
+                ]
+            },
+            "processing-category": {
+                "type": "string",
+                "title": "processing-category",
+                "x-stoplight": {
+                    "id": "yppkdhtisuhce"
+                },
+                "enum": [
+                    "ANONYMIZATION",
+                    "AUTOMATED-INFERENCE",
+                    "AUTOMATED-DECISION-MAKING",
+                    "COLLECTION",
+                    "GENERATING",
+                    "PUBLISHING",
+                    "STORING",
+                    "SHARING",
+                    "USING",
+                    "OTHER-PROCESSING"
+                ]
+            },
+            "provenance": {
+                "type": "string",
+                "title": "provenance",
+                "x-stoplight": {
+                    "id": "67exaiwv81bod"
+                },
+                "enum": [
+                    "DERIVED",
+                    "TRANSFERRED",
+                    "USER",
+                    "USER.DATA-SUBJECT"
+                ]
+            },
+            "purpose": {
+                "type": "string",
+                "title": "purpose",
+                "x-stoplight": {
+                    "id": "pcck1tt77md5u"
+                },
+                "enum": [
+                    "ADVERTISING",
+                    "COMPLIANCE",
+                    "EMPLOYMENT",
+                    "JUSTICE",
+                    "MARKETING",
+                    "MEDICAL",
+                    "PERSONALIZATION",
+                    "PUBLIC-INTERESTS",
+                    "RESEARCH",
+                    "SALE",
+                    "SECURITY",
+                    "SERVICES",
+                    "SERVICES.ADDITIONAL-SERVICES",
+                    "SERVICES.BASIC-SERVICE",
+                    "SOCIAL-PROTECTION",
+                    "TRACKING",
+                    "VITAL-INTERESTS",
+                    "OTHER-PURPOSE"
+                ]
+            },
+            "retention": {
+                "type": "string",
+                "title": "retention",
+                "x-stoplight": {
+                    "id": "d0q23lgyo7ser"
+                },
+                "enum": [
+                    "NO-LONGER-THAN",
+                    "NO-LESS-THAN"
+                ]
+            },
+            "restriction": {
+                "title": "restriction",
+                "x-stoplight": {
+                    "id": "fqtzzqb1cu1f7"
+                },
+                "oneOf": [
+                    {
+                        "$ref": "#/components/schemas/privacy-scope"
+                    },
+                    {
+                        "properties": {
+                            "consent-id": {
+                                "type": "string",
+                                "format": "uuid"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "capture-id": {
+                                "type": "string",
+                                "format": "uuid"
+                            }
+                        }
+                    },
+                    {
+                        "type": "object",
+                        "properties": {
+                            "from": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "to": {
+                                "type": "string",
+                                "format": "date-time"
+                            }
+                        }
+                    }
+                ]
+            },
+            "boolean": {
+                "type": "string",
+                "title": "boolean",
+                "x-stoplight": {
+                    "id": "bq5nid1wzf4x6"
+                },
+                "enum": [
+                    "YES",
+                    "NO"
+                ]
+            }
+        },
+        "responses": {
+            "privacy-response": {
+                "description": "Based on [Privacy request response](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#examples)",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "response-id": {
+                                    "type": "string",
+                                    "description": "Unique ID for referring to this request in the uuid format",
+                                    "format": "uuid"
+                                },
+                                "in-response-to": {
+                                    "type": "string",
+                                    "description": "request-id of the Privacy Request to which response is made or demand-id of the particular Demand to which response is made, in the uuid format",
+                                    "format": "uuid"
+                                },
+                                "date": {
+                                    "type": "string",
+                                    "description": "Date and Time when Privacy Request Response was created in JSON Schema date-time format\n",
+                                    "format": "date-time"
+                                },
+                                "system": {
+                                    "type": "string",
+                                    "description": "System ID of the System having generated the response. A String in the format of URI according to RFC3986 of IETF",
+                                    "format": "uri"
+                                },
+                                "requested-action": {
+                                    "$ref": "#/components/schemas/action"
+                                },
+                                "data-subject": {
+                                    "$ref": "#/components/schemas/data-subject-identity"
+                                },
+                                "status": {
+                                    "$ref": "#/components/schemas/status"
+                                },
+                                "motiv": {
+                                    "$ref": "#/components/schemas/motive"
+                                },
+                                "answers": {
+                                    "description": "See [Terms](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#terms)",
+                                    "type": "string"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "description": "Optional string comment, motivation or explanation of Demand"
+                                },
+                                "lang": {
+                                    "type": "string",
+                                    "description": "Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/)"
+                                },
+                                "includes": {
+                                    "description": "Optionally an array of one or more Privacy Request Responses",
+                                    "type": "array",
+                                    "items": {}
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "description": "Optionally concrete data to which access is being given"
+                                }
+                            },
+                            "required": [
+                                "response-id",
+                                "in-response-to",
+                                "date",
+                                "system"
+                            ]
+                        },
+                        "examples": {
+                            "TRANSPARENCY.DPO Response": {
+                                "value": {
+                                    "response-id": "6c0dd4b4-4814-4883-84c0-9864e85fecff",
+                                    "in-response-to": "79d0b652-183e-47f5-ac37-35227fee4cf8",
+                                    "date": "2019-08-24T14:15:22Z",
+                                    "system": "http://example.com",
+                                    "requested-action": "TRANSPARENCY.DPO",
+                                    "data-subject": {
+                                        "dsid-schema": "string",
+                                        "dsid": "string"
+                                    },
+                                    "status": "GRANTED",
+                                    "motiv": "VALID-REASONS",
+                                    "answers": "string",
+                                    "message": "string",
+                                    "lang": "en",
+                                    "includes": [
+                                        null
+                                    ],
+                                    "data": {}
+                                }
+                            },
+                            "TRANSPARENCY.ORGANIZATION Response": {
+                                "value": {
+                                    "response-id": "6c0dd4b4-4814-4883-84c0-9864e85fecff",
+                                    "in-response-to": "79d0b652-183e-47f5-ac37-35227fee4cf8",
+                                    "date": "2019-08-24T14:15:22Z",
+                                    "system": "http://example.com",
+                                    "requested-action": "TRANSPARENCY.ORGANIZATION",
+                                    "data-subject": {
+                                        "dsid-schema": "string",
+                                        "dsid": "string"
+                                    },
+                                    "status": "GRANTED",
+                                    "motiv": "VALID-REASONS",
+                                    "answers": "string",
+                                    "message": "string",
+                                    "lang": "en",
+                                    "includes": [
+                                        null
+                                    ],
+                                    "data": {}
+                                }
+                            },
+                            "TRANSPARENCY.POLICY Response": {
+                                "value": {
+                                    "response-id": "6c0dd4b4-4814-4883-84c0-9864e85fecff",
+                                    "in-response-to": "79d0b652-183e-47f5-ac37-35227fee4cf8",
+                                    "date": "2019-08-24T14:15:22Z",
+                                    "system": "http://example.com",
+                                    "requested-action": "TRANSPARENCY.POLICY",
+                                    "data-subject": {
+                                        "dsid-schema": "string",
+                                        "dsid": "string"
+                                    },
+                                    "status": "GRANTED",
+                                    "motiv": "VALID-REASONS",
+                                    "answers": "string",
+                                    "message": "string",
+                                    "lang": "en",
+                                    "includes": [
+                                        null
+                                    ],
+                                    "data": {}
+                                }
+                            },
+                            "TRANSPARENCY.RETENTION Response": {
+                                "value": {
+                                    "response-id": "6c0dd4b4-4814-4883-84c0-9864e85fecff",
+                                    "in-response-to": "79d0b652-183e-47f5-ac37-35227fee4cf8",
+                                    "date": "2019-08-24T14:15:22Z",
+                                    "system": "http://example.com",
+                                    "requested-action": "TRANSPARENCY.RETENTION",
+                                    "data-subject": {
+                                        "dsid-schema": "string",
+                                        "dsid": "string"
+                                    },
+                                    "status": "GRANTED",
+                                    "motiv": "VALID-REASONS",
+                                    "answers": "string",
+                                    "message": "string",
+                                    "lang": "en",
+                                    "includes": [
+                                        null
+                                    ],
+                                    "data": {}
+                                }
+                            },
+                            "TRANSPARENCY.WHERE Response": {
+                                "value": {
+                                    "response-id": "6c0dd4b4-4814-4883-84c0-9864e85fecff",
+                                    "in-response-to": "79d0b652-183e-47f5-ac37-35227fee4cf8",
+                                    "date": "2019-08-24T14:15:22Z",
+                                    "system": "http://example.com",
+                                    "requested-action": "TRANSPARENCY.WHERE",
+                                    "data-subject": {
+                                        "dsid-schema": "string",
+                                        "dsid": "string"
+                                    },
+                                    "status": "GRANTED",
+                                    "motiv": "VALID-REASONS",
+                                    "answers": "string",
+                                    "message": "string",
+                                    "lang": "en",
+                                    "includes": [
+                                        null
+                                    ],
+                                    "data": {}
+                                }
+                            },
+                            "TRANSPARENCY.WHO Response": {
+                                "value": {
+                                    "response-id": "6c0dd4b4-4814-4883-84c0-9864e85fecff",
+                                    "in-response-to": "79d0b652-183e-47f5-ac37-35227fee4cf8",
+                                    "date": "2019-08-24T14:15:22Z",
+                                    "system": "http://example.com",
+                                    "requested-action": "TRANSPARENCY.WHO",
+                                    "data-subject": {
+                                        "dsid-schema": "string",
+                                        "dsid": "string"
+                                    },
+                                    "status": "GRANTED",
+                                    "motiv": "VALID-REASONS",
+                                    "answers": "string",
+                                    "message": "string",
+                                    "lang": "en",
+                                    "includes": [
+                                        null
+                                    ],
+                                    "data": {}
+                                }
+                            }
+                        }
+                    },
+                    "application/xml": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "multipart/form-data": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {}
+                        }
+                    }
+                }
+            }
+        },
+        "requestBodies": {
+            "privacy-request": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "x-examples": {
+                                "example-1": {
+                                    "request-id": "8f9066c6-1c6c-42a0-9993-e88c98d0e84d",
+                                    "date": "2022-06-02T14:40:39+0000",
+                                    "demands": [
+                                        {
+                                            "demand-id": "496294eb-5293-47dd-aaf8-494a0cb09134",
+                                            "action": "TRANSPARENCY.KNOWN"
+                                        },
+                                        {
+                                            "demand-id": "86bbb28a-eee6-45e6-81d6-7101de32374b",
+                                            "action": "DELETE",
+                                            "restrictions": [
+                                                {
+                                                    "data-categories": [
+                                                        "CONTACT"
+                                                    ]
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            },
+                            "properties": {
+                                "demands": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/demand"
+                                    }
+                                },
+                                "data-subject": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/data-subject-identity"
+                                    }
+                                }
+                            },
+                            "required": [
+                                "demands"
+                            ]
+                        },
+                        "examples": {
+                            "TRANSPARENCY.DPO Request": {
+                                "value": {
+                                    "demands": [
+                                        {
+                                            "demand-id": "8767887c-4d46-48bc-8816-f1b7a946e902",
+                                            "action": "TRANSPARENCY.DPO"
+                                        }
+                                    ],
+                                    "data-subject": [
+                                        {
+                                            "dsid-schema": "string",
+                                            "dsid": "string"
+                                        }
+                                    ]
+                                }
+                            },
+                            "TRANSPARENCY.ORGANIZATION Request": {
+                                "value": {
+                                    "demands": [
+                                        {
+                                            "demand-id": "8767887c-4d46-48bc-8816-f1b7a946e902",
+                                            "action": "TRANSPARENCY.ORGANIZATION"
+                                        }
+                                    ],
+                                    "data-subject": [
+                                        {
+                                            "dsid-schema": "string",
+                                            "dsid": "string"
+                                        }
+                                    ]
+                                }
+                            },
+                            "TRANSPARENCY.POLICY Request": {
+                                "value": {
+                                    "demands": [
+                                        {
+                                            "demand-id": "8767887c-4d46-48bc-8816-f1b7a946e902",
+                                            "action": "TRANSPARENCY.POLICY"
+                                        }
+                                    ],
+                                    "data-subject": [
+                                        {
+                                            "dsid-schema": "string",
+                                            "dsid": "string"
+                                        }
+                                    ]
+                                }
+                            },
+                            "TRANSPARENCY.RETENTION Request": {
+                                "value": {
+                                    "demands": [
+                                        {
+                                            "demand-id": "8767887c-4d46-48bc-8816-f1b7a946e902",
+                                            "action": "TRANSPARENCY.RETENTION"
+                                        }
+                                    ],
+                                    "data-subject": [
+                                        {
+                                            "dsid-schema": "string",
+                                            "dsid": "string"
+                                        }
+                                    ]
+                                }
+                            },
+                            "TRANSPARENCY.WHERE Request": {
+                                "value": {
+                                    "demands": [
+                                        {
+                                            "demand-id": "8767887c-4d46-48bc-8816-f1b7a946e902",
+                                            "action": "TRANSPARENCY.WHERE"
+                                        }
+                                    ],
+                                    "data-subject": [
+                                        {
+                                            "dsid-schema": "string",
+                                            "dsid": "string"
+                                        }
+                                    ]
+                                }
+                            },
+                            "TRANSPARENCY.WHO Request": {
+                                "value": {
+                                    "demands": [
+                                        {
+                                            "demand-id": "8767887c-4d46-48bc-8816-f1b7a946e902",
+                                            "action": "TRANSPARENCY.WHO"
+                                        }
+                                    ],
+                                    "data-subject": [
+                                        {
+                                            "dsid-schema": "string",
+                                            "dsid": "string"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "description": "Based on [PRIV Schema](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/json-schema/priv.schema.json)"
+            }
+        }
+    }
+}
