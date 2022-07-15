@@ -495,7 +495,7 @@ For more details, refer to [Expected Behavior of Implementing Systems](./expecte
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `legal-base` | 1-* | One or more [Legal Base Term(s)](#legal-bases)|
-| `scope` |  0-1 | a [Privacy Scope](#privacy-scope) covered by the given Legal Base(s). In absence of any indication the Event is considered to concern all the possible scope. |
+| `scope` |  0-* | a [Privacy Scope](#privacy-scope) covered by the given Legal Base(s). In absence of any indication the Event is considered to concern all the possible scope. |
 
 
 ### Legal Base Event
