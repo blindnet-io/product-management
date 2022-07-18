@@ -360,7 +360,7 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `response-id` | 1 | Unique ID for referring to this request in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
+| `response-id` | 1 | Unique ID for referring to this Privacy Request Response in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `in-response-to` | 1 | `request-id` of the Privacy Request to which response is made or `demand-id` of the particular Demand to which response is made, in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Privacy Request Response was created in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `system` | 1 | System ID of the System having generated the response. A String in the format of URI according to [RFC3986 of IETF](https://www.rfc-editor.org/rfc/rfc3986) |
