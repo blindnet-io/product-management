@@ -313,6 +313,12 @@ sequenceDiagram
     systemA->>subject: Privacy Request GRANTED, France and USA
 
 ```
+
+> **Note**
+> A coordinated Response does not necessarily mean that one System MUST wait for the response of the other in order to convey a joint response to the Data Subject. The System in direct communication with the Data Subject MAY be programmed to convey responses as they become available. Alternatively it MAY be programmed to wait for a while but then convey the responses it has gathered without further waiting.
+>
+> In fact, no guarantees can be provided that a corresponding System will respond (or even be available), and that should not block the other Systems from their PRIV-related operations.
+
 ## Direct Response
 
 When a Privacy Requests concerns corresponding Systems, they MAY be configured to have each System reply to the Data Subject independently.
