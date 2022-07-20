@@ -230,6 +230,31 @@ However, Systems may declare Data Captures that they are responsible for to a ce
 
 **because** I may be a big company with different systems offering different services (e.g organization = meta, system= instagram, a user might want to delete his data only from instragram) or I may be a small company and my organisation only have one system
 
+### US-07-2-10
+
+**As an** Organization, using blindnet devkit
+
+**I want to** to be able set and configure the authentification I choose for my users, according to my needs 
+
+**because** I may want to use email, log in, open ID account, thrid party authentication service or any other kind of authentification
+
+### US-07-2-11
+
+**As an** Organization, using blindnet devkit
+
+**I want to** to be able set and configure the moment of the authentification for each demand (a priori or a posteriori)
+
+**because** I may want to choose a priori or a posteriori authentication regarding the type of authentication I chose and the type of demand 
+
+### US-07-2-12
+
+**As an** Organization, using blindnet devkit
+
+**I want to** to be able set a priori authentication for Revoke Consent demand
+
+**because** users will need to access their particular consents that they previously gave  
+
+
 ## 07-3 US specific to Global Privacy Request Capture Service
 
 ### US-07-3-01
