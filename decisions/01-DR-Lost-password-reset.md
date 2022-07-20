@@ -2,6 +2,7 @@
 
 | Status      | accepted
 | :---------- | :-------------------------------------------------------------------------------------- |
+| **PR #** | [542](https://github.com/blindnet-io/product-management/pull/542) |
 
 
 ## Context and Problem Statement
