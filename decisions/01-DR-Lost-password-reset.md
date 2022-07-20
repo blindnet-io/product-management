@@ -2,8 +2,7 @@
 
 | Status      | accepted
 | :---------- | :-------------------------------------------------------------------------------------- |
-| **PR #**    | [NNN](https://github.com/blindnet-io/PROJECT/pull/NNN) (update when you have PR #)      |
-| **Sponsor** | Milan, Filip, Marko, Clem                                                      |
+
 
 ## Context and Problem Statement
 
