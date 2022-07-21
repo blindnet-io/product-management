@@ -1490,9 +1490,7 @@
   ],
   "library": {
     "cHJqOjEyMzU4Ng@32": {
-      "name": "Stoplight Style Guide",
       "description": "This is Stoplight's built-in style guide, containing style and validation rules for OAS (OpenAPI Specification).\n\n> This Style Guide is applied to all new projects by default.",
-      "spectralExtends": [],
       "formats": [
         "oas2",
         "oas3",
@@ -2785,6 +2783,8 @@
           ]
         }
       },
+      "spectralExtends": [],
+      "name": "Stoplight Style Guide",
       "x-embeddedFunctions": [
         {
           "id": "7vlMlWLJeLfv6M_PHO36r",
