@@ -752,25 +752,6 @@
                   ],
                   "data": {}
                 }
-              },
-              "No demand response": {
-                "value": {
-                  "response-id": "6c0dd4b4-4814-4883-84c0-9864e85fecff",
-                  "in-response-to": "79d0b652-183e-47f5-ac37-35227fee4cf8",
-                  "date": "2019-08-24T14:15:22Z",
-                  "system": "http://example.com",
-                  "requested-action": "ACCESS",
-                  "data-subject": {
-                    "dsid-schema": "string",
-                    "dsid": "string"
-                  },
-                  "message": "Error: Privacy request must include one or more demand",
-                  "lang": "string",
-                  "includes": [
-                    null
-                  ],
-                  "data": {}
-                }
               }
             }
           },
