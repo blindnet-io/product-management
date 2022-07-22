@@ -62,7 +62,7 @@
 
 **I want to** process the Privacy requests, that can't be automatically processed, directly from the interface
 
-**because** it is not convenient for me to manually write all an email and manually fetch all elements to answer the Privacy request
+**because** it is not convenient for me to manually write an email and manually fetch all elements to answer the Privacy request
 
 ## US-08-08
 
