@@ -92,7 +92,7 @@ The Privacy Request Interchange Vocabulary includes the following:
 [Privacy Scope](#privacy-scope)(and its dimensions: *Data Category*, *Processing Category* and *Purpose*), [Provenance](#provenance),
 [Retention Policy](#retention-policy).
 
-- **Properties**: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`, `event-type`, `fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `message`, `motive`, `parent`, `policy-type`, `processing-categories`, `provenance`, `provenance-category`, `purposes`, `replaces`, `response-id`, `restrictions`, `request-id`, `replaced-by`, `retention`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
+- **Properties**: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`, `event-type`, `fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `legal-base-id`, `message`, `motive`, `parent`, `policy-type`, `processing-categories`, `provenance`, `provenance-category`, `purposes`, `replaces`, `response-id`, `restrictions`, `request-id`, `replaced-by`, `retention`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
 
 - **<a name="terms"></a>Terms**: all terms included in the [dictionary](./dictionary), and particularly:
 
@@ -494,6 +494,7 @@ For more details, refer to [Expected Behavior of Implementing Systems](./expecte
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
+| `legal-base-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `legal-base` | 1-* | One or more [Legal Base Term(s)](#legal-bases)|
 | `scope` |  0-* | a [Privacy Scope](#privacy-scope) covered by the given Legal Base(s). In absence of any indication the Event is considered to concern all the possible scope. |
 
@@ -504,7 +505,7 @@ For more details, refer to [Expected Behavior of Implementing Systems](./expecte
 | --------------- | ------ | -------------------- |
 | `data-subject` |  1-* | Data Subject concerned by the event, identified by one or more of their [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
 | `event-type` | 1 | Any of the [Event Terms](#events) |
-| `legal-base` | 1-* | Any [Legal Base Term](#legal-bases) other than `CONSENT`|
+| `legal-base-id` | 1-* | `legal-base-id` of any [Legal Base](#legal-base)|
 | `data-reference` | 0-* | optionally one or more references that uniquely identify the data that the event concerns (e.g. a legal case file reference, account ID, contract ID, a URL - For example, if the user canceled a particular subscription contract it is the contract ID) |
 | `date` | 1 | Date and Time of the Event given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 
