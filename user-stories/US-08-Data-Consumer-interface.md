@@ -84,7 +84,7 @@
 
 **As a** Data Consumer,
 
-**I want to** be guided to answer a Privacy Request, for example having a recommendation that I can modify or a template if I need to add a message to specifiy why I must deny a Privacy Request
+**I want to** be guided to answer a Privacy Request, for example having a recommendation that I can modify or a template if I need to add a message to specify why I must deny a Privacy Request
 
 **because** I want to save time and I might not know what can I answer or what are the valid reasons to deny a Privacy request
 
