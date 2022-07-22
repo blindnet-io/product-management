@@ -1,4 +1,4 @@
-# Data Consumer interface User Stories
+# Data Consumer Interface User Stories
 
 <!-- prettier-ignore -->
 | User Stories | 08 |
