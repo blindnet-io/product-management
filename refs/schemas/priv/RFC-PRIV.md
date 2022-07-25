@@ -411,8 +411,8 @@ A Data Capture concerns one and only one Data Subject who CAN be identified by m
 | `date` | 1 | Date and Time when data was Captured given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the fragment SHOULD be interpreted as unlimited, including all categories of all dimensions |
 | `target` | 0-1 | [Target Terms](#target-terms). In absence of indication `SYSTEM` is assumed |
-| `retention` | 1-* | one or more [Retention Policies](#retention-policy) |
-| `provenance` | 1-* | one or more [Provenance](#provenance) to indicate how the data was obtained |
+| `retention` | 0-* | (optionally) one or more [Retention Policies](#retention-policy) specific to this fragment |
+| `provenance` | 0-* | (optionally) one or more [Provenance](#provenance) specific to this fragment to indicate how the data was obtained |
 | `data` | 0-* | Optionally concrete data |
 
 A `selector` MUST include, at the beginning of its string, one of the [Data Category Terms](#data-categories).
@@ -432,10 +432,11 @@ For example, a Data Subject can give explicit `CONSENT` when creating an account
 
 Certain processing is made legitimate (`LEGITIMATE-INTEREST`) or mandatory (`NECESSARY`) by law, e.g. [Article 6 og GDPR](https://gdpr-info.eu/art-6-gdpr/).
 
-##### Provenance
+### Provenance
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
+| `data-categories` |  0-* | [Data Category Terms](#data-categories). In absence of indication, the Provenance is considered to cover all data categories. |
 | `provenance-category` | 1 | [Provenance Terms](#provenance-categories) |
 | `system` | 1 | the ID of the System having generated the Data Capture Fragment (when data is collected from a user, or derived), or ID of the System having initiated a transfer (when data is transferred). A String in the format of URI according to [RFC3986 of IETF](https://www.rfc-editor.org/rfc/rfc3986)  |
 
