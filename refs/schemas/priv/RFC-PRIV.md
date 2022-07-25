@@ -468,7 +468,7 @@ Not to be confused with [Provenance Restriction](#provenance-restriction).
 | --------------- | ------ | -------------------- |
 | `data-categories` | 1-* | Any of the any [Data Category Terms](#data-categories) or concrete [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
 | `policy-type` | 1 | [Retention](#retentions) |
-| `duration` | 1 | Duration in JSON Schema [duration](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
+| `duration` | 0-1 | Duration in JSON Schema [duration](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format. If not specified 0 is assumed - i.e. the retention ends at the occurance of the Event specified under `after`. |
 | `after` | 1 | Event to which the retention duration is relative to. Any of the [Event Terms](#events) |
 
 When several `data-categories` values are given, they are interpreted as a **union**.
