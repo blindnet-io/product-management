@@ -17,7 +17,8 @@ This dicument adresses the question of ther differences and compatibility.
 | Alternative Vocabulary | Status | Implications |
 | :-----: | :----: | :------ |
 | [Fides by Ethica](https://ethyca.github.io/fides/1.7.0/) | [Full mapping](#fides-by-ethica) | Systems using Fides can use the Fides-to-PRIV mapping to export their (meta)data to systems using PRIV. On import from other systems, they will not be able to process all (meta)data as Fides only covers a subset of PRIV's scope |
-| [Trasncend](https://transcend.io/) | [Full mapping](#transcend) | - |
+| [Trasncend](https://transcend.io/) | [Full mapping](#transcend) | same as above |
+| [Data Rights Protocol Data Schemas](https://github.com/consumer-reports-digital-lab/data-rights-protocol#30-data-schemas) | [Full mapping](#drp-data-schemas)| same as above |
 
 ## Data Exchange Formats
 
@@ -30,7 +31,7 @@ This dicument adresses the question of ther differences and compatibility.
 
 | Format | Status | Implications |
 | :-----: | :----: | :------ |
-| [Data Rights Protocol](https://github.com/consumer-reports-digital-lab/data-rights-protocol#303-schema-status-of-a-data-subject-exercise-request) | - | - |
+| [Data Rights Protocol Endpoint Specification](https://github.com/consumer-reports-digital-lab/data-rights-protocol#20-http-endpoint-specification) | [Can be made compatible with PRIV](#drp-endpoint-specification) | The protocol can be used in conjunction with PRIV objects, if the keyword MUST is dropped from all statements related to the use of DRP Data Schemas, and instead the use of PRIV object is allowed. |
 
 
 ## Mapings
@@ -223,3 +224,63 @@ It is possible to model subcategory terms `DERIVED.GENERATED` and `DERIVED.COMPU
 | `vital interest` | `NECESSARY.VITAL-INTEREST` |
 | `public interest task` | `NECESSARY.PUBLIC-INTEREST` |
 | *not supported* | `OTHER-LEGAL-BASE` |
+
+### Data Rights Protocol
+
+[Data Rights Protocol](https://github.com/consumer-reports-digital-lab/data-rights-protocol#303-schema-status-of-a-data-subject-exercise-request) defines behavior of endpoints working with privacy metadata.
+It can be used in conjunction with PRIV.
+
+DRP is principally focused on CCPA and its vocabulary is not rich enough to support the needs of other legislations such as GDPR.
+Its semantics is also not rich enough to support the level of automation that PRIV can deliver.
+
+It contains two components, a Protocol (Endpoint Specification) and a Vocabulary (Data Schemas).
+
+#### DRP Endpoint Specification
+
+The [Endpoint Specification](https://github.com/consumer-reports-digital-lab/data-rights-protocol#20-http-endpoint-specification) part of DRP is compatible with PRIV, because both use UUIDs to identify Privacy Requests.
+Endpoints using PRIV can implement this Protocol to exchange PRIV objects instead of DRP Data Schema Objects.
+This may turn out handy for Systems that operate in a client-server setting.
+
+For a more peer-to-peer architecture, and full support for the exchange of the whole variety of PRIV events, Systems can opt to implement the [Privacy Request Multicast Protocol](./protocols/RFC-PRMP.md).
+
+
+#### DRP Data Schemas
+
+The [Data Schemas](https://github.com/consumer-reports-digital-lab/data-rights-protocol#30-data-schemas) part of DRP is focused on CCPA and only covers a fraction of the scope covered by PRIV.
+Systems using DRP can export their data in PRIV and communicate with Systems using PRIV by using the following mapping.
+
+##### Actions for CCPA
+
+| DRP Data Schemas Action | PRIV Representation |
+| :---: | :--- |
+| sale:opt_out | priv:`action`: `OBJECT` |
+| sale:opt_in | priv:[Cosent](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#consent) |
+| deletion | priv:`action`: `DELETE` |
+| access | priv:`action`: `ACCESS` |
+| access:categories | priv:`action`: `ACCESS`, `restrictions`:[Privacy Scope Restriction](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#privacy-scope) |
+| access:specific | priv:`action`: `ACCESS`, `restrictions`:[Demand Restrictions](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#demand-restrictions)|
+
+##### Statuses
+
+| DRP Data Schemas State | PRIV [Status](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#statuses) |
+| :---: | :--- |
+| open | `UNDER-REVIEW` |
+| in_progress | `UNDER-REVIEW` |
+| fulfilled | `GRANTED` |
+| revoked | `CANCELED` |
+| denied | `DENIED` |
+| expired | `UNDER-REVIEW`, passed due date |
+
+
+##### Motives
+
+| DRP Data Schemas Reason | PRIV [Motives](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#motives) |
+| :---: | :--- |
+| need_user_verification | - |
+| suspected_fraud | `IDENTITY-UNCONFIRMED` |
+| insuf_verification | `IDENTITY-UNCONFIRMED` |
+| no_match | `USER-UNKNOWN` |
+| claim_not_covered | `VALID-REASON` |
+| outside_jurisdiction | `VALID-REASON` |
+| too_many_requests | `OTHER-MOTIVE` |
+| other | `OTHER-MOTIVE` |
