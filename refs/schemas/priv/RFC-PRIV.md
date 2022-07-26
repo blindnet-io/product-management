@@ -2,7 +2,7 @@
 
 | Status        | Accepted                                                                              |
 | :------------ | :------------------------------------------------------------------------------------- |
-| **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659), [799](https://github.com/blindnet-io/product-management/pull/799), [837](https://github.com/blindnet-io/product-management/pull/837)                      |
+| **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659), [799](https://github.com/blindnet-io/product-management/pull/799), [830](https://github.com/blindnet-io/product-management/pull/830), [837](https://github.com/blindnet-io/product-management/pull/837)                      |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
 | **Updated**   | 2022-07-26                                                                             |
 
