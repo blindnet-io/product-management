@@ -7,8 +7,9 @@
 
 ## Introduction
 
-There are other initiatives, partially overalping with the goals of the [Privacy Request Interchange Vocabulary](./priv/RFC-PRIV.md) and the [Privacy Request Multicast Protocol](./protocols/RFC-PRMP.md).
-This dicument adresses the question of ther differences and compatibility.
+There are other initiatives, partially overlapping with the goals of the [Privacy Request Interchange Vocabulary](./priv/RFC-PRIV.md) and the [Privacy Request Multicast Protocol](./protocols/RFC-PRMP.md).
+
+This document addresses the question of their differences and compatibility.
 
 ## Compatibility
 
@@ -24,7 +25,7 @@ This dicument adresses the question of ther differences and compatibility.
 
 | Format | Status | Implications |
 | :-----: | :----: | :------ |
-| [UROPA](https://gdpr.stoplight.io/docs/uropa/) | Compatible | Can be used natively with PRIV terms as values of textual properties. UROPA Enums must be converted to PRIV terms using the [available mapping](#uropa). |
+| [UROPA](https://gdpr.stoplight.io/docs/uropa/) | Compatible | Can be used natively with PRIV terms as values of textual properties for Data Categoties. For properties where UROPA imposes the use of their enums, those must be converted to PRIV terms using the [available mapping](#uropa). |
 
 
 ## Protocols
@@ -34,7 +35,7 @@ This dicument adresses the question of ther differences and compatibility.
 | [Data Rights Protocol Endpoint Specification](https://github.com/consumer-reports-digital-lab/data-rights-protocol#20-http-endpoint-specification) | [Can be made compatible with PRIV](#drp-endpoint-specification) | The protocol can be used in conjunction with PRIV objects, if the keyword MUST is dropped from all statements related to the use of DRP Data Schemas, and instead the use of PRIV object is allowed. |
 
 
-## Mapings
+## Mappings
 
 ### Fides by Ethyca
 
