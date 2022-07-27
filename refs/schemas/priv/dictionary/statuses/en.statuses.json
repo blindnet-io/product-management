@@ -1,4 +1,5 @@
 {
+ "CANCELED": "Canceled by the Data Subject",
  "GRANTED": "Granted",
  "DENIED": "Denied",
  "PARTIALLY-GRANTED": "Partially granted",
