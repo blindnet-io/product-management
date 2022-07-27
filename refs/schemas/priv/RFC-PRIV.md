@@ -2,10 +2,9 @@
 
 | Status        | Accepted                                                                              |
 | :------------ | :------------------------------------------------------------------------------------- |
-| **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659), [799](https://github.com/blindnet-io/product-management/pull/799)                      |
+| **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659), [799](https://github.com/blindnet-io/product-management/pull/799), [830](https://github.com/blindnet-io/product-management/pull/830), [837](https://github.com/blindnet-io/product-management/pull/837)                      |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
-| **Updated**   | 2022-07-14                                                                             |
-
+| **Updated**   | 2022-07-27                                                                             |
 
 ## Introduction
 
@@ -92,7 +91,7 @@ The Privacy Request Interchange Vocabulary includes the following:
 [Privacy Scope](#privacy-scope)(and its dimensions: *Data Category*, *Processing Category* and *Purpose*), [Provenance](#provenance),
 [Retention Policy](#retention-policy).
 
-- **Properties**: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`, `event-type`, `fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `message`, `motive`, `parent`, `policy-type`, `processing-categories`, `provenance`, `provenance-category`, `purposes`, `replaces`, `response-id`, `restrictions`, `request-id`, `replaced-by`, `retention`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
+- **Properties**: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`, `event-type`, `fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `legal-base-id`, `message`, `motive`, `parent`, `policy-type`, `processing-categories`, `provenance`, `provenance-category`, `purposes`, `response-id`, `restrictions`, `request-id`, `retention`, `revoked`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
 
 - **<a name="terms"></a>Terms**: all terms included in the [dictionary](./dictionary), and particularly:
 
@@ -110,9 +109,9 @@ The Privacy Request Interchange Vocabulary includes the following:
 
     -  **<a name="target-directions"></a>Target Direction Terms**: {`PARTNERS.DOWNWARD`, `PARTNERS.UPWARD`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/targets](./dictionary/targets).*
 
-    - **<a name="statuses"></a>Status Terms**: {`GRANTED`, `DENIED`, `PARTIALLY-GRANTED`, `UNDER-REVIEW`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/statuses](./dictionary/statuses).*
+    - **<a name="statuses"></a>Status Terms**: {`CANCELED`, `GRANTED`, `DENIED`, `PARTIALLY-GRANTED`, `UNDER-REVIEW`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/statuses](./dictionary/statuses).*
 
-    - **<a name="motives"></a>Motive Terms**: {`IDENTITY-UNCONFIRMED`, `LANGUAGE-UNSUPPORTED`, `VALID-REASONS`, `IMPOSSIBLE`, `NO-SUCH-DATA`, `REQUEST-UNSUPPORTED`, `USER-UNKNOWN`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/motives](./dictionary/motives).*
+    - **<a name="motives"></a>Motive Terms**: {`IDENTITY-UNCONFIRMED`, `LANGUAGE-UNSUPPORTED`, `VALID-REASONS`, `IMPOSSIBLE`, `NO-SUCH-DATA`, `REQUEST-UNSUPPORTED`, `USER-UNKNOWN`, `OTHER-MOTIVE`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/motives](./dictionary/motives).*
 
     - **<a name="boolean"></a>Boolean Terms**: {`YES`, `NO`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/boolean](./dictionary/boolean).*
 
@@ -120,7 +119,7 @@ The Privacy Request Interchange Vocabulary includes the following:
 
     - **<a name="retentions"></a>Retention Terms**: {`NO-LONGER-THAN`, `NO-LESS-THAN`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/retentions](./dictionary/retentions).*
 
-    - **<a name="events"></a>Event Terms**: {`CAPTURE-DATE`,`RELATIONSHIP-END`, `RELATIONSHIP-START`, `SERVICE-END`,  `SERVICE-START`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/events](./dictionary/events).*
+    - **<a name="event-terms"></a>Event Terms**: {`CAPTURE-DATE`,`RELATIONSHIP-END`, `RELATIONSHIP-START`, `SERVICE-END`,  `SERVICE-START`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/events](./dictionary/events).*
 
 ## Events
 
@@ -326,7 +325,7 @@ It is therefore convenient for a Data Subject to be able to formulate Privacy Re
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `target` | 0-1 | [Target Terms](#target-terms) or [Target Direction Terms](#target-directions). In absence of indication `SYSTEM` is assumed |
+| `target` | 0-1 | [Target Terms](#target-terms) or [Target Direction Terms](#target-directions). In absence of indication `PARTNERS` is assumed |
 
 `SYSTEM` refers to the particular System with which the Data Subject is in direct interaction while making the Privacy Request (or giving the Consent).
 
@@ -352,6 +351,9 @@ When System B receives a Privacy Request having `target` value:
 Systems should interpret the target of Privacy Request regardless of the Privacy Request being received directly from the Data Subject or from a corresponding System.
 This means that the same `target` value of the same Privacy Request transferred across several Systems may end-up being interpreted differently by those Systems (e.g. in every System `PARTNERS.DOWNWARD` is likely to be resolved to different Systems)
 
+> **Note**
+> To reduce liability in case of dispute, Systems have the interest of propagating the requests to partners with which data has been exchanged.
+It is thus highly recommended not to nudge the Data Subject to limit `target` to anything less then the default `PARTNERS` value, and a different choice is made by the Data Subject make sure the consequences of such choice are clearly explained.
 
 ### Privacy Request Response
 
@@ -368,7 +370,7 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 | `data-subject` |  0-* | Optional indication of the [Data Subject Identities](#decentralized-identity-of-data-subjects) to which the response refers to |
 | `status` | 1 | [Status Terms](#statuses) |
 | `motive` | 0-* | [Motive Terms](#motives) only when the Request is not `GRANTED` |
-| `answers` | 0-* | [Terms](#terms) |
+| `answers` | 0-* | [Terms](#terms) e.g. Data Categories, Provenances or whatever was requested by the Data Subject |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
 | `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 | `includes` | 0-* | Optionally an array of one or more [Privacy Request Response](#privacy-request-response)s |
@@ -411,8 +413,8 @@ A Data Capture concerns one and only one Data Subject who CAN be identified by m
 | `date` | 1 | Date and Time when data was Captured given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the fragment SHOULD be interpreted as unlimited, including all categories of all dimensions |
 | `target` | 0-1 | [Target Terms](#target-terms). In absence of indication `SYSTEM` is assumed |
-| `retention` | 1-* | one or more [Retention Policies](#retention-policy) |
-| `provenance` | 1-* | one or more [Provenance](#provenance) to indicate how the data was obtained |
+| `retention` | 0-* | (optionally) one or more [Retention Policies](#retention-policy) specific to this fragment |
+| `provenance` | 0-* | (optionally) one or more [Provenance](#provenance) specific to this fragment to indicate how the data was obtained |
 | `data` | 0-* | Optionally concrete data |
 
 A `selector` MUST include, at the beginning of its string, one of the [Data Category Terms](#data-categories).
@@ -432,10 +434,11 @@ For example, a Data Subject can give explicit `CONSENT` when creating an account
 
 Certain processing is made legitimate (`LEGITIMATE-INTEREST`) or mandatory (`NECESSARY`) by law, e.g. [Article 6 og GDPR](https://gdpr-info.eu/art-6-gdpr/).
 
-##### Provenance
+### Provenance
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
+| `data-categories` |  0-* | [Data Category Terms](#data-categories). In absence of indication, the Provenance is considered to cover all data categories. |
 | `provenance-category` | 1 | [Provenance Terms](#provenance-categories) |
 | `system` | 1 | the ID of the System having generated the Data Capture Fragment (when data is collected from a user, or derived), or ID of the System having initiated a transfer (when data is transferred). A String in the format of URI according to [RFC3986 of IETF](https://www.rfc-editor.org/rfc/rfc3986)  |
 
@@ -466,10 +469,10 @@ Not to be confused with [Provenance Restriction](#provenance-restriction).
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `data-categories` | 1-* | Any of the any [Data Category Terms](#data-categories) or concrete [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories |
+| `data-categories` | 0-* | Any of the any [Data Category Terms](#data-categories) or concrete [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories. In absence of indication the Retention Policy is considered to cover all Data Categories. |
 | `policy-type` | 1 | [Retention](#retentions) |
-| `duration` | 1 | Duration in JSON Schema [duration](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `after` | 1 | Event to which the retention duration is relative to. Any of the [Event Terms](#events) |
+| `duration` | 0-1 | Duration in JSON Schema [duration](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format. If not specified 0 is assumed - i.e. the retention ends at the occurrence of the Event specified under `after`. |
+| `after` | 1 | Event to which the retention duration is relative to. Any of the [Event Terms](#event-terms) |
 
 When several `data-categories` values are given, they are interpreted as a **union**.
 
@@ -494,6 +497,7 @@ For more details, refer to [Expected Behavior of Implementing Systems](./expecte
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
+| `legal-base-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `legal-base` | 1-* | One or more [Legal Base Term(s)](#legal-bases)|
 | `scope` |  0-* | a [Privacy Scope](#privacy-scope) covered by the given Legal Base(s). In absence of any indication the Event is considered to concern all the possible scope. |
 
@@ -503,8 +507,8 @@ For more details, refer to [Expected Behavior of Implementing Systems](./expecte
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `data-subject` |  1-* | Data Subject concerned by the event, identified by one or more of their [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
-| `event-type` | 1 | Any of the [Event Terms](#events) |
-| `legal-base` | 1-* | Any [Legal Base Term](#legal-bases) other than `CONSENT`|
+| `event-type` | 1 | Any of the [Event Terms](#event-terms) |
+| `legal-base-id` | 1-* | `legal-base-id` of any [Legal Base](#legal-base)|
 | `data-reference` | 0-* | optionally one or more references that uniquely identify the data that the event concerns (e.g. a legal case file reference, account ID, contract ID, a URL - For example, if the user canceled a particular subscription contract it is the contract ID) |
 | `date` | 1 | Date and Time of the Event given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 
@@ -523,10 +527,9 @@ Systems have the interest to register and exchange such information. For example
 | `consent-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Consent was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `expires` | 0-1 | Date and Time when Consent expires in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `target` | 0-1 | [Target Terms](#target-terms) to indicate the category of Systems to which consent for processing is given. In absence of indication `SYSTEM` is assumed. |
+| `target` | 0-1 | [Target Terms](#target-terms) to indicate the category of Systems to which consent for processing is given. In absence of indication `ORGANIZATION` is assumed. |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the Consent SHOULD be interpreted as unlimited |
-| `replaces` |  0-* | Optionally one or more 'consent-id's of previous [Consents](#consent) that have became void when this consent was made |
-| `replaced-by` |  0-* | Optionally one or more 'consent-id's of previous [Consents](#consent) that have became void when this consent was made |
+| `revoked` |  0-1 | `true` or `false`. `false` is assumed if not specified. |
 
 Consents are a special case of [Legal Base Events](#legal-base-event). A Consent is given by one Data Subject which can be identified by one or more [Data Subject Identities](#decentralized-identity-of-data-subjects). Consents evolve exclusively through [Privacy Requests](#privacy-request) with demands having `OBJECT`, `RESTRICT`, or `REVOKE-CONSENT` actions.
 

@@ -90,7 +90,7 @@ It is possible to implement the protocol through a distributed data structure su
 
 ### PRIV objects that concern a System
 
-A System is (as soon as they become available) concerned by:
+A System is (as soon as they become available or, in the case of Consents `revoked` value, modified) concerned by:
 - Privacy Requests of which it is the `target`. Knowing if the system is the target of a Privacy Request depends on the `target` value of the Privacy Request and of the System's relationship with the System having received the request. See [more](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/RFC-PRIV.md#targets),
 - Privacy Request Responses made by other Systems, only in the case of:
     - a [Coordinated Response scenario](https://github.com/blindnet-io/product-management/blob/main/refs/schemas/priv/scenarios.md#coordinated-response) for Privacy Request Responses made to the same Privacy Request that the System is also a responding to within the Coordinated Response scenario
