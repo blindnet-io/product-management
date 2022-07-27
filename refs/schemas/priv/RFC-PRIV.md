@@ -325,7 +325,7 @@ It is therefore convenient for a Data Subject to be able to formulate Privacy Re
 
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
-| `target` | 0-1 | [Target Terms](#target-terms) or [Target Direction Terms](#target-directions). In absence of indication `SYSTEM` is assumed |
+| `target` | 0-1 | [Target Terms](#target-terms) or [Target Direction Terms](#target-directions). In absence of indication `PARTNERS` is assumed |
 
 `SYSTEM` refers to the particular System with which the Data Subject is in direct interaction while making the Privacy Request (or giving the Consent).
 
@@ -351,6 +351,9 @@ When System B receives a Privacy Request having `target` value:
 Systems should interpret the target of Privacy Request regardless of the Privacy Request being received directly from the Data Subject or from a corresponding System.
 This means that the same `target` value of the same Privacy Request transferred across several Systems may end-up being interpreted differently by those Systems (e.g. in every System `PARTNERS.DOWNWARD` is likely to be resolved to different Systems)
 
+> **Note**
+> To reduce liability in case of dispute, Systems have the interest of propagating the requests to partners with which data has been exchanged.
+It is thus highly recommended not to nudge the Data Subject to limit `target` to anything less then the default `PARTNERS` value, and a different choice is made by the Data Subject make sure the consequences of such choice are clearly explained.
 
 ### Privacy Request Response
 
@@ -367,7 +370,7 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 | `data-subject` |  0-* | Optional indication of the [Data Subject Identities](#decentralized-identity-of-data-subjects) to which the response refers to |
 | `status` | 1 | [Status Terms](#statuses) |
 | `motive` | 0-* | [Motive Terms](#motives) only when the Request is not `GRANTED` |
-| `answers` | 0-* | [Terms](#terms) |
+| `answers` | 0-* | [Terms](#terms) e.g. Data Categories, Provenances or whatever was requested by the Data Subject |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
 | `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 | `includes` | 0-* | Optionally an array of one or more [Privacy Request Response](#privacy-request-response)s |
@@ -469,7 +472,7 @@ Not to be confused with [Provenance Restriction](#provenance-restriction).
 | `data-categories` | 0-* | Any of the any [Data Category Terms](#data-categories) or concrete [Data Capture Fragment](#data-capture-fragments) `selector`s within those categories. In absence of indication the Retention Policy is considered to cover all Data Categories. |
 | `policy-type` | 1 | [Retention](#retentions) |
 | `duration` | 0-1 | Duration in JSON Schema [duration](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format. If not specified 0 is assumed - i.e. the retention ends at the occurrence of the Event specified under `after`. |
-| `after` | 1 | Event to which the retention duration is relative to. Any of the [Event Terms](#events) |
+| `after` | 1 | Event to which the retention duration is relative to. Any of the [Event Terms](#event-terms) |
 
 When several `data-categories` values are given, they are interpreted as a **union**.
 
@@ -524,10 +527,9 @@ Systems have the interest to register and exchange such information. For example
 | `consent-id` | 1 | a string in the [uuid](https://www.rfc-editor.org/rfc/rfc4122.html) format |
 | `date` | 1 | Date and Time when Consent was given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
 | `expires` | 0-1 | Date and Time when Consent expires in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
-| `target` | 0-1 | [Target Terms](#target-terms) to indicate the category of Systems to which consent for processing is given. In absence of indication `SYSTEM` is assumed. |
+| `target` | 0-1 | [Target Terms](#target-terms) to indicate the category of Systems to which consent for processing is given. In absence of indication `ORGANIZATION` is assumed. |
 | `scope` |  0-1 | a [Privacy Scope](#privacy-scope) in absence of which the Consent SHOULD be interpreted as unlimited |
-| `replaces` |  0-* | Optionally one or more 'consent-id's of previous [Consents](#consent) that have became void when this consent was made |
-| `replaced-by` |  0-* | Optionally one or more 'consent-id's of previous [Consents](#consent) that have became void when this consent was made |
+| `revoked` |  0-1 | `true` or `false`. `false` is assumed if not specified. |
 
 Consents are a special case of [Legal Base Events](#legal-base-event). A Consent is given by one Data Subject which can be identified by one or more [Data Subject Identities](#decentralized-identity-of-data-subjects). Consents evolve exclusively through [Privacy Requests](#privacy-request) with demands having `OBJECT`, `RESTRICT`, or `REVOKE-CONSENT` actions.
 
