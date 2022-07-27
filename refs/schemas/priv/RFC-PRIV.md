@@ -4,7 +4,7 @@
 | :------------ | :------------------------------------------------------------------------------------- |
 | **PR #**      | [659](https://github.com/blindnet-io/product-management/pull/659), [799](https://github.com/blindnet-io/product-management/pull/799), [830](https://github.com/blindnet-io/product-management/pull/830), [837](https://github.com/blindnet-io/product-management/pull/837)                      |
 | **Author(s)** | [milstan](https://github.com/milstan) (milstan@blindnet.io)                                                          |
-| **Updated**   | 2022-07-26                                                                             |
+| **Updated**   | 2022-07-27                                                                             |
 
 ## Introduction
 
@@ -119,7 +119,7 @@ The Privacy Request Interchange Vocabulary includes the following:
 
     - **<a name="retentions"></a>Retention Terms**: {`NO-LONGER-THAN`, `NO-LESS-THAN`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/retentions](./dictionary/retentions).*
 
-    - **<a name="events"></a>Event Terms**: {`CAPTURE-DATE`,`RELATIONSHIP-END`, `RELATIONSHIP-START`, `SERVICE-END`,  `SERVICE-START`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/events](./dictionary/events).*
+    - **<a name="event-terms"></a>Event Terms**: {`CAPTURE-DATE`,`RELATIONSHIP-END`, `RELATIONSHIP-START`, `SERVICE-END`,  `SERVICE-START`} or any of their subcategories defined according to [Term Dot Notation](#term-dot-notation). *See definitions in the [dictionary/events](./dictionary/events).*
 
 ## Events
 
@@ -504,7 +504,7 @@ For more details, refer to [Expected Behavior of Implementing Systems](./expecte
 | Property | Expected cardinality | Expected values |
 | --------------- | ------ | -------------------- |
 | `data-subject` |  1-* | Data Subject concerned by the event, identified by one or more of their [Data Subject Identities](#decentralized-identity-of-data-subjects) each containing one `dsid` and one `dsid-schema`|
-| `event-type` | 1 | Any of the [Event Terms](#events) |
+| `event-type` | 1 | Any of the [Event Terms](#event-terms) |
 | `legal-base-id` | 1-* | `legal-base-id` of any [Legal Base](#legal-base)|
 | `data-reference` | 0-* | optionally one or more references that uniquely identify the data that the event concerns (e.g. a legal case file reference, account ID, contract ID, a URL - For example, if the user canceled a particular subscription contract it is the contract ID) |
 | `date` | 1 | Date and Time of the Event given in JSON Schema [date-time](https://json-schema.org/draft/2020-12/json-schema-validation.html#rfc.section.7.3.1) format |
