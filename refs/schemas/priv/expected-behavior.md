@@ -405,8 +405,7 @@ The System SHOULD be able to deliver a timeline of Consents, Privacy Requests an
 ### <a name="updateScope"></a>Updating the Eligible Privacy Scope upon `OBJECT` and `RESTRICT` Privacy Request Demands
 
 Gained and lost consent modify the Eligible Privacy Scope.
-Also, as [we have seen](#updateConsent), `OBJECT` and `RESTRICT` Privacy Request Demands SHOULD affect the scope of existing consents.
-In addition, when such Demands are received, the Eligible Privacy Scope SHOULD be recalculated.
+When such Demands are received, the Eligible Privacy Scope SHOULD be recalculated.
 
 However, it is important to note that the `OBJECT` and `RESTRICT` Privacy Request Demands behave in very specific ways. Concretely:
 - They don't affect [Privacy Scope Triples](#privacy-scope-triples) that are included in the Eligible Privacy Scope under `CONTRACT` or `NECESSARY` legal bases,
@@ -538,6 +537,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
      - `TRANSPARENCY.PURPOSE` Demands: recommend status = `GRANTED`, and data = list of Purposes that are included in any of the [Privacy Scope Triples](#privacy-scope-triples) included in the **Restriction Scope**
      - `REVOKE-CONSENT` Demands:
          - If restricted to concrete consent IDs with a [Consent Restriction](./RFC-PRIV.md#consent-restriction), recommend status = `GRANTED` and recalculate Eligible Privacy Scope to drop any [Privacy Scope Triples](#privacy-scope-triples) that have been included as a result of Consents being revoked.
+         Mark `revoked`=`true` for those Consents.
          - If Demand is restricted by a Privacy Scope, recommend status = `GRANTED` and [update consents](#updateConsent)
          - If no Restriction is given in the Demand, revoke all consents given by this Data Subject
          - If only a Date Range restriction is present, recommend status = `GRANTED` and revoke all consents that have been collected in the given Date Range
