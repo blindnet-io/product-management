@@ -91,7 +91,7 @@ The Privacy Request Interchange Vocabulary includes the following:
 [Privacy Scope](#privacy-scope)(and its dimensions: *Data Category*, *Processing Category* and *Purpose*), [Provenance](#provenance),
 [Retention Policy](#retention-policy).
 
-- **Properties**: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`, `event-type`, `fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `legal-base-id`, `message`, `motive`, `parent`, `policy-type`, `processing-categories`, `provenance`, `provenance-category`, `purposes`, `replaces`, `response-id`, `restrictions`, `request-id`, `replaced-by`, `retention`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
+- **Properties**: `action`, `after`, `answers`, `capture-id`, `capture-ids`, `consent-id`,`consent-ids`, `data-subject`,`data`, `data-categories`, `data-reference`, `data-subject`, `date`,`demand-id`, `demands`, `dsid`, `dsid-schema`, `duration`, `expires`, `event-type`, `fragment-id`, `fragments`, `from`, `includes`, `in-response-to`,`lang`, `legal-base`, `legal-base-id`, `message`, `motive`, `parent`, `policy-type`, `processing-categories`, `provenance`, `provenance-category`, `purposes`, `response-id`, `restrictions`, `request-id`, `retention`, `revoked`, `requested-action`, `scope`, `selector`, `status`, `system`, `target`, `to`, `vocab`
 
 - **<a name="terms"></a>Terms**: all terms included in the [dictionary](./dictionary), and particularly:
 
