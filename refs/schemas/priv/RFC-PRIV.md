@@ -77,7 +77,7 @@ We have made the following choices:
 
 The Privacy Request Interchange Vocabulary includes the following:
 
-- **Concepts**:
+- **<a name="concepts"></a>Concepts**:
 [Consent](#consent),
 [Data Capture](#data-capture),
 [Data Capture Fragment](#data-capture-fragments),
@@ -370,7 +370,7 @@ Regardless of the [scenario (Responding to the Data Subject directly or to the S
 | `data-subject` |  0-* | Optional indication of the [Data Subject Identities](#decentralized-identity-of-data-subjects) to which the response refers to |
 | `status` | 1 | [Status Terms](#statuses) |
 | `motive` | 0-* | [Motive Terms](#motives) only when the Request is not `GRANTED` |
-| `answers` | 0-* | [Terms](#terms) e.g. Data Categories, Provenances or whatever was requested by the Data Subject |
+| `answers` | 0-* | [PRIV Concepts](#conepts) or[Terms](#terms) e.g. Data Categories, Provenances or whatever was requested by the Data Subject |
 | `message` | 0-1 | Optional string comment, motivation or explanation of Demand |
 | `lang` | 0-1 | Optional string Language of textual message associated with demands in the format of [FRC5646](https://datatracker.ietf.org/doc/rfc5646/) |
 | `includes` | 0-* | Optionally an array of one or more [Privacy Request Response](#privacy-request-response)s |
