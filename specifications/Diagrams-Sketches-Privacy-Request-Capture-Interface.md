@@ -9,4 +9,4 @@ This [figma document](https://www.figma.com/file/miUd9PEmLrjut53rwrQViX/Privacy-
 
 
 
-- REVOKE-CONSENT demand
+- REVOKE-CONSENT demand 
