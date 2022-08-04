@@ -4,7 +4,10 @@ This [figma document](https://www.figma.com/file/miUd9PEmLrjut53rwrQViX/Privacy-
 
 -------------------------------------------------------------------------------------------------
 
+Diagrams-Sketches-DELETE-demand
 Currently it covers : 
 - Local Privacy Request Capture Interface
 - TRANSPARENCY demand
 - DELETE demand
+- REVOKE-CONSENT demand
+

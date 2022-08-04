@@ -5,4 +5,5 @@
  "IMPOSSIBLE": "It is impossible for the System to respond any other way due to legal obligations",
  "REQUEST-UNSUPPORTED": "The System does not recongize the particular type of request that is made",
  "USER-UNKNOWN":"The System does not recongize the Data Subject havign made the request",
+ "OTHER-MOTIVE":"Motive specified in the message part of the response"
  }
