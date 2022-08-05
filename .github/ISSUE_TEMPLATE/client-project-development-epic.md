@@ -5,12 +5,14 @@ title: "📑 [Client] project development epic"
 labels: ["type: client project development epic"]
 ---
 
-## Requirements (the product currently covers)
+## Product Requirements 
+_(the product currently covers)_
+
 <!-- Describe requirements for client's needs/features that the product currently covers -->
 
-### Form Use Case 1
+### Form Case 1
 
-**{Name of form use case }**
+**{Name of form case }**
 {short description of the specific use case / context }
    - {details / form requirements elements} 
 
@@ -41,7 +43,9 @@ labels: ["type: client project development epic"]
 
 <!-- Copy paste "Form Use Case 1" section to add Form Use Case 2, 3, ... -->
 
-## Additional Requirements (the product currently does not cover and need additional dev) <!— optionnal -->
+## Additional Requirements <!— optionnal -->
+
+_(the product currently does not cover and need additional dev)_
 
 <!-- Describe requirements client's needs/features that the product currently does not cover and need additional dev -->
 
