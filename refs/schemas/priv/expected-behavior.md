@@ -196,9 +196,12 @@ Privacy Scopes MAY first be resolved to all of their equivalent [Privacy Scope T
 
 #### <a name="updateConsent"></a>Operations over consents
 
-The scope of Consents can be modified by Privacy Request that include `OBJECT`, `RESTRICT`, and `REVOKE-CONSENT` actions.
+> **Note**
+> Operations over consents have been simplified. The design involving modification of consents upon Data Subject request has been abandoned.
 
-The System SHOULD, at all times, keep track of *Active Consents*. We call a Consent active if its scope has not been modified or the Consent totally revoked. When the scope of a Consent is modified, a new Consent (that is now active) is made that replaces the old Consent (no longer active).
+When Privacy Scope Triples are included in the Eligible Privacy Scope under `CONSENT` Legal Base, they are likely to be affected by Privacy Requests that include `OBJECT`, `RESTRICT`, and `REVOKE-CONSENT` actions.
+
+The System SHOULD, at all times, keep track of *Active Consents*. We call a Consent active if its scope has not been revoked (by a `REVOKE-CONSENT` Privacy Request).
 
 When the System has more then one active consent, the System considers the union of their scopes as being the Privacy Scope to which the Data Subject consents.
 
@@ -254,34 +257,20 @@ The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD r
   "status": "GRANTED"
 }
 ```
+- Modifying the Eligible Privacy Scope to remove any association of `CONSENT` legal base with Triples belonging to the Privacy Scope:
+```
+(CONTACT) x * x (MARKETING,ADVERTISING)
+```
+- If by doing so, some Triples in the Eligible Privacy Scope are left without a Legal Base, then they exit the Eligible Privacy Scope
 
-- Amending the consent to restrict its scope. For this purpose a new consent (that overrides the existing one) is produced:
+What remains, associated with `CONSENT` legal base, is the following scope:
+```
+(CONTACT) x (SHARING, STORING) x (PERSONALIZATION)
+```
 
-```
-{
-  "consent-id": "4ec28dc8-8714-45a3-a710-c72cea6e6da4",
-  "replaces": ["6b3ad78c-2d4a-4575-8a9f-a69c2bfe0bd2"],
-  "date": "2022-06-05T14:40:39+0000",
-  "data-subject":[{
-    "dsid-schema": "email-sha-256",
-    "dsid":"7cac89a56bbf998c996f33e0b2d3bad578e05f3af8d64793c0bcac46b8c260dc"
-  }],
-  "scope": {
-      "data-categories":["CONTACT"],
-      "processing-categories": ["SHARING", "STORING"],
-      "purposes":["PERSONALIZATION"]
-    }
-}
-```
-- Keep track of the changes to the original consent by adding metadata about change to it:
+> **Note**
+> If the System has additional legal bases to keep those triples, they will still remain in the Eligible Privacy Scope after their `CONSENT` has been removed.
 
-```
-{
-  "consent-id": "6b3ad78c-2d4a-4575-8a9f-a69c2bfe0bd2",
-  "replaced-by": ["4ec28dc8-8714-45a3-a710-c72cea6e6da4"],
-}
-```
-- Consider active the new consent: `4ec28dc8-8714-45a3-a710-c72cea6e6da4`
 
 The System MAY continue to use the Data Subjects' data for personalizing their experience but no longer has consent to use the data for marketing and advertising.
 
@@ -305,8 +294,9 @@ Let us now imagine the Data Subject making another Privacy Request, this time to
   }],
 }
 ```
-At the time of receiving this request, the System has consent for `STORING` and `SHARING` all `CONTACT` data for `PERSONALIZATION` purposes.
-When the System gets this request, the scope of the consent MUST change. The remaining scope of the consent will only include:
+At the time of receiving this request, the System has `CONSENT` Legal Base for `STORING` and `SHARING` all `CONTACT` data for `PERSONALIZATION` purposes.
+
+When the System gets this request, the scope associated with `CONSENT` MUST change. The remaining scope of the consent will only include:
 - `SHARING` of all `CONTACT` data other then `CONTACT.EMAIL`, for `PERSONALIZATION` purposes, and
 - `STORING` of all `CONTACT` for `PERSONALIZATION` purposes
 
@@ -321,53 +311,21 @@ The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD r
   "status": "GRANTED"
 }
 ```
-
-- Amending the consent to restrict its scope. For this purpose two new consents (that override the existing one) are produced:
-
+- Modifying the Eligible Privacy Scope to remove any association of `CONSENT` legal base with Triples belonging to the Privacy Scope:
 ```
-{
-  "consent-id": "6c8211c7-c152-4ef4-b264-098ee6533f75",
-  "replaces": ["4ec28dc8-8714-45a3-a710-c72cea6e6da4"],
-  "date": "2022-06-15T11:30:00+0000",
-  "data-subject":[{
-    "dsid-schema": "email-sha-256",
-    "dsid":"7cac89a56bbf998c996f33e0b2d3bad578e05f3af8d64793c0bcac46b8c260dc"
-  }],
-  "scope": {
-      "data-categories":["CONTACT"],
-      "processing-categories": ["STORING"],
-      "purposes":["PERSONALIZATION"]
-    }
-}
-
-{
-  "consent-id": "1f899305-235e-4fd4-b3c4-ff92dd67d769",
-  "replaces": ["4ec28dc8-8714-45a3-a710-c72cea6e6da4"],
-  "date": "2022-06-15T11:30:00+0000",
-  "data-subject":[{
-    "dsid-schema": "email-sha-256",
-    "dsid":"7cac89a56bbf998c996f33e0b2d3bad578e05f3af8d64793c0bcac46b8c260dc"
-  }],
-  "scope": {
-      "data-categories":["CONTACT.ADDRESS", "CONTACT.PHONE"],
-      "processing-categories": ["SHARING"],
-      "purposes":["PERSONALIZATION"]
-    }
-}
+(CONTACT.EMAIL) x (SHARING) x *
 ```
-- Keep track of the changes to the amended consent by adding metadata about changes made to it:
+- If by doing so, some Triples in the Eligible Privacy Scope are left without a Legal Base, then they exit the Eligible Privacy Scope
 
+What remains, associated with `CONSENT` legal base, is the following scope:
 ```
-{
-  "consent-id": "4ec28dc8-8714-45a3-a710-c72cea6e6da4",
-  "replaced-by": ["6c8211c7-c152-4ef4-b264-098ee6533f75","1f899305-235e-4fd4-b3c4-ff92dd67d769"],
-}
+(CONTACT.* except CONTACT.EMAIL) x (SHARING) x (PERSONALIZATION)
+(CONTACT) x (STORING) x (PERSONALIZATION)
 ```
-- Consider active the new consents: `6c8211c7-c152-4ef4-b264-098ee6533f75`,`1f899305-235e-4fd4-b3c4-ff92dd67d769`
-
 > **Note**
->
-> When making derived consents, limited to certain data categories the Privacy Compiler MUST take into account the complete list of [Data Capture Fragment](./RFC-PRIV.md#data-capture-fragments) `selector`s that the Systems works with.
+> `CONTACT.*` is resolved to all the known `selectors` of all the Data Categories that are subcategories of `CONTACT`
+
+The `OBJECT` requests affect the Eligible Privacy Scope in the long run. It is not possible to re-incude Triples (excluded by `OBJECT`) with a `LEGITIMATE-INTEREST` legal base. A stronger Legal Base (a `CONTRACT`, a new `CONSENT`, or `NECESSARY`) is needed for them to regain a place in the Eligible Privacy Scope.
 
 Let us now imagine the Data Subject making another Privacy Request, this time to restrict data processing only to storing of their data. For this, the following Privacy Request is made:
 
@@ -404,7 +362,20 @@ The [Privacy Compiler](../high-level-architecture#data-rights-compiler) SHOULD r
   "status": "GRANTED"
 }
 ```
-- Consider active the only the consent: `6c8211c7-c152-4ef4-b264-098ee6533f75`
+- Modifying the Eligible Privacy Scope to remove any association of `CONSENT` legal base with Triples not belonging to the Privacy Scope:
+```
+* x (STORING) x *
+```
+- If by doing so, some Triples in the Eligible Privacy Scope are left without a Legal Base, then they exit the Eligible Privacy Scope
+
+
+What remains, associated with `CONSENT` legal base, is the following scope:
+```
+(CONTACT) x (STORING) x (PERSONALIZATION)
+```
+
+The `RESTRICT` requests also affect the Eligible Privacy Scope in the long run. It is not possible to re-incude Triples (not included in `RESTRICT` requests' scope) with a `LEGITIMATE-INTEREST` legal base. A stronger Legal Base (a `CONTRACT`, a new `CONSENT`, or `NECESSARY`) is needed for them to regain a place in the Eligible Privacy Scope.
+
 
 Finally, let us imagine the user now want to revoke the initial consent that they gave in the very beginning.
 The system receives the following Privacy Request:
@@ -426,22 +397,15 @@ The system receives the following Privacy Request:
   }],
 }
 ```
-The System MUST no longer consider this Consent (nor any other consent derived from it) active. The list of active consents MUST now become empty, because the only active consent `6c8211c7-c152-4ef4-b264-098ee6533f75` is derived from `4ec28dc8-8714-45a3-a710-c72cea6e6da4` which is derived from
-`6b3ad78c-2d4a-4575-8a9f-a69c2bfe0bd2` that the user now revokes.
+The System MUST no longer consider this Consent  active. The list of active consents MUST now become empty.
 
 The System SHOULD be able to deliver a timeline of Consents, Privacy Requests and Privacy Request Responses, that may serve as a proof of compliance and good faith.
 
-> **Note**
->
-> When Consent is used as one of legal bases for processing, it is not enough to only keep track of `RESTRICT` and `OBJECT` Privacy Requests to limit the eligible scope of data processing, but it is necessary to modify the Consents. This is due to the fact that Consents are not the only legal bases for data processing (i.e. Systems may have right to process data without consent). Different legal bases may evolve (be acquired and lost) independently.
->
->In other words, a `RESTRICT` Privacy Request may affect the scope of consent, but have no impact on actual processing being done. Another legal base for processing MAY make processing possible despite the `RESTRICT` request, yet the consent would still need to be amended in response to the `RESTRICT` Privacy Request.
 
 ### <a name="updateScope"></a>Updating the Eligible Privacy Scope upon `OBJECT` and `RESTRICT` Privacy Request Demands
 
 Gained and lost consent modify the Eligible Privacy Scope.
-Also, as [we have seen](#updateConsent), `OBJECT` and `RESTRICT` Privacy Request Demands SHOULD affect the scope of existing consents.
-In addition, when such Demands are received, the Eligible Privacy Scope SHOULD be recalculated.
+When such Demands are received, the Eligible Privacy Scope SHOULD be recalculated.
 
 However, it is important to note that the `OBJECT` and `RESTRICT` Privacy Request Demands behave in very specific ways. Concretely:
 - They don't affect [Privacy Scope Triples](#privacy-scope-triples) that are included in the Eligible Privacy Scope under `CONTRACT` or `NECESSARY` legal bases,
@@ -573,6 +537,7 @@ When Data Subject ID is provided, the Data Subject is known by the System and au
      - `TRANSPARENCY.PURPOSE` Demands: recommend status = `GRANTED`, and data = list of Purposes that are included in any of the [Privacy Scope Triples](#privacy-scope-triples) included in the **Restriction Scope**
      - `REVOKE-CONSENT` Demands:
          - If restricted to concrete consent IDs with a [Consent Restriction](./RFC-PRIV.md#consent-restriction), recommend status = `GRANTED` and recalculate Eligible Privacy Scope to drop any [Privacy Scope Triples](#privacy-scope-triples) that have been included as a result of Consents being revoked.
+         Mark `revoked`=`true` for those Consents.
          - If Demand is restricted by a Privacy Scope, recommend status = `GRANTED` and [update consents](#updateConsent)
          - If no Restriction is given in the Demand, revoke all consents given by this Data Subject
          - If only a Date Range restriction is present, recommend status = `GRANTED` and revoke all consents that have been collected in the given Date Range

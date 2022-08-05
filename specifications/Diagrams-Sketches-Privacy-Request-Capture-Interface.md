@@ -4,8 +4,7 @@ This [figma document](https://www.figma.com/file/miUd9PEmLrjut53rwrQViX/Privacy-
 
 -------------------------------------------------------------------------------------------------
 
-
-
-
-
 - ACCESS demand
+
+
+- REVOKE-CONSENT demand
