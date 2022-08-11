@@ -1,0 +1,82 @@
+name: '🐛 Bug Report'
+description: 'Report a bug in a blindnet product'
+title: '🐛 '
+labels: ['type: bug']
+
+body:
+  - type: dropdown
+    id: affected-packages
+    attributes:
+      label: Which blindnet product(s) are the source of the bug?
+      options:
+        - Privateform (form.blindnet.io)
+        - Dashboard Web Client (dashboard.blindnet.io)
+        - (DevKit) Privacy Computation Engine
+        - (DevKit) Data Access Component
+        - (DevKit) Storage Connector
+        - (PC4W) Privacy Request Capture Interface
+        - (PC4W) Data Consumer Interface
+        - (e2ee) Java Client SDK
+        - (e2ee) Java Server SDK
+        - (e2ee) .net Framework Server SDK
+        - (e2ee) .net Core Server SDK
+        - (e2ee) NodeJS SDK
+        - (e2ee) JavaScript client SDK
+        - (e2ee) PHP SDK
+        - Don't known / other
+      multiple: true
+    validations:
+      required: true
+
+  - type: dropdown
+    id: is-regression
+    attributes:
+      label: Is this a regression?
+      options:
+        - 'Yes'
+        - 'No'
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Please provide screencaptures or a link to a minimal reproduction of the bug
+
+  - type: textarea
+    id: exception-or-error
+    attributes:
+      label: Please provide the exception or error you saw
+      render: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Please provide the environment you discovered this bug in
+      render: true
+      placeholder: |
+        Product version: X.X.X
+        Browser:
+        OS:
+        Platform:
+
+  - type: textarea
+    id: other
+    attributes:
+      label: Anything else?
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/blindnet-io/openness-framework/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

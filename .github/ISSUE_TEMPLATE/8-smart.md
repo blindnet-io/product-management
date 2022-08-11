@@ -1,6 +1,6 @@
 ---
-name: SMART Goal
-about: "Issue with clear goal, expectations and achievement measurement."
+name: '(internal) SMART Goal'
+about: 'Issue with clear goal, expectations and achievement measurement.'
 ---
 
 ## Context and Problem Statement
