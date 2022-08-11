@@ -2,19 +2,11 @@
 
 ***Feedback and evolution tracking by and for blindnet team members.***
 
-<br />
-
-> **Please report your feedback, issues, or feature request related to a specific product in the associated repository instead.**
->
-> This project is intended specifically for blindnet team members. Refer to our [Openness Framework](https://github.com/blindnet-io/openness) to better understand how and why it's public and see how you could contribute.
-
-<br />
-
 ---
 
 <br />
 
-:eyes: [View on going discussions](https://github.com/blindnet-io/clients/issues)
+:eyes: [View ongoing discussions](https://github.com/blindnet-io/product-management/issues)
 
 :rocket: [Add a feature request or feedback](#creating-issues)
 
@@ -35,10 +27,6 @@
 <br />
 
 At blindnet we expect every team member, regardless of their role and competence, to test the products and provide feedback ranging from bug reports to feature or product ideas.
-
-<br />
-
-> :warning: **Every potential evolution of our products must be reported in this repository. Otherwise, the Product and Core Teams won't be able to include it in their planning.**
 
 <br />
 
@@ -98,13 +86,6 @@ Examples:
 
 If you want to create a new issue, **first ensure that the same or similar issue does not exist already**. You can do so by using the search functionality on the _Issues_ page. Only in the case that there is no such issue proceed with creating a new issue. If the same or similar issue already exists, read it and if needed add to the discussion by commenting on it.
 
-When creating a new issue, in the right panel you must choose: 1) the project related to this new Issue (e.g., Dashboard, Website), 2) the label denoting whether the issue is reltaed to production or staging environment, and 3) one of the following labels:
-
-- <span style="color: #d73a4a;">Bug</span>, if your feedback is about something that is not working correctly 
-- <span style="color: #0E8A16;">Feature</span>, if your feedback is suggesting completely new feature 
-- <span style="color: #FBCA04;">Question</span>, if your feedback is actually a question about something that needs clarification
-- <span style="color: #0052CC;">Suggestion</span>, if your feedback is about improving existing feature or behaviour 
-
 What *not* to do:
 
 - Do not specify milestones. Milestones serve for managing versions and project boards, and are specified by the technical team.
@@ -113,10 +94,3 @@ What *not* to do:
 ## Specification
 
 Specifications are important part of blindnet product development. To learn more about our product specification process, see the [specification section](./specifications/) of this repository.
-
----
-
-> :information_source: **NOTE**
->
-> Each product version is named after the person that has contributed the highest number of Issues implemented into that version.
-> The list of versions for each product can be found [here](https://docs.google.com/spreadsheets/d/1IPDMv1cJISbsn_z2uGiskMN92HbGMSpZKmGzr1FhLvo/edit?usp=sharing).
