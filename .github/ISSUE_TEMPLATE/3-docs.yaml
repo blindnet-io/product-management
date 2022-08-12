@@ -1,0 +1,53 @@
+name: '📝 Docs or blindnet.dev/.io Bug Report'
+description: 'Report an issue in blindnet's documentation or blindnet.dev/.io application'
+title: '📝 '
+labels: ['type: doc']
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+    validations:
+      required: true
+
+  - type: input
+    id: affected-url
+    attributes:
+      label: What is the affected URL?
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Please provide the steps to reproduce the issue
+
+  - type: textarea
+    id: expected-vs-actual-behavior
+    attributes:
+      label: Please provide the expected behavior vs the actual behavior you encountered
+
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Please provide a screenshot if possible
+
+  - type: textarea
+    id: exception-or-error
+    attributes:
+      label: Please provide the exception or error you saw
+      render: true
+
+  - type: textarea
+    id: browser-info
+    attributes:
+      label: Is this a browser-specific issue? If so, please specify the device, browser, and version.
+      render: true
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/blindnet-io/openness-framework/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

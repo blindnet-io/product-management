@@ -4,7 +4,9 @@ This [figma document](https://www.figma.com/file/miUd9PEmLrjut53rwrQViX/Privacy-
 
 -------------------------------------------------------------------------------------------------
 
-- ACCESS demand
-
-
+Currently it covers : 
+- Local Privacy Request Capture Interface
+- TRANSPARENCY demand
+- DELETE demand
 - REVOKE-CONSENT demand
+- ACCESS demand
