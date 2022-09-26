@@ -8,11 +8,11 @@
 
 ## Introduction
 
-We propose a simple vocabulary for representing [Privacy Requests](https://github.com/blindnet-io/product-management/tree/master/refs/high-level-conceptualization#data-capture--rights-requests).
+We propose a simple vocabulary for representing [Privacy Requests](https://github.com/blindnet-io/product-management/tree/main/refs/high-level-conceptualization#data-capture--privacy-requests).
 
 The vocabulary introduces a finite set of `concepts`, `properties` and `terms`. `Concepts` define the objects of exchange, `properties` define their characteristics, and `terms` define commonly understood values of properties.
 
-This vocabulary corresponds to the [Schemas](../high-level-architecture#schemas) component of the [High-Level Architecture](../high-level-architecture).
+This vocabulary corresponds to the [Schemas](https://github.com/blindnet-io/product-management/tree/main/refs/high-level-architecture#schemas) component of the [High-Level Architecture](https://github.com/blindnet-io/product-management/tree/main/refs/high-level-architecture).
 
 Additional documents: [Examples of use](./examples.md), [Scenarios](./scenarios.md) and [Expected Behavior of Implementing Systems](./expected-behavior.md), complement this document.
 
@@ -20,7 +20,7 @@ Additional documents: [Examples of use](./examples.md), [Scenarios](./scenarios.
 ## Motivation
 
 An individual is in connection with software Systems (and Organizations operating them) that process the individual's data.
-In order to [regulate the relationship](../notion-of-privacy/notion-of-privacy.md) with those Systems (and Organizations), the individual makes requests related to their privacy.
+In order to [regulate the relationship](https://github.com/blindnet-io/product-management/blob/main/refs/notion-of-privacy/notion-of-privacy.md) with those Systems (and Organizations), the individual makes requests related to their privacy.
 
 With a Privacy Request the individual aims to gain a degree of transparency about data processing and a degree of control over the data and over the data processing. Allowing individuals to make Privacy Requests is becoming more and more a legal obligation.
 
@@ -31,9 +31,9 @@ Different Systems, and different components of a single System, including differ
 
 - The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119)
 - The key word "CAN" denotes ability of someone or something, and is interpreted as "MUST be able to"
-- The key words "blindnet devkit", "CCPA", "CPRA", "Capture Fragment", "Component", "Data Capture", "Data Capture Fragment", "Data Consumer", "Data Subject", "DPO", "Fragment", "GDPR", "HIPPA", "Internet User", "Organization", "Privateform", "Privacy Request", "System", "Submitter", "User" are to be interpreted as described in [RFC-Lexicon-2](../lexicon/RFC-Lexicon-2.md)
-- Any additional precision about the key words defined in [RFC-Lexicon-2](../lexicon/RFC-Lexicon-2.md), as well as additional key words such as "Consent" and "Legal Base", provided in [High Level Conceptualization](../high-level-conceptualization/) is to be considered normative
-- All key words denoting components of [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit), such as "Capture Component", "Encryption and Access Management Engine", "Privacy Computation Engine", "Privacy Compiler", "Privacy Request Capture Interface", "Customization API", "Data Consumer Interface", "Schemas" and "Storage Component" are to be interpreted as defined in [High Level Architecture](../high-level-architecture/)
+- The key words "blindnet devkit", "CCPA", "CPRA", "Capture Fragment", "Component", "Data Capture", "Data Capture Fragment", "Data Consumer", "Data Subject", "DPO", "Fragment", "GDPR", "HIPPA", "Internet User", "Organization", "Privateform", "Privacy Request", "System", "Submitter", "User" are to be interpreted as described in [RFC-Lexicon-2](https://github.com/blindnet-io/product-management/blob/main/refs/lexicon/RFC-Lexicon-2.md)
+- Any additional precision about the key words defined in [RFC-Lexicon-2](https://github.com/blindnet-io/product-management/blob/main/refs/lexicon/RFC-Lexicon-2.md), as well as additional key words such as "Consent" and "Legal Base", provided in [High Level Conceptualization](https://github.com/blindnet-io/product-management/tree/main/refs/high-level-architecture) is to be considered normative
+- All key words denoting components of [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit), such as "Capture Component", "Encryption and Access Management Engine", "Privacy Computation Engine", "Privacy Compiler", "Privacy Request Capture Interface", "Customization API", "Data Consumer Interface", "Schemas" and "Storage Component" are to be interpreted as defined in [High Level Architecture](https://github.com/blindnet-io/product-management/tree/main/refs/high-level-architecture)
 
 ## Version
 
@@ -45,7 +45,7 @@ This document defines the version `1.0` of the Privacy Request Interchange Vocab
 
 - **Smart data structures and dumb code works a lot better than the other way around.** lesson No 9 from Raymond, Eric Steven. ["The Cathedral and the Bazaar"](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar). We want PRIF to embody a smart way of thinking about privacy, solving common challenges through the data structure itself.
 
-- **Often, the most striking and innovative solutions come from realizing that your concept of the problem was wrong.** lesson No 12 from Raymond, Eric Steven. ["The Cathedral and the Bazaar"](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar). We indeed now have novel understanding of the [problem of Privacy in Software Systems](../notion-of-privacy/notion-of-privacy.md).
+- **Often, the most striking and innovative solutions come from realizing that your concept of the problem was wrong.** lesson No 12 from Raymond, Eric Steven. ["The Cathedral and the Bazaar"](https://en.wikipedia.org/wiki/The_Cathedral_and_the_Bazaar). We indeed now have novel understanding of the [problem of Privacy in Software Systems](https://github.com/blindnet-io/product-management/blob/main/refs/notion-of-privacy/notion-of-privacy.md#privacy-in-software-systems).
 
 ### Design Goals
 
