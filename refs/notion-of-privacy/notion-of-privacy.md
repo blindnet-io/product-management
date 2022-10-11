@@ -1,5 +1,13 @@
 # Notions of Privacy
 
+> <p align="center"><strong>Document maintained in:</strong></p>
+>
+> <p align="center">
+> <a href="https://blindnet.dev/docs/references/notions-of-privacy"><strong>https://blindnet.dev/docs/references/notions-of-privacy</strong></a>
+> </p>
+>
+> <p align="center"><a href="https://github.com/blindnet-io/blindnet.dev/edit/main/docs/08-references/01-notions-of-privacy.mdx">🖊️ Edit</a></p>
+
 > The purpose of this document is to list definitions of privacy and related notions, sourced from literature, and provide fundamental understanding about the key concepts of interest for blindnet.
 >
 > We are interested in privacy from a perspective of builders of computer systems, who have to account for the human, its psychology and relationships with other humans and with the machines.
@@ -75,7 +83,7 @@ The risk associated with connection has to be managed.
 Without privacy, the need for connection conflicts with the goal of protecting vital interests.
 Connection is **not** possible without privacy.
 
-<img width="900" alt="connectedness" src="./img/connectedness.png">
+<img width="900" alt="connectedness" src="https://blindnet.devdocx/img/connectedness.png">
 
 Privacy is not the opposite of connectedness.
 
