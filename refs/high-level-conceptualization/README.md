@@ -1,5 +1,13 @@
 # HIGH-LEVEL CONCEPT MODEL
 
+> <p align="center"><strong>Document maintained in:</strong></p>
+>
+> <p align="center">
+> <a href="https://blindnet.dev/docs/references/high-level-conceptualization"><strong>blindnet.dev/docs/references/high-level-conceptualization</strong></a>
+> </p>
+>
+> <p align="center"><a href="https://github.com/blindnet-io/blindnet.dev/edit/main/docs/08-references/04-high-level-conceptualization.mdx">🖊️ Edit</a></p>
+
 ## INTRODUCTION
 
 > **The promise: blindnet devkit is the simplest solution for implementing [privacy-enabled connectedness](../notion-of-privacy/notion-of-privacy.md#privacy-enabled-connectedness). It enables confidentiality, control and compliance with regulation**
@@ -11,13 +19,13 @@ This conceptualization does not directly translate to any database structure, wo
 
 ## TERMINOLOGY
 
-- The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119)
+- The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119)
 - The word "CAN" denotes ability of someone or something, and is interpreted as "MUST be able to"
 - All terms defined in [RFC-Lexicon-2](../lexicon/RFC-Lexicon-2.md) are to be interpreted as described there
 
 ### THE MAIN CONCEPT - DATA CAPTURE
 
-<img width="900" alt="organisation" src="./img/organization.png">
+<img width="900" alt="organisation" src="https://blindnet.dev/img/high-level-concepts/organization.png" />
 
 A [Data Capture](../lexicon/RFC-Lexicon-2.md#data-capture) is the most central concept of interest in [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit).
 
@@ -34,12 +42,10 @@ Settings MAY include configurations related to delays of conservation and expiry
 
 When a [Submitter](../lexicon/RFC-Lexicon-2.md#submitter) interacts with an instance of Privateform, a Data Capture is created.
 
-<img width="350" alt="Data capture creation" src="./img/data-capture-creation.png">
+<img width="350" alt="Data capture creation" src="https://blindnet.dev/img/high-level-concepts/data-capture-creation.png" />
 
->
 > **Note**
 > A Data Capture MAY also be created by generating/inferring data about the Data Subject, or by transfer from another [System](../lexicon/RFC-Lexicon-2.md#system)
->
 
 ### DATA CAPTURE - FRAGMENTS
 
@@ -47,7 +53,7 @@ A Data Capture has one or many [Capture Fragments](../lexicon/RFC-Lexicon-2.md#d
 
 Examples of Fragments include: a file and a comment explaining it; a set of fields composing an address; a set of questions related to the same topic;
 
-<img width="350" alt="Capture fragments" src="./img/capture-fragments.png">
+<img width="350" alt="Capture fragments" src="https://blindnet.dev/img/high-level-concepts/capture-fragments.png" />
 
 The data structure of Data Capture Fragments allows to have interface elements such as granular progress bars, or checklists to present to the user the state of complement of the submission.
 
@@ -57,9 +63,10 @@ The granularity can also allow, when needed, to the data consumers to accept or 
 
 It also favors incremental data submission (submit part of the form today, and another part some other day when the submitter collects more data), as well as partial modification and data update focused only on particular fragments.
 
-<img width="300" alt="Checklist" src="./img/checklist.png">
+<img width="300" alt="Checklist" src="https://blindnet.dev/img/high-level-concepts/checklist.png" />
 
 Capture Fragments can be subject to validations:
+
 - **a priori** using automatic validators (like checking the format of an e-mail adress, or extension of a file)
 - **a posteriori** using human input to validate the conformity of submitted data with what is expected
 
@@ -84,7 +91,7 @@ Such times are often relative to some event (e.g. data collection date, or a dat
 
 > _Managing Legal bases SHOULD be a value-added service allowing to trigger automatic Data Capture deletion, or its protection from user-initiated deletion_
 
-<img width="450" alt="Legal base" src="./img/legal-ground.png">
+<img width="450" alt="Legal base" src="https://blindnet.dev/img/high-level-concepts/legal-ground.png" />
 
 ### DATA CAPTURE – CONSENT
 
@@ -94,7 +101,7 @@ Consents have states (e.g., valid, expired, revoked).
 
 One Consent corresponds to [one and only one purpose](https://www.cnil.fr/fr/les-bases-legales/consentement) (e.g., facilitate future purchases, ongoing contract, promotions, 3rd party communication). Thus, a Data Capture can be associated to more then one Consent, that can be given and revoked separately.
 
-<img width="225" alt="Consent" src="./img/consent.png">
+<img width="225" alt="Consent" src="https://blindnet.dev/img/high-level-concepts/consent.png" />
 
 ### DATA CAPTURE – PRIVACY REQUESTS
 
@@ -110,8 +117,7 @@ The [System](../lexicon/RFC-Lexicon-2.md#system) SHOULD allow to capture such re
 
 Capturing requests related to a particular [Data Capture](../lexicon/RFC-Lexicon-2.md#data-capture) or [Data Capture Fragment](../lexicon/RFC-Lexicon-2.md#data-capture-fragment) requires user authentication.
 
-<img width="275" alt="rights requests" src="./img/rights-requests.png">
-
+<img width="275" alt="rights requests" src="https://blindnet.dev/img/high-level-concepts/rights-requests.png" />
 
 ### DATA CAPTURE - STATES
 
@@ -141,6 +147,7 @@ Also, rights have states, meaning that in a particular state, a particular type 
 ### DATA CAPTURE – VERSIONING
 
 [Data Capture Fragments](../lexicon/RFC-Lexicon-2.md#data-capture-fragment) are subject to versioning. A particular data fragment can evolve as a result of:
+
 - **Submission and Changes** by [Data Subject](../lexicon/RFC-Lexicon-2.md#data-subject) or another [User](../lexicon/RFC-Lexicon-2.md#user) during submission or through interaction with a user-interface
 - **Collection and Transfer** when data is derived/inferred by a [System](../lexicon/RFC-Lexicon-2.md#system) or transferred from System to System
 - **[Privacy Requests](../lexicon/RFC-Lexicon-2.md#privacy-request)** by Data Subject asking to modify or delete the data or restrict its storing
@@ -150,7 +157,7 @@ The format of Privacy Requests to modify data must be compatible with the versio
 
 ### DATA CAPTURE – INTEROPERABILITY
 
-<img width="900" alt="interoperability" src="./img/interoperability.png">
+<img width="900" alt="interoperability" src="https://blindnet.dev/img/high-level-concepts/interoperability.png" />
 
 More than one [System](../lexicon/RFC-Lexicon-2.md#system) can use [blindnet devkit](../lexicon/RFC-Lexicon-2.md#blindnet-devkit) to collect, store, and exploit data.
 In other words, a [Data Capture](../lexicon/RFC-Lexicon-2.md#data-capture) MAY be generated by a [Submitter](../lexicon/RFC-Lexicon-2.md#submitter) within one system, but the [Data Consumers](../lexicon/RFC-Lexicon-2.md#data-consumer) MAY be consuming the data using multiple different systems.
@@ -169,7 +176,7 @@ Blindnet serves as a _lingua franca_ for both confidentiality (encryption) and c
 
 ### CONFIDENTIALITY – CONTROL BRIDGE
 
-<img width="1200" alt="confidentiality" src="./img/confidentiality.png">
+<img width="1200" alt="confidentiality" src="https://blindnet.dev/img/high-level-concepts/confidentiality.png" />
 
 [Privacy](../notion-of-privacy/notion-of-privacy.md#definition), in a psychological sense, equals the freedom of an individual to engage/disengage from certain relationships (and identities such relationships project upon them). This freedom to engage/disengage in the context of internet interactions, relies on two main pillars:
 
