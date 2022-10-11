@@ -1,5 +1,14 @@
 # RFC Lexicon 2
 
+> <p align="center"><strong>Document maintained in:</strong></p>
+>
+> <p align="center">
+> <a href="https://blindnet.dev/docs/references/lexicon"><strong>blindnet.dev/docs/references/lexicon</strong></a>
+> </p>
+>
+> <p align="center"><a href="https://github.com/blindnet-io/blindnet.dev/edit/main/docs/08-references/03-lexicon.mdx">🖊️ Edit</a></p>
+
+
 | Status        | proposed                                                                                  |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **Author(s)** | milstan (milstan@blindnet.io)             |
