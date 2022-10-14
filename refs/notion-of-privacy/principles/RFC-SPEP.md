@@ -1,5 +1,14 @@
 # Simple Privacy Engineering Principles
 
+> <p align="center"><strong>Document maintained in:</strong></p>
+>
+> <p align="center">
+> <a href="https://blindnet.dev/docs/references/notions-of-privacy/RFC-SPEP"><strong>https://blindnet.dev/docs/references/notions-of-privacy/RFC-SPEP</strong></a>
+> </p>
+>
+> <p align="center"><a href="https://github.com/blindnet-io/blindnet.dev/edit/main/docs/08-references/01-notions-of-privacy/02-RFC-SPEP.md">🖊️ Edit</a></p>
+
+
 | Status        | Accepted                                                                              |
 | :------------ | :------------------------------------------------------------------------------------- |
 | **PR #**      | [704](https://github.com/blindnet-io/product-management/pull/704)                    |

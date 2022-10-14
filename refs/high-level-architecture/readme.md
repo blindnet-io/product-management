@@ -1,5 +1,13 @@
 # HIGH-LEVEL COMPONENT ARCHITECTURE
 
+> <p align="center"><strong>Document maintained in:</strong></p>
+>
+> <p align="center">
+> <a href="https://blindnet.dev/docs/references/high-level-architecture"><strong>blindnet.dev/docs/references/high-level-architecture</strong></a>
+> </p>
+>
+> <p align=center><a href="https://github.com/blindnet-io/blindnet.dev/edit/main/docs/08-references/05-high-level-architecture.mdx">🖊️ Edit</a></p>
+
 | Status        | NORMATIVE DRAFT                                                             |
 | :------------ | :---------------------------------------------------------------- |
 | **PR #**      | [596](https://github.com/blindnet-io/product-management/pull/596), [694](https://github.com/blindnet-io/product-management/pull/694) |
@@ -40,7 +48,7 @@ Also, having the right structure of components is very important for several rea
 
 The system supports secure capture of data and management of Data Subjects' rights throughout the data lifecycle.
 
-<img width="1400" alt="HIGH-LEVEL ARCHITECTURE" src="./img/hla.png">
+<img width="1400" alt="HIGH-LEVEL ARCHITECTURE" src="https://blindnet.dev/img/high-level-architecture/hla.png">
 
 As such it needs to support the following functions:
 
@@ -54,7 +62,7 @@ As such it needs to support the following functions:
 
 All components are presented in their roles in the following, more detailed image:
 
-<img width="1400" alt="HIGH-LEVEL ARCHITECTURE DETAIL" src="./img/HLA-detail.png">
+<img width="1400" alt="HIGH-LEVEL ARCHITECTURE DETAIL" src="https://blindnet.dev/img/high-level-architecture/HLA-detail.png">
 
 ### Capture Component
 
